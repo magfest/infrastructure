@@ -751,16 +751,16 @@ gitfs_privkey: /root/.ssh/saltmaster_id_rsa
 # Note: file:// repos will be treated as a remote, so refs you want used must
 # exist in that repo as *local* refs.
 gitfs_remotes:
-  - https://github.com/magfest/infrastructure/salt:
-    - name: https://github.com/magfest/infrastructure
+  - https://github.com/magfest/infrastructure:
+    - name: https://github.com/magfest/infrastructure/salt
     - root: salt
     - mountpoint: salt://salt
-  - https://github.com/magfest/infrastructure/pillar:
-    - name: https://github.com/magfest/infrastructure
+  - https://github.com/magfest/infrastructure:
+    - name: https://github.com/magfest/infrastructure/pillar
     - root: pillar
     - mountpoint: salt://pillar
-  - https://github.com/magfest/infrastructure-secret/pillar:
-    - name: https://github.com/magfest/infrastructure-secret
+  - https://github.com/magfest/infrastructure-secret:
+    - name: https://github.com/magfest/infrastructure-secret/pillar
     - root: pillar
     - mountpoint: salt://pillar-secret
     - pubkey: /root/.ssh/saltmaster_secret_id_rsa.pub
