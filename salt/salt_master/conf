@@ -730,12 +730,12 @@ gitfs_base: master
 # Along with gitfs_privkey (and optionally gitfs_passphrase), is used to
 # authenticate to SSH remotes. This parameter (or its per-remote counterpart)
 # is required for SSH remotes.
-#gitfs_pubkey: /root/.ssh/saltmaster_id_rsa.pub
+#gitfs_pubkey: ''
 
 # Along with gitfs_pubkey (and optionally gitfs_passphrase), is used to
 # authenticate to SSH remotes. This parameter (or its per-remote counterpart)
 # is required for SSH remotes.
-#gitfs_privkey: /root/.ssh/saltmaster_id_rsa
+#gitfs_privkey: ''
 
 # This parameter is optional, required only when the SSH key being used to
 # authenticate is protected by a passphrase.
@@ -762,9 +762,7 @@ gitfs_remotes:
   - git@github_infrastructure-secret:magfest/infrastructure-secret.git:
     - name: github_infrastructure-secret_pillar
     - root: pillar
-    - mountpoint: salt://pillar-secret
-    #- pubkey: /root/.ssh/saltmaster_secret_id_rsa.pub
-    #- privkey: /root/.ssh/saltmaster_secret_id_rsa
+    - mountpoint: salt://pillar
 
 # The gitfs_ssl_verify option specifies whether to ignore ssl certificate
 # errors when contacting the gitfs backend. You might want to set this to
