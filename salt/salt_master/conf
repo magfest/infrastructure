@@ -713,7 +713,7 @@ fileserver_backend:
 # order), and the first one with a compatible version installed will be the
 # provider that is used.
 #
-gitfs_provider: pygit2
+gitfs_provider: gitpython
 gitfs_base: master
 
 # Along with gitfs_password, is used to authenticate to HTTPS remotes.
@@ -730,12 +730,12 @@ gitfs_base: master
 # Along with gitfs_privkey (and optionally gitfs_passphrase), is used to
 # authenticate to SSH remotes. This parameter (or its per-remote counterpart)
 # is required for SSH remotes.
-gitfs_pubkey: /root/.ssh/saltmaster_id_rsa.pub
+#gitfs_pubkey: /root/.ssh/saltmaster_id_rsa.pub
 
 # Along with gitfs_pubkey (and optionally gitfs_passphrase), is used to
 # authenticate to SSH remotes. This parameter (or its per-remote counterpart)
 # is required for SSH remotes.
-gitfs_privkey: /root/.ssh/saltmaster_id_rsa
+#gitfs_privkey: /root/.ssh/saltmaster_id_rsa
 
 # This parameter is optional, required only when the SSH key being used to
 # authenticate is protected by a passphrase.
@@ -751,28 +751,28 @@ gitfs_privkey: /root/.ssh/saltmaster_id_rsa
 # Note: file:// repos will be treated as a remote, so refs you want used must
 # exist in that repo as *local* refs.
 gitfs_remotes:
-  - https://github.com/magfest/infrastructure:
-    - name: https://github.com/magfest/infrastructure/salt
+  - git@github_infrastructure:magfest/infrastructure.git:
+    - name: github_infrastructure_salt
     - root: salt
     - mountpoint: salt://salt
-  - https://github.com/magfest/infrastructure:
-    - name: https://github.com/magfest/infrastructure/pillar
+  - git@github_infrastructure:magfest/infrastructure.git:
+    - name: github_infrastructure_pillar
     - root: pillar
     - mountpoint: salt://pillar
-  - https://github.com/magfest/infrastructure-secret:
-    - name: https://github.com/magfest/infrastructure-secret/pillar
+  - git@github_infrastructure-secret:magfest/infrastructure-secret.git:
+    - name: github_infrastructure-secret_pillar
     - root: pillar
     - mountpoint: salt://pillar-secret
-    - pubkey: /root/.ssh/saltmaster_secret_id_rsa.pub
-    - privkey: /root/.ssh/saltmaster_secret_id_rsa
+    #- pubkey: /root/.ssh/saltmaster_secret_id_rsa.pub
+    #- privkey: /root/.ssh/saltmaster_secret_id_rsa
 
 # The gitfs_ssl_verify option specifies whether to ignore ssl certificate
 # errors when contacting the gitfs backend. You might want to set this to
 # false if you're using a git backend that uses a self-signed certificate but
 # keep in mind that setting this flag to anything other than the default of True
 # is a security concern, you may want to try using the ssh transport.
-#gitfs_ssl_verify: True
-#
+gitfs_ssl_verify: False
+
 # The gitfs_root option gives the ability to serve files from a subdirectory
 # within the repository. The path is defined relative to the root of the
 # repository and defaults to the repository root.
