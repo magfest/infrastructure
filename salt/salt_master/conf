@@ -25,7 +25,7 @@
 # permissions to allow the specified user to run the master. The exception is
 # the job cache, which must be deleted if this user is changed. If the
 # modified files cause conflicts, set verify_env to False.
-user: salt-master
+user: root
 
 # The port used by the communication interface. The ret (return) port is the
 # interface used for the file server, authentication, job returns, etc.
@@ -763,6 +763,8 @@ gitfs_remotes:
     - name: https://github.com/magfest/infrastructure-secret
     - root: pillar
     - mountpoint: salt://pillar-secret
+    - pubkey: /root/.ssh/saltmaster_secret_id_rsa.pub
+    - privkey: /root/.ssh/saltmaster_secret_id_rsa
 
 # The gitfs_ssl_verify option specifies whether to ignore ssl certificate
 # errors when contacting the gitfs backend. You might want to set this to
