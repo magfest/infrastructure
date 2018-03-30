@@ -15,6 +15,7 @@ salt-master conf:
     - user: root
     - group: root
     - mode: 644
+    - template: jinja
 
 /srv/salt directory:
   file.directory:
