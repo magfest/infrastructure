@@ -754,7 +754,6 @@ gitfs_remotes:
   - git@github_infrastructure:magfest/infrastructure.git:
     - name: github_infrastructure_salt
     - root: salt
-    - mountpoint: salt://salt
   - git@github_infrastructure:magfest/infrastructure.git:
     - name: github_infrastructure_pillar
     - root: pillar
