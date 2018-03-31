@@ -27,6 +27,14 @@ salt_cloud:
     - group: root
     - mode: 600
 
+/etc/salt/pki/cloud/digitalocean.pub file:
+  file.managed:
+    - name: /etc/salt/pki/cloud/digitalocean.pub
+    - source: salt://salt_cloud/digitalocean.pub
+    - user: root
+    - group: root
+    - mode: 600
+
 /etc/salt/cloud.providers.d directory:
   file.directory:
     - name: /etc/salt/cloud.providers.d
