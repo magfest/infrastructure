@@ -21,7 +21,7 @@ salt-cloud conf:
 
 /etc/salt/cloud.providers.d digitalocean.conf:
   file.managed:
-    - name: digitalocean.conf
+    - name: /etc/salt/cloud.providers.d/digitalocean.conf
     - user: root
     - group: root
     - mode: 644
