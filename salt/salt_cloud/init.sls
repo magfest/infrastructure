@@ -1,5 +1,3 @@
-
-
 salt-cloud conf:
   file.managed:
     - name: /etc/salt/cloud
