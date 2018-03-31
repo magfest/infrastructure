@@ -754,6 +754,9 @@ gitfs_remotes:
   - git@github_infrastructure:magfest/infrastructure.git:
     - name: github_infrastructure_salt
     - root: salt
+  - git@github_infrastructure-secret:magfest/infrastructure-secret.git:
+    - name: github_infrastructure-secret_salt
+    - root: salt
 
 # The gitfs_ssl_verify option specifies whether to ignore ssl certificate
 # errors when contacting the gitfs backend. You might want to set this to
