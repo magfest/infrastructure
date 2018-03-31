@@ -1,0 +1,9 @@
+minion:
+  master: {{ pillar.get('master_ip') }}
+  mine_functions:
+    external_ip:
+      - mine_function: network.interface_ip
+      - eth0
+    internal_ip:
+      - mine_function: network.interface_ip
+      - eth1
