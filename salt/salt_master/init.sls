@@ -8,7 +8,7 @@ salt_master:
     - watch:
       - file: /etc/salt/master
 
-salt-master conf:
+/etc/salt/master file:
   file.managed:
     - name: /etc/salt/master
     - source: salt://salt_master/conf

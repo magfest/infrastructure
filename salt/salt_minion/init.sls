@@ -8,7 +8,7 @@ salt_minion:
     - watch:
       - file: /etc/salt/minion
 
-salt-minion conf:
+/etc/salt/minion conf:
   file.managed:
     - name: /etc/salt/minion
     - source: salt://salt_minion/conf
