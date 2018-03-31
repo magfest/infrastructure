@@ -14,7 +14,7 @@
 # Set the location of the salt master server. If the master server cannot be
 # resolved, then the minion will fail to start.
 #master: salt
-master: {{ master_ip }}
+master: {{ pillar['master_ip'] }}
 
 # Set http proxy information for the minion when doing requests
 #proxy_host:
@@ -101,7 +101,7 @@ master: {{ master_ip }}
 # Since salt uses detached ids it is possible to run multiple minions on the
 # same machine but with different ids, this can be useful for salt compute
 # clusters.
-{% if minion_id %}id: {{ minion_id }}{% endif %}
+{% if pillar['minion_id'] %}id: {{ piller['minion_id'] }}{% endif %}
 
 # Cache the minion id to a file when the minion's id is not statically defined
 # in the minion config. Defaults to "True". This setting prevents potential

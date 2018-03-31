@@ -1,2 +1,1 @@
-minion:
-  master_ip: 10.128.24.52
+master_ip: 10.128.24.52
