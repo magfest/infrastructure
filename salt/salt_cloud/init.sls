@@ -1,3 +1,7 @@
+salt_cloud:
+  pkg.installed:
+    - name: salt-cloud
+
 salt-cloud conf:
   file.managed:
     - name: /etc/salt/cloud
