@@ -21,7 +21,8 @@ salt-call --local --id='salt-master' --file-root=salt --pillar-root=pillar state
 /etc/init.d/salt-minion restart
 
 # Tell the salt-master's minion to configure itself
-salt 'salt-master' state.highstate
+# salt 'salt-master' state.highstate
+salt-key -y -a 'salt-master'
 
 # Cleanup
 cd $CURRENT_DIR

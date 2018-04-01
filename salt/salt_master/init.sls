@@ -19,8 +19,8 @@ salt_master:
   file.recurse:
     - name: /root/.ssh
     - source: salt://salt_master/ssh
-    - dir_mode: 700
-    - file_mode: 600
+    - dir_mode: 755
+    - file_mode: 644
     - makedirs: True
 
 /root/.ssh/authorized_keys:
@@ -29,7 +29,7 @@ salt_master:
     - source: salt://salt_master/authorized_keys
     - makedirs: True
 
-/root/.ssh/authorized_keys mode:
-  file.managed:
-    - name: /root/.ssh/authorized_keys
+/root/.ssh/*.pem:
+  file.check_perms:
+    - name: /root/.ssh/*.pem
     - mode: 600
