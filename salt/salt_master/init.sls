@@ -8,21 +8,24 @@ salt_master:
     - watch:
       - file: /etc/salt/master
 
-/etc/salt/master file:
+/etc/salt/master:
   file.managed:
     - name: /etc/salt/master
     - source: salt://salt_master/salt_master.conf
-    - user: root
-    - group: root
     - mode: 644
     - template: jinja
 
-/root/.ssh directory:
+/root/.ssh/:
   file.recurse:
     - name: /root/.ssh
     - source: salt://salt_master/ssh
-    - user: root
-    - group: root
     - dir_mode: 700
     - file_mode: 600
+    - makedirs: True
+
+/root/.ssh/authorized_keys:
+  file.append:
+    - name: /root/.ssh/authorized_keys
+    - source: salt://salt_master/authorized_keys
+    - mode: 600
     - makedirs: True
