@@ -16,14 +16,6 @@ curl -L https://bootstrap.saltstack.com | sh -s -- -i 'salt-master' -P -M stable
 # Run salt locally to configure salt-master
 salt-call --local --id='salt-master' --file-root=salt --pillar-root=pillar state.highstate
 
-# Preseed salt-master's minion key
-salt-key --gen-keys='salt-master'
-mkdir -p /etc/salt/pki/master/minions/
-cp salt-master.pub /etc/salt/pki/master/minions/
-mkdir -p /etc/salt/pki/minion/
-cp salt-master.pem /etc/salt/pki/minion/minion.pem
-cp salt-master.pub /etc/salt/pki/minion/minion.pub
-
 # Restart the services
 /etc/init.d/salt-master restart
 /etc/init.d/salt-minion restart
