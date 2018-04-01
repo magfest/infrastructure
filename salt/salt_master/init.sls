@@ -28,8 +28,3 @@ salt_master:
     - name: /root/.ssh/authorized_keys
     - source: salt://salt_master/authorized_keys
     - makedirs: True
-
-# /root/.ssh/*.pem:
-#   file.check_perms:
-#     - name: /root/.ssh/*.pem
-#     - mode: 600
