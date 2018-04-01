@@ -20,6 +20,7 @@ salt_master:
 /root/.ssh directory:
   file.recurse:
     - name: /root/.ssh
+    - source: salt://salt_master/ssh
     - user: root
     - group: root
     - dir_mode: 700
