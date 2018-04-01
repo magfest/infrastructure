@@ -1,16 +1,16 @@
 #! /bin/bash
 
-CURRENT_DIR = `cwd`
+CURRENT_DIR=`pwd`
 
 # Download the infrastructure code
 git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastructure
 git clone --depth 1 https://github.com/magfest/infrastructure-secret.git /tmp/infrastructure-secret
 
 # Copy the secrets into our temp infrastructure dir
-rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret ./
+rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret /tmp/infrastructure
 
 # Install SaltStack master and minion
-curl -L https://bootstrap.saltstack.com | sudo sh -s -- -i 'salt-master' -P -M stable
+curl -L https://bootstrap.saltstack.com | sh -s -- -i 'salt-master' -P -M stable
 
 # Run salt locally to configure salt-master
 cd /tmp/infrastructure
