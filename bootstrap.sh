@@ -23,7 +23,7 @@ salt-call --local --id='salt-master' --file-root=salt --pillar-root=pillar state
 # Tell the salt-master's minion to configure itself
 salt 'salt-master' test.ping
 salt-key -y -a 'salt-master'
-salt 'salt-master' state.highstate
+salt 'salt-master' state.highstate || salt 'salt-master' state.highstate
 
 # Cleanup
 cd $CURRENT_DIR
