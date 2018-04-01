@@ -27,5 +27,9 @@ salt_master:
   file.append:
     - name: /root/.ssh/authorized_keys
     - source: salt://salt_master/authorized_keys
-    - mode: 600
     - makedirs: True
+
+/root/.ssh/authorized_keys mode:
+  file.managed:
+    - name: /root/.ssh/authorized_keys
+    - mode: 600
