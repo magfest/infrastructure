@@ -8,7 +8,7 @@ git clone --depth 1 https://github.com/magfest/infrastructure-secret.git /tmp/in
 
 # Copy the secrets into our temp infrastructure dir
 cd /tmp/infrastructure
-rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret ./
+rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret/ ./
 
 # Install SaltStack master and minion
 curl -L https://bootstrap.saltstack.com | sh -s -- -i 'salt-master' -P -M stable
