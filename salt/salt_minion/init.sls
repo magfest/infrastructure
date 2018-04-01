@@ -11,7 +11,7 @@ salt_minion:
 /etc/salt/minion conf:
   file.managed:
     - name: /etc/salt/minion
-    - source: salt://salt_minion/conf
+    - source: salt://salt_minion/salt_minion.conf
     - user: root
     - group: root
     - mode: 644

@@ -5,7 +5,7 @@ salt_cloud:
 /etc/salt/cloud file:
   file.managed:
     - name: /etc/salt/cloud
-    - source: salt://salt_cloud/conf
+    - source: salt://salt_cloud/salt_cloud.conf
     - user: root
     - group: root
     - mode: 644

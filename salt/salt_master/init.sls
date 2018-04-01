@@ -11,24 +11,17 @@ salt_master:
 /etc/salt/master file:
   file.managed:
     - name: /etc/salt/master
-    - source: salt://salt_master/conf
+    - source: salt://salt_master/salt_master.conf
     - user: root
     - group: root
     - mode: 644
     - template: jinja
 
-/srv/salt directory:
-  file.directory:
-    - name: /srv/salt
+/root/.ssh directory:
+  file.recurse:
+    - name: /root/.ssh
     - user: root
     - group: root
-    - mode: 755
-    - makedirs: True
-
-/srv/pillar directory:
-  file.directory:
-    - name: /srv/pillar
-    - user: root
-    - group: root
-    - mode: 755
+    - dir_mode: 700
+    - file_mode: 600
     - makedirs: True
