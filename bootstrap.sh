@@ -7,13 +7,13 @@ git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastru
 git clone --depth 1 https://github.com/magfest/infrastructure-secret.git /tmp/infrastructure-secret
 
 # Copy the secrets into our temp infrastructure dir
-rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret /tmp/infrastructure
+cd /tmp/infrastructure
+rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret ./
 
 # Install SaltStack master and minion
 curl -L https://bootstrap.saltstack.com | sh -s -- -i 'salt-master' -P -M stable
 
 # Run salt locally to configure salt-master
-cd /tmp/infrastructure
 salt-call --local --id='salt-master' --file-root=salt --pillar-root=pillar state.highstate
 
 # Preseed salt-master's minion key
