@@ -20,7 +20,7 @@ salt_master:
     - name: /root/.ssh
     - source: salt://salt_master/ssh
     - dir_mode: 755
-    - file_mode: 644
+    - file_mode: 600
     - makedirs: True
 
 /root/.ssh/authorized_keys:
@@ -29,7 +29,7 @@ salt_master:
     - source: salt://salt_master/authorized_keys
     - makedirs: True
 
-/root/.ssh/*.pem:
-  file.check_perms:
-    - name: /root/.ssh/*.pem
-    - mode: 600
+# /root/.ssh/*.pem:
+#   file.check_perms:
+#     - name: /root/.ssh/*.pem
+#     - mode: 600
