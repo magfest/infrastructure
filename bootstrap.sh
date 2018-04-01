@@ -24,9 +24,7 @@ salt-call --local --id='salt-master' --file-root=salt --pillar-root=pillar state
 salt 'salt-master' test.ping
 salt-key -y -a 'salt-master'
 salt 'salt-master' state.highstate
-if [ $? -ne 0 ]; then
-    salt 'salt-master' state.highstate
-fi
+salt 'salt-master' state.highstate
 
 # Cleanup
 cd $CURRENT_DIR
