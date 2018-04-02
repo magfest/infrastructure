@@ -5,5 +5,7 @@ ufw:
   enabled:
     True
   applications:
-    - OpenSSH
-    - Saltmaster
+    OpenSSH:
+      enabled: True
+    Saltmaster:
+      enabled: True
