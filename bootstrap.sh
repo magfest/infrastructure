@@ -20,7 +20,7 @@ cp salt-master.pem /etc/salt/pki/minion/minion.pem
 cp salt-master.pub /etc/salt/pki/minion/minion.pub
 
 # Run salt locally to configure salt-master
-salt-call --local --id='salt-master' --file-root=salt --pillar-root=pillar state.highstate
+salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate
 
 # Restart the services
 /etc/init.d/salt-master restart

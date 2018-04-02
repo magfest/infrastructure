@@ -1,7 +1,10 @@
 base:
   '*':
     - defaults
+
+  'not bootstrap':
     - ufw
-  'salt-master':
+
+  'bootstrap or salt-master':
     - salt_master
     - salt_cloud
