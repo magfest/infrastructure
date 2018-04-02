@@ -10,7 +10,6 @@ salt_minion:
 
 /etc/salt/minion:
   file.managed:
-    - name: /etc/salt/minion
     - source: salt://salt_minion/salt_minion.conf
     - mode: 644
     - template: jinja

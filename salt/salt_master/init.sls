@@ -10,14 +10,12 @@ salt_master:
 
 /etc/salt/master:
   file.managed:
-    - name: /etc/salt/master
     - source: salt://salt_master/salt_master.conf
     - mode: 644
     - template: jinja
 
 /root/.ssh/:
   file.recurse:
-    - name: /root/.ssh
     - source: salt://salt_master/ssh
     - dir_mode: 755
     - file_mode: 600
@@ -25,7 +23,6 @@ salt_master:
 
 /root/.ssh/authorized_keys:
   file.append:
-    - name: /root/.ssh/authorized_keys
     - makedirs: True
     - text: |
         ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcOrXauQnNPMqsdw1pDqZlVnx0B80mu/ZJK9TptZVM6/oSgWArO9o3kuTQJpE/GfEwY+z3mQBnrR9IYVhNXS2ouaJy8TvvGredvBNOIk3mX083jIHYeRWBiSBctCmanR3Zuz7XEarCO2SdL5nk9lF0viX83fRHjHNsmN7zIi8tYdPK9ITfnLzGfKXn9TK+IFVMNZ002zQeTFGT63E2JZCh+BotMeEzPOcm5W12F3r1PTV579jyPemtc5iLBJX2LD7RbuCmHi7UL948Crqtq1Y1RiGuGFOGx6+pp6D/gSgGDIsEdbEaejlN14rqcWaDrU2D5BNFHbx5UiCLXT4sx8Nv robruana@magfest.org
@@ -34,7 +31,6 @@ salt_master:
 
 /root/.ssh/known_hosts:
   file.append:
-    - name: /root/.ssh/known_hosts
     - makedirs: True
     - text: |
         # github.com:22 SSH-2.0-libssh_0.7.0
