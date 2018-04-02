@@ -27,7 +27,7 @@ salt-call --local --id='salt-master' --file-root=salt --pillar-root=pillar state
 /etc/init.d/salt-minion restart
 
 # Give the services a chance to start up
-sleep 5
+sleep 10
 
 # Tell the salt-master's minion to configure itself
 salt 'salt-master' state.highstate
