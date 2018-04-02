@@ -1,6 +1,3 @@
-include:
-  - ufw
-
 base:
   '*':
     - salt_minion
