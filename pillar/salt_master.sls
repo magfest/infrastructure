@@ -4,3 +4,6 @@ minion_id: salt-master
 ufw:
   enabled:
     True
+  applications:
+    - OpenSSH
+    - Saltmaster
