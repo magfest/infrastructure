@@ -1,4 +1,4 @@
-salt_minion:
+default:
   pkg.installed:
     - name: salt-minion
   service.running:

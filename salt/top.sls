@@ -1,6 +1,6 @@
 base:
   '*':
-    - salt_minion
+    - defaults
     - ufw
   'salt-master':
     - salt_master
