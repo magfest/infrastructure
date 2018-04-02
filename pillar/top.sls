@@ -1,6 +1,6 @@
 base:
   '*':
     - defaults
-  'salt-master':
+  'bootstrap or salt-master':
     - salt_master
     - salt_cloud
