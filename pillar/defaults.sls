@@ -4,4 +4,5 @@ ufw:
   enabled:
     True
   applications:
-    - OpenSSH
+    OpenSSH:
+      enabled: True
