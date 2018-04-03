@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# This script will bootstrap and configure the salt-master server
+# used to manage the entire MAGFest IT infrastructure.
+
 CURRENT_DIR=`pwd`
 
 # Download the infrastructure code
@@ -30,6 +33,7 @@ salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.h
 sleep 10
 
 # Tell the salt-master's minion to configure itself
+salt 'salt-master' test.ping
 salt 'salt-master' state.highstate
 
 # Cleanup
