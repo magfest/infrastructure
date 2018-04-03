@@ -3,8 +3,6 @@
 # This script will bootstrap and configure the salt-master server
 # used to manage the entire MAGFest IT infrastructure.
 
-CURRENT_DIR=`pwd`
-
 # Download the infrastructure code
 git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastructure
 git clone --depth 1 https://github.com/magfest/infrastructure-secret.git /tmp/infrastructure-secret
@@ -37,6 +35,6 @@ salt 'salt-master' test.ping
 salt 'salt-master' state.highstate
 
 # Cleanup
-cd $CURRENT_DIR
+cd ~
 rm -rf /tmp/infrastructure
 rm -rf /tmp/infrastructure-secret
