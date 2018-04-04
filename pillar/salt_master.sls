@@ -1,4 +1,4 @@
-{%- set data_path = '/var/data' -%}
+{%- set data_path = '/srv/volumes/data' -%}
 
 master_address: 127.0.0.1
 minion_id: salt-master
