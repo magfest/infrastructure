@@ -5,6 +5,10 @@ base:
   'not bootstrap':
     - ufw
 
-  'bootstrap or salt-master':
+  'bootstrap':
+    - salt_master
+
+  'salt-master':
     - salt_master
     - salt_cloud
+    - docker

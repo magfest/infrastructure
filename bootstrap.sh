@@ -20,7 +20,7 @@ cp salt-master.pub /etc/salt/pki/master/minions/salt-master
 cp salt-master.pem /etc/salt/pki/minion/minion.pem
 cp salt-master.pub /etc/salt/pki/minion/minion.pub
 
-# Run salt locally to configure salt-master
+# Run salt locally to configure a minimal salt-master
 salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate
 
 # Restart the services
@@ -30,7 +30,7 @@ salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.h
 # Give the services a chance to start up
 sleep 10
 
-# Tell the salt-master's minion to configure itself
+# Tell the salt-master's minion to fully configure itself
 salt 'salt-master' test.ping
 salt 'salt-master' state.highstate
 
