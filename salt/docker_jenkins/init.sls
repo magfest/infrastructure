@@ -6,7 +6,8 @@ jenkins user:
 
 {{ salt['pillar.get']('data_path') }}/jenkins_home/:
   file.directory:
-    - require: jenkins user
+    - require:
+      - jenkins user
     - user: jenkins
     - group: jenkins
     - mode: 700
