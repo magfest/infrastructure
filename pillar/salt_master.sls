@@ -30,3 +30,4 @@ docker-containers:
         - '-p 80:8080'
         - '-p 50000:50000'
         - '-v {{ data_path }}/jenkins_home:/var/jenkins_home'
+        - '-u 1000'
