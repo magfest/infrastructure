@@ -36,5 +36,5 @@ salt 'salt-master' state.highstate
 
 # Cleanup
 cd ~
-rm -rf /tmp/infrastructure
-rm -rf /tmp/infrastructure-secret
+# rm -rf /tmp/infrastructure
+# rm -rf /tmp/infrastructure-secret
