@@ -8,3 +8,4 @@ base:
   'salt-master':
     - salt_master
     - salt_cloud
+    - docker
