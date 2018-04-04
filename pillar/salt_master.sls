@@ -21,6 +21,10 @@ ufw:
     Saltmaster:
       enabled: True
 
+docker-pkg:
+  lookup:
+    config:
+      - DOCKER_OPTS="--iptables=false"
 
 docker-containers:
   lookup:
