@@ -9,3 +9,8 @@ ufw:
       enabled: True
     Saltmaster:
       enabled: True
+
+docker-containers:
+  lookup:
+    jenkins:
+      image: 'jenkinsci/blueocean'
