@@ -10,7 +10,7 @@ Creating a salt-master control server should only need to be done rarely—ideal
   * Select "Private Networking" and "Monitoring"
   * Add the following SSH Keys: "Saltmaster", "Rob Ruana", and "DomMCP"
 2. By default the salt-minions will attempt to connect to `saltmaster.magfest.net`, so the DNS entry for `saltmaster.magfest.net` on https://dnsmadeeasy.com should be updated to point to the new droplet's **Private IP**
-3. SSH to the new server
+3. SSH to the new server (_and follow Digital Ocean's intructions for configuring your block storage volume, if applicable_)
 4. As root/sudo run:
 ```
 curl -L https://github.com/magfest/infrastructure/raw/master/bootstrap.sh | sh
