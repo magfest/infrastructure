@@ -1,6 +1,8 @@
+{%- set data_path = '/var/data' -%}
+
 master_address: 127.0.0.1
 minion_id: salt-master
-data_path: /var/data
+data_path: {{ data_path }}
 
 
 ufw:
@@ -27,4 +29,4 @@ docker-containers:
       runoptions:
         - '-p 8080:8080'
         - '-p 50000:50000'
-        - '-v {{ salt["pillar.get"]("data_path") }}/jenkins_home:/var/jenkins_home'
+        - '-v {{ data_path }}/jenkins_home:/var/jenkins_home'
