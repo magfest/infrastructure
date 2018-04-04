@@ -12,7 +12,7 @@ cd /tmp/infrastructure
 rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret/ ./
 
 # Install SaltStack master and minion
-curl -L https://bootstrap.saltstack.com | sh -s -- -i 'salt-master' -L -M -P stable
+curl -L https://bootstrap.saltstack.com | sh -s -- -i 'salt-master' -L -M -P -X stable
 
 # Preseed the salt-master's minion key
 salt-key --gen-keys='salt-master'
@@ -23,10 +23,6 @@ cp salt-master.pub /etc/salt/pki/minion/minion.pub
 # Run salt locally to configure a minimal salt-master
 salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate
 
-echo '\n\n=============================== 1 =================================='
-cat /etc/salt/minion
-echo '====================================================================\n\n'
-
 # Restart the services
 /etc/init.d/salt-master restart
 /etc/init.d/salt-minion restart
@@ -34,19 +30,11 @@ echo '====================================================================\n\n'
 # Give the services a chance to start up
 sleep 10
 
-echo '\n\n=============================== 2 =================================='
-cat /etc/salt/minion
-echo '====================================================================\n\n'
-
 # Tell the salt-master's minion to fully configure itself
 salt 'salt-master' test.ping
 salt 'salt-master' state.highstate
 
-echo '\n\n=============================== 3 =================================='
-cat /etc/salt/minion
-echo '====================================================================\n\n'
-
 # Cleanup
 cd ~
-# rm -rf /tmp/infrastructure
-# rm -rf /tmp/infrastructure-secret
+rm -rf /tmp/infrastructure
+rm -rf /tmp/infrastructure-secret
