@@ -1,5 +1,12 @@
+jenkins group:
+  group.present:
+    - name: jenkins
+    - gid: 1000
+
 jenkins user:
   user.present:
+    - require:
+      - jenkins group
     - name: jenkins
     - uid: 1000
     - gid: 1000
