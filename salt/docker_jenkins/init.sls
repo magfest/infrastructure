@@ -27,6 +27,8 @@ docker_jenkins:
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
+    - environment:
+      - VIRTUAL_HOST: jenkins.docker_intranet
     - networks:
       - docker_intranet
     - require:
