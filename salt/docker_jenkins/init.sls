@@ -22,14 +22,14 @@ jenkins user:
 
 docker_jenkins:
   docker_container.absent:
-    - force: True
     - name: jenkins
-    # - image: jenkinsci/blueocean:latest
-    # - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
-    # - ports: 8080,50000
-    # - network_mode: docker_internal_network
-    # - networks:
-    #   - docker_internal_network
-    # - require:
-    #   - pip install docker
-    #   - docker_internal_network
+    - image: jenkinsci/blueocean:latest
+    - restart_policy: unless-stopped
+    - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
+    - ports: 8080,50000
+    - network_mode: docker_internal_network
+    - networks:
+      - docker_internal_network
+    - require:
+      - pip install docker
+      - docker_internal_network
