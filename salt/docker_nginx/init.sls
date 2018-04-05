@@ -1,5 +1,6 @@
 docker_nginx:
   docker_container.running:
-    - image: nginx:latest
+    - name: nginx
+    - image: nginx
     - require:
       - pip install docker

@@ -22,7 +22,7 @@ jenkins user:
 
 docker_jenkins:
   docker_container.running:
-    - image: jenkinsci/blueocean:latest
+    - image: jenkinsci/blueocean
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
     - require:
       - pip install docker
