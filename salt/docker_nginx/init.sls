@@ -5,10 +5,7 @@ docker_nginx:
     - restart_policy: unless-stopped
     - auto_remove: True
     - ports: 80,443
-    - port_bindings:
-      - 80:80
-      - 443:443
-    - network_mode: docker_internal_network
+    - port_bindings: 80:80,443:443
     - networks:
       - docker_internal_network
     - require:
