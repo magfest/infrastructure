@@ -25,5 +25,8 @@ docker_jenkins:
     - name: jenkins
     - image: jenkinsci/blueocean
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
+    - networks:
+      - docker_internal_network
     - require:
       - pip install docker
+      - docker_internal_network

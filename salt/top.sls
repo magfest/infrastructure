@@ -13,5 +13,6 @@ base:
     - salt_cloud
     - pip
     - docker
+    - docker_network
     - docker_nginx
     - docker_jenkins

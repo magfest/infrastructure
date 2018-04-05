@@ -4,3 +4,4 @@ docker_nginx:
     - image: nginx
     - require:
       - pip install docker
+      - docker_internal_network
