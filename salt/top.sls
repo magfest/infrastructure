@@ -14,5 +14,5 @@ base:
     - pip
     - docker
     - docker_intranet
-    - docker_nginx
+    - docker_nginx_proxy
     - docker_jenkins
