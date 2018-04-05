@@ -7,5 +7,7 @@ docker_nginx:
     - port_bindings:
       - 80:80
       - 443:443
+    - networks:
+      - docker_intranet
     - require:
-      - sls: docker_internal_network
+      - docker_network: docker_intranet
