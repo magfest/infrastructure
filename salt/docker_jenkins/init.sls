@@ -19,3 +19,8 @@ jenkins user:
     - group: jenkins
     - mode: 700
     - makedirs: True
+
+docker_jenkins:
+  docker_container.running:
+    - image: jenkinsci/blueocean:latest
+    - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
