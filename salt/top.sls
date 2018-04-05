@@ -11,4 +11,6 @@ base:
   'salt-master':
     - salt_master
     - salt_cloud
+    - docker
+    - docker_nginx
     - docker_jenkins
