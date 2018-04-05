@@ -9,7 +9,7 @@ jenkins user:
     - uid: 1000
     - gid: 1000
     - require:
-      - jenkins group
+      - group: jenkins
 
 {{ salt['pillar.get']('data_path') }}/jenkins_home/:
   file.directory:
@@ -18,7 +18,7 @@ jenkins user:
     - mode: 700
     - makedirs: True
     - require:
-      - jenkins user
+      - user: jenkins
 
 docker_jenkins:
   docker_container.running:
@@ -28,5 +28,4 @@ docker_jenkins:
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
     - require:
-      - pip install docker
-      - docker_internal_network
+      - sls: docker_internal_network

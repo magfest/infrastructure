@@ -8,5 +8,4 @@ docker_nginx:
       - 80:80
       - 443:443
     - require:
-      - pip install docker
-      - docker_internal_network
+      - sls: docker_internal_network
