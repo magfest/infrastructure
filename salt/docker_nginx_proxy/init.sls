@@ -3,6 +3,7 @@ docker_nginx_proxy:
     - name: nginx_proxy
     - image: jwilder/nginx-proxy:latest
     - auto_remove: True
+    - binds: /var/run/docker.sock:/tmp/docker.sock:ro
     - ports: 80
     - port_bindings:
       - 80:80
