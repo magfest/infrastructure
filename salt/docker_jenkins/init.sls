@@ -21,7 +21,7 @@ jenkins user:
       - jenkins user
 
 docker_jenkins:
-  docker_container.absent:
+  docker_container.running:
     - name: jenkins
     - image: jenkinsci/blueocean:latest
     - restart_policy: unless-stopped
