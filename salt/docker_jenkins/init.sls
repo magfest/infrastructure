@@ -23,7 +23,7 @@ jenkins user:
 docker_jenkins:
   docker_container.running:
     - name: jenkins
-    - image: jenkinsci/blueocean
+    - image: jenkinsci/blueocean:latest
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
     - networks:
       - docker_internal_network
