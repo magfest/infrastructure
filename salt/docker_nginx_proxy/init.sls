@@ -1,4 +1,4 @@
-docker_nginx:
+docker_nginx_proxy:
   docker_container.running:
     - name: nginx_proxy
     - image: jwilder/nginx-proxy:latest
