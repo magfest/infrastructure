@@ -1,7 +1,7 @@
 docker_nginx:
   docker_container.running:
-    - name: nginx
-    - image: nginx:latest
+    - name: nginx_proxy
+    - image: jwilder/nginx-proxy:latest
     - auto_remove: True
     - ports: 80,443
     - port_bindings:
