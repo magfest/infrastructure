@@ -3,10 +3,9 @@ docker_nginx_proxy:
     - name: nginx_proxy
     - image: jwilder/nginx-proxy:latest
     - auto_remove: True
-    - ports: 80,443
+    - ports: 80
     - port_bindings:
       - 80:80
-      - 443:443
     - networks:
       - docker_intranet
     - require:
