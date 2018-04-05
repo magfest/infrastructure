@@ -4,6 +4,9 @@ docker_nginx:
     - image: nginx:latest
     - restart_policy: unless-stopped
     - ports: 80,443
+    - port_bindings:
+      - 80:80
+      - 443:443
     - network_mode: docker_internal_network
     - networks:
       - docker_internal_network
