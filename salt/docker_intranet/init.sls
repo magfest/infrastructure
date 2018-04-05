@@ -3,4 +3,3 @@ docker_intranet:
     - internal: True
     - require:
       - sls: docker
-

@@ -26,9 +26,10 @@ docker_jenkins:
     - image: jenkinsci/blueocean:latest
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
-    - ports: 8080,50000
+    - ports: 8080
     - environment:
       - VIRTUAL_HOST: jenkins.magfest.net
+      - VIRTUAL_PORT: 8080
     - networks:
       - docker_intranet
     - require:
