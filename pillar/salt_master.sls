@@ -21,21 +21,3 @@ ufw:
       enabled: True
     Saltmaster:
       enabled: True
-
-
-# docker-containers:
-#   lookup:
-#     nginx:
-#       image: 'nginx'
-#       runoptions:
-#         - '--name nginx'
-#         - '-p 80:80'
-#         - '-p 443:443'
-
-#     jenkins:
-#       image: 'jenkinsci/blueocean'
-#       runoptions:
-#         - '-p 8080:8080'
-#         - '-p 50000:50000'
-#         - '-v {{ data_path }}/jenkins_home:/var/jenkins_home'
-#         - '-u 1000'

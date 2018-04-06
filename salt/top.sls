@@ -6,12 +6,13 @@ base:
     - ufw
 
   'bootstrap':
+    - pip
     - salt_master
 
   'salt-master':
+    - pip
     - salt_master
     - salt_cloud
-    - pip
     - docker
     - docker_intranet
     - docker_nginx_proxy
