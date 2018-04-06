@@ -4,7 +4,6 @@ docker_nginx_proxy:
     - image: jwilder/nginx-proxy:latest
     - auto_remove: True
     - binds:
-      - /srv/volumes/data/letsencrypt/etc/letsencrypt/live:/etc/nginx/certs
       - /var/run/docker.sock:/tmp/docker.sock:ro
     - ports: 80
     - port_bindings:
