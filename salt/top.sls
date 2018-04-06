@@ -14,6 +14,7 @@ base:
     - salt_master
     - salt_cloud
     - docker
+    - letsencrypt
     - docker_intranet
     - docker_nginx_proxy
     - docker_jenkins
