@@ -11,7 +11,7 @@ docker_freeipa:
     - binds: {{ salt['pillar.get']('data_path') }}/ipa-data:/data:Z
     - ports: 80
     - environment:
-      - VIRTUAL_HOST: freeipa.{{ salt['pillar.get']('domain') }}
+      - VIRTUAL_HOST: freeipa.{{ salt['pillar.get']('master_domain') }}
       - VIRTUAL_PORT: 80
     - networks:
       - docker_intranet
