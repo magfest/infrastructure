@@ -5,7 +5,7 @@ docker_nginx_proxy:
     - auto_remove: True
     - binds:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-    - ports: 80
+    - ports: 80,443
     - port_bindings:
       - 80:80
       - 443:443
