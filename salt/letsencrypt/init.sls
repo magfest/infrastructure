@@ -1,4 +1,4 @@
-{{ salt['pillar.get']('data_path') }}/letsencrypt/etc/letsencrypt/:
+{{ salt['pillar.get']('data_path') }}/letsencrypt/etc/letsencrypt/live/:
   file.directory:
     - mode: 700
     - makedirs: True
