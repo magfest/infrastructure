@@ -20,8 +20,8 @@ docker_traefik:
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:/traefik.toml
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:/acme.json
     - labels:
-      - traefik.frontend.rule=Host:traefik.magfest.net
-      - traefik.port=8080
+      - traefik.frontend.rule: Host:traefik.magfest.net
+      - traefik.port: 8080
     - ports: 80,443
     - port_bindings:
       - 80:80
