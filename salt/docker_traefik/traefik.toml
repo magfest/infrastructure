@@ -1,20 +1,16 @@
 logLevel = "DEBUG"
 
-defaultEntryPoints = ["http"]
+defaultEntryPoints = ["http", "https"]
+
+[web]
+address = ":8080"
 
 [entryPoints]
   [entryPoints.http]
   address = ":80"
-
-  [entryPoints.apiEntryPoint]
-  address = ":8081"
-
-
-# Activate API and Dashboard
-[api]
-entryPoint = "apiEntryPoint"
-dashboard = true
-
+  [entryPoints.https]
+  address = ":443"
+    [entryPoints.https.tls]
 
 # [entryPoints]
 #   [entryPoints.http]
