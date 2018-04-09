@@ -31,10 +31,14 @@ onHostRule = true
 entryPoint = "https"
   [acme.httpChallenge]
   entryPoint = "http"
-
 [[acme.domains]]
-  main = "magfest.net"
-  sans = ["jenkins.magfest.net", "freeipa.magfest.net", "errbot.magfest.net", "traefik.magfest.net"]
+  main = "errbot.magfest.net"
+[[acme.domains]]
+  main = "freeipa.magfest.net"
+[[acme.domains]]
+  main = "jenkins.magfest.net"
+[[acme.domains]]
+  main = "traefik.magfest.net"]
 
 
 [web]
