@@ -12,6 +12,12 @@ address = ":8080"
   address = ":80"
 
 
+[docker]
+endpoint = "unix:///var/run/docker.sock"
+watch = true
+exposedbydefault = true
+
+
 # [acme]
 # email = "it@magfest.org"
 # storage = "acme.json"
