@@ -19,8 +19,6 @@ docker_traefik:
       - /var/run/docker.sock:/var/run/docker.sock
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:/traefik.toml
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:/acme.json
-    - labels:
-      - 'traefik.port=8080'
     - port_bindings:
       - 80:80
     - networks:
