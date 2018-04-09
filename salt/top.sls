@@ -8,6 +8,7 @@ base:
   'bootstrap':
     - pip
     - salt_master
+    - docker
 
   'salt-master':
     - pip
