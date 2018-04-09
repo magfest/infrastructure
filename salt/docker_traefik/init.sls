@@ -20,7 +20,7 @@ docker_traefik:
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:/traefik.toml
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:/acme.json
     - labels:
-      - 'test.asdf': zxcv
+      - 'test.asdf=zxcv'
     - ports: 80,443
     - port_bindings:
       - 80:80
