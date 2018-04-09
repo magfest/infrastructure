@@ -1,6 +1,6 @@
 logLevel = "DEBUG"
 
-defaultEntryPoints = ["http"]
+defaultEntryPoints = ["http", "https"]
 
 
 [web]
