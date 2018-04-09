@@ -1,6 +1,6 @@
 logLevel = "DEBUG"
 
-defaultEntryPoints = ["http", "https"]
+defaultEntryPoints = ["http"]
 
 
 [web]
@@ -10,9 +10,6 @@ defaultEntryPoints = ["http", "https"]
 [entryPoints]
   [entryPoints.http]
     address = ":80"
-  [entryPoints.https]
-    address = ":443"
-    [entryPoints.https.tls]
 
 
 [docker]
@@ -21,18 +18,18 @@ defaultEntryPoints = ["http", "https"]
   exposedbydefault = true
 
 
-[acme]
-  email = "it@magfest.org"
-  storage = "acme.json"
-  onHostRule = true
-  onDemand = false
-  caServer = "https://acme-staging.api.letsencrypt.org/directory"
-  entryPoint = "https"
-    [acme.httpChallenge]
-    entryPoint = "http"
-  [[acme.domains]]
-    main = "{{ salt['pillar.get']('master_domain') }}"
-    sans = [
-  {%- for domain in ['errbot', 'freeipa', 'jenkins', 'traefik'] -%}
-    "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
-  {%- endfor -%}]
+# [acme]
+#   email = "it@magfest.org"
+#   storage = "acme.json"
+#   onHostRule = true
+#   onDemand = false
+#   caServer = "https://acme-staging.api.letsencrypt.org/directory"
+#   entryPoint = "https"
+#     [acme.httpChallenge]
+#     entryPoint = "http"
+#   [[acme.domains]]
+#     main = "{{ salt['pillar.get']('master_domain') }}"
+#     sans = [
+#   {%- for domain in ['errbot', 'freeipa', 'jenkins', 'traefik'] -%}
+#     "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
+#   {%- endfor -%}]
