@@ -28,6 +28,7 @@ exposedbydefault = false
 email = "it@magfest.org"
 storage = "acme.json"
 onHostRule = true
+caServer = "https://acme-staging.api.letsencrypt.org/directory"
 entryPoint = "https"
   [acme.httpChallenge]
   entryPoint = "http"
