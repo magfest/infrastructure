@@ -1,27 +1,15 @@
 logLevel = "DEBUG"
+
 defaultEntryPoints = ["http"]
+
+
+[web]
+address = ":8080"
 
 
 [entryPoints]
   [entryPoints.http]
-    address = ":80"
-
-
-[docker]
-  endpoint = "unix:///var/run/docker.sock"
-  domain = "magfest.net"
-  watch = true
-  exposedbydefault = false
-
-
-# [entryPoints]
-#   [entryPoints.http]
-#   address = ":80"
-#     [entryPoints.http.redirect]
-#       entryPoint = "https"
-#   [entryPoints.https]
-#   address = ":443"
-#     [entryPoints.https.tls]
+  address = ":80"
 
 
 # [acme]
