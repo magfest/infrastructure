@@ -28,7 +28,7 @@ docker_jenkins:
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
     - ports: 8080
     - labels:
-      - 'traefik_port=8080'
+      - 'traefik_port.asdf=8080'
     - environment:
       - VIRTUAL_HOST: jenkins.{{ salt['pillar.get']('master_domain') }}
       - VIRTUAL_PORT: 8080
