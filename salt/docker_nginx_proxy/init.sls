@@ -22,4 +22,3 @@ docker_nginx_proxy:
       - docker_intranet
     - require:
       - docker_network: docker_intranet
-      - sls: letsencrypt
