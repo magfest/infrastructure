@@ -12,6 +12,18 @@ docker repo:
 docker-ce:
   pkg.installed
 
+/usr/local/bin/docker-compose download:
+  cmd.run:
+    - name: curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-{{ salt['grains.get']('kernel') }}-{{ salt['grains.get']('cpuarch') }} -o /usr/local/bin/docker-compose
+    - creates: /usr/local/bin/docker-compose
+
+/usr/local/bin/docker-compose:
+  file.managed:
+    - mode: 755
+
+docker-compose:
+
+
 pip install docker:
   pip.installed:
     - name: docker
