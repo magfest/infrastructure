@@ -19,13 +19,16 @@ docker_traefik:
       - /var/run/docker.sock:/var/run/docker.sock
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:/traefik.toml
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:/acme.json
+    - ports: 80,443
+    - port_bindings:
+      - 80:80
     - labels:
       - traefik.frontend.rule=Host:traefik.{{ salt['pillar.get']('master_domain') }}
       - traefik.port=8080
-      - traefik.docker.network=docker_network_proxy
-    - port_bindings:
-      - 80:80
+      - traefik.docker.network=docker_network_internal
     - networks:
-      - docker_network_proxy
+      - docker_network_external
+      - docker_network_internal
     - require:
-      - docker_network: docker_network_proxy
+      - docker_network: docker_network_external
+      - docker_network: docker_network_internal

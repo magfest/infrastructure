@@ -10,6 +10,6 @@ docker_freeipa:
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/ipa-data:/data:Z
     - networks:
-      - docker_network_proxy
+      - docker_network_internal
     - require:
-      - docker_network: docker_network_proxy
+      - docker_network: docker_network_internal
