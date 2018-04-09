@@ -1,6 +1,6 @@
 logLevel = "DEBUG"
 
-defaultEntryPoints = ["http"]
+defaultEntryPoints = ["http", "https"]
 
 
 [web]
@@ -10,6 +10,8 @@ defaultEntryPoints = ["http"]
 [entryPoints]
   [entryPoints.http]
     address = ":80"
+  [entryPoints.https]
+    address = ":443"
 
 
 [docker]
