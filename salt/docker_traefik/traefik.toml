@@ -32,13 +32,8 @@ entryPoint = "https"
   [acme.httpChallenge]
   entryPoint = "http"
 [[acme.domains]]
-  main = "errbot.magfest.net"
-[[acme.domains]]
-  main = "freeipa.magfest.net"
-[[acme.domains]]
-  main = "jenkins.magfest.net"
-[[acme.domains]]
-  main = "traefik.magfest.net"
+  main = "magfest.net"
+  sans = ["errbot.magfest.net", "freeipa.magfest.net", "jenkins.magfest.net", "traefik.magfest.net"]
 
 
 [web]
