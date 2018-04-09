@@ -1,16 +1,41 @@
-logLevel = "DEBUG"
-
-defaultEntryPoints = ["http", "https"]
-
-[web]
-address = ":8080"
+defaultEntryPoints = ["http"]
 
 [entryPoints]
   [entryPoints.http]
-  address = ":80"
-  [entryPoints.https]
-  address = ":443"
-    [entryPoints.https.tls]
+    address = ":80"
+
+  [entrypoints.apiEntryPoint]
+    address = ":8081"
+
+  [entrypoints.dashboardEntryPoint]
+    address = ":8080"
+
+#Activate API and Dashboard
+[api]
+  entrypoint="apiEntryPoint"
+
+[file]
+  [backends]
+    [backends.backend1]
+      [backends.backend1.servers.server1]
+        url = "http://127.0.0.1:8081"
+
+    [backends.backend2]
+      [backends.backend2.servers.server1]
+        url = "http://127.0.0.1:8080"
+
+  [frontends]
+    [frontends.frontend1]
+      entrypoints=["dashboardEntryPoint"]
+      backend = "backend2"
+      [frontends.frontend1.routes.test_1]
+        rule = "Host:traefik.magfest.net"
+
+[docker]
+  domain = "docker"
+  endpoint = "unix:///var/run/docker.sock"
+  watch = true
+
 
 # [entryPoints]
 #   [entryPoints.http]
