@@ -4,32 +4,32 @@ defaultEntryPoints = ["http"]
 
 
 [web]
-address = ":8080"
+  address = ":8080"
 
 
 [entryPoints]
   [entryPoints.http]
-  address = ":80"
+    address = ":80"
 
 
 [docker]
-endpoint = "unix:///var/run/docker.sock"
-watch = true
-exposedbydefault = true
+  endpoint = "unix:///var/run/docker.sock"
+  watch = true
+  exposedbydefault = true
 
 
 [acme]
-email = "it@magfest.org"
-storage = "acme.json"
-onHostRule = true
-onDemand = false
-caServer = "https://acme-staging.api.letsencrypt.org/directory"
-entryPoint = "https"
-  [acme.httpChallenge]
-  entryPoint = "http"
-[[acme.domains]]
-  main = "{{ salt['pillar.get']('master_domain') }}"
-  sans = [
-{%- for domain in ['errbot', 'freeipa', 'jenkins', 'traefik'] -%}
-  "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
-{%- endfor -%}]
+  email = "it@magfest.org"
+  storage = "acme.json"
+  onHostRule = true
+  onDemand = false
+  caServer = "https://acme-staging.api.letsencrypt.org/directory"
+  entryPoint = "https"
+    [acme.httpChallenge]
+    entryPoint = "http"
+  [[acme.domains]]
+    main = "{{ salt['pillar.get']('master_domain') }}"
+    sans = [
+  {%- for domain in ['errbot', 'freeipa', 'jenkins', 'traefik'] -%}
+    "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
+  {%- endfor -%}]

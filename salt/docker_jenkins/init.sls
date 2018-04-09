@@ -29,6 +29,7 @@ docker_jenkins:
     - labels:
       - traefik.frontend.rule=Host:{{ salt['pillar.get']('master_domain') }}
       - traefik.port=8080
+      - traefik.docker.network=docker_network_proxy
     - networks:
       - docker_network_proxy
     - require:
