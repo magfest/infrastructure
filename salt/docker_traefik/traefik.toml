@@ -28,5 +28,8 @@ exposedbydefault = true
 #   [acme.httpChallenge]
 #   entryPoint = "http"
 # [[acme.domains]]
-#   main = "magfest.net"
-#   sans = ["errbot.magfest.net", "freeipa.magfest.net", "jenkins.magfest.net", "traefik.magfest.net"]
+#   main = "{{ salt['pillar.get']('master_domain') }}"
+#   sans = [
+# {%- for domain in ['errbot', 'freeipa', 'jenkins', 'traefik'] -%}
+#   "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ", " if not loop.last }}
+# {%- endif -%}]

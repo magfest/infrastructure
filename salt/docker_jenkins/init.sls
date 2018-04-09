@@ -26,9 +26,8 @@ docker_jenkins:
     - image: jenkinsci/blueocean:latest
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
-    - ports: 8080
     - labels:
-      - traefik.frontend.rule=Host:jenkins.magfest.net
+      - traefik.frontend.rule=Host:{{ salt['pillar.get']('master_domain') }}
       - traefik.port=8080
     - networks:
       - docker_network_proxy
