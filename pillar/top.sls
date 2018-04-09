@@ -8,4 +8,3 @@ base:
   'salt-master':
     - salt_master
     - digitalocean
-    - dnsmadeeasy
