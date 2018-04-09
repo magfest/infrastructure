@@ -15,9 +15,9 @@ docker_traefik:
     - image: traefik:latest
     - auto_remove: True
     - binds:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:/etc/traefik/traefik.toml
-      - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:/etc/traefik/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock
+      - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:/traefik.toml
+      - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:/acme.json
     - ports: 80,443
     - port_bindings:
       - 80:80
