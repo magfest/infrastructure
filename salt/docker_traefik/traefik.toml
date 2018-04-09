@@ -14,18 +14,18 @@ defaultEntryPoints = ["http", "https"]
     [entryPoints.https.tls]
 
 
-[acme]
-email = "it@magfest.org"
-storage = "acme.json"
-onHostRule = true
-onDemand = false
-caServer = "https://acme-staging.api.letsencrypt.org/directory"
-entryPoint = "https"
-  [acme.httpChallenge]
-  entryPoint = "http"
-[[acme.domains]]
-  main = "magfest.net"
-  sans = ["errbot.magfest.net", "freeipa.magfest.net", "jenkins.magfest.net", "traefik.magfest.net"]
+# [acme]
+# email = "it@magfest.org"
+# storage = "acme.json"
+# onHostRule = true
+# onDemand = false
+# caServer = "https://acme-staging.api.letsencrypt.org/directory"
+# entryPoint = "https"
+#   [acme.httpChallenge]
+#   entryPoint = "http"
+# [[acme.domains]]
+#   main = "magfest.net"
+#   sans = ["errbot.magfest.net", "freeipa.magfest.net", "jenkins.magfest.net", "traefik.magfest.net"]
 
 
 [web]
