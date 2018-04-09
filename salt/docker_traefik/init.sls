@@ -7,7 +7,7 @@
 
 {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:
   file.managed:
-    - mode: 600
+    - mode: 644
 
 docker_traefik:
   docker_container.running:
