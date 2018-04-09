@@ -32,7 +32,6 @@ defaultEntryPoints = ["http"]
         rule = "Host:traefik.magfest.net"
 
 [docker]
-  domain = "docker"
   endpoint = "unix:///var/run/docker.sock"
   watch = true
 
