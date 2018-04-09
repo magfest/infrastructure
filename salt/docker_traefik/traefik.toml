@@ -38,7 +38,7 @@ entryPoint = "https"
 [[acme.domains]]
   main = "jenkins.magfest.net"
 [[acme.domains]]
-  main = "traefik.magfest.net"]
+  main = "traefik.magfest.net"
 
 
 [web]
