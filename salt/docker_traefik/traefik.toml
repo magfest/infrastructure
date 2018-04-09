@@ -1,3 +1,4 @@
+logLevel = "DEBUG"
 defaultEntryPoints = ["http"]
 
 [entryPoints]
@@ -18,11 +19,11 @@ defaultEntryPoints = ["http"]
   [backends]
     [backends.backend1]
       [backends.backend1.servers.server1]
-        url = "http://127.0.0.1:8081"
+        url = "traefik:8081"
 
     [backends.backend2]
       [backends.backend2.servers.server1]
-        url = "http://127.0.0.1:8080"
+        url = "traefik:8080"
 
   [frontends]
     [frontends.frontend1]
