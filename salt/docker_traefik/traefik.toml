@@ -31,5 +31,5 @@ exposedbydefault = true
 #   main = "{{ salt['pillar.get']('master_domain') }}"
 #   sans = [
 # {%- for domain in ['errbot', 'freeipa', 'jenkins', 'traefik'] -%}
-#   "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ", " if not loop.last }}
+#   "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
 # {%- endfor -%}]
