@@ -1,6 +1,6 @@
 debug = false
 
-logLevel = "ERROR"
+logLevel = "INFO"
 defaultEntryPoints = ["http", "https"]
 
 
@@ -8,7 +8,7 @@ defaultEntryPoints = ["http", "https"]
   [entryPoints.http]
   address = ":80"
     [entryPoints.http.redirect]
-    entryPoint = "https"
+      entryPoint = "https"
   [entryPoints.https]
   address = ":443"
     [entryPoints.https.tls]
@@ -28,6 +28,7 @@ exposedbydefault = false
 email = "it@magfest.org"
 storage = "acme.json"
 onHostRule = true
+onDemand = false
 caServer = "https://acme-staging.api.letsencrypt.org/directory"
 entryPoint = "https"
   [acme.httpChallenge]

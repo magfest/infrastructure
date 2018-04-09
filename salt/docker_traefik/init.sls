@@ -7,7 +7,8 @@
 
 {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:
   file.managed:
-    - mode: 644
+    - mode: 600
+    - makedirs: True
 
 docker_traefik:
   docker_container.running:
@@ -23,6 +24,6 @@ docker_traefik:
       - 80:80
       - 443:443
     - networks:
-      - docker_intranet
+      - docker_network_proxy
     - require:
-      - docker_network: docker_intranet
+      - docker_network: docker_network_proxy

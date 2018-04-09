@@ -31,6 +31,6 @@ docker_jenkins:
       - VIRTUAL_HOST: jenkins.{{ salt['pillar.get']('master_domain') }}
       - VIRTUAL_PORT: 8080
     - networks:
-      - docker_intranet
+      - docker_network_proxy
     - require:
-      - docker_network: docker_intranet
+      - docker_network: docker_network_proxy

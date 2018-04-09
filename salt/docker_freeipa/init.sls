@@ -14,6 +14,6 @@ docker_freeipa:
       - VIRTUAL_HOST: freeipa.{{ salt['pillar.get']('master_domain') }}
       - VIRTUAL_PORT: 80
     - networks:
-      - docker_intranet
+      - docker_network_proxy
     - require:
-      - docker_network: docker_intranet
+      - docker_network: docker_network_proxy

@@ -15,6 +15,6 @@ base:
     - salt_master
     - salt_cloud
     - docker
-    - docker_intranet
+    - docker_network_proxy
     - docker_traefik
     - docker_jenkins
