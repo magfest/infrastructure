@@ -19,8 +19,8 @@ defaultEntryPoints = ["http", "https"]
 
 [docker]
 endpoint = "unix:///var/run/docker.sock"
-domain = "magfest.net"
 watch = true
+domain = "localhost"
 exposedbydefault = false
 
 
