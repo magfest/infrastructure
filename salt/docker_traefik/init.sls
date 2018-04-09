@@ -22,6 +22,7 @@ docker_traefik:
     - ports: 80,443
     - port_bindings:
       - 80:80
+      - 443:443
     - labels:
       - traefik.frontend.rule=Host:traefik.{{ salt['pillar.get']('master_domain') }}
       - traefik.port=8080
