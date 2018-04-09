@@ -19,7 +19,10 @@ docker-ce:
 
 docker-compose:
   file.managed:
+    - name: /usr/local/bin/docker-compose
     - mode: 755
+    - requires:
+      - /usr/local/bin/docker-compose
 
 pip install docker:
   pip.installed:
