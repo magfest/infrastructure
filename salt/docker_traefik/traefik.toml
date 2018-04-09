@@ -1,17 +1,44 @@
-debug = false
+logLevel = "DEBUG"
 
-logLevel = "INFO"
-defaultEntryPoints = ["http", "https"]
-
+defaultEntryPoints = ["http"]
 
 [entryPoints]
   [entryPoints.http]
   address = ":80"
-    [entryPoints.http.redirect]
-      entryPoint = "https"
-  [entryPoints.https]
-  address = ":443"
-    [entryPoints.https.tls]
+
+  [entryPoints.apiEntryPoint]
+  address = ":8081"
+
+
+# Activate API and Dashboard
+[api]
+entryPoint = "apiEntryPoint"
+dashboard = true
+
+[file]
+  [backends]
+    [backends.backend1]
+      [backends.backend1.servers.server1]
+      url = "http://127.0.0.1:8081"
+
+  [frontends]
+    [frontends.frontend1]
+    entryPoints = ["foo"]
+    backend = "backend1"
+      [frontends.frontend1.routes.test_1]
+      rule = "PathPrefixStrip:/yourprefix;PathPrefix:/yourprefix"
+
+
+
+
+# [entryPoints]
+#   [entryPoints.http]
+#   address = ":80"
+#     [entryPoints.http.redirect]
+#       entryPoint = "https"
+#   [entryPoints.https]
+#   address = ":443"
+#     [entryPoints.https.tls]
 
 
 # [acme]
@@ -26,7 +53,3 @@ defaultEntryPoints = ["http", "https"]
 # [[acme.domains]]
 #   main = "magfest.net"
 #   sans = ["errbot.magfest.net", "freeipa.magfest.net", "jenkins.magfest.net", "traefik.magfest.net"]
-
-
-[web]
-address = ":8080"
