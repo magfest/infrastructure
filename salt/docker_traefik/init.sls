@@ -2,6 +2,7 @@
   file.managed:
     - source: salt://docker_traefik/traefik.toml
     - mode: 644
+    - makedirs: True
     - template: jinja
 
 docker_traefik:
