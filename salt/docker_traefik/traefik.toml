@@ -15,21 +15,6 @@ defaultEntryPoints = ["http"]
 entryPoint = "apiEntryPoint"
 dashboard = true
 
-[file]
-  [backends]
-    [backends.backend1]
-      [backends.backend1.servers.server1]
-      url = "http://127.0.0.1:8081"
-
-  [frontends]
-    [frontends.frontend1]
-    entryPoints = ["foo"]
-    backend = "backend1"
-      [frontends.frontend1.routes.test_1]
-      rule = "PathPrefixStrip:/yourprefix;PathPrefix:/yourprefix"
-
-
-
 
 # [entryPoints]
 #   [entryPoints.http]
