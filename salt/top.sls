@@ -16,5 +16,5 @@ base:
     - docker
     - letsencrypt
     - docker_intranet
-    - docker_nginx_proxy
+    - docker_traefik
     - docker_jenkins
