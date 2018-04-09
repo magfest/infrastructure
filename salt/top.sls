@@ -15,7 +15,6 @@ base:
     - salt_master
     - salt_cloud
     - docker
-    - letsencrypt
     - docker_intranet
     - docker_traefik
     - docker_jenkins
