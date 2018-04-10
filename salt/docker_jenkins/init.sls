@@ -26,11 +26,14 @@ docker_jenkins:
     - image: jenkinsci/blueocean:latest
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
-    - ports: 8080
+    - ports: 8080,50000
     - labels:
-      - traefik.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
-      - traefik.port=8080
-      - traefik.docker.network=docker_network_internal
+      - traefik.web.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
+      - traefik.web.port=8080
+      - traefik.web.docker.network=docker_network_internal
+      - traefik.jnlp.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
+      - traefik.jnlp.port=50000
+      - traefik.jnlp.docker.network=docker_network_internal
     - networks:
       - docker_network_internal
     - require:
