@@ -12,6 +12,7 @@ docker_freeipa:
     - ports: 80
     - hostname: freeipa.{{ salt['pillar.get']('master_domain') }}
     - labels:
+      - traefik.enable=true
       - traefik.frontend.rule=Host:freeipa.{{ salt['pillar.get']('master_domain') }}
       - traefik.port=80
       - traefik.docker.network=docker_network_internal
