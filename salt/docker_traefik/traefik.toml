@@ -1,5 +1,4 @@
-logLevel = "DEBUG"
-
+logLevel = "ERROR"
 defaultEntryPoints = ["http", "https"]
 
 
@@ -14,10 +13,8 @@ defaultEntryPoints = ["http", "https"]
   [entryPoints.apiEntryPoint]
 
 
-
 [api]
   dashboard = true
-  debug = true
 
 
 [docker]

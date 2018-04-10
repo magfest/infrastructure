@@ -17,4 +17,5 @@ base:
     - docker
     - docker_network_proxy
     - docker_traefik
+    - docker_freeipa
     - docker_jenkins
