@@ -10,6 +10,7 @@ docker_freeipa:
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/ipa-data:/data:Z
     - ports: 80
+    - hostname: freeipa.{{ salt['pillar.get']('master_domain') }}
     - labels:
       - traefik.frontend.rule=Host:freeipa.{{ salt['pillar.get']('master_domain') }}
       - traefik.port=80
