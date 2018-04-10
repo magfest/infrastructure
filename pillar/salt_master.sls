@@ -35,3 +35,6 @@ ufw:
       protocol: tcp
     "9443:9445":
       protocol: tcp
+
+  sysctl:
+    forwarding: 1
