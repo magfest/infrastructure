@@ -13,6 +13,28 @@ ufw:
       protocol: tcp
     https:
       protocol: tcp
+    53:
+      protocol: tcp
+    53:
+      protocol: udp
+    88:
+      protocol: udp
+    88:
+      protocol: tcp
+    123:
+      protocol: udp
+    389:
+      protocol: tcp
+    464:
+      protocol: tcp
+    464:
+      protocol: udp
+    636:
+      protocol: tcp
+    7389:
+      protocol: tcp
+    "9443:9445":
+      protocol: tcp
 
   applications:
     OpenSSH:

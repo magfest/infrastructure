@@ -9,7 +9,7 @@ docker_freeipa:
     - image: freeipa/freeipa-server:latest
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/ipa-data:/data:Z
-    - ports: 80
+    - ports: 53,80,53/udp,88/udp,88,389,443,123/udp,464,636,7389,9443-9445,464/udp
     - hostname: freeipa.{{ salt['pillar.get']('master_domain') }}
     - labels:
       - traefik.enable=true
