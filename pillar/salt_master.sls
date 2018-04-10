@@ -20,12 +20,15 @@ ufw:
     https:
       protocol: tcp
     53:
+      comment: freeipa
     88:
+      comment: freeipa
     123:
       protocol: udp
     389:
       protocol: tcp
     464:
+      comment: freeipa
     636:
       protocol: tcp
     7389:
