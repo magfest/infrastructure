@@ -18,9 +18,6 @@ docker_freeipa:
         --realm={{ salt['pillar.get']('master_domain')|upper }}
         --ds-password=password
         --admin-password=password
-    - tmpfs:
-      - /run: ''
-      - /tmp: ''
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:freeipa.{{ salt['pillar.get']('master_domain') }}
