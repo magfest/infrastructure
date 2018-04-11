@@ -15,12 +15,12 @@ salt_cloud:
 
 /etc/salt/pki/cloud/digitalocean.pem:
   file.managed:
-    - source: salt://salt_cloud/digitalocean.pem
+    - text: {{ salt['pillar.get']('digitalocean:private_key') }}
     - mode: 600
 
 /etc/salt/pki/cloud/digitalocean.pub:
   file.managed:
-    - source: salt://salt_cloud/digitalocean.pub
+    - text: {{ salt['pillar.get']('digitalocean:public_key') }}
     - mode: 644
 
 /etc/salt/cloud.providers.d/:
