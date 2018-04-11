@@ -4,7 +4,7 @@ master_address: 127.0.0.1
 minion_id: salt-master
 data_path: {{ data_path }}
 
-ssh_keys: []
+ssh_keys: {}
 
 ufw:
   enabled:
