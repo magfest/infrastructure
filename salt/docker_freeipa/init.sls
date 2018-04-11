@@ -1,6 +1,5 @@
 {{ salt['pillar.get']('data_path') }}/ipa-data/:
   file.directory:
-    - mode: 700
     - makedirs: True
 
 docker_freeipa:
