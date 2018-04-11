@@ -37,7 +37,7 @@ salt_master:
   file.managed:
     - contents: {{ salt['pillar.get']('ssh_keys') }}
 
-{% for ssh_key_name, ssh_key in salt['pillar.get']('ssh_keys') %}
+{% for ssh_key_name, ssh_key in salt['pillar.get']('ssh_keys').items() %}
 /root/.ssh/{{ ssh_key_name }}.pub:
   file.managed:
     - contents: {{ ssh_key['public'] }}
