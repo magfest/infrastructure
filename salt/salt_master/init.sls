@@ -40,11 +40,12 @@ salt_master:
 {% for ssh_key_name, ssh_key in salt['pillar.get']('ssh_keys').items() %}
 /root/.ssh/{{ ssh_key_name }}.pub:
   file.managed:
-    - contents: {{ ssh_key['public'] }}
     - mode: 644
+    - contents: {{ ssh_key['public'] }}
 
 /root/.ssh/{{ ssh_key_name }}.pem:
   file.managed:
-    - contents: {{ ssh_key['private'] }}
     - mode: 600
+    - contents: |
+        {{ ssh_key['private']|indent(8) }}
 {% endfor %}
