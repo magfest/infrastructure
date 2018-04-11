@@ -14,8 +14,8 @@ docker_freeipa:
     - ports: 53,80,53/udp,88/udp,88,389,443,123/udp,464,636,7389,9443-9445,464/udp
     - hostname: freeipa.{{ salt['pillar.get']('master_domain') }}
     - tmpfs:
-      - /run
-      - /tmp
+      - /run: ''
+      - /tmp: ''
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:freeipa.{{ salt['pillar.get']('master_domain') }}
