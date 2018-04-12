@@ -14,7 +14,7 @@ docker_traefik:
   docker_container.running:
     - name: traefik
     - image: traefik:latest
-    # - auto_remove: True
+    - auto_remove: True
     - watch:
       - file: {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml
     - binds:

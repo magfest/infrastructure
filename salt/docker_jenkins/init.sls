@@ -24,7 +24,7 @@ docker_jenkins:
   docker_container.running:
     - name: jenkins
     - image: jenkinsci/blueocean:latest
-    # - auto_remove: True
+    - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
     - labels:
