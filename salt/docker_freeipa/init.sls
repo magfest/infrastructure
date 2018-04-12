@@ -7,7 +7,7 @@ rng-tools:
 
 docker_freeipa:
   docker_container.running:
-    - name: freeipa.{{ salt['pillar.get']('master_domain') }}
+    - name: freeipa
     - image: freeipa/freeipa-server:latest
     - auto_remove: True
     - binds:
