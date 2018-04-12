@@ -23,8 +23,6 @@ insecureSkipVerify = true
   endpoint = "unix:///var/run/docker.sock"
   watch = true
   exposedbydefault = false
-  [docker.tls]
-    insecureskipverify = true
 
 
 [acme]
@@ -34,7 +32,7 @@ insecureSkipVerify = true
   onDemand = false
   caServer = "https://acme-staging.api.letsencrypt.org/directory"
   entryPoint = "https"
-    [acme.httpChallenge]
+  [acme.httpChallenge]
     entryPoint = "http"
   [[acme.domains]]
     main = "{{ salt['pillar.get']('master_domain') }}"
