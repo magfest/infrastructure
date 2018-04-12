@@ -27,7 +27,6 @@ docker_jenkins:
     # - auto_remove: True
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
-    - hostname: jenkins.{{ salt['pillar.get']('master_domain') }}
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
