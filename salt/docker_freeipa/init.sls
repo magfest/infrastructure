@@ -9,7 +9,7 @@ docker_freeipa:
   docker_container.running:
     - name: freeipa
     - image: freeipa/freeipa-server:latest
-    - auto_remove: True
+    # - auto_remove: True
     - binds:
       - {{ salt['pillar.get']('data_path') }}/ipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
