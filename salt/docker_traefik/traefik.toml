@@ -1,5 +1,6 @@
 logLevel = "DEBUG"
 defaultEntryPoints = ["http", "https"]
+insecureSkipVerify = true
 
 
 [entryPoints]
@@ -22,6 +23,8 @@ defaultEntryPoints = ["http", "https"]
   endpoint = "unix:///var/run/docker.sock"
   watch = true
   exposedbydefault = false
+  [docker.tls]
+    insecureskipverify = true
 
 
 [acme]
