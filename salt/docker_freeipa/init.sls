@@ -23,7 +23,7 @@ docker_freeipa:
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:freeipa.{{ salt['pillar.get']('master_domain') }}
-      - traefik.port=80
+      - traefik.port=443
       - traefik.docker.network=docker_network_internal
     - networks:
       - docker_network_internal
