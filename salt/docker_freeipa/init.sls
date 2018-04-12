@@ -27,8 +27,6 @@ docker_freeipa:
       - traefik.protocol=https
       - traefik.docker.network=docker_network_internal
     - networks:
-      - docker_network_internal:
-        - aliases:
-          - traefik_network
+      - docker_network_internal
     - require:
       - docker_network: docker_network_internal
