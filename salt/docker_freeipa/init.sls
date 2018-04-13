@@ -21,9 +21,9 @@ docker_freeipa:
           --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
           --ds-password={{ salt['pillar.get']('freeipa:ds_password') }}
           --admin-password={{ salt['pillar.get']('freeipa:admin_password') }}
-          --hostname={{ hostname }}
           --no-ntp
           --unattended
+      - IPA_SERVER_HOSTNAME: {{ hostname }}
     - tmpfs:
       - /run: ''
       - /tmp: ''
