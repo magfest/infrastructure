@@ -4,6 +4,7 @@ base:
 
   'not bootstrap':
     - ufw
+    - freeipa_client
 
   'bootstrap or salt-master':
     - swap
