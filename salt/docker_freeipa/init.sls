@@ -1,3 +1,5 @@
+{%- set hostname = 'freeipa.' ~ salt['pillar.get']('master_domain') -%}
+
 rng-tools:
   pkg.installed
 
@@ -14,15 +16,21 @@ docker_freeipa:
       - {{ salt['pillar.get']('data_path') }}/ipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     - ports: 53,80,53/udp,88/udp,88,389,443,123/udp,464,636,7389,9443-9445,464/udp
-    - hostname: freeipa.{{ salt['pillar.get']('master_domain') }}
+    - hostname: {{ hostname }}
     - environment:
-      - IPA_SERVER_INSTALL_OPTS: --realm=MAGFEST.ORG --ds-password=password --admin-password=password --hostname=freeipa.magfest.net --no-ntp --unattended
+      - IPA_SERVER_INSTALL_OPTS: >
+          --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
+          --ds-password={{ salt['pillar.get']('freeipa:ds_password') }}
+          --admin-password={{ salt['pillar.get']('freeipa:admin_password') }}
+          --hostname={{ hostname }}
+          --no-ntp
+          --unattended
     - tmpfs:
       - /run: ''
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:freeipa.{{ salt['pillar.get']('master_domain') }}
+      - traefik.frontend.rule=Host:{{ hostname }}
       - traefik.port=443
       - traefik.protocol=https
       - traefik.docker.network=docker_network_internal
