@@ -15,10 +15,10 @@ insecureSkipVerify = true
     address = ":50000"
   [entryPoints.kerberos]
     address = ":88"
-  [entryPoints.ldap]
-    address = ":389"
   [entryPoints.kerberos_password]
     address = ":464"
+  [entryPoints.ldap]
+    address = ":389"
 
 
 [api]

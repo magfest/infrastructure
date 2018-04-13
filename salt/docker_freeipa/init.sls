@@ -28,11 +28,22 @@ docker_freeipa:
       - /run: ''
       - /tmp: ''
     - labels:
+      - traefik.docker.network=docker_network_internal
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ hostname }}
-      - traefik.port=443
-      - traefik.protocol=https
-      - traefik.docker.network=docker_network_internal
+
+      - traefik.kerberos.frontend.entryPoints=kerberos
+      - traefik.kerberos.port=88
+
+      - traefik.kerberos_password.frontend.entryPoints=kerberos_password
+      - traefik.kerberos_password.port=464
+
+      - traefik.ldap.frontend.entryPoints=ldap
+      - traefik.ldap.port=389
+
+      - traefik.web.frontend.entryPoints=https
+      - traefik.web.port=443
+      - traefik.web.protocol=https
     - networks:
       - docker_network_internal
     - require:
