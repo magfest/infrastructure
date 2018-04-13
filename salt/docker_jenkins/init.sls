@@ -11,7 +11,7 @@ jenkins user:
     - require:
       - group: jenkins
 
-{{ salt['pillar.get']('data_path') }}/jenkins_home/:
+{{ salt['pillar.get']('data_path') }}/jenkins/jenkins_home/:
   file.directory:
     - user: jenkins
     - group: jenkins
@@ -25,7 +25,7 @@ docker_jenkins:
     - name: jenkins
     - image: jenkinsci/blueocean:latest
     - auto_remove: True
-    - binds: {{ salt['pillar.get']('data_path') }}/jenkins_home:/var/jenkins_home
+    - binds: {{ salt['pillar.get']('data_path') }}/jenkins/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
     - labels:
       - traefik.enable=true
