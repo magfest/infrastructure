@@ -12,3 +12,8 @@ coreutils:
       - file /swapfile 2>&1 | grep -q "Linux/i386 swap"
   mount.swap:
     - persist: true
+
+/etc/sysctl.conf swappiness:
+  file.append:
+    - name: /etc/sysctl.conf
+    - text: vm.swappiness = 10

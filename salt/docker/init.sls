@@ -12,8 +12,9 @@ docker repo:
 docker-ce:
   pkg.installed
 
-/etc/sysctl.conf:
+/etc/sysctl.conf ip_forward:
   file.append:
+    - name: /etc/sysctl.conf
     - text: net.ipv4.ip_forward=1
 
 pip install docker:
