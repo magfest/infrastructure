@@ -55,3 +55,5 @@ docker_freeipa:
       - docker_network_internal
     - require:
       - docker_network: docker_network_internal
+    - require_in:
+      - ipa-client-install

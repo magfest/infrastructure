@@ -12,7 +12,8 @@ cd /tmp/infrastructure
 rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret/ ./
 
 # Install SaltStack master and minion
-curl -L https://bootstrap.saltstack.com | sh -s -- -i 'salt-master' -L -M -P git
+curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+sh bootstrap-salt.sh -i 'salt-master' -L -M -P git develop
 
 # Preseed the salt-master's minion key
 salt-key --gen-keys='salt-master'
