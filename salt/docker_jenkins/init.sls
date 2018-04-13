@@ -28,13 +28,14 @@ docker_jenkins:
     - binds: {{ salt['pillar.get']('data_path') }}/jenkins/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
     - labels:
-      - traefik.docker.network=docker_network_internal
       - traefik.enable=true
       - traefik.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
 
+      - traefik.jnlp.docker.network=docker_network_internal
       - traefik.jnlp.frontend.entryPoints=jnlp
       - traefik.jnlp.port=50000
 
+      - traefik.web.docker.network=docker_network_internal
       - traefik.web.frontend.entryPoints=http,https
       - traefik.web.port=8080
     - networks:

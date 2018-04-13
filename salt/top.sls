@@ -9,8 +9,8 @@ base:
   'bootstrap or salt-master':
     - swap
     - pip
-    - salt_master
     - docker
+    - salt_master
 
   'salt-master':
     - salt_cloud

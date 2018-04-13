@@ -14,5 +14,6 @@ ipa-client-install:
         --password=password
         --unattended
         --permit
+    - order: last
     - require:
       - pkg: freeipa-client
