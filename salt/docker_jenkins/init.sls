@@ -33,7 +33,7 @@ docker_jenkins:
       - traefik.web.frontend.entryPoints=http,https
       - traefik.web.port=8080
       - traefik.web.docker.network=docker_network_internal
-      - traefik.jnlp.frontend.entryPoints=jnlp50000
+      - traefik.jnlp.frontend.entryPoints=jnlp
       - traefik.jnlp.port=50000
       - traefik.jnlp.docker.network=docker_network_internal
     - networks:
