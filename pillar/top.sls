@@ -8,3 +8,5 @@ base:
   'salt-master':
     - salt_master
     - digitalocean
+    - letsencrypt
+    - freeipa

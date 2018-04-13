@@ -30,7 +30,7 @@ insecureSkipVerify = true
   storage = "acme.json"
   onHostRule = true
   onDemand = false
-  caServer = "https://acme-staging.api.letsencrypt.org/directory"
+  caServer = "{{ salt['pillar.get']('letsencrypt:ca_server') }}"
   entryPoint = "https"
   [acme.httpChallenge]
     entryPoint = "http"
