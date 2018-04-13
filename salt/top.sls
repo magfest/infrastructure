@@ -5,16 +5,14 @@ base:
   'not bootstrap':
     - ufw
 
-  'bootstrap':
+  'bootstrap or salt-master':
+    - swap
     - pip
     - salt_master
     - docker
 
   'salt-master':
-    - pip
-    - salt_master
     - salt_cloud
-    - docker
     - docker_network_proxy
     - docker_traefik
     - docker_freeipa
