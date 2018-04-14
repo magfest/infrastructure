@@ -17,10 +17,12 @@ docker_freeipa:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     - ports: 80,88,88/udp,123/udp,389,443,464,464/udp,636
     - port_bindings:
-      - 88:88 # kerberos
-      - 464:464 # kerberos_passwd
-      - 389:389 # ldap
-      - 636:636 # ldapssl
+      - 88:88       # kerberos
+      - 88:88/udp   # kerberos
+      - 464:464     # kerberos_passwd
+      - 464:464/udp # kerberos_passwd
+      - 389:389     # ldap
+      - 636:636     # ldapssl
     - environment:
       - IPA_SERVER_INSTALL_OPTS: >
           --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
@@ -35,10 +37,10 @@ docker_freeipa:
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ hostname }}
-      - traefik.docker.network=docker_network_internal
       - traefik.frontend.entryPoints=https
       - traefik.port=443
       - traefik.protocol=https
+      - traefik.docker.network=docker_network_internal
     - networks:
       - docker_network_external
       - docker_network_internal
