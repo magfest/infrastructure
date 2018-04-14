@@ -8,6 +8,7 @@
 {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:
   file.managed:
     - mode: 600
+    - makedirs: True
 
 docker_traefik:
   docker_container.running:
@@ -35,5 +36,7 @@ docker_traefik:
     - require:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
+      - file: {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml
+      - file: {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json
     - require_in:
       - ipa-client-install
