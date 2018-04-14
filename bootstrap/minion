@@ -5,7 +5,19 @@ file_roots:
     - /tmp/infrastructure/salt
     - /tmp/infrastructure-secret/salt
 
-pillar_roots:
-  base:
-    - /tmp/infrastructure/pillar
-    - /tmp/infrastructure-secret/pillar
+#pillar_roots:
+#  base:
+#    - /tmp/infrastructure/pillar
+#    - /tmp/infrastructure-secret/pillar
+
+gitfs_provider: gitpython
+gitfs_base: master
+
+ext_pillar:
+  - git:
+    - master file:///tmp/infrastructure.git
+      - name: github_magfest_infrastructure_pillar
+      - root: pillar
+    - master file://tmp/infrastructure-secret.git:
+      - name: github_magfest_infrastructure_secret_pillar
+      - root: pillar
