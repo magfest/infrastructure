@@ -1,0 +1,11 @@
+id: bootstrap
+
+file_roots:
+  base:
+    - /tmp/infrastructure/salt
+    - /tmp/infrastructure-secret/salt
+
+pillar_roots:
+  base:
+    - /tmp/infrastructure/pillar
+    - /tmp/infrastructure-secret/pillar

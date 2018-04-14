@@ -7,9 +7,8 @@
 git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastructure
 git clone --depth 1 https://github.com/magfest/infrastructure-secret.git /tmp/infrastructure-secret
 
-# Copy the secrets into our temp infrastructure dir
-cd /tmp/infrastructure
-rsync -avh --progress --ignore-existing --exclude '.git' /tmp/infrastructure-secret/ ./
+# Change into our temp infrastructure bootstrap dir
+cd /tmp/infrastructure/bootstrap
 
 # Install SaltStack master and minion
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
@@ -22,7 +21,7 @@ cp salt-master.pem /etc/salt/pki/minion/minion.pem
 cp salt-master.pub /etc/salt/pki/minion/minion.pub
 
 # Run salt locally to configure a minimal salt-master
-salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate
+salt-call --local --config-dir=/tmp/infrastructure/bootstrap state.highstate
 
 # Restart the services
 /etc/init.d/salt-master restart
