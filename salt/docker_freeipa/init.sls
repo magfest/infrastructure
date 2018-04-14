@@ -47,5 +47,7 @@ docker_freeipa:
     - require:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
+      - pkg: rng-tools
+      - file: {{ salt['pillar.get']('data_path') }}/freeipa/ipa-data/
     - require_in:
       - ipa-client-install
