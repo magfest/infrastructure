@@ -13,6 +13,14 @@ insecureSkipVerify = true
     [entryPoints.https.tls]
   [entryPoints.jnlp]
     address = ":50000"
+  [entryPoints.kerberos]
+    address = ":88"
+  [entryPoints.kerberos_passwd]
+    address = ":464"
+  [entryPoints.ldap]
+    address = ":389"
+  [entryPoints.ldapssl]
+    address = ":636"
 
 
 [api]
