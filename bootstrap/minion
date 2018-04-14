@@ -15,9 +15,9 @@ gitfs_base: master
 
 ext_pillar:
   - git:
-    - master file:///tmp/infrastructure:
+    - master https://github.com/magfest/infrastructure.git:
       - name: github_magfest_infrastructure_pillar
       - root: pillar
-    - master file:///tmp/infrastructure-secret:
+    - master git@github_infrastructure_secret:magfest/infrastructure-secret.git:
       - name: github_magfest_infrastructure_secret_pillar
       - root: pillar
