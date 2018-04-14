@@ -19,22 +19,22 @@ ufw:
       protocol: tcp
     https:
       protocol: tcp
-    53:
+    # 53: # dns
+    #   protocol: any
+    88: # kerberos
       protocol: any
-    88:
+    464: # kerberos_passwd
       protocol: any
-    123:
-      protocol: udp
-    389:
+    389: # ldap
       protocol: tcp
-    464:
-      protocol: any
-    636:
+    636: # ldapssl
       protocol: tcp
-    7389:
-      protocol: tcp
-    "9443:9445":
-      protocol: tcp
+    # 123: # ntp
+    #   protocol: udp
+    # 7389: # freeipa_replica
+    #   protocol: tcp
+    # "9443:9445": # freeipa_replica_config
+    #   protocol: tcp
 
   sysctl:
     forwarding: 1

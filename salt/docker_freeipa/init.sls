@@ -15,7 +15,7 @@ docker_freeipa:
     - binds:
       - {{ salt['pillar.get']('data_path') }}/freeipa/ipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    - ports: 53,80,53/udp,88/udp,88,389,443,123/udp,464,636,7389,9443-9445,464/udp
+    - ports: 80,88,88/udp,123/udp,389,443,464,464/udp,636
     - environment:
       - IPA_SERVER_INSTALL_OPTS: >
           --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
@@ -31,19 +31,19 @@ docker_freeipa:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ hostname }}
 
-      - traefik.kerberos.docker.network=docker_network_internal
+      - traefik.kerberos.docker.network=docker_network_external
       - traefik.kerberos.frontend.entryPoints=kerberos
       - traefik.kerberos.port=88
 
-      - traefik.kerberos_passwd.docker.network=docker_network_internal
+      - traefik.kerberos_passwd.docker.network=docker_network_external
       - traefik.kerberos_passwd.frontend.entryPoints=kerberos_passwd
       - traefik.kerberos_passwd.port=464
 
-      - traefik.ldap.docker.network=docker_network_internal
+      - traefik.ldap.docker.network=docker_network_external
       - traefik.ldap.frontend.entryPoints=ldap
       - traefik.ldap.port=389
 
-      - traefik.ldapssl.docker.network=docker_network_internal
+      - traefik.ldapssl.docker.network=docker_network_external
       - traefik.ldapssl.frontend.entryPoints=ldapssl
       - traefik.ldapssl.port=636
 
@@ -52,8 +52,10 @@ docker_freeipa:
       - traefik.web.port=443
       - traefik.web.protocol=https
     - networks:
+      - docker_network_external
       - docker_network_internal
     - require:
+      - docker_network: docker_network_external
       - docker_network: docker_network_internal
     - require_in:
       - ipa-client-install
