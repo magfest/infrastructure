@@ -3,21 +3,8 @@ id: bootstrap
 file_roots:
   base:
     - /tmp/infrastructure/salt
-    - /tmp/infrastructure-secret/salt
 
-#pillar_roots:
-#  base:
-#    - /tmp/infrastructure/pillar
-#    - /tmp/infrastructure-secret/pillar
-
-gitfs_provider: gitpython
-gitfs_base: master
-
-ext_pillar:
-  - git:
-    - master https://github.com/magfest/infrastructure.git:
-      - name: github_magfest_infrastructure_pillar
-      - root: pillar
-    - master git@github_infrastructure_secret:magfest/infrastructure-secret.git:
-      - name: github_magfest_infrastructure_secret_pillar
-      - root: pillar
+pillar_roots:
+  base:
+    - /tmp/infrastructure/pillar
+    - /tmp/infrastructure-secret/pillar

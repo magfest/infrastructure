@@ -2,11 +2,13 @@ base:
   '*':
     - defaults
 
-  'bootstrap':
+  'bootstrap or salt-master':
     - salt_master
+    - salt_master_secret
 
   'salt-master':
-    - salt_master
     - digitalocean
+    - digitalocean_secret
     - letsencrypt
     - freeipa
+    - freeipa_secret
