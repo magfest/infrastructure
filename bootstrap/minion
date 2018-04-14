@@ -18,6 +18,6 @@ ext_pillar:
     - master file:///tmp/infrastructure.git:
       - name: github_magfest_infrastructure_pillar
       - root: pillar
-    - master file://tmp/infrastructure-secret.git:
+    - master file:///tmp/infrastructure-secret.git:
       - name: github_magfest_infrastructure_secret_pillar
       - root: pillar
