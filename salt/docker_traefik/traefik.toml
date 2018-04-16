@@ -1,4 +1,4 @@
-{%- letsencrypt_ca_server = salt['pillar.get']('letsencrypt:ca_server') -%}
+{%- set letsencrypt_ca_server = salt['pillar.get']('letsencrypt:ca_server') -%}
 
 logLevel = "DEBUG"
 defaultEntryPoints = ["http", "https"]
