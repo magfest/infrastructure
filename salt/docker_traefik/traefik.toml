@@ -1,3 +1,5 @@
+{%- letsencrypt_ca_server = salt['pillar.get']('letsencrypt:ca_server') -%}
+
 logLevel = "DEBUG"
 defaultEntryPoints = ["http", "https"]
 insecureSkipVerify = true
@@ -30,7 +32,7 @@ insecureSkipVerify = true
   storage = "acme.json"
   onHostRule = true
   onDemand = false
-  caServer = "{{ salt['pillar.get']('letsencrypt:ca_server') }}"
+  {% if letsencrypt_ca_server %}caServer = "{{ letsencrypt_ca_server }}"{% endif %}
   entryPoint = "https"
   [acme.httpChallenge]
     entryPoint = "http"
