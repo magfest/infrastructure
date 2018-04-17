@@ -1,8 +1,3 @@
-{{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/certs/:
-  file.directory:
-    - mode: 600
-    - makedirs: True
-
 {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:
   file.managed:
     - source: salt://docker_traefik/traefik.toml
@@ -24,7 +19,6 @@ docker_traefik:
       - file: {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml
     - binds:
       - /var/run/docker.sock:/var/run/docker.sock
-      - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/certs:/certs
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:/traefik.toml
       - {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json:/acme.json
     - ports: 80,443

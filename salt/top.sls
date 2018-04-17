@@ -4,7 +4,7 @@ base:
 
   'not bootstrap':
     - ufw
-    - freeipa_client
+    # - freeipa_client
 
   'bootstrap or salt-master':
     - swap
@@ -16,5 +16,7 @@ base:
     - salt_cloud
     - docker_network_proxy
     - docker_traefik
-    - docker_freeipa
     - docker_jenkins
+
+  'freeipa*':
+    - docker_freeipa

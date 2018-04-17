@@ -10,5 +10,11 @@ base:
     - digitalocean
     - digitalocean_secret
     - letsencrypt
+
+  'freeipa*':
     - freeipa
     - freeipa_secret
+
+  'freeipa-replica':
+    - freeipa_replica
+    - freeipa_replica_secret
