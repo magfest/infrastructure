@@ -1,13 +1,18 @@
+minion_id: freeipa
+
 freeipa:
   realm: 'magfest.org'
   ds_password: 'password'
   admin_password: 'password'
+  hostname: 'ipa-01.magfest.net'
   install_opts: >
     --realm=MAGFEST.ORG
+    --domain=ipa.magfest.net
     --ds-password=password
     --admin-password=password
     --no-ntp
     --unattended
+
 
 ufw:
   enabled:

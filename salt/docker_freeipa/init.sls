@@ -1,5 +1,3 @@
-{%- set hostname = 'freeipa.' ~ salt['pillar.get']('master_domain') -%}
-
 rng-tools:
   pkg.installed
 
