@@ -13,6 +13,10 @@ insecureSkipVerify = true
   [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
+      # Default cert to use when no SNI match is found
+      [[entryPoints.https.tls.certificates]]
+        certFile = "/certs/fullchain.pem"
+        keyFile = "/certs/privkey.pem"
   [entryPoints.jnlp]
     address = ":50000"
 
