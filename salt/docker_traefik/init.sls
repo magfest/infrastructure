@@ -1,5 +1,5 @@
 {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/certs/:
-  file.managed:
+  file.directory:
     - mode: 600
     - makedirs: True
 
