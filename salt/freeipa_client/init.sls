@@ -5,7 +5,6 @@ ipa-client-install:
   cmd.run:
     - name: >
         ipa-client-install
-        --mkhomedir
         --domain=freeipa.magfest.net
         --server=freeipa.magfest.net
         --realm=MAGFEST.ORG
@@ -13,6 +12,7 @@ ipa-client-install:
         --principal=admin
         --password=password
         --unattended
-        --permit
+        --mkhomedir
+        --no-ntp
     - require:
       - pkg: freeipa-client
