@@ -32,5 +32,6 @@ docker_freeipa:
     - require:
       - pkg: rng-tools
       - file: {{ salt['pillar.get']('data_path') }}/freeipa/ipa-data/
+      - sls: docker
     - require_in:
       - ipa-client-install
