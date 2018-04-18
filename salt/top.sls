@@ -19,7 +19,4 @@ base:
     - docker_jenkins
 
   'freeipa*':
-    - swap
-    - pip
-    - docker
     - docker_freeipa
