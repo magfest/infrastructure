@@ -1,16 +1,3 @@
-/etc/salt/master:
-  file.managed:
-    - source: salt://salt_master/salt_master.conf
-    - mode: 644
-    - template: jinja
-    - makedirs: True
-
-/srv/reactor/sync_grains.sls:
-  file.managed:
-    - source: salt://salt_master/sync_grains.sls
-    - mode: 644
-    - makedirs: True
-
 salt_master:
   pkg.installed:
     - name: salt-master
@@ -20,6 +7,12 @@ salt_master:
       - pkg: salt-master
     - watch:
       - file: /etc/salt/master
+
+/etc/salt/master:
+  file.managed:
+    - source: salt://salt_master/salt_master.conf
+    - mode: 644
+    - template: jinja
 
 /root/.ssh/config:
   file.managed:

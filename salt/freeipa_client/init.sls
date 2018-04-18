@@ -5,10 +5,10 @@ ipa-client-install:
   cmd.run:
     - name: >
         ipa-client-install
-        --domain=ipa.magfest.net
-        --server=ipa-01.magfest.net
-        --server=ipa-02.magfest.net
+        --domain=freeipa.magfest.net
+        --server=freeipa.magfest.net
         --realm=MAGFEST.ORG
+        --fixed-primary
         --principal=admin
         --password=password
         --unattended

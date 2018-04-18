@@ -13,8 +13,12 @@ insecureSkipVerify = true
   [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
-  # [entryPoints.jnlp]
-  #   address = ":50000"
+      # Default cert to use when no SNI match is found
+      [[entryPoints.https.tls.certificates]]
+        certFile = "/certs/fullchain.pem"
+        keyFile = "/certs/privkey.pem"
+  [entryPoints.jnlp]
+    address = ":50000"
 
 
 [api]
@@ -39,6 +43,6 @@ insecureSkipVerify = true
   [[acme.domains]]
     main = "{{ salt['pillar.get']('master_domain') }}"
     sans = [
-  {%- for domain in ['directory', 'errbot', 'jenkins'] -%}
+  {%- for domain in ['errbot', 'freeipa', 'jenkins'] -%}
     "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]
