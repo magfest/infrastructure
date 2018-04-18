@@ -1,9 +1,8 @@
 master_address: 127.0.0.1
 minion_id: salt-master
-
+data_path: /srv/volumes/data
 
 ssh_keys: {}
-
 
 ufw:
   enabled:

@@ -1,9 +1,7 @@
 {%- set master_domain = 'magfest.net' -%}
 
-data_path: /srv/volumes/data
-master_address: saltmaster.{{ master_domain }}
 master_domain: {{ master_domain }}
-
+master_address: saltmaster.{{ master_domain }}
 
 mine_functions:
   external_ip:
@@ -12,7 +10,6 @@ mine_functions:
   internal_ip:
     - mine_function: network.interface_ip
     - eth1
-
 
 ufw:
   enabled:
