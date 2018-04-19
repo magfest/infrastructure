@@ -4,7 +4,7 @@
     - makedirs: True
 
 /srv/secret/pillar/ git init:
-  git.preset:
+  git.present:
     - name: /srv/secret/pillar/
     - bare: False
 
@@ -43,9 +43,8 @@ salt_master:
     - require_in:
       - sls: salt_minion
 
-/root/.ssh/config:
-  file.managed:
-    - source: salt://salt_master/ssh_config
+/root/.ssh/:
+  file.directory:
     - mode: 644
     - makedirs: True
 
