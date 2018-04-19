@@ -13,8 +13,8 @@ freeipa default_cert.crt:
         -n 'Server-Cert'
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/default_cert.crt
-    - watch:
-      - file: {{ freeipa_certs_dir }}/cert8.db
+    - creates:
+      - file: {{ freeipa_certs_dir }}/default_cert.crt
 
 freeipa default_key.p12:
   cmd.run:
@@ -25,8 +25,8 @@ freeipa default_key.p12:
         -d {{ freeipa_certs_dir }}
         -k {{ freeipa_certs_dir }}/pwdfile.txt
         -o {{ freeipa_certs_dir }}/default_key.p12
-    - watch:
-      - file: {{ freeipa_certs_dir }}/default_cert.crt
+    - creates:
+      - file: {{ freeipa_certs_dir }}/default_key.p12
 
 freeipa default_key.pem:
   cmd.run:
@@ -36,5 +36,5 @@ freeipa default_key.pem:
         -nodes
         -in {{ freeipa_certs_dir }}/default_key.p12
         -out {{ freeipa_certs_dir }}/default_key.pem
-    - watch:
-      - file: {{ freeipa_certs_dir }}/default_key.p12
+    - creates:
+      - file: {{ freeipa_certs_dir }}/default_key.pem
