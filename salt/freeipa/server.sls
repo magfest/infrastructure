@@ -34,9 +34,9 @@ freeipa:
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:directory.{{ domain }},ipa-01.{{ domain }}
+      - traefik.frontend.rule=Host:ipa-01.{{ domain }},directory.{{ domain }}
       - traefik.frontend.entryPoints=http,https
-      - traefik.host=ipa-01.{{ domain }}
+      - traefik.domain=ipa-01.{{ domain }}
       - traefik.port=443
       - traefik.protocol=https
       - traefik.docker.network=docker_network_internal
