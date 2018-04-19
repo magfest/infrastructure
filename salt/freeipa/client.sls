@@ -6,8 +6,8 @@ ipa-client-install:
   cmd.run:
     - name: >
         ipa-client-install
-        --domain={{ salt['pillar.get']('freeipa_client:realm')|lower }}
-        --realm={{ salt['pillar.get']('freeipa_client:realm')|upper }}
+        --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
+        --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
         --principle=admin
         --password={{ salt['pillar.get']('freeipa_client:admin_password') }}
         --mkhomedir

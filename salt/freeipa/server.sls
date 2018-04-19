@@ -24,8 +24,8 @@ freeipa:
       - IPA_SERVER_INSTALL_OPTS: >
           --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
           --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
-          --ds-password={{ salt['pillar.get']('freeipa:ds_password') }}
-          --admin-password={{ salt['pillar.get']('freeipa:admin_password') }}
+          --ds-password={{ salt['pillar.get']('freeipa_server:ds_password') }}
+          --admin-password={{ salt['pillar.get']('freeipa_client:admin_password') }}
           --no-ntp
           --unattended
       - IPA_SERVER_HOSTNAME: {{ hostname }}

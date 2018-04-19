@@ -10,6 +10,5 @@ base:
 
   'mcp':
     - digitalocean_secret
-    - freeipa
-    - freeipa_secret
+    - freeipa_server_secret
     - mcp_secret
