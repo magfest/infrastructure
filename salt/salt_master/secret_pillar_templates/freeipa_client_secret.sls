@@ -1,4 +1,4 @@
-{%- set admin_password = salt["random.get_str"](14) -%}
+{%- from 'salt://salt_master/secret_pillar_templates/freeipa_secret.sls' import admin_password -%}
 
 freeipa_client:
   realm: 'magfest.org'
