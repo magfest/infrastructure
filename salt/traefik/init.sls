@@ -5,7 +5,7 @@
 
 {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml:
   file.managed:
-    - source: salt://docker_traefik/traefik.toml
+    - source: salt://traefik/traefik.toml
     - mode: 644
     - makedirs: True
     - template: jinja
