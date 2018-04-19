@@ -14,5 +14,6 @@ ipa-client-install:
         --no-ntp
         --force-join
         --unattended
+    - creates: /etc/ipa/default.conf
     - require:
       - pkg: freeipa-client
