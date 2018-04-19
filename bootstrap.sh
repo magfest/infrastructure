@@ -20,7 +20,7 @@ cp mcp.pem /etc/salt/pki/minion/minion.pem
 cp mcp.pub /etc/salt/pki/minion/minion.pub
 
 # Run salt locally to configure a minimal mcp
-salt-call --local --file_root=./salt --pillar_root=./pillar state.highstate
+salt-call --local --file-root=./salt --pillar-root=./pillar state.highstate
 
 # Restart the services
 /etc/init.d/salt-master restart

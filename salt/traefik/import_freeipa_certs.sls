@@ -8,7 +8,7 @@ traefik default_cert.crt:
     - makedirs: True
     - force: True
     - onchanges:
-      - file: {{ freeipa_certs_dir }}/default_cert.crt
+      - sls: freeipa.export_certs
 
 traefik default_key.pem:
   file.copy:
@@ -17,4 +17,4 @@ traefik default_key.pem:
     - makedirs: True
     - force: True
     - onchanges:
-      - file: {{ freeipa_certs_dir }}/default_key.pem
+      - sls: freeipa.export_certs
