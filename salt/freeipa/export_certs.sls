@@ -4,9 +4,6 @@ libnss3-tools install:
   pkg.installed:
     - name: libnss3-tools
 
-{{ freeipa_certs_dir }}:
-  file.directory
-
 freeipa default_cert.crt:
   cmd.run:
     - name: >
@@ -16,8 +13,10 @@ freeipa default_cert.crt:
         -n 'Server-Cert'
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/default_cert.crt
-    - watch:
-      - file: {{ freeipa_certs_dir }}*.db
+    - onchanges_any:
+      - file: {{ freeipa_certs_dir }}/cert8.db
+      - file: {{ freeipa_certs_dir }}/key3.db
+      - file: {{ freeipa_certs_dir }}/secmod.db
 
 freeipa default_key.p12:
   cmd.run:
