@@ -34,7 +34,7 @@ traefik:
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:traefik.{{ salt['pillar.get']('master_domain') }}
-      - traefik.frontend.entryPoints=https
+      - traefik.frontend.entryPoints=http,https
       - traefik.port=8080
       - traefik.docker.network=docker_network_internal
     - networks:

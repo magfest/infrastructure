@@ -32,8 +32,9 @@ freeipa:
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:directory.{{ salt['pillar.get']('master_domain') }}
-      - traefik.frontend.entryPoints=https
+      - traefik.frontend.rule=Host:ipa-01.{{ salt['pillar.get']('master_domain') }},directory.{{ salt['pillar.get']('master_domain') }}
+      - traefik.frontend.entryPoints=http,https
+      # - traefik.frontend.passHostHeader=true
       - traefik.port=443
       - traefik.protocol=https
       - traefik.docker.network=docker_network_internal
