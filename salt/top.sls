@@ -7,7 +7,7 @@ base:
     - ufw
     - freeipa.client
 
-  'bootstrap or mcp':
+  'mcp or bootstrap':
     - rng_tools
     - pip
     - docker

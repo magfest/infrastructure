@@ -4,6 +4,7 @@
 # used to manage the entire MAGFest IT infrastructure.
 
 # Download the infrastructure code
+rm -rf /tmp/infrastructure
 git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastructure
 
 # Change into our temp infrastructure bootstrap dir
@@ -20,7 +21,7 @@ cp mcp.pem /etc/salt/pki/minion/minion.pem
 cp mcp.pub /etc/salt/pki/minion/minion.pub
 
 # Run salt locally to configure a minimal mcp
-salt-call --local --file-root=./salt --pillar-root=./pillar state.highstate
+salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate
 
 # Restart the services
 /etc/init.d/salt-master restart
