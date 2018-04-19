@@ -8,7 +8,7 @@ ipa-client-install:
         ipa-client-install
         --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
         --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
-        --principle=admin
+        --principal=admin
         --password={{ salt['pillar.get']('freeipa_client:admin_password') }}
         --mkhomedir
         --no-ntp
