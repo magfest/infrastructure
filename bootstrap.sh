@@ -7,7 +7,7 @@
 git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastructure
 
 # Change into our temp infrastructure bootstrap dir
-cd /tmp/infrastructure/bootstrap
+cd /tmp/infrastructure
 
 # Install SaltStack master and minion
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
@@ -32,7 +32,3 @@ sleep 10
 # Tell mcp's minion to fully configure itself
 salt 'mcp' test.ping
 salt 'mcp' state.highstate
-
-# Cleanup
-cd ~
-rm -rf /tmp/infrastructure
