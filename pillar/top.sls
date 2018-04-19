@@ -1,14 +1,7 @@
 base:
   '*':
     - defaults
-
-  'not bootstrap':
-    - freeipa_client_secret
+    - freeipa
 
   'mcp or bootstrap':
     - mcp
-
-  'mcp':
-    - digitalocean_secret
-    - freeipa_server_secret
-    - mcp_secret
