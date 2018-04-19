@@ -17,12 +17,16 @@
     - makedirs: True
     - replace: False
     - template: jinja
+    - require:
+      - git: /srv/secret/pillar/
 
 /srv/secret/pillar/README.md:
   file.managed:
     - source: salt://salt_master/secret_pillar_templates/README.md
     - mode: 600
     - template: jinja
+    - require:
+      - git: /srv/secret/pillar/
 
 /etc/salt/master:
   file.managed:
