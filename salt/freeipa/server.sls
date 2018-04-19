@@ -36,8 +36,6 @@ freeipa:
       - traefik.enable=true
       - traefik.frontend.rule=Host:ipa-01.{{ domain }},directory.{{ domain }}
       - traefik.frontend.entryPoints=http,https
-      - traefik.frontend.passHostHeader=false
-      - traefik.frontend.headers.customRequestHeaders=Host:ipa-01.{{ domain }}
       - traefik.port=443
       - traefik.protocol=https
       - traefik.docker.network=docker_network_internal
