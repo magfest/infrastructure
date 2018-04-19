@@ -13,7 +13,7 @@ freeipa default_cert.crt:
         -n 'Server-Cert'
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/default_cert.crt
-    - onchanges:
+    - watch:
       - file: {{ freeipa_certs_dir }}/cert8.db
 
 freeipa default_key.p12:
@@ -25,7 +25,7 @@ freeipa default_key.p12:
         -d {{ freeipa_certs_dir }}
         -k {{ freeipa_certs_dir }}/pwdfile.txt
         -o {{ freeipa_certs_dir }}/default_key.p12
-    - onchanges:
+    - watch:
       - file: {{ freeipa_certs_dir }}/default_cert.crt
 
 freeipa default_key.pem:
@@ -36,5 +36,5 @@ freeipa default_key.pem:
         -nodes
         -in {{ freeipa_certs_dir }}/default_key.p12
         -out {{ freeipa_certs_dir }}/default_key.pem
-    - onchanges:
+    - watch:
       - file: {{ freeipa_certs_dir }}/default_key.p12
