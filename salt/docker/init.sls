@@ -9,8 +9,9 @@ docker repo:
     - gpgcheck: 1
     - key_url: https://download.docker.com/linux/ubuntu/gpg
 
-docker-ce:
-  pkg.installed
+docker-ce install:
+  pkg.installed:
+    - name: docker-ce
 
 /etc/sysctl.conf ip_forward:
   file.append:

@@ -20,7 +20,7 @@ jenkins user:
     - require:
       - user: jenkins
 
-docker_jenkins:
+jenkins:
   docker_container.running:
     - name: jenkins
     - image: jenkinsci/blueocean:latest
@@ -29,15 +29,10 @@ docker_jenkins:
     - ports: 8080,50000
     - labels:
       - traefik.enable=true
+      - traefik.docker.network=docker_network_internal
+      - traefik.frontend.entryPoints=http,https
       - traefik.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
-
-      - traefik.jnlp.docker.network=docker_network_internal
-      - traefik.jnlp.frontend.entryPoints=jnlp
-      - traefik.jnlp.port=50000
-
-      - traefik.web.docker.network=docker_network_internal
-      - traefik.web.frontend.entryPoints=http,https
-      - traefik.web.port=8080
+      - traefik.port=8080
     - networks:
       - docker_network_internal
     - require:

@@ -1,20 +1,23 @@
 base:
   '*':
-    - defaults
+    - salt_minion
+    - swap
 
   'not bootstrap':
     - ufw
-    - freeipa_client
+    - freeipa.client
 
-  'bootstrap or salt-master':
-    - swap
+  'bootstrap or mcp':
+    - rng_tools
     - pip
     - docker
     - salt_master
 
-  'salt-master':
+  'mcp':
     - salt_cloud
     - docker_network_proxy
-    - docker_traefik
-    - docker_freeipa
-    - docker_jenkins
+    - jenkins
+    - freeipa.server
+    - freeipa.export_certs
+    - traefik.import_freeipa_certs
+    - traefik

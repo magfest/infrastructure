@@ -11,7 +11,7 @@ Creating a salt-master control server should only need to be done rarely—ideal
   * Add the following SSH Keys: "Saltmaster", "Rob Ruana", and "DomMCP"
 2. By default the salt-minions will attempt to connect to `saltmaster.magfest.net`, so the DNS entry for `saltmaster.magfest.net` on https://dnsmadeeasy.com should be updated to point to the new droplet's **Private IP**
 3. SSH to the new server
-4. If applicable, follow Digital Ocean's intructions for configuring and mounting your block storage volume on `/srv/volumes/data`.
+4. If applicable, follow Digital Ocean's instructions for configuring and mounting your block storage volume on `/srv/volumes/data`.
   * If you're adding a _new_ volume, you'll need to format the volume. As root/sudo run:
 ```
 mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01
@@ -26,4 +26,3 @@ echo /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/volumes/data ext4 defau
 ```
 curl -L https://github.com/magfest/infrastructure/raw/master/bootstrap.sh | sh
 ```
-6. Enter your GitHub credentials when prompted. If you skip this, or do not have access to https://github.com/magfest/infrastructure-secret, the new salt-master server will not be able to automatically provision new Digital Ocean servers

@@ -1,14 +1,13 @@
 base:
   '*':
     - defaults
+    - freeipa_client_secret
 
-  'bootstrap or salt-master':
-    - salt_master
-    - salt_master_secret
+  'bootstrap or mcp':
+    - mcp
+    - mcp_secret
 
-  'salt-master':
-    - digitalocean
+  'mcp':
     - digitalocean_secret
-    - letsencrypt
     - freeipa
     - freeipa_secret

@@ -1,5 +1,5 @@
 digitalocean:
   personal_access_token: ''
-  ssh_key_names: ''
+  ssh_key_names: 'Saltmaster'
   public_key: ''
   private_key: ''

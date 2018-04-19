@@ -1,5 +1,5 @@
 master_address: 127.0.0.1
-minion_id: salt-master
+minion_id: mcp
 data_path: /srv/volumes/data
 
 ssh_keys: {}
@@ -23,7 +23,7 @@ ufw:
     #   protocol: any
     88: # kerberos
       protocol: any
-    464: # kerberos_passwd
+    464: # kpasswd
       protocol: any
     389: # ldap
       protocol: tcp

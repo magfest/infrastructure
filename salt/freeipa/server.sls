@@ -1,13 +1,10 @@
-{%- set hostname = 'freeipa.' ~ salt['pillar.get']('master_domain') -%}
-
-rng-tools:
-  pkg.installed
+{%- set hostname = 'ipa-01.' ~ salt['pillar.get']('master_domain') -%}
 
 {{ salt['pillar.get']('data_path') }}/freeipa/ipa-data/:
   file.directory:
     - makedirs: True
 
-docker_freeipa:
+freeipa:
   docker_container.running:
     - name: freeipa
     - image: freeipa/freeipa-server:latest
@@ -19,12 +16,13 @@ docker_freeipa:
     - port_bindings:
       - 88:88       # kerberos
       - 88:88/udp   # kerberos
-      - 464:464     # kerberos_passwd
-      - 464:464/udp # kerberos_passwd
+      - 464:464     # kpasswd
+      - 464:464/udp # kpasswd
       - 389:389     # ldap
       - 636:636     # ldapssl
     - environment:
       - IPA_SERVER_INSTALL_OPTS: >
+          --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
           --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
           --ds-password={{ salt['pillar.get']('freeipa:ds_password') }}
           --admin-password={{ salt['pillar.get']('freeipa:admin_password') }}

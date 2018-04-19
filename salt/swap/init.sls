@@ -1,5 +1,6 @@
-coreutils:
-  pkg.installed
+coreutils install:
+  pkg.installed:
+    - name: coreutils
 
 /swapfile:
   cmd.run:

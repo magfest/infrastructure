@@ -1,3 +1,36 @@
+/srv/secret/pillar/:
+  file.directory:
+    - mode: 700
+    - makedirs: True
+
+/srv/secret/pillar/ git init:
+  git.preset:
+    - name: /srv/secret/pillar/
+    - bare: False
+
+/srv/secret/pillar/ templates:
+  file.recurse:
+    - name: /srv/secret/pillar/
+    - source: salt://salt_master/secret_pillar_templates
+    - dir_mode: 700
+    - file_mode: 600
+    - makedirs: True
+    - replace: False
+    - template: jinja
+
+/srv/secret/pillar/README.md:
+  file.managed:
+    - source: salt://salt_master/secret_pillar_templates/README.md
+    - mode: 600
+    - template: jinja
+
+/etc/salt/master:
+  file.managed:
+    - source: salt://salt_master/salt_master.conf
+    - mode: 644
+    - makedirs: True
+    - template: jinja
+
 salt_master:
   pkg.installed:
     - name: salt-master
@@ -5,14 +38,10 @@ salt_master:
     - name: salt-master
     - require:
       - pkg: salt-master
-    - watch:
+    - onchanges:
       - file: /etc/salt/master
-
-/etc/salt/master:
-  file.managed:
-    - source: salt://salt_master/salt_master.conf
-    - mode: 644
-    - template: jinja
+    - require_in:
+      - sls: salt_minion
 
 /root/.ssh/config:
   file.managed:

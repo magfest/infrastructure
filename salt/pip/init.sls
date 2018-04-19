@@ -1,2 +1,3 @@
-python-pip:
-  pkg.installed
+python-pip install:
+  pkg.installed:
+    - name: python-pip

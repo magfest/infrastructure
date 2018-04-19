@@ -1,2 +1,0 @@
-letsencrypt:
-  ca_server: ''

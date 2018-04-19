@@ -1,3 +1,0 @@
-Host github_infrastructure_secret
-  HostName github.com
-  IdentityFile /root/.ssh/github_infrastructure_secret.pem

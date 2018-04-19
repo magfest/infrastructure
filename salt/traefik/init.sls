@@ -15,7 +15,7 @@
     - mode: 600
     - makedirs: True
 
-docker_traefik:
+traefik:
   docker_container.running:
     - name: traefik
     - image: traefik:latest

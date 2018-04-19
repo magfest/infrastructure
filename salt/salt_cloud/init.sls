@@ -1,7 +1,3 @@
-salt_cloud:
-  pkg.installed:
-    - name: salt-cloud
-
 /etc/salt/cloud:
   file.managed:
     - source: salt://salt_cloud/salt_cloud.conf
@@ -33,3 +29,7 @@ salt_cloud:
     - source: salt://salt_cloud/digitalocean.conf
     - mode: 644
     - template: jinja
+
+salt-cloud install:
+  pkg.installed:
+    - name: salt-cloud
