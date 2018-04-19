@@ -29,10 +29,10 @@ jenkins:
     - ports: 8080,50000
     - labels:
       - traefik.enable=true
-      - traefik.docker.network=docker_network_internal
-      - traefik.frontend.entryPoints=http,https
       - traefik.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
+      - traefik.frontend.entryPoints=https
       - traefik.port=8080
+      - traefik.docker.network=docker_network_internal
     - networks:
       - docker_network_internal
     - require:

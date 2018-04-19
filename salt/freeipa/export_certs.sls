@@ -13,7 +13,7 @@ freeipa default_cert.crt:
         -n 'Server-Cert'
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/default_cert.crt
-    - onchanges:
+    - watch:
       - file: {{ freeipa_certs_dir }}/*.db
 
 freeipa default_key.p12:
