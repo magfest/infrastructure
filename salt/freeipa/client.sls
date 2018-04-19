@@ -12,6 +12,7 @@ ipa-client-install:
         --password={{ salt['pillar.get']('freeipa_client:admin_password') }}
         --mkhomedir
         --no-ntp
+        --force-join
         --unattended
     - require:
       - pkg: freeipa-client
