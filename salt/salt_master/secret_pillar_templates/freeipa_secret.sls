@@ -1,4 +1,4 @@
-{%- set admin_password = salt["random.get_str"](14) -%}
+{%- from 'freeipa_client_secret.sls' import admin_password -%}
 
 freeipa:
   ds_password: '{{ salt["random.get_str"](24) }}'
