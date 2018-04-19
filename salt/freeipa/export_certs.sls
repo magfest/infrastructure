@@ -32,6 +32,7 @@ freeipa default_key.pem:
         openssl
         pkcs12
         -nodes
+        -passin pass:
         -in {{ freeipa_certs_dir }}/default_key.p12
         -out {{ freeipa_certs_dir }}/default_key.pem
     - creates: {{ freeipa_certs_dir }}/default_key.pem
