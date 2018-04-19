@@ -1,20 +1,25 @@
+{%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
 {%- set freeipa_certs_dir = salt['pillar.get']('data_path') ~ '/freeipa/ipa-data/etc/httpd/alias' -%}
 {%- set traefik_certs_dir = salt['pillar.get']('data_path') ~ '/traefik/etc/traefik/certs' -%}
 
-traefik default_cert.crt:
+traefik {{ freeipa_hostname }}.cert:
   file.copy:
-    - name: {{ traefik_certs_dir }}/default_cert.crt
-    - source: {{ freeipa_certs_dir }}/default_cert.crt
+    - name: {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert
+    - source: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - makedirs: True
     - force: True
     - onchanges:
       - sls: freeipa.export_certs
+    - require_in:
+      - sls: ipa-client-install
 
-traefik default_key.pem:
+traefik {{ freeipa_hostname }}.key:
   file.copy:
-    - name: {{ traefik_certs_dir }}/default_key.pem
-    - source: {{ freeipa_certs_dir }}/default_key.pem
+    - name: {{ traefik_certs_dir }}/{{ freeipa_hostname }}.key
+    - source: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
     - makedirs: True
     - force: True
     - onchanges:
       - sls: freeipa.export_certs
+    - require_in:
+      - sls: ipa-client-install

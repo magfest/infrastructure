@@ -27,9 +27,11 @@ salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.h
 /etc/init.d/salt-master restart
 /etc/init.d/salt-minion restart
 
-# Give the services a chance to start up
-sleep 10
-
-# Tell mcp's minion to fully configure itself
-salt 'mcp' test.ping
-salt 'mcp' state.highstate
+echo ''
+echo '================================'
+echo ''
+echo ''
+echo 'Done! Please update the files under /srv/secret/pillar with secret keys/passwords and run the following command:'
+echo ''
+echo '    salt mcp state.apply'
+echo ''

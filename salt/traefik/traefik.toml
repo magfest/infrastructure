@@ -1,4 +1,4 @@
-{%- set letsencrypt_ca_server = salt['pillar.get']('letsencrypt:ca_server') -%}
+{%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
 
 logLevel = "DEBUG"
 defaultEntryPoints = ["http", "https"]
@@ -15,8 +15,8 @@ insecureSkipVerify = true
     [entryPoints.https.tls]
       # Default cert to use when no SNI match is found
       [[entryPoints.https.tls.certificates]]
-        certFile = "/certs/default_cert.crt"
-        keyFile = "/certs/default_key.pem"
+        certFile = "/certs/{{ freeipa_hostname }}.cert"
+        keyFile = "/certs/{{ freeipa_hostname }}.key"
 
 
 [api]
@@ -34,7 +34,6 @@ insecureSkipVerify = true
   storage = "acme.json"
   onHostRule = true
   onDemand = false
-  {% if letsencrypt_ca_server %}caServer = "{{ letsencrypt_ca_server }}"{% endif %}
   entryPoint = "https"
   [acme.httpChallenge]
     entryPoint = "http"

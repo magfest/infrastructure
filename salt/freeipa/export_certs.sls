@@ -1,10 +1,11 @@
 {%- set freeipa_certs_dir = salt['pillar.get']('data_path') ~ '/freeipa/ipa-data/etc/httpd/alias' -%}
+{%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 
 libnss3-tools install:
   pkg.installed:
     - name: libnss3-tools
 
-freeipa default_cert.crt:
+freeipa {{ hostname }}.cert:
   cmd.run:
     - name: >
         certutil
@@ -12,10 +13,10 @@ freeipa default_cert.crt:
         -a
         -n 'Server-Cert'
         -d {{ freeipa_certs_dir }}
-        -o {{ freeipa_certs_dir }}/default_cert.crt
-    - creates: {{ freeipa_certs_dir }}/default_cert.crt
+        -o {{ freeipa_certs_dir }}/{{ hostname }}.cert
+    - creates: {{ freeipa_certs_dir }}/{{ hostname }}.cert
 
-freeipa default_key.p12:
+freeipa {{ hostname }}.p12:
   cmd.run:
     - name: >
         pk12util
@@ -23,16 +24,16 @@ freeipa default_key.p12:
         -n 'Server-Cert'
         -d {{ freeipa_certs_dir }}
         -k {{ freeipa_certs_dir }}/pwdfile.txt
-        -o {{ freeipa_certs_dir }}/default_key.p12
-    - creates: {{ freeipa_certs_dir }}/default_key.p12
+        -o {{ freeipa_certs_dir }}/{{ hostname }}.p12
+    - creates: {{ freeipa_certs_dir }}/{{ hostname }}.p12
 
-freeipa default_key.pem:
+freeipa {{ hostname }}.key:
   cmd.run:
     - name: >
         openssl
         pkcs12
         -nodes
         -passin pass:
-        -in {{ freeipa_certs_dir }}/default_key.p12
-        -out {{ freeipa_certs_dir }}/default_key.pem
-    - creates: {{ freeipa_certs_dir }}/default_key.pem
+        -in {{ freeipa_certs_dir }}/{{ hostname }}.p12
+        -out {{ freeipa_certs_dir }}/{{ hostname }}.key
+    - creates: {{ freeipa_certs_dir }}/{{ hostname }}.key
