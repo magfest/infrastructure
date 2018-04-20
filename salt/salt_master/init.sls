@@ -1,16 +1,16 @@
-/srv/secret/pillar/:
+{{ salt['pillar.get']('data_path') }}/secret/pillar/:
   file.directory:
     - mode: 700
     - makedirs: True
 
-/srv/secret/pillar/ git init:
+{{ salt['pillar.get']('data_path') }}/secret/pillar/ git init:
   git.present:
-    - name: /srv/secret/pillar/
+    - name: {{ salt['pillar.get']('data_path') }}/secret/pillar/
     - bare: False
 
-/srv/secret/pillar/ templates:
+{{ salt['pillar.get']('data_path') }}/secret/pillar/ templates:
   file.recurse:
-    - name: /srv/secret/pillar/
+    - name: {{ salt['pillar.get']('data_path') }}/secret/pillar/
     - source: salt://salt_master/secret_pillar_templates
     - dir_mode: 700
     - file_mode: 600
@@ -18,15 +18,15 @@
     - replace: False
     - template: jinja
     - require:
-      - git: /srv/secret/pillar/
+      - git: {{ salt['pillar.get']('data_path') }}/secret/pillar/
 
-/srv/secret/pillar/README.md:
+{{ salt['pillar.get']('data_path') }}/secret/pillar/README.md:
   file.managed:
     - source: salt://salt_master/secret_pillar_templates/README.md
     - mode: 600
     - template: jinja
     - require:
-      - git: /srv/secret/pillar/
+      - git: {{ salt['pillar.get']('data_path') }}/secret/pillar/
 
 /etc/salt/master:
   file.managed:
