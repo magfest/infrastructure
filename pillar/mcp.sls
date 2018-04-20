@@ -1,6 +1,6 @@
 master_address: 127.0.0.1
 minion_id: mcp
-data_path: /srv/volumes/data
+data_path: /srv/data
 
 ssh_keys: {}
 

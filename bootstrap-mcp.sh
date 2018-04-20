@@ -11,7 +11,7 @@ git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastru
 cd /tmp/infrastructure
 
 # Install SaltStack master and minion
-curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
+curl -o bootstrap-salt.sh -L https://raw.githubusercontent.com/saltstack/salt-bootstrap/develop/bootstrap-salt.sh
 sh bootstrap-salt.sh -i 'mcp' -L -M -P git develop
 
 # Preseed mcp's minion key
@@ -27,6 +27,7 @@ salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.h
 /etc/init.d/salt-master restart
 /etc/init.d/salt-minion restart
 
+# Next steps
 echo ''
 echo '================================'
 echo ''
