@@ -25,8 +25,8 @@ cp mcp.pub /etc/salt/pki/minion/minion.pub
 salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate
 
 # Restart the services
-/etc/init.d/salt-master restart
-/etc/init.d/salt-minion restart
+systemctl restart salt-master
+systemctl restart salt-minion
 
 # Next steps
 echo ''

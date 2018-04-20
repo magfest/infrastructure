@@ -6,8 +6,6 @@
     - template: jinja
 
 salt_minion:
-  pkg.installed:
-    - name: salt-minion
   service.running:
     - name: salt-minion
     - require:
