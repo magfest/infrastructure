@@ -38,8 +38,6 @@
     - template: jinja
 
 salt_master:
-  pkg.installed:
-    - name: salt-master
   service.running:
     - name: salt-master
     - require:
