@@ -38,6 +38,7 @@ freeipa:
       - traefik.frontend.rule=Host:directory.{{ master_domain }},{{ hostname }}
       - traefik.frontend.entryPoints=http,https
       - traefik.frontend.passHostHeader=false
+      - traefik.frontend.headers.customRequestHeaders=Host:{{ hostname }}
       - traefik.port=443
       - traefik.protocol=https
       - traefik.docker.network=docker_network_internal
@@ -50,4 +51,4 @@ freeipa:
       - pkg: rng-tools
       - file: {{ salt['pillar.get']('data_path') }}/freeipa/ipa-data/
     - require_in:
-      - ipa-client-install
+      - sls: freeipa.client
