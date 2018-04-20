@@ -11,7 +11,7 @@ traefik {{ freeipa_hostname }}.cert:
     - onchanges:
       - sls: freeipa.export_certs
     - require_in:
-      - sls: ipa-client-install
+      - sls: freeipa.client
 
 traefik {{ freeipa_hostname }}.key:
   file.copy:
@@ -22,4 +22,4 @@ traefik {{ freeipa_hostname }}.key:
     - onchanges:
       - sls: freeipa.export_certs
     - require_in:
-      - sls: ipa-client-install
+      - sls: freeipa.client
