@@ -23,3 +23,4 @@ traefik {{ freeipa_hostname }}.key:
       - sls: freeipa.export_certs
     - require_in:
       - sls: freeipa.client
+      - docker_container: traefik

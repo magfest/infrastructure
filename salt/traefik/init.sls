@@ -46,4 +46,4 @@ traefik:
       - file: {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/traefik.toml
       - file: {{ salt['pillar.get']('data_path') }}/traefik/etc/traefik/acme.json
     - require_in:
-      - ipa-client-install
+      - sls: freeipa.client
