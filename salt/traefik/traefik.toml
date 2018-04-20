@@ -23,12 +23,6 @@ insecureSkipVerify = true
   dashboard = true
 
 
-[docker]
-  endpoint = "unix:///var/run/docker.sock"
-  watch = true
-  exposedbydefault = false
-
-
 [acme]
   email = "it@magfest.org"
   storage = "acme.json"
@@ -43,3 +37,9 @@ insecureSkipVerify = true
   {%- for domain in ['directory', 'errbot', 'jenkins', 'traefik'] -%}
     "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]
+
+
+[docker]
+  endpoint = "unix:///var/run/docker.sock"
+  watch = true
+  exposedbydefault = false
