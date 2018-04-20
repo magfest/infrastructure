@@ -40,8 +40,6 @@
 salt_master:
   service.running:
     - name: salt-master
-    - require:
-      - pkg: salt-master
     - onchanges:
       - file: /etc/salt/master
     - require_in:
