@@ -8,7 +8,5 @@
 salt_minion:
   service.running:
     - name: salt-minion
-    - require:
-      - pkg: salt-minion
     - watch:
       - /etc/salt/minion
