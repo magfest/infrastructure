@@ -13,10 +13,6 @@ insecureSkipVerify = true
   [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
-      # Default cert to use when no SNI match is found
-      [[entryPoints.https.tls.certificates]]
-        certFile = "/certs/{{ freeipa_hostname }}.cert"
-        keyFile = "/certs/{{ freeipa_hostname }}.key"
 
 
 [api]
@@ -43,3 +39,13 @@ insecureSkipVerify = true
   endpoint = "unix:///var/run/docker.sock"
   watch = true
   exposedbydefault = false
+
+
+[file]
+
+  [[tls]]
+    entryPoints = ["https"]
+    [tls.certificate]
+      # Default cert to use when no SNI match is found
+      certFile = "/certs/{{ freeipa_hostname }}.cert"
+      keyFile = "/certs/{{ freeipa_hostname }}.key"
