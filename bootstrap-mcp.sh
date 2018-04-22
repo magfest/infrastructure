@@ -4,16 +4,14 @@
 # used to manage the entire MAGFest IT infrastructure.
 
 # Download the infrastructure code
-rm -rf /tmp/infrastructure
-git clone --depth 1 https://github.com/magfest/infrastructure.git /tmp/infrastructure
+git clone --depth 1 https://github.com/magfest/infrastructure.git /srv/infrastructure
 
 # Change into our temp infrastructure bootstrap dir
-cd /tmp/infrastructure
+cd /srv/infrastructure
 
 # Install SaltStack master and minion
-curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
-# curl -o bootstrap-salt.sh -L https://raw.githubusercontent.com/saltstack/salt-bootstrap/develop/bootstrap-salt.sh
-sh bootstrap-salt.sh -i 'mcp' -L -M -P git develop
+curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltstack.com
+sh /tmp/bootstrap-salt.sh -i 'mcp' -L -M -P git develop
 
 # Preseed mcp's minion key
 salt-key --gen-keys='mcp'
@@ -27,6 +25,9 @@ salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.h
 # Restart the services
 systemctl restart salt-master
 systemctl restart salt-minion
+
+# Give the services a chance to start up
+sleep 5
 
 # Next steps
 echo ''
