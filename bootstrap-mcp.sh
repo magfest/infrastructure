@@ -11,7 +11,7 @@ cd /srv/infrastructure
 
 # Install SaltStack master and minion
 curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltstack.com
-sh /tmp/bootstrap-salt.sh -i 'mcp' -L -M -P git develop
+sh /tmp/bootstrap-salt.sh -i 'mcp' -L -M -P git 19ec7b6de18256dd9b52919ef9c0d8b39d874277
 
 # Preseed mcp's minion key
 salt-key --gen-keys='mcp'
