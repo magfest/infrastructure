@@ -1,5 +1,13 @@
 {%- set secret_path = salt['pillar.get']('data:path') ~ '/secret/pillar' -%}
 
+libssh-dev install:
+  pkg.installed:
+    - name: libssh-dev
+
+python-git install:
+  pkg.installed:
+    - name: python-git
+
 {{ secret_path }}/:
   file.directory:
     - mode: 700
