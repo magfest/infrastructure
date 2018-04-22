@@ -1,7 +1,8 @@
 {%- set master_domain = 'magfest.net' -%}
 
-master_domain: {{ master_domain }}
-master_address: saltmaster.{{ master_domain }}
+master:
+  domain: {{ master_domain }}
+  address: saltmaster.{{ master_domain }}
 
 mine_functions:
   external_ip:

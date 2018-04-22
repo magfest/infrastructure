@@ -1,6 +1,6 @@
 {%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
-{%- set freeipa_certs_dir = salt['pillar.get']('data_path') ~ '/freeipa/ipa-data/etc/httpd/alias' -%}
-{%- set traefik_certs_dir = salt['pillar.get']('data_path') ~ '/traefik/etc/traefik/certs' -%}
+{%- set freeipa_certs_dir = salt['pillar.get']('data:path') ~ '/freeipa/ipa-data/etc/httpd/alias' -%}
+{%- set traefik_certs_dir = salt['pillar.get']('data:path') ~ '/traefik/etc/traefik/certs' -%}
 
 traefik {{ freeipa_hostname }}.cert:
   file.copy:

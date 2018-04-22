@@ -11,7 +11,7 @@ jenkins user:
     - require:
       - group: jenkins
 
-{{ salt['pillar.get']('data_path') }}/jenkins/jenkins_home/:
+{{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home/:
   file.directory:
     - user: jenkins
     - group: jenkins
@@ -25,11 +25,11 @@ jenkins:
     - name: jenkins
     - image: jenkinsci/blueocean:latest
     - auto_remove: True
-    - binds: {{ salt['pillar.get']('data_path') }}/jenkins/jenkins_home:/var/jenkins_home
+    - binds: {{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master_domain') }}
+      - traefik.frontend.rule=Host:jenkins.{{ salt['pillar.get']('master:domain') }}
       - traefik.frontend.entryPoints=http,https
       - traefik.port=8080
       - traefik.docker.network=docker_network_internal

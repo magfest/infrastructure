@@ -1,4 +1,4 @@
-{%- set freeipa_certs_dir = salt['pillar.get']('data_path') ~ '/freeipa/ipa-data/etc/httpd/alias' -%}
+{%- set freeipa_certs_dir = salt['pillar.get']('data:path') ~ '/freeipa/ipa-data/etc/httpd/alias' -%}
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 
 libnss3-tools install:

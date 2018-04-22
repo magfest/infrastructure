@@ -1,4 +1,4 @@
-{%- set secret_path = salt['pillar.get']('data_path') ~ '/secret/pillar' -%}
+{%- set secret_path = salt['pillar.get']('data:path') ~ '/secret/pillar' -%}
 
 {{ secret_path }}/:
   file.directory:

@@ -28,10 +28,10 @@ insecureSkipVerify = true
   [acme.httpChallenge]
     entryPoint = "http"
   [[acme.domains]]
-    main = "{{ salt['pillar.get']('master_domain') }}"
+    main = "{{ salt['pillar.get']('master:domain') }}"
     sans = [
   {%- for domain in ['directory', 'errbot', 'jenkins', 'traefik'] -%}
-    "{{ domain }}.{{ salt['pillar.get']('master_domain') }}"{{ ', ' if not loop.last else '' }}
+    "{{ domain }}.{{ salt['pillar.get']('master:domain') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]
 
 

@@ -1,6 +1,11 @@
-master_address: 127.0.0.1
-minion_id: mcp
-data_path: /srv/data
+data:
+  path: /srv/data
+
+master:
+  address: 127.0.0.1
+
+minion:
+  id: mcp
 
 ssh_keys: {}
 

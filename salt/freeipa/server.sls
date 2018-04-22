@@ -1,7 +1,7 @@
-{%- set master_domain = salt['pillar.get']('master_domain') -%}
+{%- set master_domain = salt['pillar.get']('master:domain') -%}
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 
-{{ salt['pillar.get']('data_path') }}/freeipa/ipa-data/:
+{{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/:
   file.directory:
     - makedirs: True
 
@@ -11,7 +11,7 @@ freeipa:
     - image: freeipa/freeipa-server:latest
     - auto_remove: True
     - binds:
-      - {{ salt['pillar.get']('data_path') }}/freeipa/ipa-data:/data:Z
+      - {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     - ports: 80,88,88/udp,123/udp,389,443,464,464/udp,636
     - port_bindings:
@@ -49,6 +49,6 @@ freeipa:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
       - pkg: rng-tools
-      - file: {{ salt['pillar.get']('data_path') }}/freeipa/ipa-data/
+      - file: {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/
     - require_in:
       - sls: freeipa.client
