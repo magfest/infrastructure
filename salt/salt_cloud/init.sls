@@ -29,7 +29,3 @@
     - source: salt://salt_cloud/digitalocean.conf
     - mode: 644
     - template: jinja
-
-salt-cloud install:
-  pkg.installed:
-    - name: salt-cloud
