@@ -35,7 +35,7 @@ freeipa:
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:directory.{{ master_domain }},{{ hostname }}
+      - traefik.frontend.rule=Host:{{ hostname }},directory.{{ master_domain }}
       - traefik.frontend.entryPoints=http,https
       # - traefik.frontend.passHostHeader=false
       # - traefik.frontend.headers.customRequestHeaders=Host:{{ hostname }}

@@ -19,6 +19,21 @@ insecureSkipVerify = true
   dashboard = true
 
 
+[file]
+  [[tls]]
+    entryPoints = ["https"]
+    [tls.certificate]
+      # Default cert to use when no SNI match is found
+      certFile = "/certs/{{ freeipa_hostname }}.cert"
+      keyFile = "/certs/{{ freeipa_hostname }}.key"
+
+
+[docker]
+  endpoint = "unix:///var/run/docker.sock"
+  watch = true
+  exposedbydefault = false
+
+
 [acme]
   email = "it@magfest.org"
   storage = "acme.json"
@@ -33,19 +48,3 @@ insecureSkipVerify = true
   {%- for domain in ['directory', 'errbot', 'jenkins', 'traefik'] -%}
     "{{ domain }}.{{ salt['pillar.get']('master:domain') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]
-
-
-[docker]
-  endpoint = "unix:///var/run/docker.sock"
-  watch = true
-  exposedbydefault = false
-
-
-[file]
-
-  [[tls]]
-    entryPoints = ["https"]
-    [tls.certificate]
-      # Default cert to use when no SNI match is found
-      certFile = "/certs/{{ freeipa_hostname }}.cert"
-      keyFile = "/certs/{{ freeipa_hostname }}.key"
