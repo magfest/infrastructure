@@ -37,7 +37,7 @@ insecureSkipVerify = true
 [acme]
   email = "it@magfest.org"
   storage = "acme.json"
-  onHostRule = true
+  onHostRule = false
   onDemand = false
   entryPoint = "https"
   [acme.httpChallenge]
