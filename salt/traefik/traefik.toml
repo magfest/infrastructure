@@ -11,7 +11,6 @@ defaultEntryPoints = ["http", "https"]
       entryPoint = "https"
   [entryPoints.https]
     address = ":443"
-    {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/.htpasswd
     [entryPoints.https.tls]
 {% for cert_name in salt['pillar.get']('traefik:cert_names', []) %}
       [[entryPoints.https.tls.certificates]]
