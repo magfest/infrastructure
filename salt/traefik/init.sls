@@ -33,7 +33,7 @@ traefik:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ salt['pillar.get']('traefik:domain') }},{{ salt['pillar.get']('traefik:ui_domain') }}
       - traefik.frontend.entryPoints=http,https
-      - traefik.frontend.basic.auth=admin:$apr1$tzyX8Cuy$zY0FfGjPAMbD8Z5c4ba/S/
+      - traefik.frontend.auth.basic=admin:$apr1$tzyX8Cuy$zY0FfGjPAMbD8Z5c4ba/S/
       - traefik.port=8080
       - traefik.docker.network=docker_network_internal
     - networks:
