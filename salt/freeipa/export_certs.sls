@@ -46,7 +46,7 @@ freeipa {{ hostname }}.p12:
         -o {{ freeipa_certs_dir }}/{{ hostname }}.p12
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.p12
     - onchanges:
-      - file: {{ freeipa_certs_dir }}/{{ hostname }}.cert
+      - freeipa {{ hostname }}.cert
 
 freeipa {{ hostname }}.key:
   cmd.run:
@@ -59,4 +59,4 @@ freeipa {{ hostname }}.key:
         -out {{ freeipa_certs_dir }}/{{ hostname }}.key
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.key
     - onchanges:
-      - file: {{ freeipa_certs_dir }}/{{ hostname }}.p12
+      - freeipa {{ hostname }}.p12
