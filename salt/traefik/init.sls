@@ -33,10 +33,9 @@ traefik:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ salt['pillar.get']('traefik:domain') }},{{ salt['pillar.get']('traefik:ui_domain') }}
       - traefik.frontend.entryPoints=http,https
-      - traefik.frontend.auth.basic=admin:{{ salt['shadow.gen_password']('password', algorithm='md5') }}
       {% if salt['pillar.get']('traefik:users', {}) -%}
       - traefik.frontend.auth.basic={%- for user, password in salt['pillar.get']('traefik:users').items() -%}
-          {{ user }}:{{ password }}{{ ',' if not loop.last else '' }}
+          {{ user }}:{{ salt['shadow.gen_password'](password, algorithm='md5') }}{{ ',' if not loop.last else '' }}
         {%- endfor -%}
       {% endif %}
       - traefik.port=8080

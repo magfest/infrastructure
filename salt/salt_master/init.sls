@@ -18,7 +18,7 @@ python-git install:
     - name: {{ secret_path }}/
     - bare: False
 
-{{ secret_path }}/ templates:
+{{ secret_path }}/*.example:
   file.recurse:
     - name: {{ secret_path }}/
     - source: salt://salt_master/secret_pillar_templates
@@ -29,6 +29,12 @@ python-git install:
     - template: jinja
     - require:
       - git: {{ secret_path }}/
+
+{{ secret_path }}/ templates:
+  cmd.run:
+    - name: for f in *.example; do cp --no-clobber -- "$f" "${f%.example}"; done
+    - onchanges:
+      - {{ secret_path }}/*.example
 
 {{ secret_path }}/README.md:
   file.managed:
