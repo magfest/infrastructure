@@ -5,6 +5,21 @@ libnss3-tools install:
   pkg.installed:
     - name: libnss3-tools
 
+freeipa cert8.db:
+  file.manage:
+    - name: {{ freeipa_certs_dir }}/cert8.db
+    - create: False
+
+freeipa key3.db:
+  file.manage:
+    - name: {{ freeipa_certs_dir }}/key3.db
+    - create: False
+
+freeipa secmod.db:
+  file.manage:
+    - name: {{ freeipa_certs_dir }}/secmod.db
+    - create: False
+
 freeipa {{ hostname }}.cert:
   cmd.run:
     - name: >
@@ -15,6 +30,10 @@ freeipa {{ hostname }}.cert:
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/{{ hostname }}.cert
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.cert
+    - onchanges_any:
+      - {{ freeipa_certs_dir }}/cert8.db
+      - {{ freeipa_certs_dir }}/key3.db
+      - {{ freeipa_certs_dir }}/secmod.db
 
 freeipa {{ hostname }}.p12:
   cmd.run:
@@ -26,6 +45,8 @@ freeipa {{ hostname }}.p12:
         -k {{ freeipa_certs_dir }}/pwdfile.txt
         -o {{ freeipa_certs_dir }}/{{ hostname }}.p12
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.p12
+    - onchanges:
+      - {{ freeipa_certs_dir }}/{{ hostname }}.cert
 
 freeipa {{ hostname }}.key:
   cmd.run:
@@ -37,3 +58,5 @@ freeipa {{ hostname }}.key:
         -in {{ freeipa_certs_dir }}/{{ hostname }}.p12
         -out {{ freeipa_certs_dir }}/{{ hostname }}.key
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.key
+    - onchanges:
+      - {{ freeipa_certs_dir }}/{{ hostname }}.p12
