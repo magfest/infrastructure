@@ -18,6 +18,15 @@ python-git install:
     - name: {{ secret_path }}/
     - bare: False
 
+{{ secret_path }}/ git ignore:
+  file.managed:
+    - name: {{ secret_path }}/.gitignore
+    - contents: |
+        *.example
+        README.md
+    - require:
+      - git: {{ secret_path }}/
+
 {{ secret_path }}/*.example:
   file.recurse:
     - name: {{ secret_path }}/
