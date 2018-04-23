@@ -19,8 +19,8 @@ jenkins:
 
 traefik:
   cert_names: ['ipa-01.{{ master_domain }}']
-  domain_name: 'traefik.{{ master_domain }}'
-  services: ['directory', 'errbot', 'hal', 'jenkins', 'traefik']
+  domain_name: '{{ master_domain }}'
+  subdomains: ['directory', 'errbot', 'hal', 'jenkins', 'traefik']
 
 ssh_keys: {}
 
