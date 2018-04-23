@@ -13,19 +13,14 @@ insecureSkipVerify = true
   [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
+      [[entryPoints.https.tls.certificates]]
+        # Default cert to use when no SNI match is found
+        certFile = "/certs/{{ freeipa_hostname }}.cert"
+        keyFile = "/certs/{{ freeipa_hostname }}.key"
 
 
 [api]
   dashboard = true
-
-
-[file]
-  [[tls]]
-    entryPoints = ["https"]
-    [tls.certificate]
-      # Default cert to use when no SNI match is found
-      certFile = "/certs/{{ freeipa_hostname }}.cert"
-      keyFile = "/certs/{{ freeipa_hostname }}.key"
 
 
 [docker]
