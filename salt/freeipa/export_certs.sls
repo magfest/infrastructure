@@ -31,9 +31,9 @@ freeipa {{ hostname }}.cert:
         -o {{ freeipa_certs_dir }}/{{ hostname }}.cert
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.cert
     - onchanges_any:
-      - {{ freeipa_certs_dir }}/cert8.db
-      - {{ freeipa_certs_dir }}/key3.db
-      - {{ freeipa_certs_dir }}/secmod.db
+      - file: {{ freeipa_certs_dir }}/cert8.db
+      - file: {{ freeipa_certs_dir }}/key3.db
+      - file: {{ freeipa_certs_dir }}/secmod.db
 
 freeipa {{ hostname }}.p12:
   cmd.run:
@@ -46,7 +46,7 @@ freeipa {{ hostname }}.p12:
         -o {{ freeipa_certs_dir }}/{{ hostname }}.p12
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.p12
     - onchanges:
-      - {{ freeipa_certs_dir }}/{{ hostname }}.cert
+      - file: {{ freeipa_certs_dir }}/{{ hostname }}.cert
 
 freeipa {{ hostname }}.key:
   cmd.run:
@@ -59,4 +59,4 @@ freeipa {{ hostname }}.key:
         -out {{ freeipa_certs_dir }}/{{ hostname }}.key
     - creates: {{ freeipa_certs_dir }}/{{ hostname }}.key
     - onchanges:
-      - {{ freeipa_certs_dir }}/{{ hostname }}.p12
+      - file: {{ freeipa_certs_dir }}/{{ hostname }}.p12
