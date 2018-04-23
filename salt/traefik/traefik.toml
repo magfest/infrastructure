@@ -13,7 +13,7 @@ insecureSkipVerify = true
   [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
-      {% for cert_name in {{ salt['pillar.get']('traefik:cert_names') }} %}
+      {% for cert_name in salt['pillar.get']('traefik:cert_names', []) %}
       [[entryPoints.https.tls.certificates]]
         certFile = "/certs/{{ cert_name }}.cert"
         keyFile = "/certs/{{ cert_name }}.key"
