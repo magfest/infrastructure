@@ -17,7 +17,7 @@ insecureSkipVerify = true
       [[entryPoints.https.tls.certificates]]
         certFile = "/certs/{{ cert_name }}.cert"
         keyFile = "/certs/{{ cert_name }}.key"
-      {% endif %}
+      {% endfor %}
 
 [api]
   dashboard = true
