@@ -40,6 +40,7 @@ traefik:
       - docker_network_internal
     - watch_any:
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
+      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
       - sls: traefik.import_freeipa_certs
     - require:
       - docker_network: docker_network_external
