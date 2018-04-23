@@ -1,8 +1,9 @@
 {%- set master_domain = salt['pillar.get']('master:domain') -%}
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 
-{{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/:
-  file.directory:
+{{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf:
+  file.managed:
+    - source: salt://freeipa/ipa-rewrite.conf
     - makedirs: True
 
 freeipa:
@@ -45,6 +46,8 @@ freeipa:
     - networks:
       - docker_network_external
       - docker_network_internal
+    - onchanges:
+      - file: {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
