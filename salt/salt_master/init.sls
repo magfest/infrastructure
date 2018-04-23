@@ -48,7 +48,7 @@ python-git install:
 salt_master:
   service.running:
     - name: salt-master
-    - onchanges:
+    - watch:
       - file: /etc/salt/master
     - require_in:
       - sls: salt_minion

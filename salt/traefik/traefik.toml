@@ -35,12 +35,13 @@ insecureSkipVerify = true
   storage = "acme.json"
   onHostRule = false
   onDemand = false
+  caServer = "https://acme-staging.api.letsencrypt.org/directory"
   entryPoint = "https"
   [acme.httpChallenge]
     entryPoint = "http"
   [[acme.domains]]
     main = "{{ salt['pillar.get']('master:domain') }}"
     sans = [
-  {%- for domain in ['directory', 'errbot', 'jenkins', 'traefik'] -%}
+  {%- for domain in ['directory', 'errbot', 'hal', 'jenkins', 'traefik'] -%}
     "{{ domain }}.{{ salt['pillar.get']('master:domain') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]
