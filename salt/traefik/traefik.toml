@@ -13,11 +13,11 @@ insecureSkipVerify = true
   [entryPoints.https]
     address = ":443"
     [entryPoints.https.tls]
+      {% for cert_name in cert_names %}
       [[entryPoints.https.tls.certificates]]
-        # Default cert to use when no SNI match is found
-        certFile = "/certs/{{ freeipa_hostname }}.cert"
-        keyFile = "/certs/{{ freeipa_hostname }}.key"
-
+        certFile = "/certs/{{ cert_name }}.cert"
+        keyFile = "/certs/{{ cert_name }}.key"
+      {% endif %}
 
 [api]
   dashboard = true
@@ -25,7 +25,7 @@ insecureSkipVerify = true
 
 [docker]
   endpoint = "unix:///var/run/docker.sock"
-  domain = "{{ salt['pillar.get']('master:domain') }}"
+  domain = "{{ salt['pillar.get']('traefik:domain_name') }}"
   watch = true
   exposedbydefault = false
 
@@ -40,8 +40,8 @@ insecureSkipVerify = true
   [acme.httpChallenge]
     entryPoint = "http"
   [[acme.domains]]
-    main = "{{ salt['pillar.get']('master:domain') }}"
+    main = "{{ salt['pillar.get']('traefik:domain_name') }}"
     sans = [
-  {%- for domain in ['directory', 'errbot', 'hal', 'jenkins', 'traefik'] -%}
-    "{{ domain }}.{{ salt['pillar.get']('master:domain') }}"{{ ', ' if not loop.last else '' }}
+  {%- for domain in {{ salt['pillar.get']('traefik:services') }} -%}
+    "{{ domain }}.{{ salt['pillar.get']('traefik:domain_name') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]

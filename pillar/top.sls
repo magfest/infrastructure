@@ -1,7 +1,6 @@
 base:
   '*':
     - defaults
-    - freeipa
 
   'not bootstrap':
     - freeipa_client_secret

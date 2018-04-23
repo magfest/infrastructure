@@ -1,4 +1,3 @@
-{%- set master_domain = salt['pillar.get']('master:domain') -%}
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 
 {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/:
@@ -40,12 +39,9 @@ freeipa:
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:{{ hostname }},directory.{{ master_domain }}
+      - traefik.frontend.rule=Host:{{ hostname }},{{ salt['pillar.get']('freeipa:ui_domain_name') }}
       - traefik.frontend.entryPoints=http,https
-      # - traefik.frontend.passHostHeader=false
-      # - traefik.frontend.headers.customRequestHeaders=Host:{{ hostname }}
-      - traefik.port=443
-      - traefik.protocol=https
+      - traefik.port=80
       - traefik.docker.network=docker_network_internal
     - networks:
       - docker_network_external

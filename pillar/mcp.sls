@@ -1,3 +1,5 @@
+{%- from 'defaults.sls' import master_domain -%}
+
 data:
   path: /srv/data
 
@@ -6,6 +8,19 @@ master:
 
 minion:
   id: mcp
+
+freeipa:
+  realm: 'magfest.org'
+  hostname: 'ipa-01.{{ master_domain }}'
+  ui_domain_name: 'directory.{{ master_domain }}'
+
+jenkins:
+  domain_name: 'jenkins.{{ master_domain }}'
+
+traefik:
+  cert_names: ['ipa-01.{{ master_domain }}']
+  domain_name: 'traefik.{{ master_domain }}'
+  services: ['directory', 'errbot', 'hal', 'jenkins', 'traefik']
 
 ssh_keys: {}
 
