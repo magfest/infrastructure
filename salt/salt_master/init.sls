@@ -32,7 +32,7 @@ python-git install:
 
 {{ secret_path }}/ templates:
   cmd.run:
-    - name: for f in *.example; do cp --no-clobber -- "$f" "${f%.example}"; done
+    - name: for f in {{ secret_path }}/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
     - onchanges:
       - {{ secret_path }}/*.example
 
