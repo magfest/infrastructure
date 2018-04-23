@@ -1,3 +1,12 @@
+{% for user, password in salt['pillar.get']('traefik:users', {}).items() %}
+traefik user {{ user }}:
+  htpasswd.user_exists:
+    - name: {{ user }}
+    - password: {{ password }}
+    - htpasswd_file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/.htpasswd
+    - update: True
+{% endfor %}
+
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/certs/:
   file.directory:
     - mode: 600
@@ -31,8 +40,9 @@ traefik:
       - 443:443
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:{{ salt['pillar.get']('traefik:domain_name') }}
+      - traefik.frontend.rule=Host:{{ salt['pillar.get']('traefik:domain') }},{{ salt['pillar.get']('traefik:ui_domain') }}
       - traefik.frontend.entryPoints=http,https
+      - traefik.frontend.basicAuth=["admin:$apr1$tzyX8Cuy$zY0FfGjPAMbD8Z5c4ba/S/"]
       - traefik.port=8080
       - traefik.docker.network=docker_network_internal
     - networks:

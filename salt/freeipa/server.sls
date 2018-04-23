@@ -39,7 +39,7 @@ freeipa:
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:{{ hostname }},{{ salt['pillar.get']('freeipa:ui_domain_name') }}
+      - traefik.frontend.rule=Host:{{ hostname }},{{ salt['pillar.get']('freeipa:ui_domain') }}
       - traefik.frontend.entryPoints=http,https
       - traefik.port=80
       - traefik.docker.network=docker_network_internal

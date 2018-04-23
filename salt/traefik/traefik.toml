@@ -2,7 +2,6 @@
 
 logLevel = "DEBUG"
 defaultEntryPoints = ["http", "https"]
-insecureSkipVerify = true
 
 
 [entryPoints]
@@ -12,6 +11,7 @@ insecureSkipVerify = true
       entryPoint = "https"
   [entryPoints.https]
     address = ":443"
+    {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/.htpasswd
     [entryPoints.https.tls]
 {% for cert_name in salt['pillar.get']('traefik:cert_names', []) %}
       [[entryPoints.https.tls.certificates]]
@@ -19,13 +19,14 @@ insecureSkipVerify = true
         keyFile = "/certs/{{ cert_name }}.key"
 {% endfor %}
 
+
 [api]
   dashboard = true
 
 
 [docker]
   endpoint = "unix:///var/run/docker.sock"
-  domain = "{{ salt['pillar.get']('traefik:domain_name') }}"
+  domain = "{{ salt['pillar.get']('traefik:domain') }}"
   watch = true
   exposedbydefault = false
 
@@ -40,8 +41,8 @@ insecureSkipVerify = true
   [acme.httpChallenge]
     entryPoint = "http"
   [[acme.domains]]
-    main = "{{ salt['pillar.get']('traefik:domain_name') }}"
+    main = "{{ salt['pillar.get']('traefik:domain') }}"
     sans = [
   {%- for subdomain in salt['pillar.get']('traefik:subdomains', []) -%}
-    "{{ subdomain }}.{{ salt['pillar.get']('traefik:domain_name') }}"{{ ', ' if not loop.last else '' }}
+    "{{ subdomain }}.{{ salt['pillar.get']('traefik:domain') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]
