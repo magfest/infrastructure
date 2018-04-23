@@ -25,6 +25,7 @@ insecureSkipVerify = true
 
 [docker]
   endpoint = "unix:///var/run/docker.sock"
+  domain = "{{ salt['pillar.get']('master:domain') }}"
   watch = true
   exposedbydefault = false
 

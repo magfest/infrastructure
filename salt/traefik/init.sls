@@ -20,8 +20,6 @@ traefik:
     - name: traefik
     - image: traefik:latest
     - auto_remove: True
-    - watch:
-      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
     - binds:
       - /var/run/docker.sock:/var/run/docker.sock
       - {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/certs:/certs
@@ -40,6 +38,10 @@ traefik:
     - networks:
       - docker_network_external
       - docker_network_internal
+    - watch:
+      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
+    - onchanges:
+      - sls: traefik.import_freeipa_certs
     - require:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
