@@ -6,17 +6,17 @@ libnss3-tools install:
     - name: libnss3-tools
 
 freeipa cert8.db:
-  file.manage:
+  file.managed:
     - name: {{ freeipa_certs_dir }}/cert8.db
     - create: False
 
 freeipa key3.db:
-  file.manage:
+  file.managed:
     - name: {{ freeipa_certs_dir }}/key3.db
     - create: False
 
 freeipa secmod.db:
-  file.manage:
+  file.managed:
     - name: {{ freeipa_certs_dir }}/secmod.db
     - create: False
 
