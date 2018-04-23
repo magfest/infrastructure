@@ -38,9 +38,8 @@ traefik:
     - networks:
       - docker_network_external
       - docker_network_internal
-    - watch:
+    - watch_any:
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
-    - onchanges:
       - sls: traefik.import_freeipa_certs
     - require:
       - docker_network: docker_network_external
