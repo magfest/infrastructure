@@ -16,6 +16,8 @@ freeipa {{ freeipa_hostname }}.cert:
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - creates: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
+    - requires:
+      - pkg: libnss3-tools
     - unless: >
         diff --report-identical-files
         {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
