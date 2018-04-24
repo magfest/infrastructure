@@ -43,15 +43,13 @@ echo "================================"
 echo ""
 echo ""
 echo "Done! Please update the files under /srv/data/secret/pillar with your" \
-     "secret keys and passwords."
-echo ""
-echo "Some of the services take a few minutes to initialize. You can follow" \
-     "the progress of the Free IPA installation with the following command:"
-echo ""
-echo "    tail -f /srv/data/freeipa/ipa-data/var/log/ipaserver-install.log"
-echo ""
-echo "Once Free IPA is installed, you can finish configuring mcp with the" \
-     "following command:"
+     "secret keys/passwords and run the following command:"
 echo ""
 echo "    salt mcp state.apply"
+echo ""
+echo "NOTE: Some of the services take a few minutes to initialize. You can" \
+     "follow the progress of the Free IPA installation with the following" \
+     "command:"
+echo ""
+echo "    tail -f /srv/data/freeipa/ipa-data/var/log/ipaserver-install.log"
 echo ""
