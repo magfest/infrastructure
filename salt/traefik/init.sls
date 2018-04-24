@@ -35,7 +35,7 @@ traefik:
       - traefik.frontend.entryPoints=http,https
       {% if salt['pillar.get']('traefik:users', {}) -%}
       - traefik.frontend.auth.basic={%- for user, password in salt['pillar.get']('traefik:users').items() -%}
-          {{ user }}:{{ salt['shadow.gen_password'](password, algorithm='md5') }}{{ ',' if not loop.last else '' }}
+          {{ user }}:{{ salt['shadow.gen_password'](password, crypt_salt='salt_salt', algorithm='md5') }}{{ ',' if not loop.last else '' }}
         {%- endfor -%}
       {% endif %}
       - traefik.port=8080
