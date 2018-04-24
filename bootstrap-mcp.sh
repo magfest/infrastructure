@@ -38,7 +38,11 @@ echo ''
 echo '================================'
 echo ''
 echo ''
-echo 'Done! Please update the files under /srv/data/secret/pillar with secret keys/passwords and run the following command:'
+echo 'Done! Please update the files under /srv/data/secret/pillar with' \
+     'secret keys/passwords and run the following command:'
 echo ''
-echo '    salt mcp state.apply
+echo '    salt mcp state.apply'
 echo ''
+echo 'NOTE: There may be some failures the first time the command is run.' \
+     'Some of the services take a few minutes to initialize. If there are' \
+     'any errors, please wait a moment and try again.'
