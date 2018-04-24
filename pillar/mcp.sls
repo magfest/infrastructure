@@ -10,11 +10,6 @@ master:
 minion:
   id: mcp
 
-freeipa:
-  realm: 'magfest.org'
-  hostname: 'ipa-01.{{ master_domain }}'
-  ui_domain: 'directory.{{ master_domain }}'
-
 jenkins:
   domain: 'jenkins.{{ master_domain }}'
 
