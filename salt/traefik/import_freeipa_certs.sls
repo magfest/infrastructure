@@ -9,26 +9,19 @@ libnss3-tools install:
 freeipa {{ freeipa_hostname }}.cert:
   cmd.run:
     - name: >
-        certutil
-        -L
-        -a
-        -n 'Server-Cert'
-        -d {{ freeipa_certs_dir }}
+        certutil -L -a -n 'Server-Cert' -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - require:
       - pkg: libnss3-tools
+    - python_shell: True
     - unless: >
-        diff --report-identical-files
-        {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
-        {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert
+        certutil -L -a -n 'Server-Cert' -d {{ freeipa_certs_dir }} |
+        diff --report-identical-files {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert -
 
 freeipa {{ freeipa_hostname }}.p12:
   cmd.run:
     - name: >
-        pk12util
-        -W ''
-        -n 'Server-Cert'
-        -d {{ freeipa_certs_dir }}
+        pk12util -W '' -n 'Server-Cert' -d {{ freeipa_certs_dir }}
         -k {{ freeipa_certs_dir }}/pwdfile.txt
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
     - onchanges:
@@ -37,10 +30,7 @@ freeipa {{ freeipa_hostname }}.p12:
 freeipa {{ freeipa_hostname }}.key:
   cmd.run:
     - name: >
-        openssl
-        pkcs12
-        -nodes
-        -passin pass:
+        openssl pkcs12 -nodes -passin pass:
         -in {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
         -out {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
     - onchanges:
