@@ -42,6 +42,6 @@ echo 'Done! Please update the files under /srv/data/secret/pillar with' \
 echo ''
 echo '    salt mcp state.apply'
 echo ''
-echo 'NOTE: Some of the services take a few minutes to initialize. ' \
-     'You may need to run that command a few times before everything ' \
+echo 'NOTE: Some of the services take a few minutes to initialize.' \
+     'You may need to run that command a few times before everything' \
      'is configured correctly.'
