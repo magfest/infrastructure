@@ -15,7 +15,6 @@ freeipa {{ freeipa_hostname }}.cert:
         -n 'Server-Cert'
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
-    - creates: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - require:
       - pkg: libnss3-tools
     - unless: >
@@ -32,7 +31,6 @@ freeipa {{ freeipa_hostname }}.p12:
         -d {{ freeipa_certs_dir }}
         -k {{ freeipa_certs_dir }}/pwdfile.txt
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
-    - creates: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
     - onchanges:
       - freeipa {{ freeipa_hostname }}.cert
 
@@ -45,7 +43,6 @@ freeipa {{ freeipa_hostname }}.key:
         -passin pass:
         -in {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
         -out {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
-    - creates: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
     - onchanges:
       - freeipa {{ freeipa_hostname }}.p12
 
