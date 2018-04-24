@@ -10,11 +10,6 @@
     - makedirs: True
     - template: jinja
 
-{{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json:
-  file.managed:
-    - mode: 600
-    - makedirs: True
-
 traefik:
   docker_container.running:
     - name: traefik
@@ -51,6 +46,5 @@ traefik:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
-      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
     - require_in:
       - sls: freeipa.client
