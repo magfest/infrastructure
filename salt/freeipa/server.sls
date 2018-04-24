@@ -8,6 +8,7 @@
   file.managed:
     - source: salt://freeipa/ipa-rewrite.conf
     - makedirs: True
+    - template: jinja
 
 freeipa:
   docker_container.running:
