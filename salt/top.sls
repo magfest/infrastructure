@@ -18,6 +18,5 @@ base:
     - docker_network_proxy
     - jenkins
     - freeipa.server
-    - freeipa.export_certs
     - traefik.import_freeipa_certs
     - traefik
