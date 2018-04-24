@@ -58,5 +58,6 @@ freeipa:
       - docker_network: docker_network_internal
       - pkg: rng-tools
       - file: {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/
+      - file: {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require_in:
       - sls: freeipa.client
