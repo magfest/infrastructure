@@ -3,6 +3,8 @@
 # This script will bootstrap and configure the salt-master server
 # used to manage the entire MAGFest IT infrastructure.
 
+set -x #echo on
+
 # Install SaltStack master and minion
 # TODO: Commit 19ec7b6de18256dd9b52919ef9c0d8b39d874277 contains a fix for
 #       docker_containers that we need, and newer versions contain bugs that
@@ -35,15 +37,15 @@ systemctl restart salt-minion
 sleep 5
 
 # Next steps
-echo ''
-echo '================================'
-echo ''
-echo ''
-echo 'Done! Please update the files under /srv/data/secret/pillar with' \
-     'secret keys/passwords and run the following command:'
-echo ''
-echo '    salt mcp state.apply'
-echo ''
-echo 'NOTE: Some of the services take a few minutes to initialize.' \
-     'You may need to run that command a few times before everything' \
-     'is configured correctly.'
+echo ""
+echo "================================"
+echo ""
+echo ""
+echo "Done! Please update the files under /srv/data/secret/pillar with" \
+     "secret keys/passwords and run the following command:"
+echo ""
+echo "    salt mcp state.apply"
+echo ""
+echo "NOTE: Some of the services take a few minutes to initialize." \
+     "You may need to run that command a few times before everything" \
+     "is configured correctly."
