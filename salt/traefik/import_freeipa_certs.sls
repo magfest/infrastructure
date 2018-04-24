@@ -16,7 +16,10 @@ freeipa {{ freeipa_hostname }}.cert:
         -d {{ freeipa_certs_dir }}
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - creates: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
-    - onlyif: diff {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert
+    - unless: >
+        diff --report-identical-files
+        {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
+        {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert
 
 freeipa {{ freeipa_hostname }}.p12:
   cmd.run:
