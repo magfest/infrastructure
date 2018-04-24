@@ -1,5 +1,9 @@
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 
+rng-tools install:
+  pkg.installed:
+    - name: rng-tools
+
 {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/:
   file.directory:
     - makedirs: True
