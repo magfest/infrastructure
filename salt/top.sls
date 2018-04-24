@@ -8,7 +8,6 @@ base:
     - freeipa.client
 
   'mcp or bootstrap':
-    - rng_tools
     - pip
     - docker
     - salt_master
