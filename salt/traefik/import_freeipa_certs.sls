@@ -13,7 +13,6 @@ freeipa {{ freeipa_hostname }}.cert:
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - require:
       - pkg: libnss3-tools
-    - python_shell: True
     - unless: >
         certutil -L -a -n 'Server-Cert' -d {{ freeipa_certs_dir }} |
         diff --report-identical-files {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert -
