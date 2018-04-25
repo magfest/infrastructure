@@ -1,14 +1,8 @@
 {%- set secret_path = salt['pillar.get']('data:path') ~ '/secret' -%}
 
-magbot group:
-  group.present:
-    - name: magbot
-
 magbot user:
   user.present:
     - name: magbot
-    - require:
-      - group: magbot
 
 legacy_deploy git latest:
   git.latest:
