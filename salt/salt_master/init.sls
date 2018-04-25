@@ -10,9 +10,10 @@ python-git install:
 
 git config autocrlf:
   git.config_set:
-    - name: autocrlf
+    - name: core.autocrlf
     - value: 'false'
     - global: True
+    - user: root
 
 {{ secret_pillar }}/:
   file.directory:
