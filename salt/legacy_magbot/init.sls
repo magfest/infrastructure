@@ -19,7 +19,7 @@ legacy_deploy git latest:
 
 legacy_magbot git latest:
   git.latest:
-    - name: https://github.com/magfest/magbot.git
+    - name: git@github.com:magfest/magbot.git
     - target: {{ secret_path }}/legacy_magbot
     - identity: /root/.ssh/github_magbot.pem
     - require:
