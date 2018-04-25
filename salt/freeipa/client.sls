@@ -1,3 +1,17 @@
+/etc/ssh/sshd_config PasswordAuthentication:
+  file.line:
+    - name: /etc/ssh/sshd_config
+    - content: PasswordAuthentication yes
+    - match: PasswordAuthentication\s+no
+    - mode: replace
+
+/etc/pam.d/sshd mkhomedir:
+  file.line:
+    - name: /etc/pam.d/sshd
+    - content: session required pam_mkhomedir.so skel=/etc/skel/ umask=0022
+    - after: session\s+.+?\s+pam_selinux\.so\s+close
+    - mode: ensure
+
 freeipa-client install:
   pkg.installed:
     - name: freeipa-client
