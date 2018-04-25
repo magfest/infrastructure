@@ -1,4 +1,4 @@
-# Master Control Program ([MCP](http://tron.wikia.com/wiki/Master_Control_Program)) Server
+# Master Control Program Server
 
 ## Bootstrapping the MCP server
 
