@@ -11,7 +11,7 @@ python-git install:
 git config autocrlf:
   git.config_set:
     - name: core.autocrlf
-    - value: 'false'
+    - value: input
     - global: True
     - user: root
 
