@@ -14,13 +14,11 @@ legacy_deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
     - target: {{ secret_path }}/legacy_deploy
-    - user: magbot
 
 legacy_magbot git latest:
   git.latest:
     - name: https://github.com/magfest/magbot.git
     - target: {{ secret_path }}/legacy_magbot
-    - user: magbot
-    - identity: /root/.ssh/github_magbot_rsa
+    - identity: /root/.ssh/github_magbot
     - require:
       - sls: salt_master
