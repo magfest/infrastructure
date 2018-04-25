@@ -3,8 +3,7 @@
 # This script will bootstrap and configure the salt-master server
 # used to manage the entire MAGFest IT infrastructure.
 
-# Echo commands to stdout
-set -x
+set -x  # Start echoing commands to stdout
 
 # Install SaltStack master and minion
 # TODO: Commit 19ec7b6de18256dd9b52919ef9c0d8b39d874277 contains a fix for
@@ -38,6 +37,7 @@ systemctl restart salt-minion
 sleep 5
 
 # Next steps
+set +x  # Stop echoing commands to stdout
 echo ""
 echo "================================"
 echo ""
