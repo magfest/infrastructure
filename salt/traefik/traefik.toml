@@ -35,8 +35,9 @@ defaultEntryPoints = ["http", "https"]
   storage = "acme.json"
   onHostRule = false
   onDemand = false
-  caServer = "https://acme-staging.api.letsencrypt.org/directory"
   entryPoint = "https"
+  # Uncomment to use letsencrypt staging server
+  #caServer = "https://acme-staging.api.letsencrypt.org/directory"
   [acme.httpChallenge]
     entryPoint = "http"
   [[acme.domains]]
