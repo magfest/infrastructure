@@ -8,6 +8,12 @@ python-git install:
   pkg.installed:
     - name: python-git
 
+git config autocrlf:
+  git.config_set:
+    - name: autocrlf
+    - value: 'false'
+    - global: True
+
 {{ secret_pillar }}/:
   file.directory:
     - mode: 700

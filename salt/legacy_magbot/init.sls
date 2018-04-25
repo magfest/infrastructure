@@ -14,6 +14,8 @@ legacy_deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
     - target: {{ secret_path }}/legacy_deploy
+    - require:
+      - sls: salt_master
 
 legacy_magbot git latest:
   git.latest:
