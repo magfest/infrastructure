@@ -1,4 +1,4 @@
-{%- set secret_path = salt['pillar.get']('data:path') ~ '/secret/pillar' -%}
+{%- set secret_pillar = salt['pillar.get']('data:path') ~ '/secret/pillar' -%}
 
 libssh-dev install:
   pkg.installed:
@@ -8,28 +8,28 @@ python-git install:
   pkg.installed:
     - name: python-git
 
-{{ secret_path }}/:
+{{ secret_pillar }}/:
   file.directory:
     - mode: 700
     - makedirs: True
 
-{{ secret_path }}/ git init:
+{{ secret_pillar }}/ git init:
   git.present:
-    - name: {{ secret_path }}/
+    - name: {{ secret_pillar }}/
     - bare: False
 
-{{ secret_path }}/ git ignore:
+{{ secret_pillar }}/ git ignore:
   file.managed:
-    - name: {{ secret_path }}/.gitignore
+    - name: {{ secret_pillar }}/.gitignore
     - contents: |
         *.example
         README.md
     - require:
-      - git: {{ secret_path }}/
+      - git: {{ secret_pillar }}/
 
-{{ secret_path }}/*.example:
+{{ secret_pillar }}/*.example:
   file.recurse:
-    - name: {{ secret_path }}/
+    - name: {{ secret_pillar }}/
     - source: salt://salt_master/secret_pillar_templates
     - dir_mode: 700
     - file_mode: 600
@@ -37,21 +37,21 @@ python-git install:
     - replace: False
     - template: jinja
     - require:
-      - git: {{ secret_path }}/
+      - git: {{ secret_pillar }}/
 
-{{ secret_path }}/ templates:
+{{ secret_pillar }}/ copy example templates:
   cmd.run:
-    - name: for f in {{ secret_path }}/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
+    - name: for f in {{ secret_pillar }}/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
     - onchanges:
-      - {{ secret_path }}/*.example
+      - {{ secret_pillar }}/*.example
 
-{{ secret_path }}/README.md:
+{{ secret_pillar }}/README.md:
   file.managed:
     - source: salt://salt_master/secret_pillar_templates/README.md
     - mode: 600
     - template: jinja
     - require:
-      - git: {{ secret_path }}/
+      - git: {{ secret_pillar }}/
 
 /etc/salt/master:
   file.managed:
