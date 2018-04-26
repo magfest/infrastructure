@@ -1,4 +1,4 @@
-{%- set webserver_count = 3 -%}
+{%- set webserver_count = 10 -%}
 
 prod-web:
 {%- for i in range(1, webserver_count + 1) %}
