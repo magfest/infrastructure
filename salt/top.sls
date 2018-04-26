@@ -19,4 +19,4 @@ base:
     - freeipa.server
     - traefik.import_freeipa_certs
     - traefik
-    - legacy_magbot
+    - legacy
