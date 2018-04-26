@@ -23,22 +23,20 @@
     - makedirs: True
     - template: jinja
 
- /etc/salt/cloud.profiles.d/dev-profiles.conf:
-  file.managed:
-    - source: salt://salt_cloud/dev-profiles.conf
-    - makedirs: True
-    - template: jinja
+/etc/salt/cloud.profiles.d/dev-profiles.conf:
+ file.managed:
+   - source: salt://salt_cloud/dev-profiles.conf
+   - makedirs: True
+   - template: jinja
 
+/etc/salt/cloud.profiles.d/staging-profiles.conf:
+ file.managed:
+   - source: salt://salt_cloud/staging-profiles.conf
+   - makedirs: True
+   - template: jinja
 
- /etc/salt/cloud.profiles.d/staging-profiles.conf:
-  file.managed:
-    - source: salt://salt_cloud/staging-profiles.conf
-    - makedirs: True
-    - template: jinja
-
-
- /etc/salt/cloud.profiles.d/prod-profiles.conf:
-  file.managed:
-    - source: salt://salt_cloud/prod-profiles.conf
-    - makedirs: True
-    - template: jinja
+/etc/salt/cloud.profiles.d/prod-profiles.conf:
+ file.managed:
+   - source: salt://salt_cloud/prod-profiles.conf
+   - makedirs: True
+   - template: jinja
