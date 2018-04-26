@@ -1,5 +1,9 @@
 # Master Control Program Server
 
+## Overview
+
+_insert diagram here_
+
 ## Bootstrapping the MCP server
 
 Creating an MCP server should only need to be done rarely; ideally just once.
@@ -14,7 +18,7 @@ manages the configuration of all of our other servers.
 2. By default the salt-minions will attempt to connect to `saltmaster.magfest.net`, so the DNS entry for `saltmaster.magfest.net` should be updated to point to the new droplet's **Private IP**
 3. SSH to the new server
 4. Follow Digital Ocean's instructions for configuring and mounting your block storage volume on `/srv/data`.
-  * If you're adding a _new_ volume, you'll need to format the volume. 
+  * If you're adding a _new_ volume, you'll need to format the volume.
     <span class="highlight"><span class="err">This will **DESTROY** any existing data on the volume!</span></span>
 ```
 mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01
