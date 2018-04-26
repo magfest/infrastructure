@@ -1,0 +1,18 @@
+staging-web:
+  - staging-web-01
+  - staging-web-02
+
+staging-sessions:
+  - staging-sessions-01
+
+staging-db:
+  - staging-db-01
+
+staging-queue:
+  - staging-queue-01
+
+staging-scheduler:
+  - staging-scheduler-01
+
+staging-worker:
+  - staging-worker-01
