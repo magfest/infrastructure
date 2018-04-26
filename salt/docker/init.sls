@@ -1,3 +1,7 @@
+python-pip install:
+  pkg.installed:
+    - name: python-pip
+
 docker repo:
   pkgrepo.managed:
     - humanname: Docker APT Repository

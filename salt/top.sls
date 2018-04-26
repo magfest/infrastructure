@@ -8,7 +8,6 @@ base:
     - freeipa.client
 
   'mcp or bootstrap':
-    - pip
     - docker
     - salt_master
 
