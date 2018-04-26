@@ -1,7 +1,5 @@
 # Master Control Program Server
 
-## Overview
-
 MCP is the central piece of MAGFest's IT infrastructure. MCP provisions and
 manages the configuration of all of our other servers.
 
@@ -19,7 +17,9 @@ Create a new droplet on [https://digitalocean.com](https://digitalocean.com)
 
 ### Step 2 – Update DNS
 
-By default the salt-minions will attempt to connect to `saltmaster.magfest.net`, so the DNS entry for `saltmaster.magfest.net` should be updated to point to the new droplet's **Private IP**
+By default the salt-minions will attempt to connect to `saltmaster.magfest.net`,
+so the DNS entry for `saltmaster.magfest.net` should be updated to point to the
+new droplet's **Private IP**.
 
 ### Step 3 – Mount Block Storage
 
