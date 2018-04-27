@@ -28,6 +28,7 @@ legacy_deploy git latest:
 legacy_deploy fabric_settings.ini:
   file.managed:
     - name: {{ secret_path }}/legacy_deploy/puppet/fabric_settings.ini
+    - source: salt://legacy_magbot/fabric_settings.ini
     - template: jinja
 
 legacy_deploy bootstrap_control_server:
