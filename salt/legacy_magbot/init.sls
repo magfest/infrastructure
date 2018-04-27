@@ -61,3 +61,5 @@ legacy_magbot service running:
     - watch_any:
       - file: /lib/systemd/system/legacy_magbot.service
       - git: git@github.com:magfest/magbot.git
+    - require:
+      - pkg: redis-server

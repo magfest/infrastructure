@@ -12,6 +12,7 @@ base:
     - docker
 
   'mcp':
+    - redis
     - salt_cloud
     - docker_network_proxy
     - jenkins
