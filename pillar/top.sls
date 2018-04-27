@@ -12,3 +12,4 @@ base:
     - digitalocean_secret
     - mcp_secret
     - magbot_secret
+    - ignore_missing: True
