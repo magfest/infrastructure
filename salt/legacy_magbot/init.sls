@@ -23,6 +23,7 @@ magbot user:
 legacy_deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
+    - user: magbot
     - target: {{ secret_path }}/legacy_deploy
 
 legacy_deploy fabric_settings.ini:
@@ -37,18 +38,10 @@ legacy_deploy bootstrap_control_server:
     - cwd: {{ secret_path }}/legacy_deploy/puppet
     - creates: {{ secret_path }}/legacy_deploy/puppet/hiera/nodes
 
-{{ secret_path }}/legacy_deploy/ chown magbot:
-  file.directory:
-    - user: magbot
-    - group: magbot
-    - mode: 755
-    - recurse:
-      - user
-      - group
-
 legacy_magbot git latest:
   git.latest:
     - name: git@github.com:magfest/magbot.git
+    - user: magbot
     - target: {{ secret_path }}/legacy_magbot
     - identity: /root/.ssh/github_magbot.pem
 
@@ -63,15 +56,6 @@ legacy_magbot service conf:
     - name: /lib/systemd/system/legacy_magbot.service
     - source: salt://legacy_magbot/legacy_magbot.service
     - template: jinja
-
-{{ secret_path }}/legacy_magbot/ chown magbot:
-  file.directory:
-    - user: magbot
-    - group: magbot
-    - mode: 755
-    - recurse:
-      - user
-      - group
 
 legacy_magbot service running:
   service.running:
