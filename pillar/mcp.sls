@@ -5,6 +5,7 @@ data:
 
 master:
   address: 127.0.0.1
+  firewall_blacklisted_ips: []
   ssh_keys: {}
 
 minion:
