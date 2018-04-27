@@ -2,9 +2,9 @@ include:
   - nodejs
   - npm
 
-slack_irc user:
+slack-irc user:
   user.present:
-    - name: slack_irc
+    - name: slack-irc
 
 slack-irc:
   npm.installed:
@@ -24,25 +24,25 @@ slack_irc service conf:
     - name: /etc/slack-irc.conf.json
     - source: salt://slack_irc/slack-irc.conf.json
     - user: root
-    - group: slack_irc
+    - group: slack-irc
     - mode: 640
     - template: jinja
 
-/var/log/slackbot.out.log chown slack_irc:
+/var/log/slackbot.out.log chown slack-irc:
   file.managed:
     - name: /var/log/slackbot.out.log
-    - user: slack_irc
-    - group: slack_irc
+    - user: slack-irc
+    - group: slack-irc
 
-/var/log/slackbot.err.log chown slack_irc:
+/var/log/slackbot.err.log chown slack-irc:
   file.managed:
     - name: /var/log/slackbot.err.log
-    - user: slack_irc
-    - group: slack_irc
+    - user: slack-irc
+    - group: slack-irc
 
-slack_irc service running:
+slack-irc service running:
   service.running:
-    - name: slack_irc
+    - name: slack-irc
     - watch_any:
       - file: /lib/systemd/system/slack-irc.service
       - file: /etc/slack-irc.conf.json
