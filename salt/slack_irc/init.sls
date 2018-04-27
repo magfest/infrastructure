@@ -6,6 +6,13 @@ slack_irc user:
   user.present:
     - name: slack_irc
 
+slack-irc:
+  npm.installed:
+    - name: slack-irc
+    - require:
+      - sls: nodejs
+      - sls: npm
+
 slack_irc service conf:
   file.managed:
     - name: /lib/systemd/system/slack-irc.service
