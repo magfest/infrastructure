@@ -8,6 +8,14 @@ fabric install:
   pkg.installed:
     - name: fabric
 
+nodejs install:
+  pkg.installed:
+    - name: nodejs
+
+npm install:
+  pkg.installed:
+    - name: npm
+
 magbot user:
   user.present:
     - name: magbot
