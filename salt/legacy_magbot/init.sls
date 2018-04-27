@@ -34,10 +34,10 @@ legacy_magbot git latest:
     - target: {{ secret_path }}/legacy_magbot
     - identity: /root/.ssh/github_magbot.pem
 
-legacy_magbot secrets.sh:
+legacy_magbot secret.sh:
   file.managed:
-    - name: {{ secret_path }}/legacy_magbot/secrets.sh
-    - source: salt://legacy_magbot/secrets.sh
+    - name: {{ secret_path }}/legacy_magbot/secret.sh
+    - source: salt://legacy_magbot/secret.sh
     - template: jinja
 
 legacy_magbot service conf:
