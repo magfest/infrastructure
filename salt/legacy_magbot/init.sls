@@ -27,6 +27,7 @@ legacy_deploy git latest:
 
 {{ secret_path }}/legacy_deploy/ chown magbot:
   file.directory:
+    - name: {{ secret_path }}/legacy_deploy/
     - user: magbot
     - group: magbot
     - recurse: ['user', 'group']
@@ -63,6 +64,7 @@ legacy_magbot service conf:
 
 {{ secret_path }}/legacy_magbot/ chown magbot:
   file.directory:
+    - name: {{ secret_path }}/legacy_magbot/
     - user: magbot
     - group: magbot
     - recurse: ['user', 'group']
