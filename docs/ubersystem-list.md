@@ -1,7 +1,9 @@
 # Current MAGFest Ubersystem Servers
 
 * [Super MAGFest 2018 Jan 4-7](https://super2018.uber.magfest.org/uber) (MAGFest 16)
-* [MAGStock 2018 June 8-11](https://magstock7.uber.magfest.org/uber) (MAGStock 8)
+* [MAGLabs 2018 Sept 7-10](https://labs2018.uber.magfest.org/uber) (MAGLabs 3)
+* [MAGStock 2018 June 7-10](https://magstock8.uber.magfest.org/uber) (MAGStock 8)
+* [MAGWest 2018 Aug 10-12](https://west2018.uber.magfest.org/uber) (MAGWest 2)
 
 
 # 2017 Events
