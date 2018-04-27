@@ -1,5 +1,4 @@
 include:
-  - nodejs
   - npm
 
 slack_irc user:
@@ -40,5 +39,4 @@ slack_irc service running:
       - file: /lib/systemd/system/slack-irc.service
       - file: /etc/slack-irc.conf.json
     - require:
-      - pkg: nodejs
       - pkg: npm
