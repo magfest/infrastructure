@@ -1,0 +1,15 @@
+{%- set secret_path = salt['pillar.get']('data:path') ~ '/secret' -%}
+[Unit]
+Description=Legacy magbot (based on hubot)
+After=network.target
+
+[Service]
+Type=forking
+Restart=always
+User=magbot
+StandardOutput=file:/var/log/hubot.out.log
+StandardError=file:/var/log/hubot.err.log
+ExecStart={{ secret_path }}/legacy_magbot/run-bot.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -11,3 +11,4 @@ base:
   'mcp':
     - digitalocean_secret
     - mcp_secret
+    - magbot_secret

@@ -8,8 +8,8 @@ base:
     - freeipa.client
 
   'mcp or bootstrap':
-    - docker
     - salt_master
+    - docker
 
   'mcp':
     - salt_cloud
@@ -18,4 +18,5 @@ base:
     - freeipa.server
     - traefik.import_freeipa_certs
     - traefik
-    - legacy
+    - legacy_magbot
+    - slack_irc
