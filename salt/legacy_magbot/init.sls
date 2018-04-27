@@ -1,4 +1,5 @@
 include:
+  - nodejs
   - npm
 
 puppet install:
@@ -83,4 +84,5 @@ legacy_magbot service running:
       - git: git@github.com:magfest/magbot.git
     - require:
       - pkg: redis-server
-      - pkg: npm
+      - sls: nodejs
+      - sls: npm
