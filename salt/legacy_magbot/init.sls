@@ -1,5 +1,3 @@
-{%- set secret_path = salt['pillar.get']('data:path') ~ '/secret' -%}
-
 puppet install:
   pkg.installed:
     - name: puppet
@@ -23,36 +21,36 @@ magbot user:
 legacy_deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
-    - target: {{ secret_path }}/legacy_deploy
+    - target: /srv/legacy_deploy
 
-{{ secret_path }}/legacy_deploy/ chown magbot:
+/srv/legacy_deploy/ chown magbot:
   file.directory:
-    - name: {{ secret_path }}/legacy_deploy/
+    - name: /srv/legacy_deploy/
     - user: magbot
     - group: magbot
     - recurse: ['user', 'group']
 
 legacy_deploy fabric_settings.ini:
   file.managed:
-    - name: {{ secret_path }}/legacy_deploy/puppet/fabric_settings.ini
+    - name: /srv/legacy_deploy/puppet/fabric_settings.ini
     - source: salt://legacy_magbot/fabric_settings.ini
     - template: jinja
 
 legacy_deploy bootstrap_control_server:
   cmd.run:
     - name: fab -H localhost bootstrap_control_server
-    - cwd: {{ secret_path }}/legacy_deploy/puppet
-    - creates: {{ secret_path }}/legacy_deploy/puppet/hiera/nodes
+    - cwd: /srv/legacy_deploy/puppet
+    - creates: /srv/legacy_deploy/puppet/hiera/nodes
 
 legacy_magbot git latest:
   git.latest:
     - name: git@github.com:magfest/magbot.git
-    - target: {{ secret_path }}/legacy_magbot
+    - target: /srv/legacy_magbot
     - identity: /root/.ssh/github_magbot.pem
 
 legacy_magbot secret.sh:
   file.managed:
-    - name: {{ secret_path }}/legacy_magbot/secret.sh
+    - name: /srv/legacy_magbot/secret.sh
     - source: salt://legacy_magbot/secret.sh
     - template: jinja
 
@@ -62,9 +60,9 @@ legacy_magbot service conf:
     - source: salt://legacy_magbot/legacy_magbot.service
     - template: jinja
 
-{{ secret_path }}/legacy_magbot/ chown magbot:
+/srv/legacy_magbot/ chown magbot:
   file.directory:
-    - name: {{ secret_path }}/legacy_magbot/
+    - name: /srv/legacy_magbot/
     - user: magbot
     - group: magbot
     - recurse: ['user', 'group']
