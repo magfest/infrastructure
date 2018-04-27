@@ -8,9 +8,9 @@ fabric install:
   pkg.installed:
     - name: fabric
 
-nodejs install:
+nodejs-legacy install:
   pkg.installed:
-    - name: nodejs
+    - name: nodejs-legacy
 
 npm install:
   pkg.installed:

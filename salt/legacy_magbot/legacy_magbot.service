@@ -7,7 +7,7 @@ After=network.target
 Type=forking
 Restart=always
 User=magbot
-ExecStart={{ secret_path }}/legacy_magbot/run-bot.sh > /var/log/hubot.out.log 2> /var/log/hubot.err.log
+ExecStart={{ secret_path }}/legacy_magbot/run-bot.sh >> /var/log/hubot.out.log 2>> /var/log/hubot.err.log
 
 [Install]
 WantedBy=multi-user.target
