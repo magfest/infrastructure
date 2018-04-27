@@ -1,3 +1,6 @@
+include:
+  - docker_network_proxy
+
 jenkins group:
   group.present:
     - name: jenkins

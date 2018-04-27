@@ -14,7 +14,6 @@ base:
   'mcp':
     - redis
     - salt_cloud
-    - docker_network_proxy
     - jenkins
     - freeipa.server
     - traefik.import_freeipa_certs

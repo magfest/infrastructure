@@ -1,0 +1,11 @@
+[Unit]
+Description=Slack/IRC Bridge
+After=network.target
+
+[Service]
+Restart=always
+User=slack_irc
+ExecStart=/bin/bash -c "slack-irc --config /etc/slack-irc.conf.json >> /var/log/slackbot.out.log 2>> /var/log/slackbot.err.log"
+
+[Install]
+WantedBy=multi-user.target

@@ -1,3 +1,6 @@
+include:
+  - docker_network_proxy
+
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/certs/:
   file.directory:
     - mode: 600

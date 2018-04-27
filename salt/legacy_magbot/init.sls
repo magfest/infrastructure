@@ -1,3 +1,7 @@
+include:
+  - nodejs
+  - npm
+
 puppet install:
   pkg.installed:
     - name: puppet
@@ -5,14 +9,6 @@ puppet install:
 fabric install:
   pkg.installed:
     - name: fabric
-
-nodejs-legacy install:
-  pkg.installed:
-    - name: nodejs-legacy
-
-npm install:
-  pkg.installed:
-    - name: npm
 
 magbot user:
   user.present:
@@ -23,14 +19,7 @@ legacy_deploy git latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
     - target: /srv/legacy_deploy
 
-/srv/legacy_deploy/ chown magbot:
-  file.directory:
-    - name: /srv/legacy_deploy/
-    - user: magbot
-    - group: magbot
-    - recurse: ['user', 'group']
-
-legacy_deploy fabric_settings.ini:
+/srv/legacy_deploy/puppet/fabric_settings.ini:
   file.managed:
     - name: /srv/legacy_deploy/puppet/fabric_settings.ini
     - source: salt://legacy_magbot/fabric_settings.ini
@@ -41,6 +30,13 @@ legacy_deploy bootstrap_control_server:
     - name: fab -H localhost bootstrap_control_server
     - cwd: /srv/legacy_deploy/puppet
     - creates: /srv/legacy_deploy/puppet/hiera/nodes
+
+/srv/legacy_deploy/ chown magbot:
+  file.directory:
+    - name: /srv/legacy_deploy/
+    - user: magbot
+    - group: magbot
+    - recurse: ['user', 'group']
 
 legacy_magbot git latest:
   git.latest:
@@ -84,6 +80,9 @@ legacy_magbot service running:
     - name: legacy_magbot
     - watch_any:
       - file: /lib/systemd/system/legacy_magbot.service
+      - file: /srv/legacy_magbot/secret.sh
       - git: git@github.com:magfest/magbot.git
     - require:
       - pkg: redis-server
+      - pkg: nodejs
+      - pkg: npm

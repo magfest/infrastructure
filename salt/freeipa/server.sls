@@ -1,5 +1,8 @@
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 
+include:
+  - docker_network_proxy
+
 rng-tools install:
   pkg.installed:
     - name: rng-tools
