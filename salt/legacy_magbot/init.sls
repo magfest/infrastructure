@@ -67,6 +67,18 @@ legacy_magbot service conf:
     - group: magbot
     - recurse: ['user', 'group']
 
+/var/log/hubot.out.log chown magbot:
+  file.managed:
+    - name: /var/log/hubot.out.log
+    - user: magbot
+    - group: magbot
+
+/var/log/hubot.err.log chown magbot:
+  file.managed:
+    - name: /var/log/hubot.err.log
+    - user: magbot
+    - group: magbot
+
 legacy_magbot service running:
   service.running:
     - name: legacy_magbot
