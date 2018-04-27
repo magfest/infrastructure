@@ -3,7 +3,6 @@ Description=Legacy magbot (based on hubot)
 After=network.target
 
 [Service]
-Type=forking
 Restart=always
 User=magbot
 ExecStart=/srv/legacy_magbot/run-bot.sh >> /var/log/hubot.out.log 2>> /var/log/hubot.err.log
