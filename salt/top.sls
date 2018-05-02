@@ -5,9 +5,7 @@ base:
 
   'not bootstrap':
     - ufw
-    - fail2ban
     - freeipa.client
-    - ignore_missing: True
 
   'mcp or bootstrap':
     - salt_master
