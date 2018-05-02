@@ -2,10 +2,10 @@ base:
   '*':
     - salt_minion
     - swap
-    - fail2ban
 
   'not bootstrap':
     - ufw
+    - fail2ban
     - freeipa.client
 
   'mcp or bootstrap':
