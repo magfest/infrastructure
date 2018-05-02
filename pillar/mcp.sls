@@ -1,5 +1,5 @@
 {%- from 'defaults.sls' import master_domain -%}
-{%- import_yaml ip_blacklist.sls' as ip_blacklist -%}
+{%- import_yaml 'ip_blacklist.sls' as ip_blacklist -%}
 
 data:
   path: /srv/data
