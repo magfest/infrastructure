@@ -5,6 +5,7 @@ base:
 
   'not bootstrap':
     - ufw
+    - fail2ban
     - freeipa.client
 
   'mcp or bootstrap':
