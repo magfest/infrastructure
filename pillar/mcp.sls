@@ -1,4 +1,5 @@
 {%- from 'defaults.sls' import master_domain -%}
+{%- import_yaml ip_blacklist.sls' as ip_blacklist -%}
 
 data:
   path: /srv/data
@@ -26,6 +27,7 @@ ufw:
 
   applications:
     OpenSSH:
+      limit: True
       enabled: True
     Saltmaster:
       enabled: True
@@ -35,8 +37,6 @@ ufw:
       protocol: tcp
     https:
       protocol: tcp
-    # 53: # dns
-    #   protocol: any
     88: # kerberos
       protocol: any
     464: # kpasswd
@@ -45,12 +45,15 @@ ufw:
       protocol: tcp
     636: # ldapssl
       protocol: tcp
-    # 123: # ntp
-    #   protocol: udp
     # 7389: # freeipa_replica
     #   protocol: tcp
     # "9443:9445": # freeipa_replica_config
     #   protocol: tcp
+
+    '*':
+      deny: True
+      protocol: any
+      from_addr: {{ ip_blacklist.ip_blacklist }}
 
   sysctl:
     forwarding: 1
