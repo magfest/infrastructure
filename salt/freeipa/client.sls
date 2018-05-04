@@ -1,8 +1,8 @@
 /etc/ssh/sshd_config PasswordAuthentication:
   file.line:
     - name: /etc/ssh/sshd_config
-    - content: PasswordAuthentication yes
-    - match: PasswordAuthentication\s+no
+    - content: PasswordAuthentication no
+    - match: PasswordAuthentication(?!\s+no\s*$).*
     - mode: replace
 
 /etc/pam.d/sshd mkhomedir:
@@ -31,3 +31,12 @@ ipa-client-install:
     - creates: /etc/ipa/default.conf
     - require:
       - pkg: freeipa-client
+
+# /etc/ssh/sshd_config PermitRootLogin:
+#   file.line:
+#     - name: /etc/ssh/sshd_config
+#     - content: PermitRootLogin no
+#     - match: PermitRootLogin(?!\s+no\s*$).*
+#     - mode: replace
+#     - require:
+#         - ipa-client-install

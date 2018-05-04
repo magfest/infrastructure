@@ -1,4 +1,5 @@
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
+{%- set data_path = salt['pillar.get']('data:path') -%}
 
 include:
   - docker_network_proxy
@@ -7,11 +8,11 @@ rng-tools install:
   pkg.installed:
     - name: rng-tools
 
-{{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/:
+{{ data_path }}/freeipa/ipa-data/:
   file.directory:
     - makedirs: True
 
-{{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf:
+{{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf:
   file.managed:
     - source: salt://freeipa/ipa-rewrite.conf
     - makedirs: True
@@ -23,7 +24,7 @@ freeipa:
     - image: freeipa/freeipa-server:latest
     - auto_remove: True
     - binds:
-      - {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data:/data:Z
+      - {{ data_path }}/freeipa/ipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     - ports: 80,88,88/udp,123/udp,389,443,464,464/udp,636
     - port_bindings:
@@ -55,12 +56,19 @@ freeipa:
       - docker_network_external
       - docker_network_internal
     - watch:
-      - file: {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
+      - file: {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
       - pkg: rng-tools
-      - file: {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/
-      - file: {{ salt['pillar.get']('data:path') }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
+      - file: {{ data_path }}/freeipa/ipa-data/
+      - file: {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require_in:
       - sls: freeipa.client
+
+freeipa install:
+  cmd.run:
+    - name: touch {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
+    - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
+    - onlyif: grep 'The ipa-server-install command was successful' /srv/data/freeipa/ipa-data/var/log/ipaserver-install.log
+    - require: freeipa
