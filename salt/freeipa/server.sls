@@ -68,8 +68,9 @@ freeipa:
 
 freeipa install:
   cmd.run:
-    - name: touch {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
+    - name: |
+        grep 'The ipa-server-install command was successful' {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install.log &&
+        touch {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
-    - onlyif: grep 'The ipa-server-install command was successful' /srv/data/freeipa/ipa-data/var/log/ipaserver-install.log
     - require:
       - freeipa
