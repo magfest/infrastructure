@@ -27,7 +27,7 @@ python-git install:
     - require:
       - git: {{ secret_pillar }}/
 
-{{ secret_pillar }}/*.example:
+{{ secret_pillar }}/*:
   file.recurse:
     - name: {{ secret_pillar }}/
     - source: salt://salt_master/secret_pillar_templates
