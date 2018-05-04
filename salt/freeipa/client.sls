@@ -2,7 +2,7 @@
   file.line:
     - name: /etc/ssh/sshd_config
     - content: PasswordAuthentication no
-    - match: PasswordAuthentication(?!\s+no\s*$).*
+    - match: PasswordAuthentication(?!\s+no\s*$).*$
     - mode: replace
 
 /etc/pam.d/sshd mkhomedir:
@@ -36,7 +36,7 @@ ipa-client-install:
 #   file.line:
 #     - name: /etc/ssh/sshd_config
 #     - content: PermitRootLogin no
-#     - match: PermitRootLogin(?!\s+no\s*$).*
+#     - match: PermitRootLogin(?!\s+no\s*$).*$
 #     - mode: replace
 #     - require:
 #         - ipa-client-install
