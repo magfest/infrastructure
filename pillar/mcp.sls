@@ -26,6 +26,8 @@ ufw:
 
   settings:
     ipv6: False
+
+  sysctl:
     ipv6_autoconf: 0
 
   applications:

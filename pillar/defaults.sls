@@ -20,6 +20,12 @@ mine_functions:
 ufw:
   enabled: True
 
+  settings:
+    ipv6: False
+
+  sysctl:
+    ipv6_autoconf: 0
+
   applications:
     OpenSSH:
       limit: True
