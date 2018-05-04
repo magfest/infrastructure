@@ -22,13 +22,15 @@ traefik:
   subdomains: ['directory', 'errbot', 'hal', 'jenkins', 'traefik']
 
 ufw:
-  enabled:
-    True
+  enabled: True
+
+  settings:
+    ipv6: False
+    ipv6_autoconf: 0
 
   applications:
     OpenSSH:
       limit: True
-      enabled: True
     Saltmaster:
       enabled: True
 

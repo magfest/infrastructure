@@ -18,8 +18,8 @@ mine_functions:
     - eth1
 
 ufw:
-  enabled:
-    True
+  enabled: True
+
   applications:
     OpenSSH:
-      enabled: True
+      limit: True
