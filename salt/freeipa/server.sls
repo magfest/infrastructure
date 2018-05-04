@@ -71,4 +71,5 @@ freeipa install:
     - name: touch {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - onlyif: grep 'The ipa-server-install command was successful' /srv/data/freeipa/ipa-data/var/log/ipaserver-install.log
-    - require: freeipa
+    - require:
+      - freeipa
