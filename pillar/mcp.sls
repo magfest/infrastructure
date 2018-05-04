@@ -28,6 +28,7 @@ ufw:
     ipv6: False
 
   sysctl:
+    forwarding: 1
     ipv6_autoconf: 0
 
   applications:
@@ -58,6 +59,3 @@ ufw:
       deny: True
       protocol: any
       from_addr: {{ ip_blacklist.ip_blacklist }}
-
-  sysctl:
-    forwarding: 1
