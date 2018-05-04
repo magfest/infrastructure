@@ -27,7 +27,7 @@ python-git install:
     - require:
       - git: {{ secret_pillar }}/
 
-{{ secret_pillar }}/*:
+{{ secret_pillar }}/ files:
   file.recurse:
     - name: {{ secret_pillar }}/
     - source: salt://salt_master/secret_pillar_templates
@@ -43,7 +43,7 @@ python-git install:
   cmd.run:
     - name: for f in {{ secret_pillar }}/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
     - onchanges:
-      - {{ secret_pillar }}/*.example
+      - {{ secret_pillar }}/ files
 
 {{ secret_pillar }}/README.md:
   file.managed:
