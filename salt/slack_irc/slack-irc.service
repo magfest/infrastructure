@@ -8,7 +8,7 @@ User=slack-irc
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=slack-irc
-ExecStart=slack-irc --config /etc/slack-irc.conf.json
+ExecStart=/usr/local/bin/slack-irc --config /etc/slack-irc.conf.json
 
 [Install]
 WantedBy=multi-user.target
