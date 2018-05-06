@@ -13,7 +13,14 @@ slack-irc:
       - sls: nodejs
       - sls: npm
 
-slack_irc service conf:
+slack-irc rsyslog conf:
+  file.managed:
+    - name: /etc/rsyslog.d/slack-irc.conf
+    - contents: |
+        if $programname == 'slack-irc' then /var/log/slack-irc.log
+        if $programname == 'slack-irc' then ~
+
+slack-irc service conf:
   file.managed:
     - name: /lib/systemd/system/slack-irc.service
     - source: salt://slack_irc/slack-irc.service
