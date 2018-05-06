@@ -5,7 +5,10 @@ After=network.target
 [Service]
 Restart=always
 User=magbot
-ExecStart=/bin/bash -c "/srv/legacy_magbot/run-bot.sh >> /var/log/hubot.out.log 2>> /var/log/hubot.err.log"
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=legacy_magbot
+ExecStart=/srv/legacy_magbot/run-bot.sh
 
 [Install]
 WantedBy=multi-user.target
