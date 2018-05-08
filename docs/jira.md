@@ -21,7 +21,7 @@ page for details about the Jira app registered with our GitHub
 account. See the [infrastructure webhooks](https://github.com/magfest/infrastructure/settings/hooks)
 for examples of the webhooks installed by the Jira app.
 
-## Referencing Issues in Git Commits
+## Referencing Jira Issues In Git Commits
 
 Git commit messages should use the following format to reference related issues
 in Jira:
