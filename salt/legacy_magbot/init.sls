@@ -14,6 +14,20 @@ magbot user:
   user.present:
     - name: magbot
 
+{% for ssh_key_name, ssh_key in salt['pillar.get']('magbot:ssh_keys').items() %}
+/home/magbot/.ssh/{{ ssh_key_name }}.pub:
+  file.managed:
+    - mode: 644
+    - makedirs: True
+    - contents: {{ ssh_key['public'] }}
+
+/home/magbot/.ssh/{{ ssh_key_name }}.pem:
+  file.managed:
+    - mode: 600
+    - contents: |
+        {{ ssh_key['private']|indent(8) }}
+{% endfor %}
+
 legacy_deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
@@ -43,6 +57,8 @@ legacy_deploy symlink secret hiera:
   file.symlink:
     - name: /srv/legacy_deploy/puppet/hiera/nodes/external/secret
     - target: /srv/data/secret/hiera
+    - user: magbot
+    - group: magbot
     - makedirs: True
 
 /srv/legacy_deploy/ chown magbot:
