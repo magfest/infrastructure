@@ -73,6 +73,10 @@ legacy_deploy symlink secret hiera:
     - group: magbot
     - recurse: ['user', 'group']
 
+/var/log/legacy_deploy/:
+  file.directory:
+    - name: /var/log/legacy_deploy/
+
 legacy_magbot git latest:
   git.latest:
     - name: git@github.com:magfest/magbot.git
