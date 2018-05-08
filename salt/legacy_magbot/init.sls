@@ -18,12 +18,16 @@ magbot user:
 /home/magbot/.ssh/{{ ssh_key_name }}.pub:
   file.managed:
     - mode: 644
+    - user: magbot
+    - group: magbot
     - makedirs: True
     - contents: {{ ssh_key['public'] }}
 
 /home/magbot/.ssh/{{ ssh_key_name }}.pem:
   file.managed:
     - mode: 600
+    - user: magbot
+    - group: magbot
     - contents: |
         {{ ssh_key['private']|indent(8) }}
 {% endfor %}
