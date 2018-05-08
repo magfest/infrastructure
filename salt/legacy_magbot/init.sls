@@ -10,6 +10,10 @@ fabric install:
   pkg.installed:
     - name: fabric
 
+ruby-bcat install:
+  pkg.installed:
+    - name: ruby-bcat
+
 magbot user:
   user.present:
     - name: magbot
