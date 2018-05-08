@@ -1,0 +1,42 @@
+# Jira
+
+Our [Jira issue tracking server](https://jira.magfest.net) is a core piece of
+MAGFest's infrastructure. The server is hosted on one of our Digital Ocean
+droplets (hostname jira.magfest.net). Our daily office tasks, as well as all
+of our other projects – including our software development projects – are
+tracked and managed in Jira.
+
+## GitHub Integration
+
+Our Jira server is integrated with our
+[MAGFest account](https://github.com/magfest) on GitHub. Every repository owned
+by the MAGFest account will automatically have webhooks installed that POST
+git events back to our Jira Software server.
+
+See the [DVCS accounts](https://jira.magfest.net/secure/admin/ConfigureDvcsOrganizations!default.jspa)
+configuration page for detailed settings in Jira.
+
+See the [OAuth Apps](https://github.com/organizations/magfest/settings/applications)
+configuration page for details about the Jira app registered with our GitHub
+account.
+
+## Referencing Issues in Git Commits
+
+Git commit messages should use the following format to reference related issues
+in Jira:
+```
+ISSUE-KEY #COMMAND Short description of change.
+```
+
+For example:
+```
+OFFICE-4039 #in-progress Adds Jira page to infrastructure docs.
+```
+
+A complete description of Jira smart commits can be
+[found here](https://confluence.atlassian.com/bitbucket/processing-jira-software-issues-with-smart-commit-messages-298979931.html).
+
+
+**NOTE**: While `ISSUE-KEY` links will always be recognized by Jira, smart
+commit `#COMMANDS` will only work if the committer's email address matches the
+email address of a Jira Software user with the relevant permission.

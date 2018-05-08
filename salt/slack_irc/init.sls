@@ -35,18 +35,6 @@ slack-irc service conf:
     - mode: 640
     - template: jinja
 
-/var/log/slackbot.out.log chown slack-irc:
-  file.managed:
-    - name: /var/log/slackbot.out.log
-    - user: slack-irc
-    - group: slack-irc
-
-/var/log/slackbot.err.log chown slack-irc:
-  file.managed:
-    - name: /var/log/slackbot.err.log
-    - user: slack-irc
-    - group: slack-irc
-
 slack-irc service running:
   service.running:
     - name: slack-irc
