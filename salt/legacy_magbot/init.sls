@@ -81,7 +81,7 @@ legacy_magbot git latest:
   git.latest:
     - name: git@github.com:magfest/magbot.git
     - target: /srv/legacy_magbot
-    - identity: /root/.ssh/github_magbot.pem
+    - identity: /root/.ssh/github_magbot_id_rsa
 
 legacy_magbot secret.sh:
   file.managed:
