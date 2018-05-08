@@ -26,7 +26,7 @@ for examples of the webhooks installed by the Jira app.
 Git commit messages should use the following format to reference related issues
 in Jira:
 ```
-ISSUE-KEY #COMMAND Short description of change.
+ISSUE-KEY #WORKFLOW Short description of change.
 ```
 
 For example:
@@ -39,5 +39,5 @@ A complete description of Jira smart commits can be
 
 
 **NOTE**: While `ISSUE-KEY` links will always be recognized by Jira, smart
-commit `#COMMANDS` will only work if the committer's email address matches the
+commit `#WORKFLOWS` will only work if the committer's email address matches the
 email address of a Jira Software user with the relevant permission.
