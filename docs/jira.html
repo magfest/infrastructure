@@ -14,11 +14,12 @@ by the MAGFest account will automatically have webhooks installed that POST
 git events back to our Jira Software server.
 
 See the [DVCS accounts](https://jira.magfest.net/secure/admin/ConfigureDvcsOrganizations!default.jspa)
-configuration page for detailed settings in Jira.
+page for details about the Jira settings.
 
 See the [OAuth Apps](https://github.com/organizations/magfest/settings/applications)
-configuration page for details about the Jira app registered with our GitHub
-account.
+page for details about the Jira app registered with our GitHub
+account. See the [infrastructure webhooks](https://github.com/magfest/infrastructure/settings/hooks)
+for examples of the webhooks installed by the Jira app.
 
 ## Referencing Issues in Git Commits
 
@@ -30,7 +31,7 @@ ISSUE-KEY #COMMAND Short description of change.
 
 For example:
 ```
-OFFICE-4039 #in-progress Adds Jira page to infrastructure docs.
+git commit -m "OFFICE-4039 #in-progress Adds Jira page to infrastructure docs."
 ```
 
 A complete description of Jira smart commits can be
