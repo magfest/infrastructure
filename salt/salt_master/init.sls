@@ -87,12 +87,13 @@ salt_master:
         |1|mMeDA6mliM8YrKh6n490Mlr489Y=|fSwqDfWnJHEIBEEJ7xAPSvYKMlc= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
 
 {% for ssh_key_name, ssh_key in salt['pillar.get']('master:ssh_keys').items() %}
-/root/.ssh/{{ ssh_key_name }}.pub:
+{%- set key_name = ssh_key_name if ssh_key_name.endswith('id_rsa') else ssh_key_name ~ '_id_rsa' %}
+/root/.ssh/{{ key_name }}.pub:
   file.managed:
     - mode: 644
     - contents: {{ ssh_key['public'] }}
 
-/root/.ssh/{{ ssh_key_name }}.pem:
+/root/.ssh/{{ key_name }}:
   file.managed:
     - mode: 600
     - contents: |
