@@ -1,6 +1,16 @@
 include:
   - docker_network_proxy
 
+/var/log/legacy_deploy/nginx/error.log:
+  file.managed:
+    - name: /var/log/legacy_deploy/nginx/error.log
+    - makedirs: True
+
+/var/log/legacy_deploy/nginx/access.log:
+  file.managed:
+    - name: /var/log/legacy_deploy/nginx/access.log
+    - makedirs: True
+
 /etc/legacy_deploy/nginx/conf.d/default.conf:
   file.managed:
     - name: /etc/legacy_deploy/nginx/conf.d/default.conf
