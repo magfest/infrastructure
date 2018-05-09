@@ -16,6 +16,8 @@ deploy_log_server:
     - binds:
       - /etc/legacy_deploy/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
       - /var/log/legacy_deploy:/usr/share/nginx/html:ro
+      - /var/log/legacy_deploy/nginx/error.log:/var/log/nginx/error.log
+      - /var/log/legacy_deploy/nginx/access.log:/var/log/nginx/access.log
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ salt['pillar.get']('magbot:deploy_log_domain') }}
