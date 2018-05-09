@@ -71,6 +71,7 @@ legacy_deploy symlink secret hiera:
 /var/log/legacy_magbot/deploy/:
   file.directory:
     - name: /var/log/legacy_magbot/deploy/
+    - makedirs: True
 
 legacy_magbot git latest:
   git.latest:
