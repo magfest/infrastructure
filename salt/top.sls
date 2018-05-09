@@ -20,4 +20,5 @@ base:
     - traefik.import_freeipa_certs
     - traefik
     - legacy_magbot
+    - legacy_magbot.deploy_log_server
     - slack_irc
