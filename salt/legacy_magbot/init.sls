@@ -66,16 +66,7 @@ legacy_deploy symlink secret hiera:
   file.symlink:
     - name: /srv/legacy_deploy/puppet/hiera/nodes/external/secret
     - target: /srv/data/secret/hiera
-    - user: magbot
-    - group: magbot
     - makedirs: True
-
-/srv/legacy_deploy/ chown magbot:
-  file.directory:
-    - name: /srv/legacy_deploy/
-    - user: magbot
-    - group: magbot
-    - recurse: ['user', 'group']
 
 /var/log/legacy_deploy/:
   file.directory:
