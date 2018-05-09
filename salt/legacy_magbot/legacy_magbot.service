@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Restart=always
-User=magbot
+User=root
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=legacy_magbot
