@@ -1,5 +1,8 @@
-{%- set secret_pillar = salt['pillar.get']('data:path') ~ '/secret/pillar' -%}
+# ============================================================================
+# Salt master prerequisites
+# ============================================================================
 
+# Salt needs libssh-dev and python-git to clone github repositories
 libssh-dev install:
   pkg.installed:
     - name: libssh-dev
@@ -8,50 +11,69 @@ python-git install:
   pkg.installed:
     - name: python-git
 
-{{ secret_pillar }}/:
+
+# ============================================================================
+# Secret infrastructure configuration
+# ============================================================================
+
+{%- set secret_infrastructure = salt['pillar.get']('data:path') ~ '/secret/infrastructure' %}
+
+# Create directory if it doesn't exist
+{{ secret_infrastructure }}/:
   file.directory:
     - mode: 700
     - makedirs: True
 
-{{ secret_pillar }}/ git init:
+# Initialize a local git repository. This is mostly to help admins track
+# updates to their secret data.
+{{ secret_infrastructure }}/ git init:
   git.present:
-    - name: {{ secret_pillar }}/
+    - name: {{ secret_infrastructure }}/
     - bare: False
 
-{{ secret_pillar }}/ git ignore:
+# No need to track changes to *.example or README.md, because those files are
+# under configuration management.
+{{ secret_infrastructure }}/ git ignore:
   file.managed:
-    - name: {{ secret_pillar }}/.gitignore
+    - name: {{ secret_infrastructure }}/.gitignore
     - contents: |
         *.example
         README.md
     - require:
-      - git: {{ secret_pillar }}/
+      - git: {{ secret_infrastructure }}/
 
-{{ secret_pillar }}/ files:
+# Copy secret_infrastructure files
+{{ secret_infrastructure }}/ files:
   file.recurse:
-    - name: {{ secret_pillar }}/
-    - source: salt://salt_master/secret_pillar_templates
+    - name: {{ secret_infrastructure }}/
+    - source: salt://salt_master/secret_infrastructure
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
-    - replace: False
     - template: jinja
     - require:
-      - git: {{ secret_pillar }}/
+      - git: {{ secret_infrastructure }}/
 
-{{ secret_pillar }}/ copy example templates:
+# Create any missing *.sls files from the associated *.example files
+{{ secret_infrastructure }}/ copy pillar examples:
   cmd.run:
-    - name: for f in {{ secret_pillar }}/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
+    - name: for f in {{ secret_infrastructure }}/pillar/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
     - onchanges:
-      - {{ secret_pillar }}/ files
+      - {{ secret_infrastructure }}/ files
 
-{{ secret_pillar }}/README.md:
+# Put README.md under configuration management, so local changes are reverted
+{{ secret_infrastructure }}/README.md:
   file.managed:
-    - source: salt://salt_master/secret_pillar_templates/README.md
+    - source: salt://salt_master/secret_infrastructure/README.md
     - mode: 600
     - template: jinja
     - require:
-      - git: {{ secret_pillar }}/
+      - git: {{ secret_infrastructure }}/
+
+
+# ============================================================================
+# Salt master configuration
+# ============================================================================
 
 /etc/salt/master:
   file.managed:

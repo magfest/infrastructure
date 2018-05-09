@@ -18,25 +18,6 @@ magbot user:
   user.present:
     - name: magbot
 
-{% for ssh_key_name, ssh_key in salt['pillar.get']('magbot:ssh_keys').items() %}
-{%- set key_name = ssh_key_name if ssh_key_name.endswith('id_rsa') else ssh_key_name ~ '_id_rsa' %}
-/home/magbot/.ssh/{{ key_name }}.pub:
-  file.managed:
-    - mode: 644
-    - user: magbot
-    - group: magbot
-    - makedirs: True
-    - contents: {{ ssh_key['public'] }}
-
-/home/magbot/.ssh/{{ key_name }}:
-  file.managed:
-    - mode: 600
-    - user: magbot
-    - group: magbot
-    - contents: |
-        {{ ssh_key['private']|indent(8) }}
-{% endfor %}
-
 legacy_deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
