@@ -15,6 +15,9 @@ minion:
 jenkins:
   domain: 'jenkins.{{ master_domain }}'
 
+magbot:
+  deploy_log_domain: 'hal.{{ master_domain }}'
+
 traefik:
   cert_names: ['ipa-01.{{ master_domain }}']
   domain: '{{ master_domain }}'
