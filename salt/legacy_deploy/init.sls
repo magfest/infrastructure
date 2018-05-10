@@ -31,7 +31,7 @@ legacy_deploy secret hiera symlink:
     - require_in:
       - sls: legacy_magbot
 
-legacy_deploy secret uber puppet module files:
+legacy_deploy secret uber_puppet_module_files:
   file.recurse:
     - name: /srv/legacy_deploy/puppet/modules/uber/files
     - source: salt://legacy_deploy/uber_puppet_module_files
