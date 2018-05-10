@@ -110,14 +110,15 @@ salt_master:
     - name: /root/.ssh/
     - makedirs: True
     - include_pat: '*.pub'
-    - mode: 644
+    - dir_mode: 755
+    - file_mode: 644
     - source: salt://salt_master/ssh_keys
 
 /root/.ssh/ private keys:
   file.recurse:
     - name: /root/.ssh/
     - exclude_pat: '*.pub'
-    - mode: 600
+    - file_mode: 600
     - source: salt://salt_master/ssh_keys
 
 /root/.ssh/authorized_keys:
