@@ -18,37 +18,6 @@ magbot user:
   user.present:
     - name: magbot
 
-legacy_deploy git latest:
-  git.latest:
-    - name: https://github.com/magfest/ubersystem-deploy.git
-    - target: /srv/legacy_deploy
-
-/srv/legacy_deploy/puppet/fabric_settings.ini:
-  file.managed:
-    - name: /srv/legacy_deploy/puppet/fabric_settings.ini
-    - source: salt://legacy_magbot/fabric_settings.ini
-    - template: jinja
-
-legacy_deploy bootstrap_control_server:
-  cmd.run:
-    - name: fab -H localhost bootstrap_control_server
-    - cwd: /srv/legacy_deploy/puppet
-    - creates: /srv/legacy_deploy/puppet/hiera/nodes
-
-/srv/data/secret/hiera/:
-  file.directory:
-    - name: /srv/data/secret/hiera
-    - dir_mode: 700
-    - file_mode: 600
-    - recurse:
-      - mode
-
-legacy_deploy symlink secret hiera:
-  file.symlink:
-    - name: /srv/legacy_deploy/puppet/hiera/nodes/external/secret
-    - target: /srv/data/secret/hiera
-    - makedirs: True
-
 /var/log/legacy_magbot/deploy/:
   file.directory:
     - name: /var/log/legacy_magbot/deploy/

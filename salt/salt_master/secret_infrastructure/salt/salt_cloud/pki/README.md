@@ -2,5 +2,5 @@
 
 ## Digital Ocean
 
-digitalocean.pem
-digitalocean.pub
+`digitalocean.pem`
+`digitalocean.pub`
