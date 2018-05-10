@@ -42,39 +42,31 @@ python-git install:
     - require:
       - git: {{ secret_infrastructure }}/
 
-# {{ secret_infrastructure }}/pillar/:
-#   file.directory:
-#     - mode: 700
-#     - makedirs: True
-
-# {{ secret_infrastructure }}/salt/salt_master/ssh_keys:
-#   file.directory:
-#     - mode: 700
-#     - makedirs: True
-
-# {{ secret_infrastructure }}/salt/salt_cloud/ssh_keys:
-#   file.directory:
-#     - mode: 700
-#     - makedirs: True
-
-# Copy secret_infrastructure files
-{{ secret_infrastructure }}/ files:
+# Copy secret_infrastructure pillar files
+# NOTE: These ARE treated as Jinja templates
+{{ secret_infrastructure }}/pillar/ files:
   file.recurse:
-    - name: {{ secret_infrastructure }}/
-    - source: salt://salt_master/secret_infrastructure
+    - name: {{ secret_infrastructure }}/pillar/
+    - source: salt://salt_master/secret_infrastructure/pillar
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
+    - replace: False
     - template: jinja
     - require:
       - git: {{ secret_infrastructure }}/
 
-# # Create any missing *.sls files from the associated *.example files
-# {{ secret_infrastructure }}/ copy pillar examples:
-#   cmd.run:
-#     - name: for f in {{ secret_infrastructure }}/pillar/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
-#     - onchanges:
-#       - {{ secret_infrastructure }}/ files
+# Copy secret_infrastructure salt files
+# NOTE: These ARE NOT treated as Jinja templates
+{{ secret_infrastructure }}/salt/ files:
+  file.recurse:
+    - name: {{ secret_infrastructure }}/salt/
+    - source: salt://salt_master/secret_infrastructure/salt
+    - dir_mode: 700
+    - file_mode: 600
+    - makedirs: True
+    - require:
+      - git: {{ secret_infrastructure }}/
 
 # Put README.md under configuration management, so local changes are reverted
 {{ secret_infrastructure }}/README.md:
