@@ -117,7 +117,7 @@ salt_master:
 /root/.ssh/ private keys:
   file.recurse:
     - name: /root/.ssh/
-    - exclude_pat: '*.pub'
+    - exclude_pat: 'E@\.*\.pub|README\.md'
     - file_mode: 600
     - source: salt://salt_master/ssh_keys
 
