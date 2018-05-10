@@ -42,24 +42,39 @@ python-git install:
     - require:
       - git: {{ secret_infrastructure }}/
 
-# Copy secret_infrastructure files
-{{ secret_infrastructure }}/ files:
-  file.recurse:
-    - name: {{ secret_infrastructure }}/
-    - source: salt://salt_master/secret_infrastructure
-    - dir_mode: 700
-    - file_mode: 600
-    - makedirs: True
-    - template: jinja
-    - require:
-      - git: {{ secret_infrastructure }}/
+# {{ secret_infrastructure }}/pillar/:
+#   file.directory:
+#     - mode: 700
+#     - makedirs: True
 
-# Create any missing *.sls files from the associated *.example files
-{{ secret_infrastructure }}/ copy pillar examples:
-  cmd.run:
-    - name: for f in {{ secret_infrastructure }}/pillar/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
-    - onchanges:
-      - {{ secret_infrastructure }}/ files
+# {{ secret_infrastructure }}/salt/salt_master/ssh_keys:
+#   file.directory:
+#     - mode: 700
+#     - makedirs: True
+
+# {{ secret_infrastructure }}/salt/salt_cloud/ssh_keys:
+#   file.directory:
+#     - mode: 700
+#     - makedirs: True
+
+# # Copy secret_infrastructure files
+# {{ secret_infrastructure }}/pillar/:
+#   file.recurse:
+#     - name: {{ secret_infrastructure }}/
+#     - source: salt://salt_master/secret_infrastructure
+#     - dir_mode: 700
+#     - file_mode: 600
+#     - makedirs: True
+#     - template: jinja
+#     - require:
+#       - git: {{ secret_infrastructure }}/
+
+# # Create any missing *.sls files from the associated *.example files
+# {{ secret_infrastructure }}/ copy pillar examples:
+#   cmd.run:
+#     - name: for f in {{ secret_infrastructure }}/pillar/*.example; do cp --no-clobber -- "$f" "${f%.example}"; done
+#     - onchanges:
+#       - {{ secret_infrastructure }}/ files
 
 # Put README.md under configuration management, so local changes are reverted
 {{ secret_infrastructure }}/README.md:
@@ -90,10 +105,20 @@ salt_master:
     - require_in:
       - sls: salt_minion
 
-/root/.ssh/:
-  file.directory:
-    - mode: 644
+/root/.ssh/ public keys:
+  file.recurse:
+    - name: /root/.ssh/
     - makedirs: True
+    - include_pat: *.pub
+    - mode: 644
+    - source: salt://salt_master/ssh_keys
+
+/root/.ssh/ private keys:
+  file.recurse:
+    - name: /root/.ssh/
+    - exclude_pat: *.pub
+    - mode: 600
+    - source: salt://salt_master/ssh_keys
 
 /root/.ssh/authorized_keys:
   file.append:
@@ -108,16 +133,16 @@ salt_master:
         # github.com:22 SSH-2.0-libssh_0.7.0
         |1|mMeDA6mliM8YrKh6n490Mlr489Y=|fSwqDfWnJHEIBEEJ7xAPSvYKMlc= ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
 
-{% for ssh_key_name, ssh_key in salt['pillar.get']('master:ssh_keys').items() %}
-{%- set key_name = ssh_key_name if ssh_key_name.endswith('id_rsa') else ssh_key_name ~ '_id_rsa' %}
-/root/.ssh/{{ key_name }}.pub:
-  file.managed:
-    - mode: 644
-    - contents: {{ ssh_key['public'] }}
+# {% for ssh_key_name, ssh_key in salt['pillar.get']('master:ssh_keys').items() %}
+# {%- set key_name = ssh_key_name if ssh_key_name.endswith('id_rsa') else ssh_key_name ~ '_id_rsa' %}
+# /root/.ssh/{{ key_name }}.pub:
+#   file.managed:
+#     - mode: 644
+#     - contents: {{ ssh_key['public'] }}
 
-/root/.ssh/{{ key_name }}:
-  file.managed:
-    - mode: 600
-    - contents: |
-        {{ ssh_key['private']|indent(8) }}
-{% endfor %}
+# /root/.ssh/{{ key_name }}:
+#   file.managed:
+#     - mode: 600
+#     - contents: |
+#         {{ ssh_key['private']|indent(8) }}
+# {% endfor %}

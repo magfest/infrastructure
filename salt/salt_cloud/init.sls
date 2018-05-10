@@ -5,14 +5,14 @@
 
 /etc/salt/pki/cloud/digitalocean.pem:
   file.managed:
-    - contents_pillar: digitalocean:private_key
+    - source: salt://salt_cloud/pki/digitalocean.pem
     - mode: 600
     - dir_mode: 700
     - makedirs: True
 
 /etc/salt/pki/cloud/digitalocean.pub:
   file.managed:
-    - contents_pillar: digitalocean:public_key
+    - source: salt://salt_cloud/pki/digitalocean.pub
     - mode: 644
     - dir_mode: 700
     - makedirs: True
