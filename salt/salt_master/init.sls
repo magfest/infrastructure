@@ -82,7 +82,7 @@ python-git install:
   file.blockreplace:
     - name: {{ file }}
     - marker_start: '# == Start Example ======'
-    - content:      '# Example'
+    - content:      '# Example\n'
     - marker_end:   '# == End Example ========'
     - prepend_if_not_found: True
 {% endfor %}
