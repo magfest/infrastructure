@@ -84,6 +84,7 @@ python-git install:
     - marker_start: '# == Start Example ======'
     - content:      '# Example'
     - marker_end:   '# == End Example ========'
+    - prepend_if_not_found: True
 {% endfor %}
 
 # ============================================================================
