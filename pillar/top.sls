@@ -4,6 +4,7 @@ base:
 
   'not bootstrap':
     - freeipa_client_secret
+    - ignore_missing: True
 
   'mcp or bootstrap':
     - mcp
