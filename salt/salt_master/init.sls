@@ -42,16 +42,11 @@ python-git install:
     - require:
       - git: {{ secret_infrastructure }}/
 
-# Copy secret_infrastructure pillar files
-# NOTE: These ARE treated as Jinja templates
-{{ secret_infrastructure }}/pillar/ files:
-  file.recurse:
-    - name: {{ secret_infrastructure }}/pillar/
-    - source: salt://salt_master/secret_infrastructure/pillar
-    - dir_mode: 700
-    - file_mode: 600
-    - makedirs: True
-    - replace: False
+# Put README.md under configuration management, so local changes are reverted
+{{ secret_infrastructure }}/README.md:
+  file.managed:
+    - source: salt://salt_master/secret_infrastructure/README.md
+    - mode: 600
     - template: jinja
     - require:
       - git: {{ secret_infrastructure }}/
@@ -68,15 +63,28 @@ python-git install:
     - require:
       - git: {{ secret_infrastructure }}/
 
-# Put README.md under configuration management, so local changes are reverted
-{{ secret_infrastructure }}/README.md:
-  file.managed:
-    - source: salt://salt_master/secret_infrastructure/README.md
-    - mode: 600
+# Copy secret_infrastructure pillar files
+# NOTE: These ARE treated as Jinja templates
+{{ secret_infrastructure }}/pillar/ files:
+  file.recurse:
+    - name: {{ secret_infrastructure }}/pillar/
+    - source: salt://salt_master/secret_infrastructure/pillar
+    - dir_mode: 700
+    - file_mode: 600
+    - makedirs: True
+    - replace: False
     - template: jinja
     - require:
       - git: {{ secret_infrastructure }}/
 
+{% for file in salt['file.find'](secret_infrastructure ~ '/pillar/*.sls') -%}
+{{ file }} example:
+  file.blockreplace:
+    - name: {{ file }}
+    - marker_start: '# == Start Example ======'
+    - content:      '# Example'
+    - marker_end:   '# == End Example ========'
+{% endfor %}
 
 # ============================================================================
 # SSH client configuration
