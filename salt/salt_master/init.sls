@@ -57,17 +57,17 @@ python-git install:
 #     - mode: 700
 #     - makedirs: True
 
-# # Copy secret_infrastructure files
-# {{ secret_infrastructure }}/pillar/:
-#   file.recurse:
-#     - name: {{ secret_infrastructure }}/
-#     - source: salt://salt_master/secret_infrastructure
-#     - dir_mode: 700
-#     - file_mode: 600
-#     - makedirs: True
-#     - template: jinja
-#     - require:
-#       - git: {{ secret_infrastructure }}/
+# Copy secret_infrastructure files
+{{ secret_infrastructure }}/ files:
+  file.recurse:
+    - name: {{ secret_infrastructure }}/
+    - source: salt://salt_master/secret_infrastructure
+    - dir_mode: 700
+    - file_mode: 600
+    - makedirs: True
+    - template: jinja
+    - require:
+      - git: {{ secret_infrastructure }}/
 
 # # Create any missing *.sls files from the associated *.example files
 # {{ secret_infrastructure }}/ copy pillar examples:
