@@ -77,7 +77,7 @@ python-git install:
     - require:
       - git: {{ secret_infrastructure }}/
 
-{% for filename in salt['file.find'](secret_infrastructure ~ '/pillar/*.sls', print=name) -%}
+{% for filename in salt['file.find'](secret_infrastructure ~ '/pillar/*.sls', print='name') -%}
 {{ secret_infrastructure }}/pillar/{{ filename }} example:
   file.blockreplace:
     - name: {{ secret_infrastructure }}/pillar/{{ filename }}
