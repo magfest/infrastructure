@@ -81,9 +81,9 @@ python-git install:
 {{ secret_infrastructure }}/pillar/{{ filename }} example:
   file.blockreplace:
     - name: {{ secret_infrastructure }}/pillar/{{ filename }}
-    - marker_start: '# == Start Example ======'
-    - content: salt://salt_master/secret_infrastructure/pillar
-    - marker_end: '# == End Example ========'
+    - marker_start: '# ==== {{ filename }} ===='
+    - content: {{ salt['cp.get_file_str']('salt://salt_master/secret_infrastructure/pillar') }}
+    - marker_end: '# ====={{ "*".__mul__(filename.__len__()) }}====='
     - prepend_if_not_found: True
 {% endfor %}
 
