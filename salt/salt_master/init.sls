@@ -82,9 +82,11 @@ python-git install:
   file.blockreplace:
     - name: {{ secret_infrastructure }}/pillar/{{ filename }}
     - marker_start: '# ==== {{ filename }} ===='
-    - content: 'asdf'
-    - marker_end: '# ====={{ "*".__mul__(filename.__len__()) }}====='
+    - content: {{ salt['cp.get_file_str']('salt://salt_master/secret_infrastructure/pillar/' ~ filename) }}
+    - marker_end: '# ====={{ "=".__mul__(filename.__len__()) }}====='
     - prepend_if_not_found: True
+    - backup: False
+    - template: jinja
 {% endfor %}
 
 # ============================================================================
