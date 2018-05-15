@@ -1,6 +1,6 @@
 {%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
 
-logLevel = "DEBUG"
+logLevel = "INFO"
 defaultEntryPoints = ["http", "https"]
 
 
