@@ -48,6 +48,8 @@ legacy_magbot rsyslog conf:
     - contents: |
         if $programname == 'legacy_magbot' then /var/log/legacy_magbot/magbot.log
         if $programname == 'legacy_magbot' then ~
+    - watch_in:
+      - service: rsyslog
 
 legacy_magbot service conf:
   file.managed:
