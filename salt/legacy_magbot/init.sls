@@ -28,7 +28,6 @@ magbot user:
 /var/log/legacy_magbot/deploy/:
   file.directory:
     - name: /var/log/legacy_magbot/deploy/
-    - makedirs: True
 
 legacy_magbot git latest:
   git.latest:
@@ -50,6 +49,11 @@ legacy_magbot rsyslog conf:
         if $programname == 'legacy_magbot' then ~
     - watch_in:
       - service: rsyslog
+
+/etc/logrotate.d/legacy_magbot:
+  file.managed:
+    - name: /etc/logrotate.d/legacy_magbot
+    - source: salt://legacy_magbot/legacy_magbot_logrotate.conf
 
 legacy_magbot service conf:
   file.managed:

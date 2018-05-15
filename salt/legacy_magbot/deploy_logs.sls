@@ -1,14 +1,9 @@
 include:
   - docker_network_proxy
 
-/var/log/legacy_magbot/nginx/error.log:
-  file.managed:
-    - name: /var/log/legacy_magbot/nginx/error.log
-    - makedirs: True
-
-/var/log/legacy_magbot/nginx/access.log:
-  file.managed:
-    - name: /var/log/legacy_magbot/nginx/access.log
+/var/log/legacy_magbot/nginx/:
+  file.directory:
+    - name: /var/log/legacy_magbot/nginx/
     - makedirs: True
 
 /etc/legacy_magbot/nginx/conf.d/default.conf:
@@ -17,6 +12,11 @@ include:
     - source: salt://legacy_magbot/deploy_logs_nginx.conf
     - makedirs: True
     - template: jinja
+
+/etc/logrotate.d/legacy_magbot_deploy_logs:
+  file.managed:
+    - name: /etc/logrotate.d/legacy_magbot_deploy_logs
+    - source: salt://legacy_magbot/deploy_logs_logrotate.conf
 
 deploy_logs:
   docker_container.running:

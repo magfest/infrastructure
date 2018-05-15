@@ -22,6 +22,11 @@ slack-irc rsyslog conf:
     - watch_in:
       - service: rsyslog
 
+/etc/logrotate.d/slack-irc:
+  file.managed:
+    - name: /etc/logrotate.d/slack-irc
+    - source: salt://slack_irc/slack-irc_logrotate.conf
+
 slack-irc service conf:
   file.managed:
     - name: /lib/systemd/system/slack-irc.service
