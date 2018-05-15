@@ -18,6 +18,13 @@ magbot user:
   user.present:
     - name: magbot
 
+/var/log/legacy_magbot/:
+  file.directory:
+    - name: /var/log/legacy_magbot/
+    - makedirs: True
+    - user: syslog
+    - group: adm
+
 /var/log/legacy_magbot/deploy/:
   file.directory:
     - name: /var/log/legacy_magbot/deploy/
