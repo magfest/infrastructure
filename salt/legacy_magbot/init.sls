@@ -39,7 +39,7 @@ legacy_magbot rsyslog conf:
   file.managed:
     - name: /etc/rsyslog.d/legacy_magbot.conf
     - contents: |
-        if $programname == 'legacy_magbot' then /var/log/legacy_magbot.log
+        if $programname == 'legacy_magbot' then /var/log/legacy_magbot/magbot.log
         if $programname == 'legacy_magbot' then ~
 
 legacy_magbot service conf:
