@@ -1,6 +1,7 @@
 base:
   '*':
     - salt_minion
+    - rsyslog
     - swap
 
   'not bootstrap':
