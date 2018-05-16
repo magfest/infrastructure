@@ -115,6 +115,13 @@ python-git install:
 # Logging configuration
 # ============================================================================
 
+/var/log/salt/ master log dir:
+  file.directory:
+    - name: /var/log/salt/
+    - makedirs: True
+    - user: syslog
+    - group: adm
+
 salt-master rsyslog conf:
   file.managed:
     - name: /etc/rsyslog.d/salt-master.conf

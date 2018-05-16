@@ -2,6 +2,13 @@
 # Logging configuration
 # ============================================================================
 
+/var/log/salt/ minion log dir:
+  file.directory:
+    - name: /var/log/salt/
+    - makedirs: True
+    - user: syslog
+    - group: adm
+
 salt-minion rsyslog conf:
   file.managed:
     - name: /etc/rsyslog.d/salt-minion.conf
