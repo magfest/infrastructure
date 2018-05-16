@@ -6,17 +6,27 @@ include:
     - name: /var/log/legacy_magbot/nginx/
     - makedirs: True
 
+/etc/logrotate.d/legacy_magbot_deploy_logs:
+  file.managed:
+    - name: /etc/logrotate.d/legacy_magbot_deploy_logs
+    - contents: |
+        /var/log/legacy_magbot/nginx/*.log {
+            daily
+            missingok
+            rotate 52
+            compress
+            delaycompress
+            notifempty
+            create 640 syslog adm
+            sharedscripts
+        }
+
 /etc/legacy_magbot/nginx/conf.d/default.conf:
   file.managed:
     - name: /etc/legacy_magbot/nginx/conf.d/default.conf
     - source: salt://legacy_magbot/deploy_logs_nginx.conf
     - makedirs: True
     - template: jinja
-
-/etc/logrotate.d/legacy_magbot_deploy_logs:
-  file.managed:
-    - name: /etc/logrotate.d/legacy_magbot_deploy_logs
-    - source: salt://legacy_magbot/deploy_logs_logrotate.conf
 
 deploy_logs:
   docker_container.running:

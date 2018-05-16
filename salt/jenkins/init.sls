@@ -23,6 +23,37 @@ jenkins user:
     - require:
       - user: jenkins
 
+/var/log/jenkins/:
+  file.directory:
+    - name: /var/log/jenkins/
+    - makedirs: True
+    - user: syslog
+    - group: adm
+
+jenkins rsyslog conf:
+  file.managed:
+    - name: /etc/rsyslog.d/jenkins.conf
+    - contents: |
+        if $programname == 'jenkins' then /var/log/jenkins/jenkins.log
+        if $programname == 'jenkins' then ~
+    - watch_in:
+      - service: rsyslog
+
+/etc/logrotate.d/jenkins:
+  file.managed:
+    - name: /etc/logrotate.d/jenkins
+    - contents: |
+        /var/log/jenkins/jenkins.log {
+            daily
+            missingok
+            rotate 52
+            compress
+            delaycompress
+            notifempty
+            create 640 syslog adm
+            sharedscripts
+        }
+
 jenkins:
   docker_container.running:
     - name: jenkins
@@ -30,6 +61,10 @@ jenkins:
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
+    - log_driver: syslog
+    - log_opt:
+      - syslog-address: unix:///dev/log
+      - syslog-tag: jenkins
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ salt['pillar.get']('jenkins:domain') }}

@@ -18,17 +18,6 @@ magbot user:
   user.present:
     - name: magbot
 
-/var/log/legacy_magbot/:
-  file.directory:
-    - name: /var/log/legacy_magbot/
-    - makedirs: True
-    - user: syslog
-    - group: adm
-
-/var/log/legacy_magbot/deploy/:
-  file.directory:
-    - name: /var/log/legacy_magbot/deploy/
-
 legacy_magbot git latest:
   git.latest:
     - name: git@github.com:magfest/magbot.git
@@ -40,6 +29,24 @@ legacy_magbot secret.sh:
     - name: /srv/legacy_magbot/secret.sh
     - source: salt://legacy_magbot/secret.sh
     - template: jinja
+
+/srv/legacy_magbot/ chown magbot:
+  file.directory:
+    - name: /srv/legacy_magbot/
+    - user: magbot
+    - group: magbot
+    - recurse: ['user', 'group']
+
+/var/log/legacy_magbot/:
+  file.directory:
+    - name: /var/log/legacy_magbot/
+    - makedirs: True
+    - user: syslog
+    - group: adm
+
+/var/log/legacy_magbot/deploy/:
+  file.directory:
+    - name: /var/log/legacy_magbot/deploy/
 
 legacy_magbot rsyslog conf:
   file.managed:
@@ -53,20 +60,26 @@ legacy_magbot rsyslog conf:
 /etc/logrotate.d/legacy_magbot:
   file.managed:
     - name: /etc/logrotate.d/legacy_magbot
-    - source: salt://legacy_magbot/legacy_magbot_logrotate.conf
+    - contents: |
+        /var/log/legacy_magbot/magbot.log {
+            weekly
+            missingok
+            rotate 52
+            compress
+            delaycompress
+            notifempty
+            create 640 syslog adm
+            sharedscripts
+            postrotate
+                systemctl is-active legacy_magbot && systemctl kill --signal=USR1 legacy_magbot
+            endscript
+        }
 
 legacy_magbot service conf:
   file.managed:
     - name: /lib/systemd/system/legacy_magbot.service
     - source: salt://legacy_magbot/legacy_magbot.service
     - template: jinja
-
-/srv/legacy_magbot/ chown magbot:
-  file.directory:
-    - name: /srv/legacy_magbot/
-    - user: magbot
-    - group: magbot
-    - recurse: ['user', 'group']
 
 legacy_magbot service running:
   service.running:
