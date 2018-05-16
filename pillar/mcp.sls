@@ -16,13 +16,13 @@ jenkins:
   domain: 'jenkins.{{ master_domain }}'
 
 magbot:
-  deploy_log_domain: 'hal.{{ master_domain }}'
+  deploy_log_domain: 'mcp.{{ master_domain }}'
 
 traefik:
   cert_names: ['ipa-01.{{ master_domain }}']
   domain: '{{ master_domain }}'
   ui_domain: 'traefik.{{ master_domain }}'
-  subdomains: ['directory', 'errbot', 'hal', 'jenkins', 'traefik']
+  subdomains: ['directory', 'errbot', 'mcp', 'jenkins', 'traefik']
 
 ufw:
   enabled: True
