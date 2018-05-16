@@ -60,7 +60,6 @@ jenkins rsyslog conf:
 jenkins:
   docker_container.running:
     - name: jenkins
-    - hostname: jenkins
     - image: jenkinsci/blueocean:latest
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home:/var/jenkins_home
