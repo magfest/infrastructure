@@ -74,3 +74,12 @@ freeipa install:
     - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - require:
       - freeipa
+
+freeipa default login shell:
+  file.line:
+    - name: {{ data_path }}/freeipa/ipa-data/etc/sssd/sssd.conf
+    - content: override_shell = /bin/bash
+    - after: [domain/magfest.org]
+    - mode: ensure
+    - require:
+        - freeipa install
