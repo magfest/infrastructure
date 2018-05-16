@@ -19,6 +19,9 @@ include:
             notifempty
             create 640 syslog adm
             sharedscripts
+            postrotate
+                docker inspect legacy_magbot_deploy_logs && docker restart legacy_magbot_deploy_logs
+            endscript
         }
 
 /etc/legacy_magbot/nginx/conf.d/default.conf:
@@ -30,7 +33,7 @@ include:
 
 deploy_logs:
   docker_container.running:
-    - name: magbot_deploy_logs
+    - name: legacy_magbot_deploy_logs
     - image: nginx
     - auto_remove: True
     - binds:
