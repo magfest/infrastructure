@@ -70,6 +70,9 @@ legacy_magbot rsyslog conf:
             notifempty
             create 640 syslog adm
             sharedscripts
+            postrotate
+                invoke-rc.d rsyslog rotate > /dev/null
+            endscript
         }
 
 legacy_magbot service conf:

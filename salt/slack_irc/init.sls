@@ -42,6 +42,9 @@ slack-irc rsyslog conf:
             notifempty
             create 640 syslog adm
             sharedscripts
+            postrotate
+                invoke-rc.d rsyslog rotate > /dev/null
+            endscript
         }
 
 slack-irc service conf:
