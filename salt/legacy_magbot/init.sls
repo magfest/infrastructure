@@ -70,9 +70,6 @@ legacy_magbot rsyslog conf:
             notifempty
             create 640 syslog adm
             sharedscripts
-            postrotate
-                systemctl is-active legacy_magbot && systemctl kill --signal=USR1 legacy_magbot
-            endscript
         }
 
 legacy_magbot service conf:

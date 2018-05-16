@@ -25,7 +25,17 @@ slack-irc rsyslog conf:
 /etc/logrotate.d/slack-irc:
   file.managed:
     - name: /etc/logrotate.d/slack-irc
-    - source: salt://slack_irc/slack-irc_logrotate.conf
+    - contents: |
+        /var/log/slack-irc/slack-irc.log {
+            weekly
+            missingok
+            rotate 52
+            compress
+            delaycompress
+            notifempty
+            create 640 syslog adm
+            sharedscripts
+        }
 
 slack-irc service conf:
   file.managed:
