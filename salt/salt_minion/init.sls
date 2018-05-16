@@ -51,5 +51,6 @@ salt-minion rsyslog conf:
 salt_minion:
   service.running:
     - name: salt-minion
+    - enable: True
     - watch:
       - /etc/salt/minion

@@ -29,6 +29,7 @@ legacy_magbot secret.sh:
     - name: /srv/legacy_magbot/secret.sh
     - source: salt://legacy_magbot/secret.sh
     - template: jinja
+    - show_changes: False
 
 /srv/legacy_magbot/ chown magbot:
   file.directory:
@@ -84,6 +85,7 @@ legacy_magbot service conf:
 legacy_magbot service running:
   service.running:
     - name: legacy_magbot
+    - enable: True
     - watch_any:
       - file: /lib/systemd/system/legacy_magbot.service
       - file: /srv/legacy_magbot/secret.sh

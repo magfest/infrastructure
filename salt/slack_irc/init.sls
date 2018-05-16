@@ -65,6 +65,7 @@ slack-irc service conf:
 slack-irc service running:
   service.running:
     - name: slack-irc
+    - enable: True
     - watch_any:
       - file: /lib/systemd/system/slack-irc.service
       - file: /etc/slack-irc.conf.json

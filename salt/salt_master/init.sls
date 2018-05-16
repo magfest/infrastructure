@@ -164,6 +164,7 @@ salt-master rsyslog conf:
 salt_master:
   service.running:
     - name: salt-master
+    - enable: True
     - watch:
       - file: /etc/salt/master
     - require_in:

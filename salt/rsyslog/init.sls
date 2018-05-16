@@ -4,7 +4,7 @@ rsyslog install:
 
 rsyslog:
   service.running:
-    - enable: True
     - name: rsyslog
+    - enable: True
     - require:
       - pkg: rsyslog
