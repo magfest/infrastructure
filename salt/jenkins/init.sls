@@ -67,7 +67,7 @@ jenkins:
     - log_driver: syslog
     - log_opt:
       - syslog-address: unix:///dev/log
-      - syslog-tag: jenkins
+      - syslog-facility: daemon
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ salt['pillar.get']('jenkins:domain') }}
