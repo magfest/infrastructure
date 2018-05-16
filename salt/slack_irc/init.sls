@@ -13,6 +13,13 @@ slack-irc:
       - sls: nodejs
       - sls: npm
 
+/var/log/slack-irc/:
+  file.directory:
+    - name: /var/log/slack-irc/
+    - makedirs: True
+    - user: syslog
+    - group: adm
+
 slack-irc rsyslog conf:
   file.managed:
     - name: /etc/rsyslog.d/slack-irc.conf
