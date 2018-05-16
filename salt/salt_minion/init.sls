@@ -23,7 +23,7 @@ salt-minion rsyslog conf:
     - name: /etc/logrotate.d/salt-minion
     - contents: |
         /var/log/salt/minion.log {
-            weekly
+            daily
             missingok
             rotate 52
             compress

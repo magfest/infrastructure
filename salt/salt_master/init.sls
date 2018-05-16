@@ -136,7 +136,7 @@ salt-master rsyslog conf:
     - name: /etc/logrotate.d/salt-master
     - contents: |
         /var/log/salt/master.log {
-            weekly
+            daily
             missingok
             rotate 52
             compress

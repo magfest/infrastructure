@@ -22,6 +22,7 @@
     - source: salt://salt_cloud/digitalocean.conf
     - makedirs: True
     - template: jinja
+    - show_changes: False
 
 /etc/salt/cloud.profiles.d/dev-profiles.conf:
   file.managed:
