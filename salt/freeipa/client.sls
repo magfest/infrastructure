@@ -32,11 +32,11 @@ ipa-client-install:
     - require:
       - pkg: freeipa-client
 
-# /etc/ssh/sshd_config PermitRootLogin:
-#   file.line:
-#     - name: /etc/ssh/sshd_config
-#     - content: PermitRootLogin no
-#     - match: PermitRootLogin(?!\s+no\s*$).*$
-#     - mode: replace
-#     - require:
-#         - ipa-client-install
+/etc/ssh/sshd_config PermitRootLogin:
+  file.line:
+    - name: /etc/ssh/sshd_config
+    - content: PermitRootLogin no
+    - match: PermitRootLogin(?!\s+no\s*$).*$
+    - mode: replace
+    - require:
+        - ipa-client-install
