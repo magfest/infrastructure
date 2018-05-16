@@ -65,6 +65,8 @@ jenkins:
     - binds: {{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
     - log_driver: syslog
+    - log_opt:
+      - tag: jenkins
     - labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:{{ salt['pillar.get']('jenkins:domain') }}
