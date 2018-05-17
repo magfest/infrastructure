@@ -81,7 +81,7 @@ freeipa ldap security:
     - content: |
         nsslapd-allow-anonymous-access: rootdse
         nsslapd-minssf: 56
-    - after: '^cn:\s*config\s*$'
+    - before: '^nsslapd-minssf-exclude-rootdse:\s*on\s*$'
     - mode: ensure
     - require:
       - freeipa install
