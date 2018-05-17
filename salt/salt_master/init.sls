@@ -37,7 +37,7 @@ python-git install:
   file.managed:
     - name: {{ secret_infrastructure }}/.gitignore
     - contents: |
-        *.example
+        salt/
         README.md
     - require:
       - git: {{ secret_infrastructure }}/
