@@ -79,6 +79,9 @@ freeipa install:
 freeipa stop ipa:
   cmd.run:
     - name: echo 'docker exec freeipa systemctl stop ipa'
+    - prereq_in:
+      - freeipa nsslapd-minssf
+      - freeipa nsslapd-allow-anonymous-access
 
 freeipa nsslapd-minssf:
   file.line:
@@ -86,8 +89,6 @@ freeipa nsslapd-minssf:
     - content: 'nsslapd-minssf: 56'
     - before: '^nsslapd-minssf-exclude-rootdse:\s*on\s*$'
     - mode: ensure
-    - prereq:
-      - freeipa stop ipa
     - require:
       - freeipa install
 
@@ -97,8 +98,6 @@ freeipa nsslapd-allow-anonymous-access:
     - content: 'nsslapd-allow-anonymous-access: rootdse'
     - before: '^nsslapd-allow-hashed-passwords:\s*on\s*$'
     - mode: ensure
-    - prereq:
-      - freeipa stop ipa
     - require:
       - freeipa install
 
