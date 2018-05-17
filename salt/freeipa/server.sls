@@ -80,20 +80,19 @@ freeipa stop ipa:
   cmd.run:
     - name: docker exec freeipa systemctl stop ipa
     - unless:
-      # - "grep 'nsslapd-allow-anonymous-access: rootdse' {{ slapd_dse_ldif }}"
+      - "grep 'nsslapd-allow-anonymous-access: rootdse' {{ slapd_dse_ldif }}"
       - "grep 'nsslapd-minssf: 56' {{ slapd_dse_ldif }}"
-      - "grep 'nsslapd-require-secure-binds: on' {{ slapd_dse_ldif }}"
     - require:
       - freeipa install
 
-# freeipa nsslapd-allow-anonymous-access:
-#   file.line:
-#     - name: {{ slapd_dse_ldif }}
-#     - content: 'nsslapd-allow-anonymous-access: rootdse'
-#     - before: '^nsslapd-allow-hashed-passwords:\s*on\s*$'
-#     - mode: ensure
-#     - require:
-#       - freeipa stop ipa
+freeipa nsslapd-allow-anonymous-access:
+  file.line:
+    - name: {{ slapd_dse_ldif }}
+    - content: 'nsslapd-allow-anonymous-access: rootdse'
+    - before: '^nsslapd-allow-hashed-passwords:\s*on\s*$'
+    - mode: ensure
+    - require:
+      - freeipa stop ipa
 
 freeipa nsslapd-minssf:
   file.line:
@@ -104,19 +103,9 @@ freeipa nsslapd-minssf:
     - require:
       - freeipa stop ipa
 
-freeipa nsslapd-require-secure-binds:
-  file.line:
-    - name: {{ slapd_dse_ldif }}
-    - content: 'nsslapd-require-secure-binds: on'
-    - before: '^nsslapd-reservedescriptors:\s*\d+\s*$'
-    - mode: ensure
-    - require:
-      - freeipa stop ipa
-
 freeipa start ipa:
   cmd.run:
     - name: docker exec freeipa systemctl start ipa
     - onchanges:
-      # - freeipa nsslapd-allow-anonymous-access
+      - freeipa nsslapd-allow-anonymous-access
       - freeipa nsslapd-minssf
-      - freeipa nsslapd-require-secure-binds
