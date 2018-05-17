@@ -1,5 +1,6 @@
 {%- set hostname = salt['pillar.get']('freeipa:hostname') -%}
 {%- set data_path = salt['pillar.get']('data:path') -%}
+{%- set slapd_dse_ldif = data_path ~ '/freeipa/ipa-data/etc/dirsrv/slapd-' ~ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper ~ '/dse.ldif' -%}
 
 include:
   - docker_network_proxy
@@ -75,11 +76,21 @@ freeipa install:
     - require:
       - freeipa
 
-freeipa ldap security:
+freeipa ldap nsslapd-minssf:
   file.line:
-    - name: {{ data_path }}/freeipa/ipa-data/etc/dirsrv/slapd-{{ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper }}/dse.ldif
+    - name: {{ slapd_dse_ldif }}
     - content: 'nsslapd-minssf: 56'
     - before: '^nsslapd-minssf-exclude-rootdse:\s*on\s*$'
     - mode: ensure
     - require:
       - freeipa install
+
+
+freeipa ldap nsslapd-allow-anonymous-access:
+  file.line:
+    - name: {{ slapd_dse_ldif }}
+    - content: 'nsslapd-allow-anonymous-access: rootdse'
+    - before: '^nsslapd-minssf:\s*56\s*$'
+    - mode: ensure
+    - require:
+      - freeipa ldap nsslapd-minssf
