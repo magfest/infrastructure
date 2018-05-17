@@ -74,3 +74,14 @@ freeipa install:
     - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - require:
       - freeipa
+
+freeipa ldap security:
+  file.line:
+    - name: {{ data_path }}/freeipa/ipa-data/etc/dirsrv/slapd-{{ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper }}/dse.ldif
+    - content: |
+        nsslapd-allow-anonymous-access: rootdse
+        nsslapd-minssf: 56
+    - after: '^cn:\s*config\s*$'
+    - mode: ensure
+    - require:
+      - freeipa install
