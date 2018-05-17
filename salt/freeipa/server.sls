@@ -78,9 +78,7 @@ freeipa install:
 freeipa ldap security:
   file.line:
     - name: {{ data_path }}/freeipa/ipa-data/etc/dirsrv/slapd-{{ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper }}/dse.ldif
-    - content: |
-        nsslapd-allow-anonymous-access: rootdse
-        nsslapd-minssf: 56
+    - content: 'nsslapd-minssf: 56'
     - before: '^nsslapd-minssf-exclude-rootdse:\s*on\s*$'
     - mode: ensure
     - require:
