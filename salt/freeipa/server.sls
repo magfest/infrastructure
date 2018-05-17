@@ -76,7 +76,7 @@ freeipa install:
     - require:
       - freeipa
 
-freeipa ldap nsslapd-minssf:
+freeipa nsslapd-minssf:
   file.line:
     - name: {{ slapd_dse_ldif }}
     - content: 'nsslapd-minssf: 56'
@@ -85,12 +85,11 @@ freeipa ldap nsslapd-minssf:
     - require:
       - freeipa install
 
-
-freeipa ldap nsslapd-allow-anonymous-access:
+freeipa nsslapd-allow-anonymous-access:
   file.line:
     - name: {{ slapd_dse_ldif }}
     - content: 'nsslapd-allow-anonymous-access: rootdse'
-    - before: '^nsslapd-minssf:\s*56\s*$'
+    - after: '^nsslapd-minssf-exclude-rootdse:\s*on\s*$'
     - mode: ensure
     - require:
-      - freeipa ldap nsslapd-minssf
+      - freeipa install
