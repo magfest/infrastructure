@@ -78,7 +78,7 @@ freeipa install:
 
 freeipa stop ipa:
   cmd.run:
-    - name: echo 'docker exec freeipa systemctl stop ipa'
+    - name: docker exec freeipa systemctl stop ipa
     - unless:
       - "grep 'nsslapd-minssf: 56' {{ slapd_dse_ldif }}"
       - "grep 'nsslapd-allow-anonymous-access: rootdse' {{ slapd_dse_ldif }}"
@@ -105,7 +105,7 @@ freeipa nsslapd-allow-anonymous-access:
 
 freeipa start ipa:
   cmd.run:
-    - name: echo 'docker exec freeipa systemctl start ipa'
+    - name: docker exec freeipa systemctl start ipa
     - onchanges:
       - freeipa nsslapd-minssf
       - freeipa nsslapd-allow-anonymous-access
