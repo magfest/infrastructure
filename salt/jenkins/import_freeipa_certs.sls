@@ -1,8 +1,8 @@
 {%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
 {%- set freeipa_alias = freeipa_hostname|replace('.', '_') -%}
-{%- set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home/' -%}
+{%- set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home' -%}
 
-download freeipa cacert:
+jenkins download freeipa cacert:
   cmd.run:
     - name: >
         openssl s_client -showcerts -connect {{ freeipa_hostname }}:443 < /dev/null 2> /dev/null |
@@ -16,16 +16,16 @@ download freeipa cacert:
     - mode: 700
     - makedirs: True
     - require:
-      - user: jenkins
+      - sls: jenkins
 
-copy jenkins cacerts:
+jenkins copy cacerts:
   cmd.run:
     - name: docker cp jenkins:/etc/ssl/certs/java/cacerts {{ jenkins_home }}/.keystore/
     - creates: {{ jenkins_home }}/.keystore/cacerts
     - require:
       - file: {{ jenkins_home }}/.keystore/
 
-import freeipa cacert:
+jenkins import freeipa cacert:
   cmd.run:
     - name: >
         docker exec jenkins keytool -v -noprompt -importcert
@@ -35,8 +35,10 @@ import freeipa cacert:
         -file {{ jenkins_home }}/{{ freeipa_alias }}.pem
     - creates: {{ jenkins_home }}/.keystore/cacerts
     - onchanges:
-      - copy jenkins cacerts
-    - require_in:
-      - jenkins
+      jenkins - copy cacerts
 
-
+jenkins restart:
+  cmd.run:
+    - name: docker restart jenkins
+    - onchanges:
+      - jenkins import freeipa cacert
