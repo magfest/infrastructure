@@ -73,6 +73,9 @@ freeipa install:
         grep 'The ipa-server-install command was successful' {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install.log &&
         touch {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
+    - require_in:
+      - sls: jenkins.import_freeipa_certs
+      - sls: traefik.import_freeipa_certs
     - require:
       - freeipa
 
