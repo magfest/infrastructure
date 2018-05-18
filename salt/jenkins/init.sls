@@ -36,7 +36,7 @@ jenkins rsyslog conf:
     - contents: |
         if $programname == 'jenkins' then /var/log/jenkins/jenkins.log
         if $programname == 'jenkins' then ~
-    - watch_in:
+    - listen_in:
       - service: rsyslog
 
 /etc/logrotate.d/jenkins:

@@ -26,7 +26,7 @@ slack-irc rsyslog conf:
     - contents: |
         if $programname == 'slack-irc' then /var/log/slack-irc/slack-irc.log
         if $programname == 'slack-irc' then ~
-    - watch_in:
+    - listen_in:
       - service: rsyslog
 
 /etc/logrotate.d/slack-irc:

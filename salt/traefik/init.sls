@@ -31,7 +31,7 @@ traefik rsyslog conf:
     - contents: |
         if $programname == 'traefik' then /var/log/traefik/traefik.log
         if $programname == 'traefik' then ~
-    - watch_in:
+    - listen_in:
       - service: rsyslog
 
 /etc/logrotate.d/traefik:

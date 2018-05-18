@@ -15,7 +15,7 @@ salt-minion rsyslog conf:
     - contents: |
         if $programname == 'salt-minion' then /var/log/salt/minion.log
         if $programname == 'salt-minion' then ~
-    - watch_in:
+    - listen_in:
       - service: rsyslog
 
 /etc/logrotate.d/salt-minion:

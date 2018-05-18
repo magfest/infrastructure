@@ -55,7 +55,7 @@ legacy_magbot rsyslog conf:
     - contents: |
         if $programname == 'legacy_magbot' then /var/log/legacy_magbot/magbot.log
         if $programname == 'legacy_magbot' then ~
-    - watch_in:
+    - listen_in:
       - service: rsyslog
 
 /etc/logrotate.d/legacy_magbot:

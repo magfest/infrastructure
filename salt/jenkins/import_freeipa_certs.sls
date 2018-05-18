@@ -37,6 +37,6 @@ import freeipa cacert:
     - onchanges:
       - copy jenkins cacerts
     - require_in:
-      - sls: jenkins
+      - jenkins
 
 

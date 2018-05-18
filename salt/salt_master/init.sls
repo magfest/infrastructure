@@ -128,7 +128,7 @@ salt-master rsyslog conf:
     - contents: |
         if $programname == 'salt-master' then /var/log/salt/master.log
         if $programname == 'salt-master' then ~
-    - watch_in:
+    - listen_in:
       - service: rsyslog
 
 /etc/logrotate.d/salt-master:
