@@ -66,7 +66,7 @@ jenkins:
     - ports: 8080,50000
     - environment:
       - JAVA_OPTS: >
-          -Djavax.net.ssl.trustStore=/var/jenkins_home/.keystore/cacerts \
+          -Djavax.net.ssl.trustStore=/var/jenkins_home/.keystore/cacerts
           -Djavax.net.ssl.trustStorePassword=changeit
     - log_driver: syslog
     - log_opt:
