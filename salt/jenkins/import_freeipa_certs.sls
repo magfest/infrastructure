@@ -35,7 +35,7 @@ jenkins import freeipa cacert:
         -file {{ jenkins_home }}/{{ freeipa_alias }}.pem
     - creates: {{ jenkins_home }}/.keystore/cacerts
     - onchanges:
-      jenkins - copy cacerts
+      - jenkins copy cacerts
 
 jenkins restart:
   cmd.run:
