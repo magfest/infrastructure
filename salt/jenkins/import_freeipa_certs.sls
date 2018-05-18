@@ -18,7 +18,7 @@ jenkins download freeipa cacert:
     - require:
       - sls: jenkins
 
-jenkins copy cacerts:
+jenkins copy java cacerts:
   cmd.run:
     - name: docker cp jenkins:/etc/ssl/certs/java/cacerts {{ jenkins_home }}/.keystore/
     - creates: {{ jenkins_home }}/.keystore/cacerts
@@ -34,8 +34,9 @@ jenkins import freeipa cacert:
         -alias {{ freeipa_alias }}
         -file {{ jenkins_home }}/{{ freeipa_alias }}.pem
     - creates: {{ jenkins_home }}/.keystore/cacerts
-    - onchanges:
-      - jenkins copy cacerts
+    - onchanges_any:
+      - jenkins download freeipa cacert
+      - jenkins copy java cacerts
 
 jenkins restart:
   cmd.run:
