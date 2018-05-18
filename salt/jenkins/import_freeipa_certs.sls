@@ -11,6 +11,15 @@ jenkins download freeipa cacert:
     - require:
       - sls: jenkins
 
+{{ jenkins_home }}/{{ freeipa_alias }}.pem:
+  file.managed:
+    - name: {{ jenkins_home }}/{{ freeipa_alias }}.pem
+    - user: jenkins
+    - group: jenkins
+    - mode: 600
+    - require:
+      - jenkins download freeipa cacert
+
 {{ jenkins_home }}/.keystore/:
   file.directory:
     - user: jenkins
@@ -26,6 +35,15 @@ jenkins copy java cacerts:
     - creates: {{ jenkins_home }}/.keystore/cacerts
     - require:
       - file: {{ jenkins_home }}/.keystore/
+
+{{ jenkins_home }}/.keystore/cacerts:
+  file.managed:
+    - name: {{ jenkins_home }}/.keystore/cacerts
+    - user: jenkins
+    - group: jenkins
+    - mode: 600
+    - require:
+      - jenkins copy java cacerts
 
 jenkins import freeipa cacert:
   cmd.run:
