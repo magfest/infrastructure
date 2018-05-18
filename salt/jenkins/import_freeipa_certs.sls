@@ -31,10 +31,10 @@ jenkins import freeipa cacert:
   cmd.run:
     - name: >
         docker exec jenkins keytool -v -noprompt -importcert
-        -keystore {{ jenkins_home }}/.keystore/cacerts
+        -keystore /var/jenkins_home/.keystore/cacerts
         -storepass changeit
         -alias {{ freeipa_alias }}
-        -file {{ jenkins_home }}/{{ freeipa_alias }}.pem
+        -file /var/jenkins_home/{{ freeipa_alias }}.pem
     - onchanges_any:
       - jenkins download freeipa cacert
       - jenkins copy java cacerts
