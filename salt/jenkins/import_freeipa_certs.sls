@@ -35,7 +35,6 @@ jenkins import freeipa cacert:
         -storepass changeit
         -alias {{ freeipa_alias }}
         -file {{ jenkins_home }}/{{ freeipa_alias }}.pem
-    - creates: {{ jenkins_home }}/.keystore/cacerts
     - onchanges_any:
       - jenkins download freeipa cacert
       - jenkins copy java cacerts
