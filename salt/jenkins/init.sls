@@ -60,7 +60,7 @@ jenkins rsyslog conf:
 jenkins:
   docker_container.running:
     - name: jenkins
-    - image: jenkinsci/blueocean:latest
+    - image: jenkins/jenkins:lts
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
