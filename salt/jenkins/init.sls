@@ -64,10 +64,10 @@ jenkins:
     - auto_remove: True
     - binds: {{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home:/var/jenkins_home
     - ports: 8080,50000
-    - environment:
-      - JAVA_OPTS: >
-          -Djavax.net.ssl.trustStore=/var/jenkins_home/.keystore/cacerts
-          -Djavax.net.ssl.trustStorePassword=changeit
+    # - environment:
+    #   - JAVA_OPTS: >
+    #       -Djavax.net.ssl.trustStore=/var/jenkins_home/.keystore/cacerts
+    #       -Djavax.net.ssl.trustStorePassword=changeit
     - log_driver: syslog
     - log_opt:
       - tag: jenkins
