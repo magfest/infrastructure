@@ -6,7 +6,7 @@ download freeipa cacert:
   cmd.run:
     - name: >
         openssl s_client -showcerts -connect {{ freeipa_hostname }}:443 < /dev/null 2> /dev/null |
-        openssl x509 -outform PEM > {{ freeipa_alias }}.pem
+        openssl x509 -outform PEM > {{ jenkins_home }}/{{ freeipa_alias }}.pem
     - creates: {{ jenkins_home }}/{{ freeipa_alias }}.pem
 
 {{ jenkins_home }}/.keystore/:
