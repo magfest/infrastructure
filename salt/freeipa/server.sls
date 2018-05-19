@@ -3,7 +3,8 @@
 {%- set slapd_dse_ldif = data_path ~ '/freeipa/ipa-data/etc/dirsrv/slapd-' ~ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper ~ '/dse.ldif' -%}
 
 include:
-  - docker_network_proxy
+  - docker_network_external
+  - docker_network_internal
 
 rng-tools install:
   pkg.installed:
@@ -59,9 +60,9 @@ freeipa:
     - watch:
       - file: {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require:
+      - pkg: rng-tools
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
-      - pkg: rng-tools
       - file: {{ data_path }}/freeipa/ipa-data/
       - file: {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require_in:

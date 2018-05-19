@@ -1,5 +1,5 @@
 include:
-  - docker_network_proxy
+  - docker_network_internal
 
 /var/log/legacy_magbot/nginx/:
   file.directory:

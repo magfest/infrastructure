@@ -1,5 +1,5 @@
 include:
-  - docker_network_proxy
+  - docker_network_internal
 
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/certs/:
   file.directory:

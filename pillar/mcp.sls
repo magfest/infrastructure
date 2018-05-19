@@ -53,10 +53,10 @@ ufw:
       protocol: tcp
     636: # ldapssl
       protocol: tcp
-    # 7389: # freeipa_replica
-    #   protocol: tcp
-    # "9443:9445": # freeipa_replica_config
-    #   protocol: tcp
+    7389: # freeipa_replica
+      protocol: tcp
+    "9443:9445": # freeipa_replica_config
+      protocol: tcp
 
     '*':
       deny: True
