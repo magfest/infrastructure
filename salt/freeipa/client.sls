@@ -5,11 +5,11 @@
 # All of our servers are intially provisioned with /root/.ssh/authorized_keys
 # that are installed on MCP, so we can immediately disable password auth.
 sshd disable password authentication:
-  file.line:
+  file.replace:
     - name: /etc/ssh/sshd_config
-    - content: PasswordAuthentication no
-    - match: PasswordAuthentication(?!\s+no\s*$).*$
-    - mode: replace
+    - pattern: ^\s*PasswordAuthentication\s+yes\s*$
+    - repl: PasswordAuthentication no
+    - append_if_not_found: True
     - listen_in:
       - service: sshd
 
@@ -47,12 +47,12 @@ ipa-client-install:
 # Disables root login. We must wait until after the ipa client is installed,
 # otherwise we'll end up locking ourselves out of a newly provisioned server.
 sshd disable root login:
-  file.line:
+  file.replace:
     - name: /etc/ssh/sshd_config
-    - content: PermitRootLogin no
-    - match: PermitRootLogin(?!\s+no\s*$).*$
-    - mode: replace
+    - pattern: ^\s*PermitRootLogin\s+yes\s*$
+    - repl: PermitRootLogin no
+    - append_if_not_found: True
     - listen_in:
       - service: sshd
     - require:
-        - ipa-client-install
+      - ipa-client-install
