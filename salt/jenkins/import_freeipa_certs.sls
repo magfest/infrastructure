@@ -7,6 +7,7 @@
   file.managed:
     - name: {{ jenkins_home }}/{{ freeipa_alias }}.pem
     - source: https://{{ freeipa_hostname }}/ipa/ui/ca.crt
+    - skip_verify: True
     - user: jenkins
     - group: jenkins
     - mode: 600
