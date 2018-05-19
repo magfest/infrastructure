@@ -1,24 +1,17 @@
 {%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
-{%- set freeipa_alias = freeipa_hostname|replace('.', '_') -%}
+{%- set freeipa_alias = freeipa_hostname|replace('.', '_') ~ '_ca' -%}
 {%- set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home' -%}
 
-jenkins download freeipa cacert:
-  cmd.run:
-    - name: >
-        openssl s_client -showcerts -connect {{ freeipa_hostname }}:443 < /dev/null 2> /dev/null |
-        openssl x509 -outform PEM > {{ jenkins_home }}/{{ freeipa_alias }}.pem
-    - creates: {{ jenkins_home }}/{{ freeipa_alias }}.pem
-    - require:
-      - sls: jenkins
 
 {{ jenkins_home }}/{{ freeipa_alias }}.pem:
   file.managed:
     - name: {{ jenkins_home }}/{{ freeipa_alias }}.pem
+    - source: https://{{ freeipa_hostname }}/ipa/ui/ca.crt
     - user: jenkins
     - group: jenkins
     - mode: 600
     - require:
-      - jenkins download freeipa cacert
+      - sls: jenkins
 
 {{ jenkins_home }}/.keystore/:
   file.directory:
@@ -53,9 +46,10 @@ jenkins import freeipa cacert:
         -storepass changeit
         -alias {{ freeipa_alias }}
         -file /var/jenkins_home/{{ freeipa_alias }}.pem
-    - onchanges_any:
-      - jenkins download freeipa cacert
-      - jenkins copy java cacerts
+    - require:
+      - {{ jenkins_home }}/.keystore/cacerts
+    - onchanges:
+      - {{ jenkins_home }}/{{ freeipa_alias }}.pem
 
 jenkins restart:
   cmd.run:
