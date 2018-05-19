@@ -6,7 +6,7 @@
 {{ jenkins_home }}/{{ freeipa_alias }}.pem:
   file.managed:
     - name: {{ jenkins_home }}/{{ freeipa_alias }}.pem
-    - source: https://{{ freeipa_hostname }}/ipa/ui/ca.crt
+    - source: https://{{ freeipa_hostname }}/ipa/config/ca.crt
     - skip_verify: True
     - user: jenkins
     - group: jenkins
