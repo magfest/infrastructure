@@ -131,7 +131,7 @@ a.bg-danger:focus {
   border-left-width: 5px;
   border-radius: 5px 3px 3px 5px;
 }
-.bs-callout h4, .bs-callout .h {
+.bs-callout h4, .bs-callout .title {
   margin-top: 0;
   margin-bottom: 5px;
 }
@@ -151,18 +151,18 @@ a.bg-danger:focus {
 .bs-callout-danger {
   border-left-color: #ce4844;
 }
-.bs-callout-danger h4, .bs-callout-danger .h {
+.bs-callout-danger h4, .bs-callout-danger .title {
   color: #ce4844;
 }
 .bs-callout-warning {
   border-left-color: #aa6708;
 }
-.bs-callout-warning h4, .bs-callout-warning .h {
+.bs-callout-warning h4, .bs-callout-warning .title {
   color: #aa6708;
 }
 .bs-callout-info {
   border-left-color: #1b809e;
 }
-.bs-callout-info h4, .bs-callout-info .h {
+.bs-callout-info h4, .bs-callout-info .title {
   color: #1b809e;
 }
