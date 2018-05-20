@@ -9,9 +9,9 @@
   <code>jenkins-admins</code> group or the <code>admins</code> group.
 </div>
 
-# Configure Jenkins
+# Configure LDAP Authentication
 
-Manage Jenkins > Configure Global Security > Advanced Server Configuration
+Manage Jenkins > Configure Global Security > Advanced Server Configuration...
 
 ```
 Server: ldaps://ipa-01.magfest.org
