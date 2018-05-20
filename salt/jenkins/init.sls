@@ -1,6 +1,18 @@
+# ============================================================================
+# Installs a Jenkins server in a docker container.
+# ============================================================================
+{% set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home' -%}
+
 include:
   - docker_network_internal
 
+
+# ============================================================================
+# Configure jenkins user/group.
+#
+# The jenkins user in the docker container has uid=1000 and gid=1000, and
+# it must have rw access to any bound directories.
+# ============================================================================
 jenkins group:
   group.present:
     - name: jenkins
@@ -14,15 +26,47 @@ jenkins user:
     - require:
       - group: jenkins
 
-{{ salt['pillar.get']('data:path') }}/jenkins/jenkins_home/:
+
+# ============================================================================
+# Configure Jenkins JVM keystore.
+#
+# Required for importing any certificates to which Jenkins will need access.
+# ============================================================================
+{{ jenkins_home }}/.keystore/:
   file.directory:
     - user: jenkins
     - group: jenkins
     - mode: 700
     - makedirs: True
+    - recurse:
+      - user
+      - group
+      - mode
     - require:
       - user: jenkins
 
+# Start with default cacerts.
+jenkins copy java cacerts:
+  cmd.run:
+    - name: docker cp jenkins:/etc/ssl/certs/java/cacerts {{ jenkins_home }}/.keystore/
+    - creates: {{ jenkins_home }}/.keystore/cacerts
+    - require:
+      - file: {{ jenkins_home }}/.keystore/
+
+# chown jenkins:jenkins cacerts
+{{ jenkins_home }}/.keystore/cacerts:
+  file.managed:
+    - name: {{ jenkins_home }}/.keystore/cacerts
+    - user: jenkins
+    - group: jenkins
+    - mode: 600
+    - require:
+      - jenkins copy java cacerts
+
+
+# ============================================================================
+# Configure Jenkins logging.
+# ============================================================================
 /var/log/jenkins/:
   file.directory:
     - name: /var/log/jenkins/
@@ -57,6 +101,10 @@ jenkins rsyslog conf:
             endscript
         }
 
+
+# ============================================================================
+# Jenkins docker container
+# ============================================================================
 jenkins:
   docker_container.running:
     - name: jenkins

@@ -6,8 +6,14 @@ legacy_deploy git latest:
 /srv/legacy_deploy/puppet/fabric_settings.ini:
   file.managed:
     - name: /srv/legacy_deploy/puppet/fabric_settings.ini
-    - source: salt://legacy_deploy/fabric_settings.ini
-    - template: jinja
+    - content: |
+        [repositories]
+
+        git_ubersystem_module_repo = "https://github.com/magfest/ubersystem-puppet"
+        git_ubersystem_module_repo_branch = "master"
+
+        git_regular_nodes_repo = "https://github.com/magfest/production-config"
+        git_regular_nodes_repo_branch = "master"
     - require:
       - legacy_deploy git latest
 
