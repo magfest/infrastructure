@@ -29,15 +29,15 @@ Follow Digital Ocean's instructions for configuring and mounting your block stor
   * If you're adding a _new_ volume, you'll need to format the volume:
     <div class="bs-callout bs-callout-danger bg-white">
     <div class="title">This step will <b>DESTROY</b> any existing data on the volume!</div>
-    <pre><code>mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01</pre></code>
+    <pre><code>mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01</code></pre>
     </div>
 
   * After formatting, or if you're mounting an already formatted volume:
-```
-mkdir -p /srv/data; \
-mount -o discard,defaults /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/data; \
-echo /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/data ext4 defaults,nofail,discard 0 0 | tee -a /etc/fstab
-```
+    ```
+    mkdir -p /srv/data; \
+    mount -o discard,defaults /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/data; \
+    echo /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/data ext4 defaults,nofail,discard 0 0 | tee -a /etc/fstab
+    ```
 
 ### Step 4 – Run Bootstrap Script
 
