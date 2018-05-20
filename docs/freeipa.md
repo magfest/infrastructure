@@ -9,5 +9,7 @@
 
 <div class="bs-callout bs-callout-info bg-white">
   <h4>Download the FreeIPA CA Certificate</h4>
-  [https://directory.magfest.net/ipa/config/ca.crt](https://directory.magfest.net/ipa/config/ca.crt)
+  <a href="https://directory.magfest.net/ipa/config/ca.crt">
+    https://directory.magfest.net/ipa/config/ca.crt
+  </a>
 </div>
