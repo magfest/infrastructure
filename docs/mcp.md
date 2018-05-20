@@ -29,9 +29,9 @@ Follow Digital Ocean's instructions for configuring and mounting your block stor
   * If you're adding a _new_ volume, you'll need to format the volume:
     <div class="bs-callout bs-callout-danger bg-white">
       <h4>This step will <b>DESTROY</b> any existing data on the volume!</h4>
-<code>
+<pre>
 mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01
-</code>
+</pre>
     </div>
 
   * After formatting, or if you're mounting an already formatted volume:
