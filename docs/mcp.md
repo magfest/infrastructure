@@ -33,6 +33,7 @@ Follow Digital Ocean's instructions for configuring and mounting your block stor
 mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01
 </code>
     </div>
+
   * After formatting, or if you're mounting an already formatted volume:
 ```
 mkdir -p /srv/data; \
