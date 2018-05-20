@@ -11,3 +11,155 @@
 pre.highlight {
   background-color: #fff;
 }
+
+/* Borrowed from Bootstrap */
+small,
+.small {
+  font-size: 85%;
+}
+mark,
+.mark {
+  padding: .2em;
+  background-color: #fcf8e3;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.text-lowercase {
+  text-transform: lowercase;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+.text-muted {
+  color: #777;
+}
+.text-primary {
+  color: #337ab7;
+}
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #286090;
+}
+.text-success {
+  color: #3c763d;
+}
+a.text-success:hover,
+a.text-success:focus {
+  color: #2b542c;
+}
+.text-info {
+  color: #31708f;
+}
+a.text-info:hover,
+a.text-info:focus {
+  color: #245269;
+}
+.text-warning {
+  color: #8a6d3b;
+}
+a.text-warning:hover,
+a.text-warning:focus {
+  color: #66512c;
+}
+.text-danger {
+  color: #a94442;
+}
+a.text-danger:hover,
+a.text-danger:focus {
+  color: #843534;
+}
+.bg-primary {
+  color: #fff;
+  background-color: #337ab7;
+}
+a.bg-primary:hover,
+a.bg-primary:focus {
+  background-color: #286090;
+}
+.bg-success {
+  background-color: #dff0d8;
+}
+a.bg-success:hover,
+a.bg-success:focus {
+  background-color: #c1e2b3;
+}
+.bg-info {
+  background-color: #d9edf7;
+}
+a.bg-info:hover,
+a.bg-info:focus {
+  background-color: #afd9ee;
+}
+.bg-warning {
+  background-color: #fcf8e3;
+}
+a.bg-warning:hover,
+a.bg-warning:focus {
+  background-color: #f7ecb5;
+}
+.bg-danger {
+  background-color: #f2dede;
+}
+a.bg-danger:hover,
+a.bg-danger:focus {
+  background-color: #e4b9b9;
+}
+
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code {
+  border-radius: 3px;
+}
+
+/* Tighten up space between multiple callouts */
+.bs-callout + .bs-callout {
+  margin-top: -5px;
+}
+
+/* Variations */
+.bs-callout-danger {
+  border-left-color: #ce4844;
+}
+.bs-callout-danger h4 {
+  color: #ce4844;
+}
+.bs-callout-warning {
+  border-left-color: #aa6708;
+}
+.bs-callout-warning h4 {
+  color: #aa6708;
+}
+.bs-callout-info {
+  border-left-color: #1b809e;
+}
+.bs-callout-info h4 {
+  color: #1b809e;
+}

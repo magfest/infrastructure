@@ -1,4 +1,6 @@
 # FreeIPA
 
-Download the Certificate Authority certificate:
-https://ipa-01.magfest.net/ipa/config/ca.crt
+<div class="bs-callout bs-callout-info">
+  <h4>Download the FreeIPA CA Certificate</h4>
+  <a href="https://ipa-01.magfest.net/ipa/config/ca.crt">https://ipa-01.magfest.net/ipa/config/ca.crt</a>
+</div>
