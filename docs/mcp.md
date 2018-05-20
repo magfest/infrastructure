@@ -27,12 +27,18 @@ new droplet's **Private IP**.
 
 Follow Digital Ocean's instructions for configuring and mounting your block storage volume on `/srv/data`.
   * If you're adding a _new_ volume, you'll need to format the volume:
-    <div class="bg-danger">
-```
-# This will **DESTROY** any existing data on the volume!
+    <div class="bs-callout bs-callout-danger bg-white">
+      <h4>This will <b>DESTROY</b> any existing data on the volume!</h4>
+      <div class="highlighter-rouge">
+        <div class="highlight">
+          <pre class="highlight">
+<code>
 mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01
-```
-</div>
+</code>
+          </pre>
+        </div>
+      </div>
+    </div>
   * After formatting, or if you're mounting an already formatted volume:
 ```
 mkdir -p /srv/data; \

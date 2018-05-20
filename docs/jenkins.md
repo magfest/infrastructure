@@ -1,6 +1,6 @@
 # Jenkins
 
-[https://jenkins.magfest.net]
+[https://jenkins.magfest.net](https://jenkins.magfest.net)
 
 <div class="bs-callout bs-callout-info bg-white">
   <h4>Jenkins Authentication</h4>
