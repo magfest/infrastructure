@@ -1,10 +1,10 @@
 # FreeIPA
 
-* Web UI: [https://directory.magfest.net](https://directory.magfest.net)
-* LDAP: ldap://ipa-01.magfest.net:389
+Web UI: [https://directory.magfest.net](https://directory.magfest.net)
+LDAP: ldap://ipa-01.magfest.net:389
   * Anonymous binds disabled
   * StartTLS required
-* LDAPS: ldaps://ipa-01.magfest.net:636
+LDAPS: ldaps://ipa-01.magfest.net:636
   * Anonymous binds disabled
 
 <div class="bs-callout bs-callout-info bg-white">
