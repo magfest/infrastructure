@@ -1,4 +1,8 @@
-{%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
+# ============================================================================
+# Imports the FreeIPA web certificate so Traefik can use it.
+# ============================================================================
+
+{% set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
 {%- set freeipa_certs_dir = salt['pillar.get']('data:path') ~ '/freeipa/ipa-data/etc/httpd/alias' -%}
 {%- set traefik_certs_dir = salt['pillar.get']('data:path') ~ '/traefik/etc/traefik/certs' -%}
 

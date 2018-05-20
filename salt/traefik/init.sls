@@ -1,11 +1,22 @@
+# ============================================================================
+# Installs a Traefik server in a docker container
+# ============================================================================
+
 include:
   - docker_network_internal
 
+
+# ============================================================================
+# Traefik configuration
+# ============================================================================
+
+# chmod 600 certs directory
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/certs/:
   file.directory:
     - mode: 600
     - makedirs: True
 
+# traefik config file
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml:
   file.managed:
     - source: salt://traefik/traefik.toml
@@ -13,10 +24,16 @@ include:
     - makedirs: True
     - template: jinja
 
+# letsencrypt config file
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json:
   file.managed:
     - mode: 600
     - makedirs: True
+
+
+# ============================================================================
+# Configure Traefik logging
+# ============================================================================
 
 /var/log/traefik/:
   file.directory:
@@ -51,6 +68,11 @@ traefik rsyslog conf:
                 invoke-rc.d rsyslog rotate > /dev/null
             endscript
         }
+
+
+# ============================================================================
+# Traefik docker container
+# ============================================================================
 
 traefik:
   docker_container.running:

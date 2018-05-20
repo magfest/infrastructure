@@ -1,10 +1,13 @@
 # ============================================================================
-# Installs a FreeIPA server in a docker container.
+# Installs a FreeIPA server in a docker container
 # ============================================================================
 
 {% set hostname = salt['pillar.get']('freeipa:hostname') -%}
 {%- set data_path = salt['pillar.get']('data:path') -%}
-{%- set slapd_dse_ldif = data_path ~ '/freeipa/ipa-data/etc/dirsrv/slapd-' ~ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper ~ '/dse.ldif' -%}
+{%- set slapd_dse_ldif = (
+    data_path
+    ~ '/freeipa/ipa-data/etc/dirsrv/slapd-'
+    ~ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper ~ '/dse.ldif') -%}
 
 include:
   - docker_network_external
@@ -22,7 +25,11 @@ rng-tools install:
     - makedirs: True
     - template: jinja
 
-# FreeIPA docker container.
+
+# ============================================================================
+# FreeIPA docker container
+# ============================================================================
+
 freeipa:
   docker_container.running:
     - name: freeipa
@@ -79,7 +86,8 @@ freeipa:
 freeipa install:
   cmd.run:
     - name: >
-        grep 'The ipa-server-install command was successful' {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install.log &&
+        grep 'The ipa-server-install command was successful'
+        {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install.log &&
         touch {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - require_in:

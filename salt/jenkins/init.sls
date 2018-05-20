@@ -1,6 +1,7 @@
 # ============================================================================
-# Installs a Jenkins server in a docker container.
+# Installs a Jenkins server in a docker container
 # ============================================================================
+
 {% set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home' -%}
 
 include:
@@ -8,11 +9,13 @@ include:
 
 
 # ============================================================================
-# Configure jenkins user/group.
+# Configure jenkins user/group
 #
-# The jenkins user in the docker container has uid=1000 and gid=1000, and
-# it must have rw access to any bound directories.
+# The jenkins user in the docker container has uid=1000 and gid=1000. Any
+# bound files or directories on the host machine must also be owned by the
+# jenkins user.
 # ============================================================================
+
 jenkins group:
   group.present:
     - name: jenkins
@@ -28,10 +31,11 @@ jenkins user:
 
 
 # ============================================================================
-# Configure Jenkins JVM keystore.
+# Configure Jenkins JVM keystore
 #
 # Required for importing any certificates to which Jenkins will need access.
 # ============================================================================
+
 {{ jenkins_home }}/.keystore/:
   file.directory:
     - user: jenkins
@@ -65,8 +69,9 @@ jenkins copy java cacerts:
 
 
 # ============================================================================
-# Configure Jenkins logging.
+# Configure Jenkins logging
 # ============================================================================
+
 /var/log/jenkins/:
   file.directory:
     - name: /var/log/jenkins/
@@ -105,6 +110,7 @@ jenkins rsyslog conf:
 # ============================================================================
 # Jenkins docker container
 # ============================================================================
+
 jenkins:
   docker_container.running:
     - name: jenkins
