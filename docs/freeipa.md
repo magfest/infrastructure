@@ -1,6 +1,13 @@
 # FreeIPA
 
-<div class="bs-callout bs-callout-info">
+* Web UI: [https://directory.magfest.net]
+* LDAP: [ldap://ipa-01.magfest.net:389]
+  * Anonymous binds disabled
+  * StartTLS required
+* LDAPS: [ldaps://ipa-01.magfest.net:636]
+  * Anonymous binds disabled
+
+<div class="bs-callout bs-callout-info bg-white">
   <h4>Download the FreeIPA CA Certificate</h4>
-  <a href="https://ipa-01.magfest.net/ipa/config/ca.crt">https://ipa-01.magfest.net/ipa/config/ca.crt</a>
+  [https://directory.magfest.net/ipa/config/ca.crt]
 </div>
