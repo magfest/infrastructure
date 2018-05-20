@@ -1,5 +1,5 @@
 # FreeIPA
-## [https://directory.magfest.net](directory.magfest.net)
+## [directory.magfest.net](https://directory.magfest.net)
 
 **LDAP** ldap://ipa-01.magfest.net:389
   * Anonymous binds disabled
