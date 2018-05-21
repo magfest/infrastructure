@@ -1,4 +1,5 @@
 # Jira
+### [jira.magfest.net](https://jira.magfest.net)
 
 Our [Jira issue tracking server](https://jira.magfest.net) is a core piece of
 MAGFest's infrastructure. The server is hosted on one of our Digital Ocean

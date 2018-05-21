@@ -1,4 +1,5 @@
 # Master Control Program Server
+### [mcp.magfest.net](https://mcp.magfest.net)
 
 MCP is the central piece of MAGFest's IT infrastructure. MCP provisions and
 manages the configuration of all of our other servers.

@@ -1,3 +1,2 @@
 # Confluence
-
-[https://docs.magfest.net](https://docs.magfest.net)
+### [docs.magfest.net](https://docs.magfest.net)
