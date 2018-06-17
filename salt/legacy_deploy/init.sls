@@ -1,3 +1,15 @@
+puppet install:
+  pkg.installed:
+    - name: puppet
+
+fabric install:
+  pkg.installed:
+    - name: fabric
+
+ruby-bcat install:
+  pkg.installed:
+    - name: ruby-bcat
+
 legacy_deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git

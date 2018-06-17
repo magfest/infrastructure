@@ -22,6 +22,7 @@ docker repo:
 docker-ce install:
   pkg.installed:
     - name: docker-ce
+    - reload_modules: True
 
 # Docker networking requires IP forwarding to be enabled
 /etc/sysctl.conf ip_forward:
@@ -33,6 +34,7 @@ docker-ce install:
 pip install docker:
   pip.installed:
     - name: docker
+    - reload_modules: True
     - require:
       - pkg: docker-ce
       - pkg: python-pip

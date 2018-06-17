@@ -3,6 +3,8 @@
 # ============================================================================
 
 {% set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home' -%}
+{% set jenkins_user = salt['pillar.get']('jenkins:user') -%}
+{% set jenkins_group = salt['pillar.get']('jenkins:group') -%}
 
 include:
   - docker_network_internal
@@ -18,16 +20,16 @@ include:
 
 jenkins group:
   group.present:
-    - name: jenkins
+    - name: {{ jenkins_group }}
     - gid: 1000
 
 jenkins user:
   user.present:
-    - name: jenkins
+    - name: {{ jenkins_user }}
     - uid: 1000
     - gid: 1000
     - require:
-      - group: jenkins
+      - group: {{ jenkins_group }}
 
 
 # ============================================================================
@@ -38,8 +40,8 @@ jenkins user:
 
 {{ jenkins_home }}/.keystore/:
   file.directory:
-    - user: jenkins
-    - group: jenkins
+    - user: {{ jenkins_user }}
+    - group: {{ jenkins_group }}
     - mode: 700
     - makedirs: True
     - recurse:
@@ -47,7 +49,7 @@ jenkins user:
       - group
       - mode
     - require:
-      - user: jenkins
+      - user: {{ jenkins_user }}
 
 # Start with default cacerts.
 jenkins copy java cacerts:
@@ -61,8 +63,8 @@ jenkins copy java cacerts:
 {{ jenkins_home }}/.keystore/cacerts:
   file.managed:
     - name: {{ jenkins_home }}/.keystore/cacerts
-    - user: jenkins
-    - group: jenkins
+    - user: {{ jenkins_user }}
+    - group: {{ jenkins_group }}
     - mode: 600
     - require:
       - jenkins copy java cacerts

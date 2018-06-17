@@ -1,5 +1,5 @@
-{%- from 'defaults.sls' import master_domain -%}
-{%- import_yaml 'ip_blacklist.sls' as ip_blacklist -%}
+{%- import_yaml 'defaults.sls' as defaults -%}
+{%- import_yaml 'ip_blacklist.yaml' as ip_blacklist -%}
 
 data:
   path: /srv/data
@@ -13,15 +13,17 @@ minion:
   id: mcp
 
 jenkins:
-  domain: 'jenkins.{{ master_domain }}'
+  user: 'jenkins'
+  group: 'jenkins'
+  domain: 'jenkins.{{ defaults.master.domain }}'
 
 magbot:
-  deploy_log_domain: 'mcp.{{ master_domain }}'
+  deploy_log_domain: 'mcp.{{ defaults.master.domain }}'
 
 traefik:
-  cert_names: ['ipa-01.{{ master_domain }}']
-  domain: '{{ master_domain }}'
-  ui_domain: 'traefik.{{ master_domain }}'
+  cert_names: ['ipa-01.{{ defaults.master.domain }}']
+  domain: '{{ defaults.master.domain }}'
+  ui_domain: 'traefik.{{ defaults.master.domain }}'
   subdomains: ['directory', 'errbot', 'mcp', 'jenkins', 'traefik']
 
 ufw:

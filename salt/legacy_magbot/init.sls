@@ -2,25 +2,13 @@ include:
   - nodejs
   - npm
 
-puppet install:
-  pkg.installed:
-    - name: puppet
-
-fabric install:
-  pkg.installed:
-    - name: fabric
-
-ruby-bcat install:
-  pkg.installed:
-    - name: ruby-bcat
-
 magbot user:
   user.present:
     - name: magbot
 
 legacy_magbot git latest:
   git.latest:
-    - name: git@github.com:magfest/magbot.git
+    - name: git@github.com:magfest/legacy_magbot.git
     - target: /srv/legacy_magbot
     - identity: /root/.ssh/github_magbot_id_rsa
 
@@ -89,7 +77,7 @@ legacy_magbot service running:
     - watch_any:
       - file: /lib/systemd/system/legacy_magbot.service
       - file: /srv/legacy_magbot/secret.sh
-      - git: git@github.com:magfest/magbot.git
+      - git: git@github.com:magfest/legacy_magbot.git
     - require:
       - pkg: redis-server
       - sls: nodejs

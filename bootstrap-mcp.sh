@@ -22,9 +22,14 @@ cp mcp.pub /etc/salt/pki/minion/minion.pub
 rm mcp.pem
 rm mcp.pub
 
-# Download the infrastructure code
-git clone --depth 1 https://github.com/magfest/infrastructure.git /srv/infrastructure
-cd /srv/infrastructure
+# Download or update the infrastructure code
+if [ -d "/srv/infrastructure/.git" ]; then
+    cd /srv/infrastructure
+    git pull
+else
+    git clone --depth 1 https://github.com/magfest/infrastructure.git /srv/infrastructure
+    cd /srv/infrastructure
+fi
 
 # Run salt locally to configure a minimal mcp
 salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate

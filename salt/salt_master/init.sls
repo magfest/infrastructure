@@ -6,10 +6,12 @@
 libssh-dev install:
   pkg.installed:
     - name: libssh-dev
+    - reload_modules: True
 
 python-git install:
   pkg.installed:
     - name: python-git
+    - reload_modules: True
 
 
 # ============================================================================

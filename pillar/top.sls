@@ -15,3 +15,7 @@ base:
     - magbot_secret
     - slack_irc_secret
     - ignore_missing: True
+
+  'is_vagrant:True':
+    - match: grain
+    - vagrant
