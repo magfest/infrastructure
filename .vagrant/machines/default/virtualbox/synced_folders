@@ -1,1 +1,0 @@
-{"virtualbox":{"/srv/infrastructure":{"create":true,"guestpath":"/srv/infrastructure","hostpath":"/Users/ratface/MAGFest/infrastructure","disabled":false,"__vagrantfile":true}}}
