@@ -213,6 +213,7 @@ BOT_ADMINS = ({% for admin in salt['pillar.get']('magbot:admins', []) %}
 # protected, you can specify another tuple here instead of a string,
 # using the format (RoomName, Password).
 # CHATROOM_PRESENCE = ('err@conference.server.tld',)
+CHATROOM_PRESENCE = ()
 
 # The FullName, or nickname, your bot should use. What you set here will
 # be the nickname that Errbot shows in chatrooms. Note that some XMPP
@@ -316,7 +317,7 @@ DIVERT_TO_PRIVATE = ()
 # A list of commands which should be responded to in a thread if the backend supports it.
 # For example:
 # DIVERT_TO_THREAD = ('help', 'about', 'status')
-DIVERT_TO_THREAD = ()
+DIVERT_TO_THREAD = ('help', 'about', 'status')
 
 # Chat relay
 # Can be used to relay one to one message from specific users to the bot
