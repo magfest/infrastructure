@@ -9,14 +9,18 @@ defaultEntryPoints = ["http", "https"]
     address = ":80"
     [entryPoints.http.redirect]
       entryPoint = "https"
+
   [entryPoints.https]
     address = ":443"
+
+{% if salt['pillar.get']('traefik:cert_names', []) %}
     [entryPoints.https.tls]
 {% for cert_name in salt['pillar.get']('traefik:cert_names', []) %}
       [[entryPoints.https.tls.certificates]]
         certFile = "/certs/{{ cert_name }}.cert"
         keyFile = "/certs/{{ cert_name }}.key"
 {% endfor %}
+{% endif %}
 
 
 [api]
@@ -30,14 +34,14 @@ defaultEntryPoints = ["http", "https"]
   exposedbydefault = false
 
 
+{% if salt['pillar.get']('traefik:letsencrypt_enabled') -%}
 [acme]
   email = "it@magfest.org"
   storage = "acme.json"
   onHostRule = false
   onDemand = false
   entryPoint = "https"
-  # Uncomment to use letsencrypt staging server
-  #caServer = "https://acme-staging.api.letsencrypt.org/directory"
+  caServer = "{{ salt['pillar.get']('traefik:caServer') }}"
   [acme.httpChallenge]
     entryPoint = "http"
   [[acme.domains]]
@@ -46,3 +50,4 @@ defaultEntryPoints = ["http", "https"]
   {%- for subdomain in salt['pillar.get']('traefik:subdomains', []) -%}
     "{{ subdomain }}.{{ salt['pillar.get']('traefik:domain') }}"{{ ', ' if not loop.last else '' }}
   {%- endfor -%}]
+{% endif -%}

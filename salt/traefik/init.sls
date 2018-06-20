@@ -105,10 +105,6 @@ traefik:
     - networks:
       - docker_network_external
       - docker_network_internal
-    - watch_any:
-      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
-      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
-      - sls: traefik.import_freeipa_certs
     - require:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
@@ -116,3 +112,7 @@ traefik:
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
     - require_in:
       - sls: freeipa.client
+    - watch_any:
+      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
+      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
+      - sls: traefik.import_freeipa_certs

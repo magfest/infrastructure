@@ -5,12 +5,14 @@ Vagrant.require_version ">= 2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "bento/ubuntu-16.04"
-    config.vm.hostname = "mcp.magfest.net"
+    config.vm.hostname = "mcp.magfest.info"
 
     config.vm.network :forwarded_port, guest: 80, host: 8000 # traefik http proxy
     config.vm.network :forwarded_port, guest: 443, host: 4443 # traefik https proxy
 
     config.vm.synced_folder ".", "/srv/infrastructure", create: true
+    config.vm.synced_folder "magbot", "/srv/data/magbot/plugins/magbot", create: true
+    config.vm.synced_folder "secret", "/srv/data/secret", create: true
 
     # No good can come from updating plugins.
     # Plus, this makes creating Vagrant instances MUCH faster.
@@ -48,14 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         cat >> /etc/hosts << EOL
 
-127.0.0.1 magfest.net
-127.0.0.1 directory.magfest.net
-127.0.0.1 errbot.magfest.net
-127.0.0.1 ipa-01.magfest.net
-127.0.0.1 jenkins.magfest.net
-127.0.0.1 mcp.magfest.net
-127.0.0.1 saltmaster.magfest.net
-127.0.0.1 traefik.magfest.net
+127.0.0.1 magfest.info directory.magfest.info errbot.magfest.info ipa-01.magfest.info jenkins.magfest.info mcp.magfest.info saltmaster.magfest.info traefik.magfest.info
 
 EOL
 
@@ -71,13 +66,13 @@ EOL
     SHELL
 
     config.vm.post_up_message = <<-MESSAGE
-        All done!
+  All done!
 
-        To login to your new development machine, run:
-            vagrant ssh
+  To login to your new development machine, run:
+      vagrant ssh
 
-        To bootstrap the machine, run the following command as root and follow the instructions:
-            /srv/infrastructure/bootstrap-mcp.sh
+  To bootstrap the machine, run the following command as root and follow the instructions:
+      /srv/infrastructure/bootstrap-mcp.sh
 
     MESSAGE
 end

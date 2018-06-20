@@ -1,10 +1,7 @@
 include:
+  - magbot
   - nodejs
   - npm
-
-magbot user:
-  user.present:
-    - name: magbot
 
 legacy_magbot git latest:
   git.latest:

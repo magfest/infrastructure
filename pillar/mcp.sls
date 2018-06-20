@@ -19,12 +19,33 @@ jenkins:
 
 magbot:
   deploy_log_domain: 'mcp.{{ defaults.master.domain }}'
+  webserver_domain: 'magbot.{{ defaults.master.domain }}'
+  admins:
+    - '@Dac'
+    - '@debra'
+    - '@dom'
+    - '@eli'
+    - '@nickthenewbie'
+    - '@robruana'
+  core_plugins:
+    - 'ACLs'
+    - 'Backup'
+    - 'CommandNotFoundFilter'
+    - 'Health'
+    - 'Help'
+    - 'Plugins'
+    - 'TextCmds'
+    - 'Utils'
+    - 'VersionChecker'
+    # - 'Webserver'  # Disabled for now
 
 traefik:
+  letsencrypt_enabled: True
+  caServer: 'https://acme-staging.api.letsencrypt.org/directory'  # Production server
   cert_names: ['ipa-01.{{ defaults.master.domain }}']
   domain: '{{ defaults.master.domain }}'
   ui_domain: 'traefik.{{ defaults.master.domain }}'
-  subdomains: ['directory', 'errbot', 'mcp', 'jenkins', 'traefik']
+  subdomains: ['directory', 'errbot', 'magbot', 'mcp', 'jenkins', 'traefik']
 
 ufw:
   enabled: True

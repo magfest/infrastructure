@@ -1,13 +1,11 @@
-{%- set master_domain = 'magfest.net' -%}
-
 master:
-  domain: {{ master_domain }}
-  address: saltmaster.{{ master_domain }}
+  domain: magfest.net
+  address: saltmaster.magfest.net
 
 freeipa:
   realm: 'magfest.org'
-  hostname: 'ipa-01.{{ master_domain }}'
-  ui_domain: 'directory.{{ master_domain }}'
+  hostname: 'ipa-01.magfest.net'
+  ui_domain: 'directory.magfest.net'
 
 mine_functions:
   external_ip:
