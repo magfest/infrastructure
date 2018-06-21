@@ -61,7 +61,7 @@ BACKEND = 'Slack'
 # STORAGE = 'Shelf'  # defaults to filestorage (python shelf).
 STORAGE = 'Redis'
 STORAGE_CONFIG = {
-    'host': 'localhost',
+    'host': '{{ salt["pillar.get"]("redis:hostname") }}',
     'port': 6379,
     'db': 0,
 }

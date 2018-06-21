@@ -3,6 +3,10 @@ include:
   - nodejs
   - npm
 
+redis-server install:
+  pkg.installed:
+    - name: redis-server
+
 legacy_magbot git latest:
   git.latest:
     - name: git@github.com:magfest/legacy_magbot.git

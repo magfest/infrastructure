@@ -17,6 +17,9 @@ jenkins:
   group: 'jenkins'
   domain: 'jenkins.{{ defaults.master.domain }}'
 
+redis:
+  hostname: 'redis'
+
 magbot:
   deploy_log_domain: 'mcp.{{ defaults.master.domain }}'
   webserver_domain: 'magbot.{{ defaults.master.domain }}'

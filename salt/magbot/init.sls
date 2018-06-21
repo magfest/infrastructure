@@ -1,6 +1,5 @@
 include:
-  - redis
-#   - docker_network_internal
+  - docker_network_internal
 
 
 # ============================================================================
@@ -90,8 +89,6 @@ magbot rsyslog conf:
 # magbot docker container
 # ============================================================================
 
-{%- set interface = 'external_ip' if salt['grains.get']('is_vagrant') else 'internal_ip' %}
-
 magbot:
   docker_container.running:
     - name: magbot
@@ -102,7 +99,6 @@ magbot:
       - {{ salt['pillar.get']('data:path') }}/magbot/{{subdir}}:/srv/{{subdir}}
       {% endfor %}
       - {{ salt['pillar.get']('data:path') }}/magbot/config.py:/app/config.py
-    - network_mode: host
     - log_driver: syslog
     - log_opt:
       - tag: magbot
@@ -112,10 +108,10 @@ magbot:
     #   - traefik.frontend.entryPoints=http,https
     #   - traefik.port=3141
     #   - traefik.docker.network=docker_network_internal
-    # - networks:
-    #   - docker_network_internal
-    # - require:
-    #   - docker_network: docker_network_internal
+    - networks:
+      - docker_network_internal
+    - require:
+      - docker_network: docker_network_internal
     - watch_any:
       - file: {{ salt['pillar.get']('data:path') }}/magbot/config.py
       - git: https://github.com/magfest/magbot.git
