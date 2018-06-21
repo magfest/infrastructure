@@ -1,4 +1,5 @@
-# include:
+include:
+  - redis
 #   - docker_network_internal
 
 
