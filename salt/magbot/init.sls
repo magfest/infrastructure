@@ -20,7 +20,6 @@ magbot user:
   file.directory:
     - name: {{ salt['pillar.get']('data:path') }}/magbot/{{ subdir }}
     - makedirs: True
-    - user: magbot
 {% endfor %}
 
 {{ salt['pillar.get']('data:path') }}/magbot/config.py:
