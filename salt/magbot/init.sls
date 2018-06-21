@@ -20,14 +20,6 @@ magbot user:
   file.directory:
     - name: {{ salt['pillar.get']('data:path') }}/magbot/{{ subdir }}
     - makedirs: True
-    - user: magbot
-    - group: docker
-    - dir_mode: 770
-    - file_mode: 660
-    - recurse:
-      - user
-      - group
-      - mode
 {% endfor %}
 
 {{ salt['pillar.get']('data:path') }}/magbot/config.py:
@@ -35,9 +27,6 @@ magbot user:
     - name: {{ salt['pillar.get']('data:path') }}/magbot/config.py
     - source: salt://magbot/config.py
     - template: jinja
-    - user: magbot
-    - group: docker
-    - mode: 660
 
 magbot git latest:
   git.latest:
