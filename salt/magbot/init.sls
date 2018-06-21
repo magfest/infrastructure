@@ -1,5 +1,5 @@
-include:
-  - docker_network_internal
+# include:
+#   - docker_network_internal
 
 
 # ============================================================================
@@ -12,7 +12,7 @@ magbot user:
 
 
 # ============================================================================
-# Configure magbot files and directories
+# Configure magbot files and plugins
 # ============================================================================
 
 {% for subdir in ['ssl', 'data', 'plugins'] %}
@@ -33,6 +33,11 @@ magbot git latest:
   git.latest:
     - name: https://github.com/magfest/magbot.git
     - target: {{ salt['pillar.get']('data:path') }}/magbot/plugins/magbot
+
+err-profiles git latest:
+  git.latest:
+    - name: https://github.com/shengis/err-profiles.git
+    - target: {{ salt['pillar.get']('data:path') }}/magbot/plugins/err-profiles
 
 
 # ============================================================================
@@ -92,19 +97,20 @@ magbot:
     - log_driver: syslog
     - log_opt:
       - tag: magbot
-    - labels:
-      - traefik.enable=true
-      - traefik.frontend.rule=Host:{{ salt['pillar.get']('magbot:webserver_domain') }}
-      - traefik.frontend.entryPoints=http,https
-      - traefik.port=3141
-      - traefik.docker.network=docker_network_internal
-    - networks:
-      - docker_network_internal
-    - require:
-      - docker_network: docker_network_internal
+    # - labels:
+    #   - traefik.enable=true
+    #   - traefik.frontend.rule=Host:{{ salt['pillar.get']('magbot:webserver_domain') }}
+    #   - traefik.frontend.entryPoints=http,https
+    #   - traefik.port=3141
+    #   - traefik.docker.network=docker_network_internal
+    # - networks:
+    #   - docker_network_internal
+    # - require:
+    #   - docker_network: docker_network_internal
     - watch_any:
       - file: {{ salt['pillar.get']('data:path') }}/magbot/config.py
       - git: https://github.com/magfest/magbot.git
+      - git: https://github.com/shengis/err-profiles.git
 
 # magbot configure webserver:
 #   cmd.run:

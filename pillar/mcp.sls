@@ -30,7 +30,7 @@ magbot:
   core_plugins:
     - 'ACLs'
     - 'Backup'
-    - 'CommandNotFoundFilter'
+    # - 'CommandNotFoundFilter'  # Displays 'Command "COMMAND" not found.'
     - 'Health'
     - 'Help'
     - 'Plugins'

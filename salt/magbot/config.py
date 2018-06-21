@@ -206,7 +206,7 @@ BOT_ADMINS = ({% for admin in salt['pillar.get']('magbot:admins', []) %}
 )
 
 # Set of admins that wish to receive administrative bot notifications.
-#BOT_ADMINS_NOTIFICATIONS = ()
+BOT_ADMINS_NOTIFICATIONS = ()
 
 # Chatrooms your bot should join on startup. For the IRC backend you
 # should include the # sign here. For XMPP rooms that are password
@@ -317,7 +317,7 @@ DIVERT_TO_PRIVATE = ()
 # A list of commands which should be responded to in a thread if the backend supports it.
 # For example:
 # DIVERT_TO_THREAD = ('help', 'about', 'status')
-DIVERT_TO_THREAD = ('help', 'about', 'status')
+DIVERT_TO_THREAD = ()
 
 # Chat relay
 # Can be used to relay one to one message from specific users to the bot
