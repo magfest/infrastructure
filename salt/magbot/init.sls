@@ -85,7 +85,7 @@ magbot rsyslog conf:
 magbot:
   docker_container.running:
     - name: magbot
-    - image: rroemhild/errbot:latest
+    - image: magfest/docker-errbot:latest
     - auto_remove: True
     - binds:
       {% for subdir in ['ssl', 'data', 'plugins'] %}
