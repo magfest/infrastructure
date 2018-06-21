@@ -59,8 +59,15 @@ BACKEND = 'Slack'
 # 'Shelf'         - python shelf (default)
 
 # STORAGE = 'Shelf'  # defaults to filestorage (python shelf).
+STORAGE = 'Redis'
+STORAGE_CONFIG = {
+    'host': 'localhost',
+    'port': 6379,
+    'db': 0,
+}
 
-# BOT_EXTRA_STORAGE_PLUGINS_DIR = None  # extra search path to find custom storage plugins
+# extra search path to find custom storage plugins
+BOT_EXTRA_STORAGE_PLUGINS_DIR = '/srv/storage_plugins'
 
 # The location where all of Err's data should be stored. Make sure to set
 # this to a directory that is writable by the user running the bot.

@@ -15,7 +15,9 @@ magbot user:
 # Configure magbot files and plugins
 # ============================================================================
 
-{% for subdir in ['ssl', 'data', 'plugins'] %}
+{%- set errbot_dirs = ['ssl', 'data', 'plugins', 'storage_plugins'] %}
+
+{% for subdir in errbot_dirs %}
 {{ salt['pillar.get']('data:path') }}/magbot/{{ subdir }}/:
   file.directory:
     - name: {{ salt['pillar.get']('data:path') }}/magbot/{{ subdir }}
@@ -37,6 +39,11 @@ err-profiles git latest:
   git.latest:
     - name: https://github.com/shengis/err-profiles.git
     - target: {{ salt['pillar.get']('data:path') }}/magbot/plugins/err-profiles
+
+err-storage-redis git latest:
+  git.latest:
+    - name: https://github.com/sijis/err-storage-redis.git
+    - target: {{ salt['pillar.get']('data:path') }}/magbot/storage_plugins/err-storage-redis
 
 
 # ============================================================================
@@ -82,17 +89,19 @@ magbot rsyslog conf:
 # magbot docker container
 # ============================================================================
 
+{%- set interface = 'external_ip' if salt['grains.get']('is_vagrant') else 'internal_ip' %}
+
 magbot:
   docker_container.running:
     - name: magbot
     - image: magfest/docker-errbot:latest
     - auto_remove: True
     - binds:
-      {% for subdir in ['ssl', 'data', 'plugins'] %}
+      {% for subdir in errbot_dirs %}
       - {{ salt['pillar.get']('data:path') }}/magbot/{{subdir}}:/srv/{{subdir}}
       {% endfor %}
       - {{ salt['pillar.get']('data:path') }}/magbot/config.py:/app/config.py
-    - ports: 3141
+    - network_mode: host
     - log_driver: syslog
     - log_opt:
       - tag: magbot
