@@ -90,14 +90,14 @@ python-git install:
     - makedirs: True
     - include_pat: '*.pub'
     - file_mode: 644
-    - source: salt://salt_master/files/ssh_keys
+    - source: salt://salt_master/ssh_keys
 
 /root/.ssh/ private keys:
   file.recurse:
     - name: /root/.ssh/
     - exclude_pat: 'E@\.*\.pub|README\.md'
     - file_mode: 600
-    - source: salt://salt_master/files/ssh_keys
+    - source: salt://salt_master/ssh_keys
 
 /root/.ssh/authorized_keys:
   file.append:
