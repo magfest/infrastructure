@@ -16,7 +16,7 @@ legacy_magbot git latest:
 legacy_magbot secret.sh:
   file.managed:
     - name: /srv/legacy_magbot/secret.sh
-    - source: salt://legacy_magbot/secret.sh
+    - source: salt://legacy_magbot/files/secret.sh
     - template: jinja
     - show_changes: False
 
@@ -68,7 +68,7 @@ legacy_magbot rsyslog conf:
 legacy_magbot service conf:
   file.managed:
     - name: /lib/systemd/system/legacy_magbot.service
-    - source: salt://legacy_magbot/legacy_magbot.service
+    - source: salt://legacy_magbot/files/legacy_magbot.service
     - template: jinja
 
 legacy_magbot service running:

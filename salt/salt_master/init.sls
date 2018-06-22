@@ -47,7 +47,7 @@ python-git install:
 # Put README.md under configuration management, so local changes are reverted
 {{ secret_infrastructure }}/README.md:
   file.managed:
-    - source: salt://salt_master/secret_infrastructure/README.md
+    - source: salt://salt_master/files/secret_infrastructure/README.md
     - mode: 600
     - template: jinja
     - require:
@@ -58,7 +58,7 @@ python-git install:
 {{ secret_infrastructure }}/salt/ files:
   file.recurse:
     - name: {{ secret_infrastructure }}/salt/
-    - source: salt://salt_master/secret_infrastructure/salt
+    - source: salt://salt_master/files/secret_infrastructure/salt
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
@@ -70,7 +70,7 @@ python-git install:
 {{ secret_infrastructure }}/pillar/ files:
   file.recurse:
     - name: {{ secret_infrastructure }}/pillar/
-    - source: salt://salt_master/secret_infrastructure/pillar
+    - source: salt://salt_master/files/secret_infrastructure/pillar
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
@@ -90,14 +90,14 @@ python-git install:
     - makedirs: True
     - include_pat: '*.pub'
     - file_mode: 644
-    - source: salt://salt_master/ssh_keys
+    - source: salt://salt_master/files/ssh_keys
 
 /root/.ssh/ private keys:
   file.recurse:
     - name: /root/.ssh/
     - exclude_pat: 'E@\.*\.pub|README\.md'
     - file_mode: 600
-    - source: salt://salt_master/ssh_keys
+    - source: salt://salt_master/files/ssh_keys
 
 /root/.ssh/authorized_keys:
   file.append:
@@ -158,7 +158,7 @@ salt-master rsyslog conf:
 
 /etc/salt/master:
   file.managed:
-    - source: salt://salt_master/salt_master.conf
+    - source: salt://salt_master/files/salt_master.conf
     - mode: 644
     - makedirs: True
     - template: jinja

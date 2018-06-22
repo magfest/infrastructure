@@ -19,7 +19,7 @@ include:
 # traefik config file
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml:
   file.managed:
-    - source: salt://traefik/traefik.toml
+    - source: salt://traefik/files/traefik.toml
     - mode: 644
     - makedirs: True
     - template: jinja

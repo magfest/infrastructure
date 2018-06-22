@@ -21,7 +21,7 @@ rng-tools install:
 # Custom rewrite rules to support proxying the web UI.
 {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf:
   file.managed:
-    - source: salt://freeipa/ipa-rewrite.conf
+    - source: salt://freeipa/files/ipa-rewrite.conf
     - makedirs: True
     - template: jinja
 

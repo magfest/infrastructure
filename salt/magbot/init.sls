@@ -27,7 +27,7 @@ magbot user:
 {{ salt['pillar.get']('data:path') }}/magbot/config.py:
   file.managed:
     - name: {{ salt['pillar.get']('data:path') }}/magbot/config.py
-    - source: salt://magbot/config.py
+    - source: salt://magbot/files/config.py
     - template: jinja
 
 magbot git latest:

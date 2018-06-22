@@ -27,7 +27,7 @@ include:
 /etc/legacy_magbot/nginx/conf.d/default.conf:
   file.managed:
     - name: /etc/legacy_magbot/nginx/conf.d/default.conf
-    - source: salt://legacy_magbot/deploy_logs_nginx.conf
+    - source: salt://legacy_magbot/files/deploy_logs_nginx.conf
     - makedirs: True
     - template: jinja
 

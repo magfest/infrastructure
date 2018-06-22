@@ -54,7 +54,7 @@ salt-minion rsyslog conf:
 /etc/salt/minion conf:
   file.managed:
     - name: /etc/salt/minion
-    - source: salt://salt_minion/salt_minion.conf
+    - source: salt://salt_minion/files/salt_minion.conf
     - mode: 644
     - template: jinja
 

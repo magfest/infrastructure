@@ -16,7 +16,7 @@ include:
   file.managed:
     - name: {{ salt['pillar.get']('data:path') }}/redis/etc/redis/redis.conf
     - makedirs: True
-    - source: salt://redis/redis.conf
+    - source: salt://redis/files/redis.conf
     - template: jinja
 
 {% for setting in ['enabled', 'defrag'] %}

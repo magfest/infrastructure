@@ -50,13 +50,13 @@ slack-irc rsyslog conf:
 slack-irc service conf:
   file.managed:
     - name: /lib/systemd/system/slack-irc.service
-    - source: salt://slack_irc/slack-irc.service
+    - source: salt://slack_irc/files/slack-irc.service
     - template: jinja
 
 /etc/slack-irc.conf.json:
   file.managed:
     - name: /etc/slack-irc.conf.json
-    - source: salt://slack_irc/slack-irc.conf.json
+    - source: salt://slack_irc/files/slack-irc.conf.json
     - user: root
     - group: slack-irc
     - mode: 640
