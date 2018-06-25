@@ -7,20 +7,19 @@ defaultEntryPoints = ["http", "https"]
 [entryPoints]
   [entryPoints.http]
     address = ":80"
+
     [entryPoints.http.redirect]
       entryPoint = "https"
 
   [entryPoints.https]
     address = ":443"
 
-{% if salt['pillar.get']('traefik:cert_names', []) %}
     [entryPoints.https.tls]
 {% for cert_name in salt['pillar.get']('traefik:cert_names', []) %}
       [[entryPoints.https.tls.certificates]]
         certFile = "/certs/{{ cert_name }}.cert"
         keyFile = "/certs/{{ cert_name }}.key"
 {% endfor %}
-{% endif %}
 
 
 [api]

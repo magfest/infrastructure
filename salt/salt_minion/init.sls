@@ -6,20 +6,21 @@ update-locale LANG="en_US.UTF-8":
   cmd.run:
     - name: update-locale LANG="en_US.UTF-8"
     - unless: grep -q -E "LANG=[\"']?en_US.UTF-8[\"']?" /etc/default/locale
+    - order: 0
 
 
 # ============================================================================
 # Logging configuration
 # ============================================================================
 
-/var/log/salt/ minion log dir:
+/var/log/salt/:
   file.directory:
     - name: /var/log/salt/
     - makedirs: True
     - user: syslog
     - group: adm
 
-salt-minion rsyslog conf:
+/etc/rsyslog.d/salt-minion.conf:
   file.managed:
     - name: /etc/rsyslog.d/salt-minion.conf
     - contents: |
@@ -51,7 +52,7 @@ salt-minion rsyslog conf:
 # Salt minion configuration
 # ============================================================================
 
-/etc/salt/minion conf:
+/etc/salt/minion:
   file.managed:
     - name: /etc/salt/minion
     - source: salt://salt_minion/files/salt_minion.conf
@@ -62,5 +63,6 @@ salt_minion:
   service.running:
     - name: salt-minion
     - enable: True
+    - order: last
     - watch:
-      - /etc/salt/minion
+      - file: /etc/salt/minion

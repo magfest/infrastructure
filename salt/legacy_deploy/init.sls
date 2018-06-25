@@ -10,7 +10,7 @@ ruby-bcat install:
   pkg.installed:
     - name: ruby-bcat
 
-legacy_deploy git latest:
+legacy_deploy ubersystem-deploy git latest:
   git.latest:
     - name: https://github.com/magfest/ubersystem-deploy.git
     - target: /srv/legacy_deploy
@@ -27,7 +27,7 @@ legacy_deploy git latest:
         git_regular_nodes_repo = "https://github.com/magfest/production-config"
         git_regular_nodes_repo_branch = "master"
     - require:
-      - legacy_deploy git latest
+      - legacy_deploy ubersystem-deploy git latest
 
 legacy_deploy bootstrap_control_server:
   cmd.run:
@@ -37,7 +37,7 @@ legacy_deploy bootstrap_control_server:
     - require:
       - /srv/legacy_deploy/puppet/fabric_settings.ini
 
-/srv/data/secret/hiera/:
+/srv/data/secret/hiera:
   file.directory:
     - name: /srv/data/secret/hiera
     - dir_mode: 700
@@ -47,20 +47,20 @@ legacy_deploy bootstrap_control_server:
     - require:
       - legacy_deploy bootstrap_control_server
 
-legacy_deploy secret hiera symlink:
+/srv/legacy_deploy/puppet/hiera/nodes/external/secret:
   file.symlink:
     - name: /srv/legacy_deploy/puppet/hiera/nodes/external/secret
     - target: /srv/data/secret/hiera
     - makedirs: True
     - require:
-      - /srv/data/secret/hiera/
+      - /srv/data/secret/hiera
     - require_in:
       - sls: legacy_magbot
 
-legacy_deploy secret uber_puppet_module_files:
+/srv/legacy_deploy/puppet/modules/uber/files:
   file.recurse:
     - name: /srv/legacy_deploy/puppet/modules/uber/files
     - source: salt://legacy_deploy/uber_puppet_module_files
     - exclude_pat: 'README.md'
     - require:
-      - legacy_deploy secret hiera symlink
+      - /srv/legacy_deploy/puppet/hiera/nodes/external/secret

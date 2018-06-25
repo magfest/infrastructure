@@ -31,7 +31,7 @@ include:
     - makedirs: True
     - template: jinja
 
-deploy_logs:
+legacy_magbot_deploy_logs:
   docker_container.running:
     - name: legacy_magbot_deploy_logs
     - image: nginx
@@ -52,4 +52,3 @@ deploy_logs:
       - file: /etc/legacy_magbot/nginx/conf.d/default.conf
     - require:
       - docker_network: docker_network_internal
-      - sls: legacy_magbot

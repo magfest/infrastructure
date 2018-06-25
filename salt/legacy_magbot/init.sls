@@ -1,7 +1,10 @@
 include:
-  - magbot
   - nodejs
   - npm
+
+magbot user:
+  user.present:
+    - name: magbot
 
 redis-server install:
   pkg.installed:
@@ -13,14 +16,14 @@ legacy_magbot git latest:
     - target: /srv/legacy_magbot
     - identity: /root/.ssh/github_magbot_id_rsa
 
-legacy_magbot secret.sh:
+/srv/legacy_magbot/secret.sh:
   file.managed:
     - name: /srv/legacy_magbot/secret.sh
     - source: salt://legacy_magbot/files/secret.sh
     - template: jinja
     - show_changes: False
 
-/srv/legacy_magbot/ chown magbot:
+chown magbot /srv/legacy_magbot/:
   file.directory:
     - name: /srv/legacy_magbot/
     - user: magbot
@@ -38,7 +41,7 @@ legacy_magbot secret.sh:
   file.directory:
     - name: /var/log/legacy_magbot/deploy/
 
-legacy_magbot rsyslog conf:
+/etc/rsyslog.d/legacy_magbot.conf:
   file.managed:
     - name: /etc/rsyslog.d/legacy_magbot.conf
     - contents: |
@@ -65,13 +68,12 @@ legacy_magbot rsyslog conf:
             endscript
         }
 
-legacy_magbot service conf:
+legacy_magbot service:
   file.managed:
     - name: /lib/systemd/system/legacy_magbot.service
     - source: salt://legacy_magbot/files/legacy_magbot.service
     - template: jinja
 
-legacy_magbot service running:
   service.running:
     - name: legacy_magbot
     - enable: True

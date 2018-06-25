@@ -6,7 +6,7 @@ include:
   - pip
 
 # Docker has it's own APT Repository
-docker repo:
+docker install:
   pkgrepo.managed:
     - humanname: Docker APT Repository
     - name: >
@@ -19,22 +19,19 @@ docker repo:
     - require_in:
       - pkg: docker-ce
 
-docker-ce install:
   pkg.installed:
     - name: docker-ce
-    - reload_modules: True
 
-# Docker networking requires IP forwarding to be enabled
-/etc/sysctl.conf ip_forward:
-  file.append:
-    - name: /etc/sysctl.conf
-    - text: net.ipv4.ip_forward=1
-
-# Docker salt states, e.g docker_container, require the python docker package
-pip install docker:
   pip.installed:
+    # Docker salt states, e.g docker_container, require the python docker package
     - name: docker
     - reload_modules: True
     - require:
       - pkg: docker-ce
       - pkg: python-pip
+
+# Docker networking requires IP forwarding to be enabled
+/etc/sysctl.conf net.ipv4.ip_forward=1:
+  file.append:
+    - name: /etc/sysctl.conf
+    - text: net.ipv4.ip_forward=1

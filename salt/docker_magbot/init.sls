@@ -3,15 +3,6 @@ include:
 
 
 # ============================================================================
-# Configure magbot user
-# ============================================================================
-
-magbot user:
-  user.present:
-    - name: magbot
-
-
-# ============================================================================
 # Configure magbot files and plugins
 # ============================================================================
 
@@ -27,20 +18,20 @@ magbot user:
 {{ salt['pillar.get']('data:path') }}/magbot/config.py:
   file.managed:
     - name: {{ salt['pillar.get']('data:path') }}/magbot/config.py
-    - source: salt://magbot/files/config.py
+    - source: salt://docker_magbot/files/config.py
     - template: jinja
 
-magbot git latest:
+docker_magbot magbot git latest:
   git.latest:
     - name: https://github.com/magfest/magbot.git
     - target: {{ salt['pillar.get']('data:path') }}/magbot/plugins/magbot
 
-err-profiles git latest:
+docker_magbot err-profiles git latest:
   git.latest:
     - name: https://github.com/shengis/err-profiles.git
     - target: {{ salt['pillar.get']('data:path') }}/magbot/plugins/err-profiles
 
-err-storage-redis git latest:
+docker_magbot err-storage-redis git latest:
   git.latest:
     - name: https://github.com/sijis/err-storage-redis.git
     - target: {{ salt['pillar.get']('data:path') }}/magbot/storage_plugins/err-storage-redis
@@ -57,7 +48,7 @@ err-storage-redis git latest:
     - user: syslog
     - group: adm
 
-magbot rsyslog conf:
+/etc/rsyslog.d/magbot.conf:
   file.managed:
     - name: /etc/rsyslog.d/magbot.conf
     - contents: |
@@ -89,7 +80,7 @@ magbot rsyslog conf:
 # magbot docker container
 # ============================================================================
 
-magbot:
+docker_magbot:
   docker_container.running:
     - name: magbot
     - image: magfest/docker-errbot:latest
@@ -117,7 +108,7 @@ magbot:
       - git: https://github.com/magfest/magbot.git
       - git: https://github.com/shengis/err-profiles.git
 
-# magbot configure webserver:
+# docker_magbot configure webserver:
 #   cmd.run:
 #     - name: >
 #         docker exec -it magbot /app/venv/bin/errbot -c /app/config.py --storage-set

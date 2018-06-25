@@ -8,20 +8,21 @@ base:
   'not bootstrap':
     - ufw
     - fail2ban
-    - freeipa.client
+    - freeipa_client
 
   'mcp or bootstrap':
     - salt_master
     - docker
 
   'mcp':
-    - redis
     - salt_cloud
-    - freeipa.server
-    - jenkins.import_freeipa_certs
-    - jenkins
-    - traefik.import_freeipa_certs
-    - traefik
+    - docker_freeipa
+    - docker_jenkins.import_freeipa_certs
+    - docker_jenkins
+    - docker_redis
+    - docker_magbot
+    - docker_traefik.import_freeipa_certs
+    - docker_traefik
     - legacy_deploy
     - legacy_magbot
     - legacy_magbot.deploy_logs

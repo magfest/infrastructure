@@ -16,7 +16,7 @@ include:
   file.managed:
     - name: {{ salt['pillar.get']('data:path') }}/redis/etc/redis/redis.conf
     - makedirs: True
-    - source: salt://redis/files/redis.conf
+    - source: salt://docker_redis/files/redis.conf
     - template: jinja
 
 {% for setting in ['enabled', 'defrag'] %}
@@ -38,7 +38,7 @@ transparent_hugepage never {{ setting }}:
     - user: syslog
     - group: adm
 
-redis rsyslog conf:
+/etc/rsyslog.d/redis.conf:
   file.managed:
     - name: /etc/rsyslog.d/redis.conf
     - contents: |
@@ -70,7 +70,7 @@ redis rsyslog conf:
 # redis docker container
 # ============================================================================
 
-redis:
+docker_redis:
   docker_container.running:
     - name: {{ salt['pillar.get']('redis:hostname') }}
     - image: redis:latest

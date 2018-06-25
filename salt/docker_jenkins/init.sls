@@ -18,12 +18,11 @@ include:
 # jenkins user.
 # ============================================================================
 
-jenkins group:
+docker_jenkins user:
   group.present:
     - name: {{ jenkins_group }}
     - gid: 1000
 
-jenkins user:
   user.present:
     - name: {{ jenkins_user }}
     - uid: 1000
@@ -40,6 +39,7 @@ jenkins user:
 
 {{ jenkins_home }}/.keystore/:
   file.directory:
+    - name: {{ jenkins_home }}/.keystore/
     - user: {{ jenkins_user }}
     - group: {{ jenkins_group }}
     - mode: 700
@@ -52,7 +52,7 @@ jenkins user:
       - user: {{ jenkins_user }}
 
 # Start with default cacerts.
-jenkins copy java cacerts:
+copy {{ jenkins_home }}/.keystore/cacerts:
   cmd.run:
     - name: docker cp jenkins:/etc/ssl/certs/java/cacerts {{ jenkins_home }}/.keystore/
     - creates: {{ jenkins_home }}/.keystore/cacerts
@@ -60,14 +60,14 @@ jenkins copy java cacerts:
       - file: {{ jenkins_home }}/.keystore/
 
 # chown jenkins:jenkins cacerts
-{{ jenkins_home }}/.keystore/cacerts:
+chown jenkins {{ jenkins_home }}/.keystore/cacerts:
   file.managed:
     - name: {{ jenkins_home }}/.keystore/cacerts
     - user: {{ jenkins_user }}
     - group: {{ jenkins_group }}
     - mode: 600
     - require:
-      - jenkins copy java cacerts
+      - copy {{ jenkins_home }}/.keystore/cacerts
 
 
 # ============================================================================
@@ -81,7 +81,7 @@ jenkins copy java cacerts:
     - user: syslog
     - group: adm
 
-jenkins rsyslog conf:
+/etc/rsyslog.d/jenkins.conf:
   file.managed:
     - name: /etc/rsyslog.d/jenkins.conf
     - contents: |
@@ -113,7 +113,7 @@ jenkins rsyslog conf:
 # Jenkins docker container
 # ============================================================================
 
-jenkins:
+docker_jenkins:
   docker_container.running:
     - name: jenkins
     - image: jenkins/jenkins:lts

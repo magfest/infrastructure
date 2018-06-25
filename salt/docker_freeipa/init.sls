@@ -21,7 +21,8 @@ rng-tools install:
 # Custom rewrite rules to support proxying the web UI.
 {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf:
   file.managed:
-    - source: salt://freeipa/files/ipa-rewrite.conf
+    - name: {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
+    - source: salt://docker_freeipa/files/ipa-rewrite.conf
     - makedirs: True
     - template: jinja
 
@@ -30,7 +31,7 @@ rng-tools install:
 # FreeIPA docker container
 # ============================================================================
 
-freeipa:
+docker_freeipa:
   docker_container.running:
     - name: freeipa
     - image: freeipa/freeipa-server:latest
@@ -77,24 +78,24 @@ freeipa:
       - docker_network: docker_network_internal
       - file: {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require_in:
-      - sls: freeipa.client
+      - sls: freeipa_client
 
 # Touch a file to indicate the FreeIPA server has installed successfully. The
 # server install takes awhile, and the log file it generates is lengthy. Any
 # states that depend on the FreeIPA server installation can use this state
 # as a prerequisite.
-freeipa install:
+docker_freeipa install:
   cmd.run:
     - name: >
-        grep 'The ipa-server-install command was successful'
+        grep -q 'The ipa-server-install command was successful'
         {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install.log &&
         touch {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - creates: {{ data_path }}/freeipa/ipa-data/var/log/ipaserver-install-complete
     - require_in:
-      - sls: jenkins.import_freeipa_certs
-      - sls: traefik.import_freeipa_certs
+      - sls: docker_jenkins.import_freeipa_certs
+      - sls: docker_traefik.import_freeipa_certs
     - require:
-      - freeipa
+      - docker_freeipa
 
 
 # ============================================================================
@@ -107,40 +108,40 @@ freeipa install:
 #
 # This state stops the ipa server if it detects any of the expected
 # configuration settings are missing.
-freeipa stop ipa:
+docker_freeipa stop ipa:
   cmd.run:
     - name: docker exec freeipa systemctl stop ipa
     - unless:
       - "grep 'nsslapd-allow-anonymous-access: rootdse' {{ slapd_dse_ldif }}"
       - "grep 'nsslapd-minssf: 56' {{ slapd_dse_ldif }}"
     - require:
-      - freeipa install
+      - docker_freeipa install
 
 # Disable anonymous binds.
-freeipa slapd disable anonymous access:
+docker_freeipa slapd disable anonymous access:
   file.line:
     - name: {{ slapd_dse_ldif }}
     - content: 'nsslapd-allow-anonymous-access: rootdse'
     - before: '^nsslapd-allow-hashed-passwords:\s*on\s*$'
     - mode: ensure
     - require:
-      - freeipa stop ipa
+      - docker_freeipa stop ipa
 
 # Require StartTLS when using unencrypted port.
-freeipa slapd require starttls:
+docker_freeipa slapd require starttls:
   file.line:
     - name: {{ slapd_dse_ldif }}
     - content: 'nsslapd-minssf: 56'
     - before: '^nsslapd-minssf-exclude-rootdse:\s*on\s*$'
     - mode: ensure
     - require:
-      - freeipa stop ipa
+      - docker_freeipa stop ipa
 
 # Start ipa if it was stopped or any configuration changes were made.
-freeipa start ipa:
+docker_freeipa start ipa:
   cmd.run:
     - name: docker exec freeipa systemctl start ipa
     - onchanges:
-      - freeipa stop ipa
-      - freeipa slapd disable anonymous access
-      - freeipa slapd require starttls
+      - docker_freeipa stop ipa
+      - docker_freeipa slapd disable anonymous access
+      - docker_freeipa slapd require starttls

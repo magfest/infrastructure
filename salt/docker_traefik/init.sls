@@ -19,7 +19,7 @@ include:
 # traefik config file
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml:
   file.managed:
-    - source: salt://traefik/files/traefik.toml
+    - source: salt://docker_traefik/files/traefik.toml
     - mode: 644
     - makedirs: True
     - template: jinja
@@ -42,7 +42,7 @@ include:
     - user: syslog
     - group: adm
 
-traefik rsyslog conf:
+/etc/rsyslog.d/traefik.conf:
   file.managed:
     - name: /etc/rsyslog.d/traefik.conf
     - contents: |
@@ -74,7 +74,7 @@ traefik rsyslog conf:
 # Traefik docker container
 # ============================================================================
 
-traefik:
+docker_traefik:
   docker_container.running:
     - name: traefik
     - image: traefik:latest
@@ -111,8 +111,7 @@ traefik:
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
     - require_in:
-      - sls: freeipa.client
+      - sls: freeipa_client
     - watch_any:
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
-      - sls: traefik.import_freeipa_certs

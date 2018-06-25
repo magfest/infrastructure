@@ -6,12 +6,8 @@
 set -x  # Start echoing commands to stdout
 
 # Install SaltStack master and minion
-# TODO: Commit 19ec7b6de18256dd9b52919ef9c0d8b39d874277 contains a fix for
-#       docker_containers that we need, and newer versions contain bugs that
-#       we can't work around. Update this to use "stable" once the next
-#       version after v2018.3.0 is released.
 curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltstack.com
-sh /tmp/bootstrap-salt.sh -i 'mcp' -L -M -P git 19ec7b6de18256dd9b52919ef9c0d8b39d874277
+sh /tmp/bootstrap-salt.sh -i 'mcp' -L -M -P git 'v2018.3.2'
 
 # Preseed mcp's minion key
 cd /tmp
@@ -45,7 +41,6 @@ sleep 5
 set +x  # Stop echoing commands to stdout
 echo ""
 echo "================================"
-echo ""
 echo ""
 echo "Done! Please update the files under /srv/data/secret/pillar with your" \
      "secret keys/passwords and run the following command:"

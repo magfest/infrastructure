@@ -10,7 +10,7 @@ libnss3-tools install:
   pkg.installed:
     - name: libnss3-tools
 
-freeipa {{ freeipa_hostname }}.cert:
+{{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert:
   cmd.run:
     - name: >
         certutil -L -a -n 'Server-Cert' -d {{ freeipa_certs_dir }}
@@ -21,43 +21,44 @@ freeipa {{ freeipa_hostname }}.cert:
         certutil -L -a -n 'Server-Cert' -d {{ freeipa_certs_dir }} |
         diff --report-identical-files {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert -
 
-freeipa {{ freeipa_hostname }}.p12:
+{{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12:
   cmd.run:
     - name: >
         pk12util -W '' -n 'Server-Cert' -d {{ freeipa_certs_dir }}
         -k {{ freeipa_certs_dir }}/pwdfile.txt
         -o {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
     - onchanges:
-      - freeipa {{ freeipa_hostname }}.cert
+      - {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
 
-freeipa {{ freeipa_hostname }}.key:
+{{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key:
   cmd.run:
     - name: >
         openssl pkcs12 -nodes -passin pass:
         -in {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
         -out {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
     - onchanges:
-      - freeipa {{ freeipa_hostname }}.p12
+      - {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.p12
 
-traefik {{ freeipa_hostname }}.cert:
+{{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert:
   file.copy:
     - name: {{ traefik_certs_dir }}/{{ freeipa_hostname }}.cert
     - source: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - makedirs: True
     - force: True
     - onchanges:
-      - freeipa {{ freeipa_hostname }}.cert
+      - {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - require_in:
-      - sls: freeipa.client
+      - sls: freeipa_client
 
-traefik {{ freeipa_hostname }}.key:
+{{ traefik_certs_dir }}/{{ freeipa_hostname }}.key:
   file.copy:
     - name: {{ traefik_certs_dir }}/{{ freeipa_hostname }}.key
     - source: {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
     - makedirs: True
     - force: True
     - onchanges:
-      - freeipa {{ freeipa_hostname }}.key
+      - {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
     - require_in:
-      - sls: freeipa.client
+      - sls: freeipa_client
+    - watch_in:
       - docker_container: traefik

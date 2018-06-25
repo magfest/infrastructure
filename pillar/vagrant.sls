@@ -13,4 +13,4 @@ jenkins:
 traefik:
   letsencrypt_enabled: False
   caServer: 'https://acme-staging.api.letsencrypt.org/directory'  # Staging server
-  cert_names: []
+  cert_names: ['ipa-01.magfest.info']

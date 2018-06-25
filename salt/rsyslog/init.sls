@@ -1,8 +1,7 @@
-rsyslog install:
+rsyslog service:
   pkg.installed:
     - name: rsyslog
 
-rsyslog:
   service.running:
     - name: rsyslog
     - enable: True
