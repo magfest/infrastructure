@@ -32,9 +32,9 @@ base:
 
   '*reggie* and G@roles:web':
     - reggie.web
-    - glusterfs.client
+    # - glusterfs.client
     - nginx
 
   '*reggie* and G@roles:loadbalancer':
     - reggie.loadbalancer
-    - haproxy
+    # - haproxy
