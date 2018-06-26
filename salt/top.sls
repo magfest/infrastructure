@@ -31,6 +31,7 @@ base:
     - slack_irc
 
   '*reggie* and G@roles:web':
+    - reggie_deploy.web
     - reggie.web
     # - glusterfs.client
     - nginx
