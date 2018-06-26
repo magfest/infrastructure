@@ -1,8 +1,7 @@
 {%- import_yaml 'defaults.sls' as defaults -%}
 {%- import_yaml 'ip_blacklist.yaml' as ip_blacklist -%}
 
-{%- set private_interface = 'eth0' if salt['grains.get']('is_vagrant') else 'eth1' -%}
-{%- set private_ip = salt['network.interface_ip'](private_interface) -%}
+{%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
 
 data:
   path: /srv/data
@@ -52,6 +51,10 @@ traefik:
   domain: '{{ defaults.master.domain }}'
   ui_domain: 'traefik.{{ defaults.master.domain }}'
   subdomains: ['directory', 'errbot', 'magbot', 'mcp', 'jenkins', 'traefik']
+
+ssh:
+  password_authentication: False
+  permit_root_login: False
 
 ufw:
   enabled: True

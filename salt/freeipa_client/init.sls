@@ -2,13 +2,16 @@
 # Installs the FreeIPA client and configures SSH authentication
 # ============================================================================
 
+{%- set password_auth = salt['pillar.get']('ssh:password_authentication') -%}
+{%- set root_login = salt['pillar.get']('ssh:permit_root_login') -%}
+
 # All of our servers are intially provisioned with /root/.ssh/authorized_keys
 # that are installed on MCP, so we can immediately disable password auth.
 freeipa_client sshd disable password authentication:
   file.replace:
     - name: /etc/ssh/sshd_config
-    - pattern: ^\s*PasswordAuthentication\s+yes\s*$
-    - repl: PasswordAuthentication no
+    - pattern: ^\s*PasswordAuthentication\s+{{ 'no' if password_auth else 'yes' }}\s*$
+    - repl: PasswordAuthentication {{ 'yes' if password_auth else 'no' }}
     - append_if_not_found: True
     - listen_in:
       - service: sshd
@@ -47,8 +50,8 @@ freeipa_client install:
 freeipa_client sshd disable root login:
   file.replace:
     - name: /etc/ssh/sshd_config
-    - pattern: ^\s*PermitRootLogin\s+yes\s*$
-    - repl: PermitRootLogin no
+    - pattern: ^\s*PermitRootLogin\s+{{ 'no' if root_login else 'yes' }}\s*$
+    - repl: PermitRootLogin {{ 'yes' if root_login else 'no' }}
     - append_if_not_found: True
     - listen_in:
       - service: sshd

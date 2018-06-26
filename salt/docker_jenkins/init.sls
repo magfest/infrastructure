@@ -65,6 +65,7 @@ chown jenkins {{ jenkins_home }}/.keystore/cacerts:
     - name: {{ jenkins_home }}/.keystore/cacerts
     - user: {{ jenkins_user }}
     - group: {{ jenkins_group }}
+    - replace: False
     - mode: 600
     - require:
       - copy {{ jenkins_home }}/.keystore/cacerts

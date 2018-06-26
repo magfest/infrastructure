@@ -19,8 +19,8 @@ base:
   'G@is_vagrant:True':
     - vagrant
 
-  'G@role:web':
+  '*reggie* and G@roles:web':
     - reggie.web
 
-  'G@role:loadbalancer':
+  '*reggie* and G@roles:loadbalancer':
     - reggie.loadbalancer

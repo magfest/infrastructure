@@ -30,11 +30,11 @@ base:
     - legacy_magbot.deploy_logs
     - slack_irc
 
-  '*reggie* and G@role:web':
+  '*reggie* and G@roles:web':
     - reggie.web
     - glusterfs.client
     - nginx
 
-  '*reggie* and G@role:loadbalancer':
+  '*reggie* and G@roles:loadbalancer':
     - reggie.loadbalancer
     - haproxy
