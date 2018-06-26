@@ -40,8 +40,10 @@ legacy_deploy bootstrap_control_server:
 /srv/data/secret/hiera:
   file.directory:
     - name: /srv/data/secret/hiera
+    {% if not salt['grains.get']('is_vagrant', False) -%}
     - dir_mode: 700
     - file_mode: 600
+    {%- endif %}
     - recurse:
       - mode
     - require:
@@ -54,8 +56,6 @@ legacy_deploy bootstrap_control_server:
     - makedirs: True
     - require:
       - /srv/data/secret/hiera
-    - require_in:
-      - sls: legacy_magbot
 
 /srv/legacy_deploy/puppet/modules/uber/files:
   file.recurse:

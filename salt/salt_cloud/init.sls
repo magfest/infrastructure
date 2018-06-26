@@ -24,12 +24,6 @@
     - template: jinja
     - show_changes: False
 
-/etc/salt/cloud.profiles.d/dev-profiles.conf:
-  file.managed:
-    - source: salt://salt_cloud/files/dev-profiles.conf
-    - makedirs: True
-    - template: jinja
-
 /etc/salt/cloud.profiles.d/staging-profiles.conf:
   file.managed:
     - source: salt://salt_cloud/files/staging-profiles.conf
@@ -39,12 +33,6 @@
 /etc/salt/cloud.profiles.d/prod-profiles.conf:
   file.managed:
     - source: salt://salt_cloud/files/prod-profiles.conf
-    - makedirs: True
-    - template: jinja
-
-/etc/salt/cloud.maps.d/dev-environment.map:
-  file.managed:
-    - source: salt://salt_cloud/files/dev-environment.map
     - makedirs: True
     - template: jinja
 

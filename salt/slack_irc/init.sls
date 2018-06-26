@@ -61,6 +61,7 @@ slack-irc service conf:
     - group: slack-irc
     - mode: 640
     - template: jinja
+    - show_changes: False
 
 slack-irc service running:
   service.running:

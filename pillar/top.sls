@@ -16,6 +16,14 @@ base:
     - slack_irc_secret
     - ignore_missing: True
 
-  'is_vagrant:True':
-    - match: grain
+  'G@is_vagrant:True':
     - vagrant
+
+  'G@role:web':
+    - reggie.web
+    - glusterfs.client
+    - nginx
+
+  'G@role:loadbalancer':
+    - reggie.loadbalancer
+    - haproxy

@@ -1,18 +1,26 @@
+staging-loadbalancer:
+  - staging.reggie.magfest.org
+
 staging-web:
-  - staging-web-01
-  - staging-web-02
+  - staging-web-01.reggie.magfest.org
+  - staging-web-02.reggie.magfest.org
 
 staging-sessions:
-  - staging-sessions-01
+  - staging-sessions-01.reggie.magfest.org
 
 staging-db:
-  - staging-db-01
+  - staging-db-01.reggie.magfest.org
+
+staging-files:
+  - staging-files-01.reggie.magfest.org
+  - staging-files-02.reggie.magfest.org
+  - staging-files-03.reggie.magfest.org
 
 staging-queue:
-  - staging-queue-01
+  - staging-queue-01.reggie.magfest.org
 
 staging-scheduler:
-  - staging-scheduler-01
+  - staging-scheduler-01.reggie.magfest.org
 
 staging-worker:
-  - staging-worker-01
+  - staging-worker-01.reggie.magfest.org

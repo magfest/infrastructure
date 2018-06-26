@@ -22,6 +22,8 @@ legacy_magbot git latest:
     - source: salt://legacy_magbot/files/secret.sh
     - template: jinja
     - show_changes: False
+    - require:
+      - legacy_magbot git latest
 
 chown magbot /srv/legacy_magbot/:
   file.directory:

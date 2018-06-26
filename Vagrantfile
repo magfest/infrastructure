@@ -11,6 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 443, host: 4443 # traefik https proxy
 
     config.vm.synced_folder ".", "/srv/infrastructure", create: true
+    config.vm.synced_folder "secret", "/srv/data/secret", create: true
 
     # No good can come from updating plugins.
     # Plus, this makes creating Vagrant instances MUCH faster.

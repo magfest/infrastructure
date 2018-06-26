@@ -13,7 +13,7 @@ mine_functions:
     - eth0
   internal_ip:
     - mine_function: network.interface_ip
-    - eth1
+    - {% if salt['grains.get']('is_vagrant') %}eth0{% else %}eth1{% endif %}
 
 ufw:
   enabled: True

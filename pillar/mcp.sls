@@ -1,6 +1,9 @@
 {%- import_yaml 'defaults.sls' as defaults -%}
 {%- import_yaml 'ip_blacklist.yaml' as ip_blacklist -%}
 
+{%- set private_interface = 'eth0' if salt['grains.get']('is_vagrant') else 'eth1' -%}
+{%- set private_ip = salt['network.interface_ip'](private_interface) -%}
+
 data:
   path: /srv/data
 
@@ -65,6 +68,7 @@ ufw:
       limit: True
     Saltmaster:
       enabled: True
+      to_addr: {{ private_ip }}
 
   services:
     http:

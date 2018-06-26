@@ -23,7 +23,15 @@ base:
     - docker_magbot
     - docker_traefik.import_freeipa_certs
     - docker_traefik
+
+  'mcp and not G@is_vagrant:True':
     - legacy_deploy
     - legacy_magbot
     - legacy_magbot.deploy_logs
     - slack_irc
+
+  'G@role:web':
+    - reggie.web
+
+  'G@role:loadbalancer':
+    - reggie.loadbalancer
