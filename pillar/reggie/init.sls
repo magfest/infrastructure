@@ -100,8 +100,8 @@ nginx:
         ssl:
           enabled: True
           # engine: letsencrypt
-          cert_file: {{ certs_dir }}/localhost.crt
-          key_file: {{ certs_dir }}/localhost.key
+          cert_file: {{ certs_dir }}/default.crt
+          key_file: {{ certs_dir }}/default.key
         host:
           name: {{ salt['grains.get']('id') }}
           port: 443
