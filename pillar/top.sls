@@ -21,9 +21,6 @@ base:
 
   'G@role:web':
     - reggie.web
-    - glusterfs.client
-    - nginx
 
   'G@role:loadbalancer':
     - reggie.loadbalancer
-    - haproxy
