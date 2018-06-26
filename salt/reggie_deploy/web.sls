@@ -1,7 +1,8 @@
 # ============================================================================
 # Generate self-signed certs
 # ============================================================================
-{%- set certs_dir = salt['pillar.get']('ssl:certs_dir') %}
+{%- set certs_dir = salt['pillar.get']('ssl:certs_dir') -%}
+{%- set minion_id = salt['grains.get']('id') %}
 
 pip install pyopenssl:
   pip.installed:
@@ -14,10 +15,14 @@ create self signed cert:
   module.run:
     - name: tls.create_self_signed_cert
     - tls_dir: '.'
+    - CN: {{ minion_id }}
+    - C: US
+    - ST: Maryland
+    - L: Baltimore
     - cacert_path: {{ salt['pillar.get']('ssl:dir') }}
-    - unless: test -f {{ certs_dir }}/default.crt
+    - unless: test -f {{ certs_dir }}/{{ minion_id }}.crt
 
 bundle self signed cert:
   cmd.run:
-    - name: cat {{ certs_dir }}/default.crt {{ certs_dir }}/default.key > {{ certs_dir }}/default.pem
-    - creates: {{ certs_dir }}/default.pem
+    - name: cat {{ certs_dir }}/{{ minion_id }}.crt {{ certs_dir }}/{{ minion_id }}.key > {{ certs_dir }}/{{ minion_id }}.pem
+    - creates: {{ certs_dir }}/{{ minion_id }}.pem

@@ -1,4 +1,5 @@
 {%- set certs_dir = '/etc/ssl/certs' -%}
+{%- set minion_id = salt['grains.get']('id') %}
 {%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
 
 reggie:
@@ -100,13 +101,18 @@ nginx:
         ssl:
           enabled: True
           # engine: letsencrypt
-          cert_file: {{ certs_dir }}/default.crt
-          key_file: {{ certs_dir }}/default.key
+          cert_file: {{ certs_dir }}/{{ minion_id }}.crt
+          key_file: {{ certs_dir }}/{{ minion_id }}.key
         host:
-          name: {{ salt['grains.get']('id') }}
+          name: {{ minion_id }}
           port: 443
 
 
 ssh:
   password_authentication: True
   permit_root_login: False
+
+
+ssl:
+  dir: /etc/ssl
+  certs_dir: {{ certs_dir }}
