@@ -13,13 +13,13 @@ pip install pyopenssl:
 
 create self signed cert:
   module.run:
-    - name: tls.create_self_signed_cert
-    - tls_dir: '.'
-    - CN: {{ minion_id }}
-    - C: US
-    - ST: Maryland
-    - L: Baltimore
-    - cacert_path: {{ salt['pillar.get']('ssl:dir') }}
+    - tls.create_self_signed_cert:
+      - tls_dir: '.'
+      - CN: {{ minion_id }}
+      - C: US
+      - ST: Maryland
+      - L: Baltimore
+      - cacert_path: {{ salt['pillar.get']('ssl:dir') }}
     - unless: test -f {{ certs_dir }}/{{ minion_id }}.crt
 
 bundle self signed cert:
