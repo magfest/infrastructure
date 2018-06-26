@@ -1,3 +1,5 @@
+{%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
+
 ufw:
   enabled: True
 
