@@ -13,18 +13,18 @@ reggie:
 #     enabled: True
 #     service: glusterd
 #     peers:
-#       - {{ ip_addr }}
+#       - {{ private_ip }}
 #     volumes:
 #       reggie_volume:
 #         storage: /srv/glusterfs/reggie_volume
 #         bricks:
-#           - {{ ip_addr }}:/srv/glusterfs/reggie_volume
+#           - {{ private_ip }}:/srv/glusterfs/reggie_volume
 #   client:
 #     enabled: True
 #     volumes:
 #       reggie_volume:
 #         path: /srv/reggie/data/uploaded_files
-#         server: {{ ip_addr }}
+#         server: {{ private_ip }}
 #         user: vagrant
 #         group: vagrant
 
