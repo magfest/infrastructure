@@ -20,7 +20,7 @@ base:
     - vagrant
 
   'G@role:web':
-    - reggie_web
+    - reggie.web
 
   'G@role:loadbalancer':
     - reggie.loadbalancer
