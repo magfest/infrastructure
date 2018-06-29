@@ -46,7 +46,7 @@ magbot:
 
 traefik:
   letsencrypt_enabled: True
-  caServer: 'https://acme-staging.api.letsencrypt.org/directory'  # Production server
+  caServer: ''  # Leave empty for production server
   cert_names: ['ipa-01.{{ defaults.master.domain }}']
   domain: '{{ defaults.master.domain }}'
   ui_domain: 'traefik.{{ defaults.master.domain }}'

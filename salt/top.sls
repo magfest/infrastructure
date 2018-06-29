@@ -33,7 +33,7 @@ base:
   '*reggie* and G@roles:web':
     - reggie_deploy.web
     - reggie.web
-    # - glusterfs.client
+    - glusterfs.client
     - nginx
 
   '*reggie* and G@roles:loadbalancer':

@@ -82,32 +82,6 @@ reggie:
 #           params: ssl verify none
 
 
-nginx:
-  server:
-    enabled: True
-    bind:
-      address: {{ private_ip }}
-      ports:
-      - 443
-    site:
-      https_reggie_site:
-        enabled: True
-        type: nginx_proxy
-        name: https_reggie_site
-        proxy:
-          host: localhost
-          port: 8282
-          protocol: http
-        ssl:
-          enabled: True
-          # engine: letsencrypt
-          cert_file: {{ certs_dir }}/{{ minion_id }}.crt
-          key_file: {{ certs_dir }}/{{ minion_id }}.key
-        host:
-          name: {{ minion_id }}
-          port: 443
-
-
 ssh:
   password_authentication: True
   permit_root_login: False
