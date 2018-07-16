@@ -41,6 +41,7 @@ freeipa_client install:
         --no-ntp
         --force-join
         --unattended
+    - output_loglevel: quiet
     - creates: /etc/ipa/default.conf
     - require:
       - pkg: freeipa-client

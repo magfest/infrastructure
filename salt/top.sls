@@ -30,6 +30,7 @@ base:
     - legacy_magbot.deploy_logs
     - slack_irc
 
+staging:
   '*reggie* and G@roles:web':
     - reggie_deploy.web
     - reggie.web
@@ -38,4 +39,4 @@ base:
 
   '*reggie* and G@roles:loadbalancer':
     - reggie.loadbalancer
-    # - haproxy
+    - haproxy

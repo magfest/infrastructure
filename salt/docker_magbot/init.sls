@@ -19,6 +19,7 @@ include:
   file.managed:
     - name: {{ salt['pillar.get']('data:path') }}/magbot/config.py
     - source: salt://docker_magbot/files/config.py
+    - show_changes: False
     - template: jinja
 
 docker_magbot magbot git latest:
