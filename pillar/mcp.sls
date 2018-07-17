@@ -54,7 +54,7 @@ traefik:
 
 ssh:
   password_authentication: False
-  permit_root_login: False
+  permit_root_login: True
 
 ufw:
   enabled: True

@@ -18,7 +18,7 @@ legacy_deploy ubersystem-deploy git latest:
 /srv/legacy_deploy/puppet/fabric_settings.ini:
   file.managed:
     - name: /srv/legacy_deploy/puppet/fabric_settings.ini
-    - content: |
+    - contents: |
         [repositories]
 
         git_ubersystem_module_repo = "https://github.com/magfest/ubersystem-puppet"

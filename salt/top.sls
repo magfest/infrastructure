@@ -1,9 +1,11 @@
 base:
   '*':
-    - salt_minion
     - rsyslog
     - sshd
     - swap
+
+  'not G@salt_cloud:True':
+    - salt_minion
 
   'not bootstrap':
     - ufw
@@ -30,13 +32,21 @@ base:
     - legacy_magbot.deploy_logs
     - slack_irc
 
-staging:
-  '*reggie* and G@roles:web':
-    - reggie_deploy.web
-    - reggie.web
-    - glusterfs.client
-    - nginx
+  '*reggie* and G@roles:db':
+    - postgres
+    - reggie.db
 
   '*reggie* and G@roles:loadbalancer':
-    - reggie.loadbalancer
     - haproxy
+    - reggie.loadbalancer
+
+  '*reggie* and G@roles:web':
+    - nginx
+    - reggie_deploy.web
+    - reggie.web
+
+  '*reggie* and G@roles:sessions':
+    - redis.server
+
+  '*reggie* and (G@roles:files or G@roles:files_arbiter)':
+    - reggie_deploy.files

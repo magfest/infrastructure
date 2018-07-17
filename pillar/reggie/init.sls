@@ -1,12 +1,39 @@
+{%- set env = salt['grains.get']('env') -%}
 {%- set certs_dir = '/etc/ssl/certs' -%}
 {%- set minion_id = salt['grains.get']('id') %}
 {%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
 
+{#-
+{%- set sessions_ip = salt['mine.get']('*reggie* and G@roles:sessions and G@env:' ~ env, 'internal_ip', tgt_type='compound').values()|first -%}
+
+{%- if 'db' in salt['grains.get']('roles') -%}
+  {%- set db_ip = salt['mine.get']('*reggie* and G@roles:db and G@env:' ~ env, 'internal_ip', tgt_type='compound').values()|first -%}
+{%- else -%}
+  {%- set db_ip = '127.0.0.1' -%}
+{%- endif -%}
+-#}
+
 reggie:
+  db:
+    username: reggie
+    password: reggie
+    name: reggie
+    {# host: {{ db_ip }} #}
+
   plugins:
     magprime:
       name: magprime
       source: https://github.com/magfest/magprime.git
+
+  sideboard:
+    config:
+      cherrypy:
+        engine.autoreload.on: False
+        server.socket_host: {{ private_ip }}
+        server.socket_port: 8282
+        {# tools.sessions.host: {{ sessions_ip }} #}
+        tools.sessions.port: 6379
+        tools.sessions.password: reggie
 
 
 # glusterfs:
@@ -28,58 +55,6 @@ reggie:
 #         server: {{ private_ip }}
 #         user: vagrant
 #         group: vagrant
-
-
-# haproxy:
-#   proxy:
-#     enabled: True
-#     mode: http
-#     logging: syslog
-#     maxconn: 1024
-#     timeout:
-#       connect: 5000
-#       client: 50000
-#       server: 50000
-#     listen:
-#       reggie_http_to_https_redirect:
-#         mode: http
-
-#         http_request:
-#           - action: 'redirect location https://%H:4443%HU code 301'
-
-#         binds:
-#         - address: 0.0.0.0
-#           port: 8000
-
-#       reggie_load_balancer:
-#         mode: http
-#         force_ssl: True
-
-#         acl:
-#           header_location_exists: 'res.hdr(Location) -m found'
-#           path_starts_with_app: 'path_beg -i /app'
-#           path_starts_with_profiler: 'path_beg -i /profiler'
-
-#         http_response:
-#           - action: 'replace-value Location https://([^/]*)(?:/app)?(.*) https://\1:4443\2'
-#             condition: 'if header_location_exists'
-
-#         http_request:
-#           - action: 'set-path /app/%[path]'
-#             condition: 'if !path_starts_with_app !path_starts_with_profiler'
-
-#         binds:
-#         - address: 0.0.0.0
-#           port: 4443
-#           ssl:
-#             enabled: True
-#             pem_file: {{ certs_dir }}/localhost.pem
-
-#         servers:
-#         - name: reggie_backend
-#           host: 127.0.0.1
-#           port: 443
-#           params: ssl verify none
 
 
 ssh:

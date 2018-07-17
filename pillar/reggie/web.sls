@@ -1,13 +1,33 @@
+{%- set env = salt['grains.get']('env') -%}
 {%- set certs_dir = '/etc/ssl/certs' -%}
 {%- set minion_id = salt['grains.get']('id') %}
-{%- set private_interface = 'eth0' if salt['grains.get']('is_vagrant') else 'eth1' -%}
-{%- set private_ip = salt['network.interface_ip'](private_interface) -%}
-{%- set arbiter_ip = salt['mine.get']('G@file-arbiter', private_interface) -%}
+{%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
+{#{%- set arbiter_ip = salt['mine.get']('*reggie* and G@roles:files_arbiter and G@env:' ~ env, 'internal_ip', tgt_type='compound').values()|first -%}#}
 
 include:
   - reggie
 
 
+ufw:
+  enabled: True
+
+  settings:
+    ipv6: False
+
+  sysctl:
+    ipv6_autoconf: 0
+
+  applications:
+    OpenSSH:
+      limit: True
+      to_addr: {{ private_ip }}
+
+  services:
+    https:
+      protocol: tcp
+      to_addr: {{ private_ip }}
+
+{#
 glusterfs:
   client:
     enabled: True
@@ -17,6 +37,7 @@ glusterfs:
         server: {{ arbiter_ip }}
         user: vagrant
         group: vagrant
+#}
 
 
 nginx:
@@ -43,23 +64,3 @@ nginx:
         host:
           name: {{ minion_id }}
           port: 443
-
-
-ufw:
-  enabled: True
-
-  settings:
-    ipv6: False
-
-  sysctl:
-    ipv6_autoconf: 0
-
-  applications:
-    OpenSSH:
-      limit: True
-      to_addr: {{ private_ip }}
-
-  services:
-    https:
-      protocol: tcp
-      to_addr: {{ private_ip }}

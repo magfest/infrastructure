@@ -1,6 +1,8 @@
+{%- set mcp_ip = (salt['mine.get']('mcp', 'internal_ip').values() or ['127.0.0.1'])|first -%}
+
 master:
   domain: magfest.net
-  address: saltmaster.magfest.net
+  address: {{ mcp_ip }}
 
 freeipa:
   realm: 'magfest.org'

@@ -1,5 +1,5 @@
 staging-loadbalancer:
-  - staging.reggie.magfest.org
+  - staging-reggie.magfest.org
 
 staging-web:
   - staging-web-01.reggie.magfest.org
