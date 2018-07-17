@@ -22,11 +22,11 @@ base:
     - docker_jenkins.import_freeipa_certs
     - docker_jenkins
     - docker_redis
-    - docker_magbot
     - docker_traefik.import_freeipa_certs
     - docker_traefik
 
   'mcp and not G@is_vagrant:True':
+    - docker_magbot
     - legacy_deploy
     - legacy_magbot
     - legacy_magbot.deploy_logs
