@@ -140,6 +140,23 @@ salt-master rsyslog conf:
 
 
 # ============================================================================
+# Salt reactor configuration
+# ============================================================================
+
+/etc/salt/master.d/reactor.conf:
+  file.managed:
+    - mode: 644
+    - makedirs: True
+    - template: jinja
+    - contents: |
+        reactor:
+          - 'salt/cloud/*/created':
+            - '/srv/infrastructure/reactor/salt_cloud_created.sls'
+          - 'salt/cloud/*/destroying':
+            - '/srv/infrastructure/reactor/salt_cloud_destroying.sls'
+
+
+# ============================================================================
 # Salt master configuration
 # ============================================================================
 

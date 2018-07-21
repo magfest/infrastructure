@@ -1,6 +1,6 @@
 {%- set env = salt['grains.get']('env') -%}
 {%- set certs_dir = '/etc/ssl/certs' -%}
-{%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
+{%- set private_ip = salt['network.interface_ip']('eth1') -%}
 
 include:
   - reggie
@@ -73,7 +73,7 @@ haproxy:
               pem_file: {{ certs_dir }}/localhost.pem
 
         servers:
-        {% for server, addr in salt['mine.get']('*reggie* and G@roles:web and G@env:' ~ env, 'internal_ip', tgt_type='compound').items() -%}
+        {%- for server, addr in salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:web and G@env:' ~ env, fun='internal_ip', tgt_type='compound').items() %}
           - name: {{ server }}
             host: {{ addr }}
             port: 443

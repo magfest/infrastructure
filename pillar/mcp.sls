@@ -6,21 +6,26 @@
 data:
   path: /srv/data
 
+
 master:
   address: 127.0.0.1
   firewall_blacklisted_ips: []
   ssh_keys: {}
 
+
 minion:
   id: mcp
+
 
 jenkins:
   user: 'jenkins'
   group: 'jenkins'
   domain: 'jenkins.{{ defaults.master.domain }}'
 
+
 redis:
   hostname: 'redis'
+
 
 magbot:
   deploy_log_domain: 'mcp.{{ defaults.master.domain }}'
@@ -44,6 +49,7 @@ magbot:
     - 'VersionChecker'
     # - 'Webserver'  # Disabled for now
 
+
 traefik:
   letsencrypt_enabled: True
   caServer: ''  # Leave empty for production server
@@ -52,9 +58,11 @@ traefik:
   ui_domain: 'traefik.{{ defaults.master.domain }}'
   subdomains: ['directory', 'errbot', 'magbot', 'mcp', 'jenkins', 'traefik']
 
+
 ssh:
   password_authentication: False
-  permit_root_login: True
+  permit_root_login: False
+
 
 ufw:
   enabled: True

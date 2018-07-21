@@ -1,13 +1,15 @@
-{%- set mcp_ip = (salt['mine.get']('mcp', 'internal_ip').values() or ['127.0.0.1'])|first -%}
+{%- set mcp_ip = salt.saltutil.runner('mine.get', tgt='mcp', fun='internal_ip').values()|first -%}
 
 master:
   domain: magfest.net
   address: {{ mcp_ip }}
 
+
 freeipa:
   realm: 'magfest.org'
   hostname: 'ipa-01.magfest.net'
   ui_domain: 'directory.magfest.net'
+
 
 mine_functions:
   external_ip:
@@ -17,9 +19,11 @@ mine_functions:
     - mine_function: network.interface_ip
     - {% if salt['grains.get']('is_vagrant') %}eth0{% else %}eth1{% endif %}
 
+
 ssh:
   password_authentication: False
   permit_root_login: False
+
 
 ufw:
   enabled: True

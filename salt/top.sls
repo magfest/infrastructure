@@ -4,7 +4,7 @@ base:
     - sshd
     - swap
 
-  'not G@salt_cloud:True':
+  'not *reggie*':
     - salt_minion
 
   'not bootstrap':
@@ -38,7 +38,6 @@ base:
 
   '*reggie* and G@roles:loadbalancer':
     - haproxy
-    - reggie.loadbalancer
 
   '*reggie* and G@roles:web':
     - nginx
@@ -48,5 +47,5 @@ base:
   '*reggie* and G@roles:sessions':
     - redis.server
 
-  '*reggie* and (G@roles:files or G@roles:files_arbiter)':
-    - reggie_deploy.files
+  # '*reggie* and (G@roles:files or G@roles:files_arbiter)':
+  #   - reggie_deploy.files

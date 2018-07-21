@@ -1,24 +1,17 @@
 {%- set env = salt['grains.get']('env') -%}
 {%- set certs_dir = '/etc/ssl/certs' -%}
-{%- set minion_id = salt['grains.get']('id') %}
-{%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
+{%- set minion_id = salt['grains.get']('id') -%}
+{%- set private_ip = salt['network.interface_ip']('eth1') -%}
+{%- set db_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:db and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set sessions_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:sessions and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
 
-{#-
-{%- set sessions_ip = salt['mine.get']('*reggie* and G@roles:sessions and G@env:' ~ env, 'internal_ip', tgt_type='compound').values()|first -%}
-
-{%- if 'db' in salt['grains.get']('roles') -%}
-  {%- set db_ip = salt['mine.get']('*reggie* and G@roles:db and G@env:' ~ env, 'internal_ip', tgt_type='compound').values()|first -%}
-{%- else -%}
-  {%- set db_ip = '127.0.0.1' -%}
-{%- endif -%}
--#}
 
 reggie:
   db:
     username: reggie
     password: reggie
     name: reggie
-    {# host: {{ db_ip }} #}
+    host: {{ db_ip }}
 
   plugins:
     magprime:
@@ -31,7 +24,7 @@ reggie:
         engine.autoreload.on: False
         server.socket_host: {{ private_ip }}
         server.socket_port: 8282
-        {# tools.sessions.host: {{ sessions_ip }} #}
+        tools.sessions.host: {{ sessions_ip }}
         tools.sessions.port: 6379
         tools.sessions.password: reggie
 
