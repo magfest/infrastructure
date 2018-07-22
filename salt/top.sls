@@ -33,13 +33,16 @@ base:
     - slack_irc
 
   '*reggie* and G@roles:db':
+    - reggie.devenv
     - postgres
     - reggie.db
 
   '*reggie* and G@roles:loadbalancer':
+    - reggie_deploy.web
     - haproxy
 
   '*reggie* and G@roles:web':
+    - reggie.devenv
     - nginx
     - reggie_deploy.web
     - reggie.web

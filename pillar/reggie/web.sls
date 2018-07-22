@@ -1,7 +1,4 @@
-{%- set env = salt['grains.get']('env') -%}
-{%- set certs_dir = '/etc/ssl/certs' -%}
-{%- set minion_id = salt['grains.get']('id') %}
-{%- set private_ip = salt['network.interface_ip']('eth1') -%}
+{%- from 'reggie/init.sls' import env, minion_id, private_ip, certs_dir -%}
 
 include:
   - reggie
@@ -40,7 +37,7 @@ nginx:
         type: nginx_proxy
         name: https_reggie_site
         proxy:
-          host: localhost
+          host: 127.0.0.1
           port: 8282
           protocol: http
         ssl:

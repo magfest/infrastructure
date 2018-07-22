@@ -5,5 +5,5 @@ freeipa_client unenroll:
   local.cmd.run:
     - tgt: '{{ name }}'
     - args:
-      - cmd: ipa-join --unenroll --hostname {{ name }}
+      - cmd: 'ipa-join --unenroll --hostname={{ name }}'
 {% endif %}

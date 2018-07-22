@@ -1,6 +1,4 @@
-{%- set env = salt['grains.get']('env') -%}
-{%- set certs_dir = '/etc/ssl/certs' -%}
-{%- set private_ip = salt['network.interface_ip']('eth1') -%}
+{%- from 'reggie/init.sls' import env, minion_id, private_ip, certs_dir -%}
 
 include:
   - reggie
@@ -70,7 +68,7 @@ haproxy:
             port: 443
             ssl:
               enabled: True
-              pem_file: {{ certs_dir }}/localhost.pem
+              pem_file: {{ certs_dir }}/{{ minion_id }}.pem
 
         servers:
         {%- for server, addr in salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:web and G@env:' ~ env, fun='internal_ip', tgt_type='compound').items() %}
@@ -78,4 +76,4 @@ haproxy:
             host: {{ addr }}
             port: 443
             params: ssl verify none
-        {% endfor -%}
+        {%- endfor %}

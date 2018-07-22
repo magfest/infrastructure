@@ -4,12 +4,13 @@
 {%- set certs_dir = salt['pillar.get']('ssl:certs_dir') -%}
 {%- set minion_id = salt['grains.get']('id') %}
 
+include:
+  - pip
+
 pip install pyopenssl:
   pip.installed:
     - name: pyopenssl
     - reload_modules: True
-    - require:
-      - reggie python install
 
 create self signed cert:
   module.run:

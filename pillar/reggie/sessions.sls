@@ -1,4 +1,4 @@
-{%- set private_ip = salt['network.interface_ip']('eth1') -%}
+{%- from 'reggie/init.sls' import private_ip -%}
 
 include:
   - reggie

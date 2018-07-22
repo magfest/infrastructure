@@ -1,16 +1,19 @@
 {%- set env = salt['grains.get']('env') -%}
 {%- set certs_dir = '/etc/ssl/certs' -%}
 {%- set minion_id = salt['grains.get']('id') -%}
-{%- set private_ip = salt['network.interface_ip']('eth1') -%}
-{%- set db_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:db and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set private_ip = salt['grains.get']('ip4_interfaces:eth1')[0] -%}
 {%- set sessions_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:sessions and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set db_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:db and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set db_name = 'reggie' -%}
+{%- set db_password = 'reggie' -%}
+{%- set db_username = 'reggie' %}
 
 
 reggie:
   db:
-    username: reggie
-    password: reggie
-    name: reggie
+    username: {{ db_username }}
+    password: {{ db_password }}
+    name: {{ db_name }}
     host: {{ db_ip }}
 
   plugins:
@@ -22,7 +25,7 @@ reggie:
     config:
       cherrypy:
         engine.autoreload.on: False
-        server.socket_host: {{ private_ip }}
+        server.socket_host: 127.0.0.1
         server.socket_port: 8282
         tools.sessions.host: {{ sessions_ip }}
         tools.sessions.port: 6379

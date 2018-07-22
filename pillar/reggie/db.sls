@@ -1,6 +1,5 @@
-{%- set private_ip = salt['network.interface_ip']('eth1') -%}
-{%- set db_name = salt['pillar.get']('reggie:db:name') -%}
-{%- set db_username = salt['pillar.get']('reggie:db:username') -%}
+{%- from 'reggie/init.sls' import env, private_ip, db_name, db_username, db_password -%}
+{%- set db_client_target = '*reggie* and G@roles:web and G@env:' ~ env -%} {# G@roles:scheduler or G@roles:worker #}
 
 include:
   - reggie
@@ -22,20 +21,37 @@ ufw:
     Postgresql:
       to_addr: {{ private_ip }}
 
-  services:
-    http:
-      protocol: tcp
-    https:
-      protocol: tcp
-
 
 postgres:
   use_upstream_repo: False
-  pkgs_extra:
-    - postgresql-contrib
+  pkgs_extra: [postgresql-contrib]
   manage_force_reload_modules: False
-  postgresconf: |
-    listen_addresses = '{{ private_ip }}'
+  postgresconf: listen_addresses = 'localhost,{{ private_ip }}'
+
   acls:
-    - ['local', '{{ db_name }}', '{{ db_username }}']
-    - ['hostssl', '{{ db_name }}', '{{ db_username }}', '{{ private_ip }}/24']
+    - ['local', 'all', 'all']
+    - ['host', 'all', 'all', '127.0.0.1/32', 'md5']
+    - ['hostssl', 'all', 'all', '{{ private_ip }}/32', 'md5']
+    {%- for server, addr in salt.saltutil.runner('mine.get', tgt=db_client_target, fun='internal_ip', tgt_type='compound').items() %}
+    - ['hostssl', 'all', 'all', '{{ addr }}/32', 'md5']
+    {%- endfor %}
+
+  users:
+    {{ db_username }}:
+      ensure: present
+      password: {{ db_password }}
+      createdb: False
+      createroles: False
+      encrypted: True
+      login: True
+      superuser: False
+      replication: True
+      runas: postgres
+
+  databases:
+    {{ db_name }}:
+      runas: postgres
+      template: template0
+      encoding: UTF8
+      lc_ctype: en_US.UTF-8
+      lc_collate: en_US.UTF-8
