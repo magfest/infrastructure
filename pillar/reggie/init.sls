@@ -1,8 +1,10 @@
 {%- set env = salt['grains.get']('env') -%}
 {%- set certs_dir = '/etc/ssl/certs' -%}
 {%- set minion_id = salt['grains.get']('id') -%}
+{%- set mounted_data_dir = '/srv/mnt/reggie' -%}
 {%- set private_ip = salt['grains.get']('ip4_interfaces:eth1')[0] -%}
 {%- set sessions_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:sessions and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set queue_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:queue and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
 {%- set db_ip = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:db and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
 {%- set db_name = 'reggie' -%}
 {%- set db_password = 'reggie' -%}
@@ -17,6 +19,11 @@ reggie:
     host: {{ db_ip }}
 
   plugins:
+    ubersystem:
+      config:
+        mounted_data_dir: {{ mounted_data_dir }}
+        secret:
+          broker_url: amqp://reggie:reggie@{{ queue_ip }}:5672/reggie
     magprime:
       name: magprime
       source: https://github.com/magfest/magprime.git
@@ -30,27 +37,6 @@ reggie:
         tools.sessions.host: {{ sessions_ip }}
         tools.sessions.port: 6379
         tools.sessions.password: reggie
-
-
-# glusterfs:
-#   server:
-#     enabled: True
-#     service: glusterd
-#     peers:
-#       - {{ private_ip }}
-#     volumes:
-#       reggie_volume:
-#         storage: /srv/glusterfs/reggie_volume
-#         bricks:
-#           - {{ private_ip }}:/srv/glusterfs/reggie_volume
-#   client:
-#     enabled: True
-#     volumes:
-#       reggie_volume:
-#         path: /srv/reggie/data/uploaded_files
-#         server: {{ private_ip }}
-#         user: vagrant
-#         group: vagrant
 
 
 ssh:

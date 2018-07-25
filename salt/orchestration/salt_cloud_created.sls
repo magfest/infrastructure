@@ -14,5 +14,4 @@ mine.update:
 highstate_run:
   salt.state:
     - tgt: '{{ salt["pillar.get"]("id") }}'
-    - tgt_type: compound
     - highstate: True

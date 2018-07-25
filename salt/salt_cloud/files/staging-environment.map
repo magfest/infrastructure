@@ -11,11 +11,11 @@ staging-sessions:
 staging-db:
   - staging-db-01.reggie.magfest.org
 
-#staging-queue:
-#  - staging-queue-01.reggie.magfest.org
-#
-#staging-scheduler:
-#  - staging-scheduler-01.reggie.magfest.org
-#
-#staging-worker:
-#  - staging-worker-01.reggie.magfest.org
+staging-queue:
+  - staging-queue-01.reggie.magfest.org
+
+staging-scheduler:
+  - staging-scheduler-01.reggie.magfest.org
+
+staging-worker:
+  - staging-worker-01.reggie.magfest.org

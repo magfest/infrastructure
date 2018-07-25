@@ -37,18 +37,29 @@ base:
     - postgres
     - reggie.db
 
+  '*reggie* and G@roles:files':
+    - reggie_deploy.glusterfs
+    - glusterfs
+
   '*reggie* and G@roles:loadbalancer':
-    - reggie_deploy.web
+    - reggie_deploy.ssl
     - haproxy
 
   '*reggie* and G@roles:web':
     - reggie.devenv
+    - glusterfs
     - nginx
-    - reggie_deploy.web
+    - reggie_deploy.ssl
     - reggie.web
 
   '*reggie* and G@roles:sessions':
     - redis.server
 
-  # '*reggie* and (G@roles:files or G@roles:files_arbiter)':
-  #   - reggie_deploy.files
+  '*reggie* and G@roles:queue':
+    - rabbitmq
+
+  '*reggie* and G@roles:scheduler':
+    - reggie.scheduler
+
+  '*reggie* and G@roles:worker':
+    - reggie.worker

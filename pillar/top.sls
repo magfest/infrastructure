@@ -22,11 +22,20 @@ base:
   '*reggie* and G@roles:db':
     - reggie.db
 
+  '*reggie* and G@roles:files':
+    - reggie.files
+
   '*reggie* and G@roles:loadbalancer':
     - reggie.loadbalancer
+
+  '*reggie* and G@roles:web':
+    - reggie.web
 
   '*reggie* and G@roles:sessions':
     - reggie.sessions
 
-  '*reggie* and G@roles:web':
-    - reggie.web
+  '*reggie* and G@roles:queue':
+    - reggie.queue
+
+  '*reggie* and P@roles:(scheduler|worker)':
+    - reggie

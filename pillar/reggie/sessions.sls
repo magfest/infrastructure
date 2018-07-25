@@ -21,6 +21,7 @@ ufw:
   services:
     6379:
       protocol: tcp
+      to_addr: {{ private_ip }}
       comment: Redis
 
 

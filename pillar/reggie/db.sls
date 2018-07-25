@@ -1,5 +1,5 @@
 {%- from 'reggie/init.sls' import env, private_ip, db_name, db_username, db_password -%}
-{%- set db_client_target = '*reggie* and G@roles:web and G@env:' ~ env -%} {# G@roles:scheduler or G@roles:worker #}
+{%- set db_client_target = '*reggie* and P@roles:(web|worker|scheduler) and G@env:' ~ env -%}
 
 include:
   - reggie
@@ -27,6 +27,9 @@ postgres:
   pkgs_extra: [postgresql-contrib]
   manage_force_reload_modules: False
   postgresconf: listen_addresses = 'localhost,{{ private_ip }}'
+
+  cluster:
+    locale: en_US.UTF-8
 
   acls:
     - ['local', 'all', 'all']
