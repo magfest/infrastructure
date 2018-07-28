@@ -1,6 +1,6 @@
 {%- from 'reggie/nginx_macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
-{%- from 'reggie/init.sls' import env, minion_id, private_ip, certs_dir -%}
-
+{%- from 'reggie/init.sls' import env, minion_id, private_ip -%}
+{%- set cert_dir = '/etc/letsencrypt/live/' ~ minion_id -%}
 {%- set backends = salt.saltutil.runner('mine.get',
     tgt='*reggie* and G@roles:web and G@env:' ~ env, fun='internal_ip',
     tgt_type='compound').items() %}
@@ -30,6 +30,22 @@ ufw:
       protocol: tcp
 
 
+letsencrypt:
+  client:
+    email: it@magfest.org
+    source:
+      engine: pkg
+      cli: /usr/bin/certbot
+      install_units: True
+    auth:
+      method: standalone
+      type: http-01
+      port: 9999
+    domain:
+      {{ minion_id }}:
+        enabled: True
+
+
 haproxy:
   enabled: True
   overwrite: True
@@ -41,12 +57,21 @@ haproxy:
     reggie_http_to_https_redirect:
       mode: http
       bind: '0.0.0.0:80'
-      httprequests: 'redirect location https://%[hdr(host),regsub(:80,:443,i)]%[capture.req.uri] code 301'
+
+      acls:
+        'is_letsencrypt path_beg -i /.well-known/acme-challenge/'
+
+      httprequests: 'redirect location https://%[hdr(host),regsub(:80,:443,i)]%[capture.req.uri] code 301 if !is_letsencrypt'
+
+      servers:
+        letsencrypt:
+          host: 127.0.0.1
+          port: 9999
 
   frontends:
     reggie_load_balancer:
       mode: http
-      bind: '0.0.0.0:443 ssl crt {{ certs_dir }}/{{ minion_id }}.pem'
+      bind: '0.0.0.0:443 ssl crt {{ cert_dir }}/{{ minion_id }}.pem'
       redirects: 'scheme https code 301 if !{ ssl_fc }'
 
       acls:

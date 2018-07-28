@@ -24,6 +24,7 @@ ufw:
       to_addr: {{ private_ip }}
       comment: RabbitMQ
 
+
 rabbitmq:
   enabled: True
   running: True

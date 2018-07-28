@@ -42,8 +42,9 @@ base:
     - glusterfs.server
 
   '*reggie* and G@roles:loadbalancer':
-    - reggie_deploy.ssl
+    - letsencrypt
     - haproxy
+    - reggie_deploy.loadbalancer
 
   '*reggie* and G@roles:web':
     - reggie.devenv
