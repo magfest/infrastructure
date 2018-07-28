@@ -1,4 +1,9 @@
+{%- from 'reggie/nginx_macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
 {%- from 'reggie/init.sls' import env, minion_id, private_ip, certs_dir -%}
+
+{%- set backends = salt.saltutil.runner('mine.get',
+    tgt='*reggie* and G@roles:web and G@env:' ~ env, fun='internal_ip',
+    tgt_type='compound').items() %}
 
 include:
   - reggie
@@ -26,54 +31,66 @@ ufw:
 
 
 haproxy:
-  proxy:
-    enabled: True
-    mode: http
-    logging: syslog
-    maxconn: 1024
-    timeout:
-      connect: 5000
-      client: 50000
-      server: 50000
-    listen:
-      reggie_http_to_https_redirect:
-        mode: http
+  enabled: True
+  overwrite: True
 
-        http_request:
-          - action: 'redirect location https://%H:443%HU code 301'
+  global:
+    tune.ssl.default-dh-param: 2048
 
-        binds:
-          - address: 0.0.0.0
-            port: 80
+  listens:
+    reggie_http_to_https_redirect:
+      mode: http
+      bind: '0.0.0.0:80'
+      httprequests: 'redirect location https://%[hdr(host),regsub(:80,:443,i)]%[capture.req.uri] code 301'
 
-      reggie_load_balancer:
-        mode: http
-        force_ssl: True
+  frontends:
+    reggie_load_balancer:
+      mode: http
+      bind: '0.0.0.0:443 ssl crt {{ certs_dir }}/{{ minion_id }}.pem'
+      redirects: 'scheme https code 301 if !{ ssl_fc }'
 
-        acl:
-          header_location_exists: 'res.hdr(Location) -m found'
-          path_starts_with_app: 'path_beg -i /reggie'
-          path_starts_with_profiler: 'path_beg -i /profiler'
+      acls:
+        {%- for header in ['Location', 'Refresh'] %}
+        - 'header_{{ header|lower }}_exists res.hdr({{ header }}) -m found'
+        {%- endfor %}
 
-        http_response:
-          - action: 'replace-value Location https://([^/]*)(?:/reggie)?(.*) https://\1:443\2'
-            condition: 'if header_location_exists'
+        {%- for path in ['reggie', 'uber', 'profiler', 'stats'] %}
+        - 'path_is_{{ path }} path -i /{{ path }}'
+        - 'path_starts_with_{{ path }} path_beg -i /{{ path }}/'
+        {%- endfor %}
 
-        http_request:
-          - action: 'set-path /reggie/%[path]'
-            condition: 'if !path_starts_with_app !path_starts_with_profiler'
+        - 'path_starts_with_static path_beg -i /reggie/static/ /reggie/static_views/ /static/ /static_views/'
 
-        binds:
-          - address: 0.0.0.0
-            port: 443
-            ssl:
-              enabled: True
-              pem_file: {{ certs_dir }}/{{ minion_id }}.pem
+      httpresponses:
+        {%- for header in ['Location', 'Refresh'] %}
+        - 'replace-value {{ header }} https://([^/]*)(?:/reggie)?(.*) https://\1:443\2 if header_{{ header|lower }}_exists'
+        {%- endfor %}
 
-        servers:
-        {%- for server, addr in salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:web and G@env:' ~ env, fun='internal_ip', tgt_type='compound').items() %}
-          - name: {{ server }}
-            host: {{ addr }}
-            port: 443
-            params: ssl verify none
+      httprequests:
+        {%- for path in ['reggie', 'uber'] %}
+        - 'redirect location https://%[hdr(host)]%[url,regsub(^/{{ path }}/?,/,i)] code 302 if path_is_{{ path }} OR path_starts_with_{{ path }}'
+        {%- endfor %}
+        - 'set-path /reggie%[path] if !path_is_profiler !path_starts_with_profiler !path_is_stats !path_starts_with_stats'
+
+      use_backends: 'reggie_http_backend if path_starts_with_static'
+      default_backend: 'reggie_https_backend'
+
+  backends:
+    reggie_https_backend:
+      mode: http
+      servers:
+        {%- for server, addr in backends %}
+        {{ server }}:
+          host: {{ addr }}
+          port: 443
+          extra: 'ssl verify none'
+        {%- endfor %}
+
+    reggie_http_backend:
+      mode: http
+      servers:
+        {%- for server, addr in backends %}
+        {{ server }}:
+          host: {{ addr }}
+          port: 80
         {%- endfor %}

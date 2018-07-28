@@ -39,7 +39,7 @@ base:
 
   '*reggie* and G@roles:files':
     - reggie_deploy.glusterfs
-    - glusterfs
+    - glusterfs.server
 
   '*reggie* and G@roles:loadbalancer':
     - reggie_deploy.ssl
@@ -47,10 +47,12 @@ base:
 
   '*reggie* and G@roles:web':
     - reggie.devenv
-    - glusterfs
-    - nginx
     - reggie_deploy.ssl
+    - reggie_deploy.glusterfs
+    - glusterfs.client
+    - nginx.ng
     - reggie.web
+    - reggie_deploy.web
 
   '*reggie* and G@roles:sessions':
     - redis.server
