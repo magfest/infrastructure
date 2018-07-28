@@ -3,8 +3,6 @@ base:
     - rsyslog
     - sshd
     - swap
-
-  'not *reggie*':
     - salt_minion
 
   'not bootstrap':

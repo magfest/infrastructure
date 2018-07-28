@@ -23,16 +23,20 @@ bundle_letsencrypt_cert.sh:
             chmod 600 {{ cert_dir }}/{{ minion_id }}.pem
             echo 'Updated {{ cert_dir }}/{{ minion_id }}.pem'
             systemctl reload haproxy
+        else
+            echo 'Already up to date {{ cert_dir }}/{{ minion_id }}.pem'
         fi
 
 
 bundle_letsencrypt_cert.sh on certbot changes:
   cmd.run:
     - name: /usr/local/bin/bundle_letsencrypt_cert.sh
-    - unless: >
-        cat {{ cert_dir }}/fullchain.pem
-            {{ cert_dir }}/privkey.pem |
+    - unless: |
+        cat {{ cert_dir }}/fullchain.pem \
+            {{ cert_dir }}/privkey.pem | \
             diff --report-identical-files {{ cert_dir }}/{{ minion_id }}.pem - > /dev/null
+    - require:
+      - file: bundle_letsencrypt_cert.sh
     - require_in:
       - service: haproxy
     - watch:

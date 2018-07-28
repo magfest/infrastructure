@@ -40,11 +40,11 @@ docker install:
 # /etc/sysctl.conf net.ipv6.conf.*.disable_ipv6 = 1:
 #   file.append:
 #     - name: /etc/sysctl.conf
-#     - text: |
-#         net.ipv6.conf.all.disable_ipv6 = 1
-#         net.ipv6.conf.default.disable_ipv6 = 1
-#         net.ipv6.conf.lo.disable_ipv6 = 1
-#         net.ipv6.conf.eth0.disable_ipv6 = 1
+#     - text:
+#       - net.ipv6.conf.all.disable_ipv6 = 1
+#       - net.ipv6.conf.default.disable_ipv6 = 1
+#       - net.ipv6.conf.lo.disable_ipv6 = 1
+#       - net.ipv6.conf.eth0.disable_ipv6 = 1
 
 # Make sysctl changes take effect
 restart sysctl:
