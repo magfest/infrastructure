@@ -1,0 +1,173 @@
+__: merge-first
+
+reggie:
+
+  plugins:
+    ubersystem:
+      config:
+        event_year: 2019
+
+        alt_schedule_url: https://guidebook.com/guide/101720/schedule
+
+        dates:
+          prereg_open: 2018-05-01
+          shifts_created: 2018-11-02
+          room_deadline: 2018-11-29
+          shirt_deadline: 2018-12-01
+          supporter_deadline: 2018-11-01
+          placeholder_deadline: 2018-12-26
+          uber_takedown: 2019-01-07
+          epoch: 2019-01-03 08
+          eschaton: 2019-01-06 18
+          prereg_takedown: 2019-01-04
+          group_prereg_takedown: 2019-01-04
+
+          printed_badge_deadline: 2018-11-10
+
+          dealer_reg_start: 2018-07-24 15
+          dealer_reg_deadline: 2018-08-01 12
+          dealer_reg_shutdown: 2018-08-02 12
+          dealer_payment_due: 2018-12-15
+
+          badge_price_waived: 2019-01-07 12
+
+          mivs_round_one_deadline: 2018-09-03
+          mivs_round_two_start: 2018-10-01
+          mivs_round_two_deadline: 2018-10-09
+          mivs_judging_deadline: 2018-10-29
+          mivs_round_two_complete: 2018-11-05
+
+          panel_app_deadline: 2018-10-31
+
+          # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
+          auction_start: 2019-01-08 11
+          band_panel_deadline: 2018-09-30
+          band_bio_deadline: 2018-08-31
+          band_info_deadline: 2018-08-31
+          band_taxes_deadline: 2018-08-31
+          band_merch_deadline: 2018-09-30
+          band_charity_deadline: 2018-12-15
+          band_badges_deadline: 2018-12-15
+          band_stage_plot_deadline: 2018-10-01
+          guest_panel_deadline: 2018-10-21
+          guest_bio_deadline: 2018-10-21
+          guest_info_deadline: 2018-11-01
+          guest_taxes_deadline: 2018-10-21
+          guest_merch_deadline: 2018-10-21
+          guest_charity_deadline: 2018-10-21
+          guest_badges_deadline: 2018-12-01
+          guest_autograph_deadline: 2018-10-21
+          guest_interview_deadline: 2018-10-21
+          guest_travel_plans_deadline: 2018-10-21
+
+        badge_ranges:
+          staff_badge: [25, 2999]
+          guest_badge: [3000, 3600]
+          attendee_badge: [3601, 39999]
+          one_day_badge: [40000, 49999]
+          child_badge: [50000, 59999]
+
+        badge_prices:
+          one_days_enabled: False
+          initial_attendee: 75
+          dealer_badge_price: 65
+          group_discount: 10
+          presell_one_days: False
+
+          attendee:
+            2019-01-03: 85
+            2019-01-04: 80
+            2019-01-05: 60
+            2019-01-06: 20
+
+          stocks:
+            friday: 1300
+            saturday: 1500
+            sunday: 700
+
+        table_prices:
+          default_price: 350
+          1: 150
+          2: 250
+          3: 400
+          4: 550
+
+        integer_enums:
+          shirt_level: 25
+          supporter_level: 75
+          season_level: 200
+
+          donation_tier:
+            No thanks: 0
+            T-Shirt Bundle: SHIRT_LEVEL
+            Supporter: SUPPORTER_LEVEL
+            Super Star: 200
+
+        donation_tier_descriptions:
+          no_thanks:
+            name: No thanks
+            icon: ''
+            description: No thanks
+            link: ''
+
+          shirt:
+            name: T-Shirt Bundle
+            icon: ../static/icons/iconshirt.png
+            description: Ribbon|T-Shirt|Event Pin
+            link: ../static_views/ribbon.html|../static_views/tshirt.html|../static_views/event_pin.html
+
+          supporter:
+            name: Supporter
+            icon: ../static/icons/supporter.png
+            description: Super Swag Bag|Swadge
+            link: ../static_views/super_swag_bag.html|../static_views/swadge.html
+
+          super_star:
+            name: Super Star
+            icon: ../static/icons/super_star.png
+            description: Star Rod Wand|Star Umbrella|Invitation
+            link: ../static_views/star_rod_wand.html|../static_views/star_umbrella.html|../static_views/invitation.html
+            merch_items: ['Star Wand', 'Star Umbrella']
+
+        dept_head_checklist:
+          creating_shifts:
+            deadline: 2018-11-06
+
+          assigned_volunteers:
+            deadline: 2018-11-07
+
+          treasury:
+            deadline: 2018-11-08
+
+          allotments:
+            deadline: 2018-11-08
+
+          hotel_setup:
+            deadline: 2018-11-15
+
+          approve_setup_teardown:
+            deadline: 2018-11-22
+
+          placeholders:
+            deadline: 2018-11-22
+
+          hotel_eligible:
+            deadline: 2018-11-22
+
+          tech_requirements:
+            deadline: 2018-11-29
+
+          logistics:
+            deadline: 2018-11-29
+
+          printed_signs:
+            deadline: 2018-12-06
+
+          office_supplies:
+            deadline: 2018-12-06
+
+          custom_ribbons:
+            deadline: 2018-12-06
+
+          postcon_hours:
+            deadline: 2019-01-24

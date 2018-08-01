@@ -1,0 +1,9 @@
+__: merge-first
+
+reggie:
+  plugins:
+    ubersystem:
+      config:
+        secret:
+          aws_access_key: ''
+          aws_secret_key: ''

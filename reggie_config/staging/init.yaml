@@ -1,0 +1,13 @@
+__: merge-first
+
+reggie:
+
+  plugins:
+    ubersystem:
+      config:
+        send_emails: True
+        dev_box: True
+
+        secret:
+          stripe_secret_key: 'sk_test_QHnlImUs68dQFxgTfVauz5Ue'
+          stripe_public_key: 'pk_test_q4kSJVwk6LXKv2ahxuVn7VOK'

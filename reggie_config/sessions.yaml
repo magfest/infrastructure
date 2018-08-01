@@ -1,8 +1,4 @@
-{%- from 'reggie/init.sls' import private_ip -%}
-
-include:
-  - reggie
-
+{%- from 'init.yaml' import private_ip -%}
 
 ufw:
   enabled: True
@@ -26,6 +22,6 @@ ufw:
 
 
 redis:
-  pass: reggie
+  pass: "{{ stack['reggie']['sessions']['password'] }}"
   port: 6379
   bind: {{ private_ip }}

@@ -1,12 +1,9 @@
-{%- from 'reggie/nginx_macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
-{%- from 'reggie/init.sls' import env, minion_id, private_ip -%}
+{%- from 'init.yaml' import env, private_ip -%}
 {%- set cert_dir = '/etc/letsencrypt/live/' ~ minion_id -%}
-{%- set backends = salt.saltutil.runner('mine.get',
-    tgt='*reggie* and G@roles:web and G@env:' ~ env, fun='internal_ip',
+{%- set backends = __salt__['saltutil.runner']('mine.get',
+    tgt='*reggie* and G@roles:web and G@env:' ~ env,
+    fun='internal_ip',
     tgt_type='compound').items() %}
-
-include:
-  - reggie
 
 
 ufw:

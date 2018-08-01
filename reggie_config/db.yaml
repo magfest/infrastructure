@@ -1,8 +1,5 @@
-{%- from 'reggie/init.sls' import env, private_ip, db_name, db_username, db_password -%}
+{%- from 'init.yaml' import env, private_ip -%}
 {%- set db_client_target = '*reggie* and P@roles:(web|worker|scheduler) and G@env:' ~ env -%}
-
-include:
-  - reggie
 
 
 ufw:
@@ -24,9 +21,9 @@ ufw:
 
 postgres:
   use_upstream_repo: False
-  pkgs_extra: [postgresql-contrib]
+  pkgs_extra: ['postgresql-contrib']
   manage_force_reload_modules: False
-  postgresconf: listen_addresses = 'localhost,{{ private_ip }}'
+  postgresconf: listen_addresses = '127.0.0.1,{{ private_ip }}'
 
   cluster:
     locale: en_US.UTF-8
@@ -35,14 +32,14 @@ postgres:
     - ['local', 'all', 'all']
     - ['host', 'all', 'all', '127.0.0.1/32', 'md5']
     - ['hostssl', 'all', 'all', '{{ private_ip }}/32', 'md5']
-    {%- for server, addr in salt.saltutil.runner('mine.get', tgt=db_client_target, fun='internal_ip', tgt_type='compound').items() %}
+    {%- for server, addr in __salt__['saltutil.runner']('mine.get', tgt=db_client_target, fun='internal_ip', tgt_type='compound').items() %}
     - ['hostssl', 'all', 'all', '{{ addr }}/32', 'md5']
     {%- endfor %}
 
   users:
-    {{ db_username }}:
+    {{ stack['reggie']['db']['username'] }}:
       ensure: present
-      password: {{ db_password }}
+      password: "{{ stack['reggie']['db']['password'] }}"
       createdb: False
       createroles: False
       encrypted: True
@@ -52,7 +49,7 @@ postgres:
       runas: postgres
 
   databases:
-    {{ db_name }}:
+    {{ stack['reggie']['db']['name'] }}:
       runas: postgres
       template: template0
       encoding: UTF8

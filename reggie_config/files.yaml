@@ -1,9 +1,9 @@
-{%- from 'reggie/init.sls' import env, private_ip -%}
-{%- set glusterfs_servers = salt.saltutil.runner('mine.get', tgt='*reggie* and G@roles:files and G@env:' ~ env, fun='internal_ip', tgt_type='compound').items() -%}
+{%- from 'init.yaml' import env, private_ip -%}
+{%- set glusterfs_servers = __salt__['saltutil.runner']('mine.get',
+    tgt='*reggie* and G@roles:files and G@env:' ~ env,
+    fun='internal_ip',
+    tgt_type='compound').items() -%}
 {%- set glusterfs_servers_count = glusterfs_servers|length -%}
-
-include:
-  - reggie
 
 
 ufw:

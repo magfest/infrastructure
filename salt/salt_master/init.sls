@@ -79,6 +79,29 @@ python-git install:
     - require:
       - git: {{ secret_infrastructure }}/
 
+# Copy secret_infrastructure reggie_config files
+# NOTE: These ARE treated as Jinja templates
+{{ secret_infrastructure }}/reggie_config/ files:
+  file.recurse:
+    - name: {{ secret_infrastructure }}/reggie_config/
+    - source: salt://salt_master/files/secret_infrastructure/reggie_config
+    - dir_mode: 700
+    - file_mode: 600
+    - makedirs: True
+    - replace: False
+    - template: jinja
+    - require:
+      - git: {{ secret_infrastructure }}/
+
+# Copy secret_infrastructure reggie_config/stack.cfg
+{{ secret_infrastructure }}/reggie_config/stack.cfg:
+  file.managed:
+    - name: {{ secret_infrastructure }}/reggie_config/stack.cfg
+    - source: file:///srv/infrastructure/reggie_config/stack.cfg
+    - mode: 600
+    - require:
+      - file: {{ secret_infrastructure }}/reggie_config/
+
 
 # ============================================================================
 # SSH login configuration
@@ -171,6 +194,7 @@ salt_master:
   service.running:
     - name: salt-master
     - enable: True
+    - order: last
     - watch:
       - file: /etc/salt/master
     - require_in:

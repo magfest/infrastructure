@@ -1,7 +1,4 @@
-{%- from 'reggie/init.sls' import private_ip -%}
-
-include:
-  - reggie
+{%- from 'init.yaml' import private_ip -%}
 
 
 ufw:
@@ -29,21 +26,18 @@ rabbitmq:
   enabled: True
   running: True
   vhost:
-    vh_name: reggie
+    vh_name: {{ stack['reggie']['queue']['vhost'] }}
   user:
-    reggie:
-      - password: reggie
+    {{ stack['reggie']['queue']['username'] }}:
+      - password: "{{ stack['reggie']['queue']['password'] }}"
       - tags:
         - monitoring
         - user
       - perms:
-        - reggie:
-          - '.*'
-          - '.*'
-          - '.*'
+        - reggie: ['.*', '.*', '.*']
       - runas: root
   queues:
     name: reggie
-    vhost: reggie
+    vhost: {{ stack['reggie']['queue']['vhost'] }}
     durable: True
     auto_delete: False

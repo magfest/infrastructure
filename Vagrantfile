@@ -47,17 +47,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         # sudo -E apt-get -qy autoclean
         # sudo -E apt-get -qy -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" install libssh-dev python-git swapspace
 
-        cat >> /etc/hosts << EOL
+        cat >> /etc/hosts << EOF
 
 127.0.0.1 magfest.info directory.magfest.info errbot.magfest.info ipa-01.magfest.info jenkins.magfest.info mcp.magfest.info saltmaster.magfest.info traefik.magfest.info
-
-EOL
+EOF
 
         mkdir -p /etc/salt
-        cat >> /etc/salt/grains << EOL
+        cat >> /etc/salt/grains << EOF
+env: dev
 is_vagrant: True
-
-EOL
+EOF
 
         mkdir -p ~/.ssh
         ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts 2>&1

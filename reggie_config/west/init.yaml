@@ -1,0 +1,16 @@
+__: merge-first
+
+reggie:
+
+  plugins:
+    magwest:
+      name: magwest
+      source: https://github.com/magfest/magwest.git
+
+    ubersystem:
+      config:
+        organization_name: MAGFest INC
+        event_name: MAGWest
+        event_timezone: US/Pacific
+        event_venue: The Hyatt Regency Santa Clara
+        event_venue_address: 5101 Great America Pkwy, Santa Clara, CA 95054

@@ -1,0 +1,239 @@
+__: merge-first
+
+reggie:
+
+  plugins:
+    magstock:
+      name: magstock
+      source: https://github.com/magfest/magstock.git
+
+      config:
+        food_price: 30
+        food_stock: 75
+
+        enums:
+          noise_level:
+            quiet: Away from the main drag
+            conversational: I can sleep while people talk
+            normal: I can sleep through reasonable levels of noise
+            noisy: While others sleep, I PARTY!
+
+          shirt_color:
+            no_shirt_color: No Shirt
+            black_shirt: Black Shirt
+            white_shirt: White Shirt (for tie-dyeing later)
+
+          site_type:
+            normal: Normal - has electric and water hookups
+            primitive: Primitive - NO ELECTRIC OR WATER
+
+          camping_type:
+            small_tent: Small Tent (small footprint)
+            medium_tent: Medium Tent (around four people)
+            large_tent: Large Tent (large and in charge)
+            car: Car - I plan to sleep in my car at my site for an additional fee.
+            rv: RV - I plan to sleep in an RV or something similar for an additional fee.
+            special_site: Special - I'm planning something that may take up a lot of space.
+            cabin: Cabin - I plan to sleep in a cabin or house provided by the campground.
+
+          coming_as:
+            tent_leader: I am the Group Leader
+            tent_follower: I'm not the one coordinating my Group
+            alone: I'm coming alone
+            unknown: I don't know yet
+
+    ubersystem:
+      config:
+        organization_name: MAGFest INC
+        event_name: MAGStock
+        event_timezone: US/Eastern
+        event_venue: Small Country Campground
+        event_venue_address: 4400 Byrd Mill Road, Louisa, VA 23093
+
+        numbered_badges: False
+        require_dedicated_guest_table_presence: False
+
+        admin_email: MAGFest Sys Admin <sysadmin@magfest.org>
+        regdesk_email: MAGStock Registration <admin@magstock.org>
+        staff_email: MAGStock Staffing <admin@magstock.org>
+        marketplace_email: MAGStock Marketplace <admin@magstock.org>
+        panels_email: MAGStock Panels <admin@magstock.org>
+        developer_email: MAGFest Software <code@magfest.org>
+        security_email: MAGStock Security <security@magstock.org>
+        guest_email: MAGStock Guests <admin@magstock.org>
+        band_email: MAGStock Music <music@magstock.org>
+
+
+        band_email_signature: MAGStock Music Department
+        regdesk_email_signature: MAGStock Registration Department
+        stops_email_signature: MAGStock Staffing Department
+        marketplace_email_signature: MAGStock Marketplace Department
+        peglegs_email_signature: MAGStock Events Department
+        guest_email_signature: MAGStock Guest Department
+
+
+        badge_ranges:
+          staff_badge: [1, 99]
+          supporter_badge: [100, 299]
+          attendee_badge: [300, 650]
+          one_day_badge: [30000, 39999]
+
+        badge_prices:
+          one_days_enabled: False
+          initial_attendee: 50
+          dealer_badge_price: 30
+          group_discount: 10
+          presell_one_days: True
+
+          attendee:
+            2018-04-18: 60
+            2018-06-01: 70
+
+        integer_enums:
+          shirt_level:
+          supporter_level:
+          season_level: 0
+          supporter_stock:
+
+          shirt:
+            no shirt: 0
+            small: 1
+            medium: 2
+            large: 3
+            x-large: 4
+            xx-large: 5
+            xxx-large: 6
+            xxxx-large: 11
+            xxxxx-large: 12
+            small (female): 7
+            medium (female): 8
+            large (female): 9
+            x-large (female): 10
+            xx-large (female): 13
+
+        donation_tier:
+          No thanks: 0
+          T-Shirt Bundle: SHIRT_LEVEL
+          Supporter Package: SUPPORTER_LEVEL
+          Pioneer Package: SEASON_LEVEL
+
+        enums:
+          badge:
+            attendee_badge: Attendee
+            staff_badge: Staff
+            guest_badge: Guest
+
+          ribbon:
+            roughing_it: Roughing It
+
+          job_location:
+            misc: General Support
+            registration: Registration
+            food: Food Prep
+            activities: Events
+            music: Music Pavilion
+            cat_herding: Security
+
+          job_interest:
+            misc: General Support
+            registration: Registration
+            food: Food Prep
+            activities: Events
+            music: Music Pavilion
+            security: Security
+
+          interest:
+            chilling: Chilling
+            grilling: Grilling
+            music: Music
+            lake: Lake Swimm'n
+            video_games: Video Games
+            moonbounce: Moonbounce
+            activities: Activities
+
+          dealer_wares:
+            vgames: Video Games
+            tshirts: T-shirts
+            figures: Figures
+            general: General Merchandise
+            prints: Prints
+            plushes: Plushes
+            lanyards: Lanyards/Keychains
+            perler: Perler Beads
+            jewelry: Jewelry
+            bath: Bath Products
+            handmade: General Handmade
+
+          event_location:
+            pavilion: Upper Pavilion
+            concerts: Concert Pavilion
+            hillside: Hillside
+            lake: Lakeside
+            black: Somewhere in Black
+            techstock: Techstock
+
+          sandwich:
+            turkey: Turkey
+            ham: Ham
+            cheese: Cheese
+            peanut_butter: Peanut Butter
+            jelly: Jelly
+            salad: Prefer salad instead of sandwich
+
+          food_restriction:
+            gluten: No gluten
+            pork: No pork
+            nuts: No nuts
+            vegan: Vegetarian/Vegan
+
+
+        donation_tier_descriptions:
+          no_thanks:
+            name: No thanks
+            icon: ''
+            description: No thanks
+            link: ''
+
+          shirt:
+            name: T-Shirt Bundle
+            icon: ../static/icons/iconshirt.png
+            description: T-Shirt
+            link: ../static_views/tshirt.html
+
+          supporter_package:
+            name: Supporter Package
+            icon: ../static/icons/star.png
+            description: Supporter Swag
+            link: ../static_views/supporter.html
+
+          super_supporter:
+            name: Pioneer Package
+            icon: ../static/icons/wagon.png
+            description: Crazy Exclusive Swag
+            link: ../static_views/pioneer.html
+
+        dept_head_checklist:
+          creating_shifts:
+            deadline: 2018-06-6
+            description: The managment team is happy to assist you in creating shifts. Please let us know if you need assistance with this step.
+            path: /jobs/index?department_id={department_id}
+
+          assigned_volunteers:
+            deadline: 2015-06-13
+            name: Volunteers Assigned to Your Department
+            description: Check all of the volunteers currently assigned to your department to make sure no one is missing AND that no one is there who shouldn't be.
+            path: /jobs/staffers?department_id={department_id}
+
+          postcon_hours:
+            deadline: 2018-07-15
+            name: (After the Event) Marking and Rating Shifts
+            description: After the weekend is over, we'll want all department heads to ensure that their volunteers had their shifts marked and rated.
+            path: /jobs/signups?department_id={department_id}
+            email_post_con: True
+
+        volunteer_checklist:
+          2: signups/shifts_item.html
+          3: ''
+          4: ''
+
+        age_groups: {}

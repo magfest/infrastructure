@@ -1,0 +1,88 @@
+{%- set env = __grains__['env'] -%}
+{%- set private_ip = __grains__['ip4_interfaces']['eth1'][0] -%}
+{%- set loadbalancer_id = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:loadbalancer and G@env:' ~ env, fun='internal_ip', tgt_type='compound').keys()|first -%}
+{%- set sessions_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:sessions and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set queue_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:queue and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set db_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:db and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+
+__: merge-first
+
+{#
+  Uncomment these lines and run "salt '*reggie*' pillar.items" to
+  test how stack.cfg looks when rendered for each server.
+-#}
+{#
+{% macro stack_cfg() %}{% include 'stack.cfg' %}{% endmacro %}
+stack_cfg: |{{ stack_cfg()|indent(4) }}
+-#}
+
+reggie:
+  db:
+    username: reggie
+    password: reggie
+    name: reggie
+    host: {{ db_ip }}
+
+  queue:
+    username: reggie
+    password: reggie
+    name: reggie
+    vhost: reggie
+    host: {{ queue_ip }}
+
+  sessions:
+    host: {{ sessions_ip }}
+    password: reggie
+    storage_type: redis
+    timeout: 60  # 1 hour (in minutes)
+
+  sideboard:
+    config:
+      cherrypy:
+        server.socket_host: 127.0.0.1
+        server.socket_port: 8282
+
+  plugins:
+    ubersystem:
+      config:
+        hostname: {{ loadbalancer_id }}
+        mounted_data_dir: /srv/mnt/reggie
+        panels_twilio_number: '+12405415595'
+        tabletop_twilio_number: '+15713646627'
+        barcode_key: 'TEST_ONLY'
+        barcode_salt: 255
+        barcode_event_id: 255
+
+        preassigned_badge_types: ['staff_badge', 'supporter_badge']
+
+        admin_email: MAGFest Sys Admin <sysadmin@magfest.org>
+        developer_email: MAGFest Software <code@magfest.org>
+        security_email: MAGFest Security <security@magfest.org>
+
+        regdesk_email: MAGFest Registration <regsupport@magfest.org>
+        regdesk_email_signature: '- MAGFest Registration Department'
+
+        staff_email: MAGFest Staffing <stops@magfest.org>
+        stops_email_signature: '- MAGFest Staff Operations'
+
+        marketplace_email: MAGFest Marketplace <marketplace@magfest.org>
+        marketplace_email_signature: '- MAGFest Marketplace'
+
+        panels_email: MAGFest Panels <panels@magfest.org>
+        peglegs_email_signature: '- MAGFest Panels Department'
+
+        guest_email: MAGFest Guests <guests@magfest.org>
+        guest_email_signature: '- MAGFest Guest Department'
+
+        band_email: MAGFest Music Department <music@magfest.org>
+        band_email_signature: '- MAGFest Music Department'
+
+
+ssh:
+  password_authentication: True
+  permit_root_login: False
+
+
+ssl:
+  dir: /etc/ssl
+  certs_dir: /etc/ssl/certs
