@@ -47,11 +47,15 @@ reggie:
       config:
         hostname: {{ loadbalancer_id }}
         mounted_data_dir: /srv/mnt/reggie
+        hardcore_optimizations_enabled: False
+
+        code_of_conduct_url: 'http://super.magfest.org/codeofconduct'
+        consent_form_url: 'http://super.magfest.org/parentalconsentform'
+        contact_url: 'http://super.magfest.org/contact'
+        prereg_faq_url: 'http://super.magfest.org/faq'
+
         panels_twilio_number: '+12405415595'
         tabletop_twilio_number: '+15713646627'
-        barcode_key: 'TEST_ONLY'
-        barcode_salt: 255
-        barcode_event_id: 255
 
         preassigned_badge_types: ['staff_badge', 'supporter_badge']
 
@@ -76,6 +80,14 @@ reggie:
 
         band_email: MAGFest Music Department <music@magfest.org>
         band_email_signature: '- MAGFest Music Department'
+
+        prereg_hotel_info_email_sender: Do Not Reply <noreply@magfest.org>
+        prereg_hotel_info_email_signature: '- MAGFest'
+
+        secret:
+          barcode_key: 'TEST_ONLY'
+          barcode_salt: 255
+          barcode_event_id: 255
 
 
 ssh:

@@ -6,6 +6,7 @@ reggie:
     ubersystem:
       config:
         event_year: 2019
+        event_qr_id: sm19
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
 
@@ -38,6 +39,8 @@ reggie:
           mivs_round_two_complete: 2018-11-05
 
           panel_app_deadline: 2018-10-31
+
+          rock_island_deadline: ''
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2019-01-08 11
@@ -80,10 +83,7 @@ reggie:
             2019-01-05: 60
             2019-01-06: 20
 
-          stocks:
-            friday: 1300
-            saturday: 1500
-            sunday: 700
+          stocks: {}
 
         table_prices:
           default_price: 350

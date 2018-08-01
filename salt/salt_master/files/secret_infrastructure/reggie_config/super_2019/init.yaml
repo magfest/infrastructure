@@ -8,7 +8,6 @@ reggie:
           barcode_key: '{{ salt["random.get_str"](10) }}'
           barcode_salt: ''
           barcode_event_id: ''
-          event_qr_id: ''
           qr_code_password: '{{ salt["random.get_str"](24) }}'
           panels_twilio_sid: ''
           panels_twilio_token: ''
