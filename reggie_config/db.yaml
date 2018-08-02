@@ -31,10 +31,8 @@ postgres:
   acls:
     - ['local', 'all', 'all']
     - ['host', 'all', 'all', '127.0.0.1/32', 'md5']
-    - ['hostssl', 'all', 'all', '{{ private_ip }}/32', 'md5']
-    {%- for server, addr in __salt__['saltutil.runner']('mine.get', tgt=db_client_target, fun='internal_ip', tgt_type='compound').items() %}
-    - ['hostssl', 'all', 'all', '{{ addr }}/32', 'md5']
-    {%- endfor %}
+    - ['hostssl', 'all', 'all', 'samehost', 'md5']
+    - ['hostssl', 'all', 'all', 'samenet', 'md5']
 
   users:
     {{ stack['reggie']['db']['username'] }}:

@@ -1,5 +1,4 @@
 {%- from 'init.yaml' import env, private_ip -%}
-{%- set cert_dir = '/etc/letsencrypt/live/' ~ minion_id -%}
 {%- set backends = __salt__['saltutil.runner']('mine.get',
     tgt='*reggie* and G@roles:web and G@env:' ~ env,
     fun='internal_ip',
@@ -68,7 +67,7 @@ haproxy:
   frontends:
     reggie_load_balancer:
       mode: http
-      bind: '0.0.0.0:443 ssl crt {{ cert_dir }}/{{ minion_id }}.pem'
+      bind: "0.0.0.0:443 ssl crt {{ stack['ssl']['certs_dir'] }}/{{ minion_id }}.pem"
       redirects: 'scheme https code 301 if !{ ssl_fc }'
 
       acls:

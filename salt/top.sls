@@ -40,8 +40,9 @@ base:
     - glusterfs.server
 
   '*reggie* and G@roles:loadbalancer':
-    - letsencrypt
+    - reggie_deploy.ssl
     - haproxy
+    - letsencrypt
     - reggie_deploy.loadbalancer
 
   '*reggie* and G@roles:web':
@@ -54,6 +55,7 @@ base:
     - reggie_deploy.web
 
   '*reggie* and G@roles:sessions':
+    - reggie_deploy.sessions
     - redis.server
 
   '*reggie* and G@roles:queue':

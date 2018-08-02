@@ -36,14 +36,14 @@
     - makedirs: True
     - template: jinja
 
-/etc/salt/cloud.maps.d/staging-environment.map:
+/etc/salt/cloud.maps.d/staging.map:
   file.managed:
-    - source: salt://salt_cloud/files/staging-environment.map
+    - source: salt://salt_cloud/files/staging.map
     - makedirs: True
     - template: jinja
 
-/etc/salt/cloud.maps.d/prod-environment.map:
+/etc/salt/cloud.maps.d/prod.map:
   file.managed:
-    - source: salt://salt_cloud/files/prod-environment.map
+    - source: salt://salt_cloud/files/prod.map
     - makedirs: True
     - template: jinja

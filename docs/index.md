@@ -6,3 +6,4 @@
 4. [Confluence](confluence.html)
 5. [MCP](mcp.html)
 6. [Current Ubersystem Servers](ubersystem-list.html)
+7. [SaltStack](salt.html)

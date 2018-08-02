@@ -1,8 +1,10 @@
 # ============================================================================
 # Update bundled letsencrypt certificate
 # ============================================================================
-{%- set minion_id = salt['grains.get']('id') -%}
-{%- set cert_dir = '/etc/letsencrypt/live/' ~ minion_id %}
+
+{%- set minion_id = salt['grains.get']('id') %}
+{%- set letsencrypt_dir = '/etc/letsencrypt/live/' ~ minion_id %}
+{%- set certs_dir = salt['pillar.get']('ssl:certs_dir') %}
 
 bundle_letsencrypt_cert.sh:
   file.managed:
@@ -12,19 +14,26 @@ bundle_letsencrypt_cert.sh:
     - contents: |
         #! /bin/sh
 
-        cat {{ cert_dir }}/fullchain.pem \
-            {{ cert_dir }}/privkey.pem | \
-            diff --report-identical-files {{ cert_dir }}/{{ minion_id }}.pem - > /dev/null
+        cat {{ letsencrypt_dir }}/fullchain.pem \
+            {{ letsencrypt_dir }}/privkey.pem | \
+            diff --report-identical-files {{ certs_dir }}/{{ minion_id }}.pem - > /dev/null
 
         if [ $? -ne 0 ]; then
-            cat {{ cert_dir }}/fullchain.pem \
-                {{ cert_dir }}/privkey.pem >| \
-                {{ cert_dir }}/{{ minion_id }}.pem
-            chmod 600 {{ cert_dir }}/{{ minion_id }}.pem
-            echo 'Updated {{ cert_dir }}/{{ minion_id }}.pem'
+            cat {{ letsencrypt_dir }}/fullchain.pem \
+                {{ letsencrypt_dir }}/privkey.pem >| \
+                {{ certs_dir }}/{{ minion_id }}.pem
+
+            cp {{ letsencrypt_dir }}/fullchain.pem {{ certs_dir }}/{{ minion_id }}.crt
+            cp {{ letsencrypt_dir }}/privkey.pem {{ certs_dir }}/{{ minion_id }}.key
+
+            chmod 644 {{ certs_dir }}/{{ minion_id }}.crt
+            chmod 600 {{ certs_dir }}/{{ minion_id }}.key
+            chmod 600 {{ certs_dir }}/{{ minion_id }}.pem
+
+            echo 'Updated {{ certs_dir }}/{{ minion_id }}.pem'
             systemctl reload haproxy
         else
-            echo 'Already up to date {{ cert_dir }}/{{ minion_id }}.pem'
+            echo 'Already up to date {{ certs_dir }}/{{ minion_id }}.pem'
         fi
 
 
@@ -32,15 +41,21 @@ bundle_letsencrypt_cert.sh on certbot changes:
   cmd.run:
     - name: /usr/local/bin/bundle_letsencrypt_cert.sh
     - unless: |
-        cat {{ cert_dir }}/fullchain.pem \
-            {{ cert_dir }}/privkey.pem | \
-            diff --report-identical-files {{ cert_dir }}/{{ minion_id }}.pem - > /dev/null
+        cat {{ letsencrypt_dir }}/fullchain.pem \
+            {{ letsencrypt_dir }}/privkey.pem | \
+            diff --report-identical-files {{ certs_dir }}/{{ minion_id }}.pem - > /dev/null
     - require:
       - file: bundle_letsencrypt_cert.sh
-    - require_in:
-      - service: haproxy
     - watch:
       - certbot_{{ minion_id }}
+
+
+reload haproxy on certbot changes:
+  module.wait:
+    - name: service.reload
+    - m_name: haproxy
+    - onchanges:
+      - cmd: /usr/local/bin/bundle_letsencrypt_cert.sh
 
 
 bundle_letsencrypt_cert.service:

@@ -25,3 +25,4 @@ redis:
   pass: "{{ stack['reggie']['sessions']['password'] }}"
   port: 6379
   bind: {{ private_ip }}
+  appendfsync: 'no'
