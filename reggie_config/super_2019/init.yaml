@@ -29,6 +29,7 @@ reggie:
           dealer_reg_deadline: 2018-08-01 12
           dealer_reg_shutdown: 2018-08-02 12
           dealer_payment_due: 2018-12-15
+          max_dealer_apps: 530
 
           badge_price_waived: 2019-01-07 12
 
