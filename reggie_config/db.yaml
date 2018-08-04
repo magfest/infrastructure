@@ -15,8 +15,11 @@ ufw:
     OpenSSH:
       limit: True
       to_addr: {{ private_ip }}
+      comment: Private network SSH
+
     Postgresql:
       to_addr: {{ private_ip }}
+      comment: Private network PostgreSQL
 
 
 postgres:

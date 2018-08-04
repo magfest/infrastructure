@@ -1,4 +1,4 @@
-{%- from 'nginx_macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
+{%- from 'macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
 {%- from 'init.yaml' import env, private_ip -%}
 {%- set glusterfs_ip = __salt__['saltutil.runner']('mine.get',
     tgt='*reggie* and G@roles:files and G@env:' ~ env,
@@ -19,15 +19,18 @@ ufw:
     OpenSSH:
       limit: True
       to_addr: {{ private_ip }}
+      comment: Private network SSH
 
   services:
     http:
       protocol: tcp
       to_addr: {{ private_ip }}
+      comment: Private network HTTP
 
     https:
       protocol: tcp
       to_addr: {{ private_ip }}
+      comment: Private network HTTPS
 
 
 glusterfs:

@@ -44,6 +44,7 @@ base:
     - haproxy
     - letsencrypt
     - reggie_deploy.loadbalancer
+    - filebeat
 
   '*reggie* and G@roles:web':
     - reggie.devenv
@@ -53,6 +54,7 @@ base:
     - nginx.ng
     - reggie.web
     - reggie_deploy.web
+    - filebeat
 
   '*reggie* and G@roles:sessions':
     - reggie_deploy.sessions
@@ -63,6 +65,8 @@ base:
 
   '*reggie* and G@roles:scheduler':
     - reggie.scheduler
+    - filebeat
 
   '*reggie* and G@roles:worker':
     - reggie.worker
+    - filebeat

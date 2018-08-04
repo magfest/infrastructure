@@ -18,12 +18,15 @@ ufw:
     OpenSSH:
       limit: True
       to_addr: {{ private_ip }}
+      comment: Private network SSH
 
   services:
     http:
       protocol: tcp
+      comment: Public HTTP
     https:
       protocol: tcp
+      comment: Public HTTPS
 
 
 letsencrypt:

@@ -15,6 +15,10 @@ reggie:
         event_venue: The Gaylord National Hotel and Convention Center
         event_venue_address: 201 Waterfront St, National Harbor, MD 20745
 
+        max_dealer_apps: 530
+        max_badge_sales: 22250
+        shirts_per_staffer: 2
+
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4']
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic']
@@ -282,14 +286,14 @@ reggie:
 
         dept_head_checklist:
           creating_shifts:
-            deadline: 2018-11-06
+            deadline: 1970-01-01
             description: >
                 We have the ability to import shifts from last year's MAGFest, if you are only
                 making minor changes and want assistance with this step, please let us know.
             path: /jobs/index?department_id={department_id}
 
           assigned_volunteers:
-            deadline: 2018-11-07
+            deadline: ''
             name: Volunteers Assigned to Your Department
             description: >
                 Check all of the volunteers currently assigned to your department to make sure no one is
@@ -297,25 +301,25 @@ reggie:
             path: /jobs/staffers?department_id={department_id}
 
           treasury:
-            deadline: 2018-11-08
+            deadline: ''
             name: MPoint Needs
             description: Tell us whether you need any mpoints for your department.
             path: /dept_checklist/treasury?department_id={department_id}
 
           allotments:
-            deadline: 2018-11-08
+            deadline: ''
             name: Treasury Information
             description: If you need cash and/or mpoints, tell us your department schedule and your specific cash needs.
             path: /dept_checklist/allotments?department_id={department_id}
 
           hotel_setup:
-            deadline: 2018-11-15
+            deadline: ''
             name: Hotel Setup Information
             description: Do you need tables, chairs, trash cans, water dispensers, etc?
             path: /dept_checklist/hotel_setup?department_id={department_id}
 
           approve_setup_teardown:
-            deadline: 2018-11-22
+            deadline: ''
             name: Approve/Decline Additional Hotel Nights to Help With Setup/Teardown
             description: >
                 An overwhelming majority of staffers want to work setup and teardown shifts rather than
@@ -325,7 +329,7 @@ reggie:
             path: /hotel/requests?department_id={department_id}
 
           placeholders:
-            deadline: 2018-11-22
+            deadline: ''
             name: Checking Placeholder Registrations
             description: >
                 We create placeholder registrations for volunteers and ask them to fill out the rest of
@@ -335,33 +339,33 @@ reggie:
             path: /registration/placeholders?department_id={department_id}
 
           hotel_eligible:
-            deadline: 2018-11-22
+            deadline: ''
             name: Staffers Requesting Hotel Space
             description: Double check that everyone in your department who you know needs hotel space has requested it.
             path: /hotel/index?department_id={department_id}
 
           tech_requirements:
-            deadline: 2018-11-29
+            deadline: ''
             name: Tech Requirements
             description: What do you need in terms of laptops, projectors, cables, internet access, etc?
             path: /dept_checklist/tech_requirements?department_id={department_id}
 
           logistics:
-            deadline: 2018-11-29
+            deadline: ''
             name: Logistics Needs
             description: What do you need brought from the warehouse?
             path: /dept_checklist/logistics?department_id={department_id}
 
           printed_signs:
-            deadline: 2018-12-06
+            deadline: ''
             description: Other than a sign for your area, what printed signs/banners/forms do you need?
 
           office_supplies:
-            deadline: 2018-12-06
+            deadline: ''
             description: Do you need any paper, pens, sharpies, tripods, whiteboards, scissors, staplers, etc?
 
           custom_ribbons:
-            deadline: 2018-12-06
+            deadline: ''
             description: >
                 Besides the ribbons given out at registration, you may need your own ribbon type to help
                 manage access to certain restricted areas. If so, please let us know what they should say,
@@ -371,7 +375,7 @@ reggie:
                 us why you need it so we can make sure there's no duplication between departments.)
 
           postcon_hours:
-            deadline: 2019-01-24
+            deadline: ''
             name: (After the Event) Marking and Rating Shifts
             description: >
                 After the weekend is over, we'll want all department heads to

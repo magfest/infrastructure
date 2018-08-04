@@ -19,14 +19,18 @@ ufw:
     OpenSSH:
       limit: True
       to_addr: {{ private_ip }}
+      comment: Private network SSH
 
   services:
     24007:
-      comment: GlusterFS Server 24007
+      to_addr: {{ private_ip }}
+      comment: Private network GlusterFS server 24007
     24008:
-      comment: GlusterFS Server 24008
+      to_addr: {{ private_ip }}
+      comment: Private network GlusterFS server 24008
     49152:
-      comment: GlusterFS Brick
+      to_addr: {{ private_ip }}
+      comment: Private network GlusterFS brick
 
 
 glusterfs:

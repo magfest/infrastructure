@@ -14,12 +14,13 @@ ufw:
     OpenSSH:
       limit: True
       to_addr: {{ private_ip }}
+      comment: Private network SSH
 
   services:
     5672:
       protocol: tcp
       to_addr: {{ private_ip }}
-      comment: RabbitMQ
+      comment: Private network RabbitMQ
 
 
 rabbitmq:

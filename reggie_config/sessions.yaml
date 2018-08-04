@@ -13,12 +13,13 @@ ufw:
     OpenSSH:
       limit: True
       to_addr: {{ private_ip }}
+      comment: Private network SSH
 
   services:
     6379:
       protocol: tcp
       to_addr: {{ private_ip }}
-      comment: Redis
+      comment: Private network Redis
 
 
 redis:

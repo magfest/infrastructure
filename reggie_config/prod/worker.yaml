@@ -1,0 +1,8 @@
+{%- from 'macros.jinja' import filebeat_prospector -%}
+
+filebeat:
+  enabled: True
+  config:
+    filebeat:
+      prospectors:
+        {{ filebeat_prospector('reggie-worker', '/var/log/reggie/worker.log')|indent(8) }}

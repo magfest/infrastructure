@@ -1,3 +1,24 @@
+{%- macro filebeat_prospector(log_source, paths=[], multiline=True) -%}
+{%- set log_paths = [paths] if paths is string else paths -%}
+- paths:
+  {%- for path in log_paths %}
+    - {{ path }}
+  {%- endfor %}
+  exclude_files:
+    - .gz$
+  encoding: plain
+  fields:
+    log_source: {{ log_source }}
+  input_type: log
+  document_type: log
+  {%- if multiline %}
+  multiline:
+    pattern: ^[[:space:]]
+    match: after
+  {%- endif %}
+{%- endmacro -%}
+
+
 {%- macro nginx_ssl_config(key, cert, dhparam) -%}
 
 - ssi: 'on'

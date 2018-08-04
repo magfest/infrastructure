@@ -1,9 +1,50 @@
 __: merge-first
 
 reggie:
+  sideboard:
+    config:
+      debug: False
+      priority_plugins: ['uber']
+
+      cherrypy:
+        engine.autoreload.on: False  # CherryPy autoreloader is broken on Python 3.6
+        server.socket_host: '0.0.0.0'
+        server.socket_port: 8282
+        server.socket_timeout: 1
+        server.thread_pool: 100
+        tools.proxy.debug: False
+        tools.proxy.on: True
+
+      loggers:
+        cherrypy.access: DEBUG
+
+      handlers:
+        stdout:
+          class: logging.StreamHandler
+          stream: ext://sys.stdout
+          formatter: indent_multiline
+      log_force_multiline_indent: True
 
   plugins:
     ubersystem:
       config:
         send_emails: True
         dev_box: False
+
+
+filebeat:
+  enabled: False
+  config:
+    filebeat:
+      registry_file: /var/lib/filebeat/registry
+    logging:
+      to_syslog: False
+      to_files: True
+      files:
+        path: /var/log/filebeat
+        name: filebeat.log
+        keepfiles: 2
+    output:
+      elasticsearch:
+        hosts:
+          - 'docker.magfest.net:9200'
