@@ -1,7 +1,6 @@
 __: merge-first
 
 reggie:
-
   plugins:
     magwest:
       name: magwest

@@ -1,7 +1,6 @@
 __: merge-first
 
 reggie:
-
   plugins:
     ubersystem:
       config:
@@ -25,9 +24,9 @@ reggie:
 
           printed_badge_deadline: 2018-11-10
 
-          dealer_reg_start: 2018-07-24 15
-          dealer_reg_deadline: 2018-08-01 12
-          dealer_reg_shutdown: 2018-08-02 12
+          dealer_reg_start: 2018-08-07 12
+          dealer_reg_deadline: 2018-08-14 12
+          dealer_reg_shutdown: 2018-08-15 12
           dealer_payment_due: 2018-12-15
 
           badge_price_waived: 2019-01-07 12

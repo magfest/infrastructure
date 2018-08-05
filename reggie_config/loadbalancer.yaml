@@ -85,16 +85,20 @@ haproxy:
 
         - 'path_starts_with_static path_beg -i /reggie/static/ /reggie/static_views/ /static/ /static_views/'
 
-      httpresponses:
-        {%- for header in ['Location', 'Refresh'] %}
-        - 'replace-value {{ header }} https://([^/]*)(?:/reggie)?(.*) https://\1:443\2 if header_{{ header|lower }}_exists'
-        {%- endfor %}
+      options:
+        - forwardfor
 
       httprequests:
+        - 'set-header X-Real-IP %[src]'
         {%- for path in ['reggie', 'uber'] %}
         - 'redirect location https://%[hdr(host)]%[url,regsub(^/{{ path }}/?,/,i)] code 302 if path_is_{{ path }} OR path_starts_with_{{ path }}'
         {%- endfor %}
         - 'set-path /reggie%[path] if !path_is_profiler !path_starts_with_profiler !path_is_stats !path_starts_with_stats'
+
+      httpresponses:
+        {%- for header in ['Location', 'Refresh'] %}
+        - 'replace-value {{ header }} https://([^/]*)(?:/reggie)?(.*) https://\1:443\2 if header_{{ header|lower }}_exists'
+        {%- endfor %}
 
       use_backends: 'reggie_http_backend if path_starts_with_static'
       default_backend: 'reggie_https_backend'
