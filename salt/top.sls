@@ -34,6 +34,7 @@ base:
     - reggie.devenv
     - postgres
     - reggie.db
+    - reggie_deploy.db
 
   '*reggie* and G@roles:files':
     - reggie_deploy.glusterfs

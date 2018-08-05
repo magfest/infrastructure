@@ -50,3 +50,12 @@ db.yaml
 
 Data from any of the previously loaded files can be accessed using the Jinja
 `stack` variable, like this: `{{ stack['reggie']['db']['username'] }}`.
+
+The `init.yaml` file in each directory should open with the following line:
+```
+__: merge-first
+```
+
+Any _other_ files (like `db.yaml`) should **not** include the `merge-first`
+directive. This ensures the settings are merged in the correct order, and
+are available in any subsequently loaded file.

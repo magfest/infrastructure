@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # This script will bootstrap and configure the salt-master server
 # used to manage the entire MAGFest IT infrastructure.

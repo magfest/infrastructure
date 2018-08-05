@@ -1,0 +1,4 @@
+reggie:
+  db:
+    backups:
+      enabled: True
