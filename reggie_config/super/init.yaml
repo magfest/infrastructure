@@ -384,4 +384,4 @@ reggie:
 
         volunteer_checklist:
           4: hotel_requests/hotel_item.html
-          5: signups/shifts_item.html
+          99: signups/shifts_item.html

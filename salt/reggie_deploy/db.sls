@@ -51,18 +51,22 @@
 # ============================================================================
 
 /usr/local/bin/reggie_db_backup:
+  cmd.run:
+    - name: ssh {{ remote_backup_server }} mkdir -p '{{ remote_backup_dir }}'
+    - unless: test -f /usr/local/bin/reggie_db_backup
+
   file.managed:
     - name: /usr/local/bin/reggie_db_backup
     - template: jinja
-    - mode: 744
+    - mode: 755
     - contents: |
         #!/bin/bash
 
         # Reggie database backup script
 
         TAG="($(hostname)) ${0##*/}"
-        info() { echo `date "+%F-%H:%M:%S.%3N"` "[INFO] ${TAG}: ${@}"; }
-        error() { >&2 echo `date "+%F-%H:%M:%S.%3N"` "[ERROR] ${TAG}: ${@}"; }
+        info() { echo `date "+%F %H:%M:%S.%3N"` "[INFO] ${TAG}: ${@}"; }
+        error() { >&2 echo `date "+%F %H:%M:%S.%3N"` "[ERROR] ${TAG}: ${@}"; }
 
         run() {
             info "${@}"
@@ -79,7 +83,7 @@
 
         info 'Starting reggie db backup'
 
-        NOW=`date "+%F-%H:%M:%S.%3N"`
+        NOW=`date "+%F_%H:%M:%S.%3N"`
         SQL_FILENAME="{{ minion_id }}-${NOW}.sql"
         SQL_PATH="{{ backup_dir }}/{{ minion_id }}-${NOW}.sql"
         BACKUP_FILENAME="${SQL_FILENAME}.gz"
@@ -100,9 +104,6 @@
         # Make sure the backup is only user-readable
         run "chmod 600 '${BACKUP_PATH}'"
 
-        # Make sure the remote backup directory exists
-        run "ssh {{ remote_backup_server }} mkdir -p '{{ remote_backup_dir }}'"
-
         # Copy the local backup to the remote server
         run "scp -q '${BACKUP_PATH}' '{{ remote_backup_server }}:{{ remote_backup_dir }}/'"
 
@@ -116,7 +117,7 @@
   file.managed:
     - name: /usr/local/bin/reggie_db_prune_backups
     - template: jinja
-    - mode: 744
+    - mode: 755
     - require:
       - pkg: fdupes
     - contents: |
@@ -178,7 +179,7 @@
     - contents: |
         # Runs the Reggie database backup script
 
-        SHELL=/bin/sh
+        SHELL=/bin/bash
         PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
         # m h dom mon dow  user  command

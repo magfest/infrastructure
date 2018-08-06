@@ -4,8 +4,6 @@ prod-loadbalancer:
 prod-web:
   - prod-web-01.reggie.magfest.org
   - prod-web-02.reggie.magfest.org
-  - prod-web-03.reggie.magfest.org
-  - prod-web-04.reggie.magfest.org
 
 prod-sessions:
   - prod-sessions-01.reggie.magfest.org
