@@ -5,4 +5,5 @@ ip_blacklist:
   - 37.147.108.24    # spamming junk into the prereg form fields
   - 46.161.9.3       # spamming junk into the prereg form fields
   - 54.85.182.120    # Amazon bot repeatedly requesting POST only URLs
+  - 5.8.54.27        # Attempting to request ?XDEBUG_SESSION_START=phpstorm
   # Since we started using fail2ban, we're no longer banning individual SSH bots

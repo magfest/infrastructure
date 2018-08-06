@@ -1,5 +1,8 @@
+{%- import_yaml 'ip_blacklist.yaml' as ip_blacklist -%}
 {%- set internal_interface = 'eth0' if salt['grains.get']('is_vagrant') else 'eth1' -%}
 {%- set mcp_ip = salt['network.interface_ip'](internal_interface) -%}
+
+ip_blacklist: {{ ip_blacklist.ip_blacklist }}
 
 master:
   domain: magfest.net

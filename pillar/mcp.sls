@@ -1,6 +1,4 @@
 {%- import_yaml 'defaults.sls' as defaults -%}
-{%- import_yaml 'ip_blacklist.yaml' as ip_blacklist -%}
-
 {%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
 
 data:
@@ -103,4 +101,4 @@ ufw:
     '*':
       deny: True
       protocol: any
-      from_addr: {{ ip_blacklist.ip_blacklist }}
+      from_addr: {{ defaults.ip_blacklist }}

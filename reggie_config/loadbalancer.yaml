@@ -27,6 +27,10 @@ ufw:
     https:
       protocol: tcp
       comment: Public HTTPS
+    '*':
+      deny: True
+      protocol: any
+      from_addr: {{ pillar['ip_blacklist'] }}
 
 
 letsencrypt:

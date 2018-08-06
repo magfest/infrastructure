@@ -35,6 +35,9 @@ reggie create {{ directory }}:
     - makedirs: True
     - user: {{ salt['pillar.get']('reggie:user') }}
     - group: {{ salt['pillar.get']('reggie:group') }}
+    - recurse:
+      - user
+      - group
     - require:
       - sls: glusterfs.client
       - sls: reggie.web
