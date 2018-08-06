@@ -25,6 +25,8 @@ reggie:
     backups:
       enabled: False
       backup_dir: /srv/backups/reggie/db
+      backup_log_dir: /var/log/reggie
+      backup_log_filename: db_backup.log
       backup_schedule: '0 3 * * *'  # crontab format "m h dom mon dow"
       preserve_local_backup_count: 7
       remote_backup_dir: /mnt/uber-backups/db-backups/reggie

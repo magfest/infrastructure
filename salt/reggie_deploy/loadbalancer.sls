@@ -12,7 +12,7 @@
     - template: jinja
     - mode: 744
     - contents: |
-        #!/bin/sh
+        #!/bin/bash
 
         # Bundles the LetsEncrypt cert chain & private key in a single file for HAProxy
 
@@ -48,12 +48,6 @@
       - file: /usr/local/bin/haproxy_bundle_letsencrypt_cert
     - watch:
       - certbot_{{ minion_id }}
-
-  module.wait:
-    - name: service.reload
-    - m_name: haproxy
-    - onchanges:
-      - cmd: /usr/local/bin/haproxy_bundle_letsencrypt_cert
 
 
 /etc/cron.d/haproxy_bundle_letsencrypt_cert:

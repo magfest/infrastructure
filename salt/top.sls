@@ -35,6 +35,7 @@ base:
     - postgres
     - reggie.db
     - reggie_deploy.db
+    - filebeat
 
   '*reggie* and G@roles:files':
     - reggie_deploy.glusterfs

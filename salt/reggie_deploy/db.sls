@@ -5,6 +5,9 @@
 {% set db_name = salt['pillar.get']('reggie:db:name') %}
 {% set backup_dir = salt['pillar.get']('reggie:db:backups:backup_dir') %}
 {% set backup_schedule = salt['pillar.get']('reggie:db:backups:backup_schedule', '0 3 * * *') %}
+{% set log_dir = salt['pillar.get']('reggie:db:backups:backup_log_dir') %}
+{% set log_filename = salt['pillar.get']('reggie:db:backups:backup_log_filename') %}
+{% set log_path = log_dir ~ '/' ~ log_filename %}
 {% set preserve_local_backup_count = salt['pillar.get']('reggie:db:backups:preserve_local_backup_count', 1) %}
 {% set remote_backup_dir = salt['pillar.get']('reggie:db:backups:remote_backup_dir') %}
 {% set remote_backup_server = salt['pillar.get']('reggie:db:backups:remote_backup_server') %}
@@ -53,11 +56,28 @@
     - template: jinja
     - mode: 744
     - contents: |
-        #!/bin/sh
+        #!/bin/bash
 
         # Reggie database backup script
 
-        set -e
+        TAG="($(hostname)) ${0##*/}"
+        info() { echo `date "+%F-%H:%M:%S.%3N"` "[INFO] ${TAG}: ${@}"; }
+        error() { >&2 echo `date "+%F-%H:%M:%S.%3N"` "[ERROR] ${TAG}: ${@}"; }
+
+        run() {
+            info "${@}"
+            RESULT=$( { eval "${@}"; } 2>&1 )
+            ERROR=$?
+            if [ $ERROR -ne 0 ]; then
+                error "${@}
+            Unexpected Error $ERROR:
+            $RESULT"
+                info 'Reggie db backup failed'
+                exit $ERROR
+            fi
+        }
+
+        info 'Starting reggie db backup'
 
         NOW=`date "+%F-%H:%M:%S.%3N"`
         SQL_FILENAME="{{ minion_id }}-${NOW}.sql"
@@ -66,21 +86,27 @@
         BACKUP_PATH="{{ backup_dir }}/${BACKUP_FILENAME}"
 
         # Make sure the local backup directory exists
-        mkdir -p {{ backup_dir }}
-        chown postgres:postgres {{ backup_dir }}
+        if [ ! -d "{{ backup_dir }}" ]; then
+            run "mkdir -p '{{ backup_dir }}'"
+            run "chown postgres:postgres '{{ backup_dir }}'"
+        fi
 
-        # Dump the database into a gzipped SQL file
-        su postgres -l -c "pg_dump {{ db_name }} -f ${SQL_PATH}"
-        gzip -n "${SQL_PATH}"
+        # Dump the database into a SQL file
+        run "su postgres -l -c \"pg_dump {{ db_name }} -f '${SQL_PATH}'\""
 
-        # Make sure our backups are only user-readable
-        chmod 600 {{ backup_dir }}/*
+        # Compress the SQL file
+        run "gzip -n '${SQL_PATH}'"
+
+        # Make sure the backup is only user-readable
+        run "chmod 600 '${BACKUP_PATH}'"
 
         # Make sure the remote backup directory exists
-        ssh {{ remote_backup_server }} "mkdir -p {{ remote_backup_dir }}"
+        run "ssh {{ remote_backup_server }} mkdir -p '{{ remote_backup_dir }}'"
 
         # Copy the local backup to the remote server
-        scp "${BACKUP_PATH}" {{ remote_backup_server }}:{{ remote_backup_dir }}/
+        run "scp -q '${BACKUP_PATH}' '{{ remote_backup_server }}:{{ remote_backup_dir }}/'"
+
+        info 'Finished reggie db backup'
 
 
 /usr/local/bin/reggie_db_prune_backups:
@@ -94,7 +120,7 @@
     - require:
       - pkg: fdupes
     - contents: |
-        #!/bin/sh
+        #!/bin/bash
 
         # Deletes all but the given number of most recent Reggie database backups.
         # Defaults to keeping the {{ preserve_local_backup_count }} most recent backups.
@@ -116,6 +142,8 @@
         # Delete duplicates before deleting old backups, no reason to keep a bunch of identical files
         fdupes -dN {{ backup_dir }}
 
+        # Arcane black magic to delete every file while keeping the most recent
+        # Safe for filenames with weird characters, spaces, or newlines
         FILE_COUNT=$(ls {{ backup_dir }}|grep \.sql\.gz$|wc -l)
         DISCARD_COUNT=$(expr $FILE_COUNT - $PRESERVE_COUNT)
         if [ $DISCARD_COUNT -gt 0 ]; then
@@ -124,8 +152,17 @@
 
 
 # ============================================================================
-# Ensure the daily backup cron job is either present or absent,
-# depending on whether backups are enabled or not.
+# Make sure logging directory exists
+# ============================================================================
+
+{{ log_dir }}:
+  file.directory:
+    - name: {{ log_dir }}
+
+
+# ============================================================================
+# Ensure the daily backup cron job is either present or absent, depending
+# on whether or not backups are enabled.
 # ============================================================================
 
 /etc/cron.d/reggie_db_backup:
@@ -137,6 +174,7 @@
     - require:
       - file: /usr/local/bin/reggie_db_backup
       - file: /usr/local/bin/reggie_db_prune_backups
+      - file: {{ log_dir }}
     - contents: |
         # Runs the Reggie database backup script
 
@@ -144,8 +182,34 @@
         PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
         # m h dom mon dow  user  command
-        {{ backup_schedule }}  root  /usr/local/bin/reggie_db_backup && /usr/local/bin/reggie_db_prune_backups
+        {{ backup_schedule }}  root  /usr/local/bin/reggie_db_backup >>{{ log_path }} 2>&1 && /usr/local/bin/reggie_db_prune_backups
 {% else %}
   file.absent:
     - name: /etc/cron.d/reggie_db_backup
+{% endif %}
+
+
+# ============================================================================
+# Set up log rotation for database backup logs
+# ============================================================================
+
+/etc/logrotate.d/reggie_db_backup:
+{% if salt['pillar.get']('reggie:db:backups:enabled') %}
+  file.managed:
+    - name: /etc/logrotate.d/reggie_db_backup
+    - contents: |
+        {{ log_path }} {
+            daily
+            missingok
+            rotate 52
+            compress
+            delaycompress
+            notifempty
+            create 640 syslog adm
+            sharedscripts
+            endscript
+        }
+{% else %}
+  file.absent:
+    - name: /etc/logrotate.d/reggie_db_backup
 {% endif %}
