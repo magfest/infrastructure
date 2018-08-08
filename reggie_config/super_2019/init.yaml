@@ -9,6 +9,24 @@ reggie:
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
 
+        # This is NOT our attendance cap; this is merely the number of paid attendee
+        # and group registrations which we support.  In other words, we will only
+        # cut off preregistration once that sum meets this number no matter how
+        # many other registrations (Staff, Dealers, Guests, etc) are in the system.
+        max_badge_sales: 22250
+
+        # The number of dealer apps we will accept before auto-waitlisting further
+        # applications. If dealer_reg_deadline is also set, we will auto-wailist
+        # dealers if either the deadline has passed or this number has been reached.
+        # Dealers who have been waitlisted/approved/declined and dealers who do not
+        # have to pay are not counted towards this cap. A value of 0 means no cap.
+        max_dealer_apps: 530
+
+        mivs_video_response_expected: "no later than September 17th"
+        mivs_confirm_deadline: 14
+        mivs_submission_grace_period: 10
+        mivs_start_year: 2013
+
         dates:
           prereg_open: 2018-08-24
           shifts_created: 2018-11-02
@@ -21,20 +39,26 @@ reggie:
           eschaton: 2019-01-06 18
           prereg_takedown: 2019-01-04
           group_prereg_takedown: 2019-01-04
+          badge_price_waived: 2019-01-06 12
 
           printed_badge_deadline: 2018-11-10
 
-          dealer_reg_start: 2018-08-07 12
-          dealer_reg_deadline: 2018-08-14 12
-          dealer_reg_shutdown: 2018-08-15 12
+          # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
+          # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
+          # can no longer even add themselves to the waitlist.  Dealer payment reminder emails are
+          # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
+          # be emailed when the waitlist has been exhausted and all available positions have been
+          # filled, as defined by DEALER_WAITLIST_CLOSED.
+          dealer_reg_start: 2018-08-17 21
+          dealer_reg_deadline: ''  # Disable automatic waitlist
+          dealer_reg_shutdown: 2018-08-23 12
           dealer_payment_due: 2018-12-15
+          dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
 
-          badge_price_waived: 2019-01-07 12
-
-          mivs_round_one_deadline: 2018-09-03
-          mivs_round_two_start: 2018-10-01
-          mivs_round_two_deadline: 2018-10-09
-          mivs_judging_deadline: 2018-10-29
+          mivs_round_one_deadline: 2018-09-02
+          mivs_round_two_start: 2018-09-22
+          mivs_round_two_deadline: 2018-10-07
+          mivs_judging_deadline: 2018-11-04
           mivs_round_two_complete: 2018-11-05
 
           panel_app_deadline: 2018-10-31

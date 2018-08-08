@@ -15,7 +15,7 @@ base:
     - docker
 
   'mcp':
-    - salt_cloud
+    - salt_cloud.manager
     - docker_freeipa
     - docker_jenkins.import_freeipa_certs
     - docker_jenkins
@@ -29,6 +29,9 @@ base:
     - legacy_magbot
     - legacy_magbot.deploy_logs
     - slack_irc
+
+  'G@salt-cloud:*':
+    - salt_cloud.vm
 
   '*reggie* and G@roles:db':
     - reggie.devenv

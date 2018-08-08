@@ -14,9 +14,10 @@ reggie:
         event_venue: The Gaylord National Hotel and Convention Center
         event_venue_address: 201 Waterfront St, National Harbor, MD 20745
 
-        max_dealer_apps: 530
-        max_badge_sales: 22250
         shirts_per_staffer: 2
+
+        mits_enabled: True
+        mivs_enabled: True
 
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4']
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']

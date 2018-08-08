@@ -38,7 +38,7 @@ glusterfs:
     enabled: True
     volumes:
       reggie_volume:
-        path: {{ stack['reggie']['plugins']['ubersystem']['config']['mounted_data_dir'] }}
+        path: {{ stack['reggie']['mounted_data_dir'] }}
         server: {{ glusterfs_ip }}
         user: reggie
         group: reggie

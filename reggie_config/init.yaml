@@ -17,6 +17,10 @@ stack_cfg: |{{ stack_cfg()|indent(4) }}
 -#}
 
 reggie:
+  user: reggie
+  group: reggie
+  mounted_data_dir: /srv/mnt/reggie
+
   db:
     username: reggie
     password: reggie
@@ -54,19 +58,8 @@ reggie:
   plugins:
     ubersystem:
       config:
+        path: ''
         hostname: {{ loadbalancer_id }}
-        url_base: '%(url_root)s'
-        hardcore_optimizations_enabled: False
-
-        data_dir: /srv/reggie/data
-        mounted_data_dir: /srv/mnt/reggie
-        uploaded_files_dir: /srv/mnt/reggie/uploaded_files
-        guests_bio_pics_dir: /srv/mnt/reggie/guests_bio_pics
-        guests_inventory_dir: /srv/mnt/reggie/guests_inventory
-        guests_stage_plots_dir: /srv/mnt/reggie/guests_stage_plots
-        guests_w9_forms_dir: /srv/mnt/reggie/guests_w9_forms
-        mits_picture_dir: /srv/mnt/reggie/mits_picture
-        mivs_game_image_dir: /srv/mnt/reggie/mivs_game_image
 
         code_of_conduct_url: 'http://super.magfest.org/codeofconduct'
         consent_form_url: 'http://super.magfest.org/parentalconsentform'
