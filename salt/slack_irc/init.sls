@@ -47,13 +47,13 @@ slack-irc rsyslog conf:
             endscript
         }
 
-slack-irc service conf:
+slack-irc.service:
   file.managed:
     - name: /lib/systemd/system/slack-irc.service
     - source: salt://slack_irc/files/slack-irc.service
     - template: jinja
 
-/etc/slack-irc.conf.json:
+slack-irc.conf.json:
   file.managed:
     - name: /etc/slack-irc.conf.json
     - source: salt://slack_irc/files/slack-irc.conf.json
@@ -63,7 +63,7 @@ slack-irc service conf:
     - template: jinja
     - show_changes: False
 
-slack-irc service running:
+slack-irc.service running:
   service.running:
     - name: slack-irc
     - enable: True

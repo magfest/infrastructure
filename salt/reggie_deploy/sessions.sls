@@ -16,7 +16,8 @@ disable_transparent_hugepage.service:
     - contents: |
         [Unit]
         Description="Disable transparent hugepage before redis starts"
-        Before=redis.service
+        After=network.target
+        Before=redis-server.service
 
         [Service]
         Type=oneshot
@@ -24,14 +25,11 @@ disable_transparent_hugepage.service:
         ExecStart=/bin/bash -c 'echo never > /sys/kernel/mm/transparent_hugepage/defrag'
 
         [Install]
-        RequiredBy=redis.service
+        RequiredBy=redis-server.service
 
-  module.watch:
-    - name: service.available
-    - m_name: disable_transparent_hugepage.service
+  service.enabled:
+    - name: disable_transparent_hugepage
     - require:
       - file: disable_transparent_hugepage.service
-    - watch:
+    - watch_any:
       - file: disable_transparent_hugepage.service
-
-
