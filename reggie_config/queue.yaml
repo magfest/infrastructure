@@ -1,6 +1,5 @@
 {%- from 'init.yaml' import private_ip -%}
 
-
 ufw:
   enabled: True
 

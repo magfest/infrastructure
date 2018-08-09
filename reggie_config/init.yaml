@@ -1,15 +1,15 @@
 {%- set env = __grains__['env'] -%}
 {%- set ip4_interfaces = __grains__['ip4_interfaces'] -%}
 {%- set private_ip = ip4_interfaces.get('eth1', ip4_interfaces['eth0'])[0] -%}
-{%- set loadbalancer_id = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:loadbalancer and G@env:' ~ env, fun='internal_ip', tgt_type='compound').keys()|first -%}
-{%- set sessions_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:sessions and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
-{%- set queue_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:queue and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
-{%- set db_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:db and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set loadbalancer_id = __salt__['saltutil.runner']('mine.get', tgt='G@roles:reggie and G@roles:loadbalancer and G@env:' ~ env, fun='internal_ip', tgt_type='compound').keys()|first -%}
+{%- set sessions_ip = __salt__['saltutil.runner']('mine.get', tgt='G@roles:reggie and G@roles:sessions and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set queue_ip = __salt__['saltutil.runner']('mine.get', tgt='G@roles:reggie and G@roles:queue and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
+{%- set db_ip = __salt__['saltutil.runner']('mine.get', tgt='G@roles:reggie and G@roles:db and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
 
 __: merge-first
 
 {#
-  Uncomment these lines and run "salt '*reggie*' pillar.items" to
+  Uncomment these lines and run "salt -C 'G@roles:reggie' pillar.items" to
   test how stack.cfg looks when rendered for each server.
 -#}
 {#

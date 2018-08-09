@@ -1,10 +1,9 @@
 {%- from 'macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
 {%- from 'init.yaml' import env, private_ip -%}
 {%- set glusterfs_ip = __salt__['saltutil.runner']('mine.get',
-    tgt='*reggie* and G@roles:files and G@env:' ~ env,
+    tgt='G@roles:reggie and G@roles:files and G@env:' ~ env,
     fun='internal_ip',
     tgt_type='compound').values()|first -%}
-
 
 ufw:
   enabled: True
