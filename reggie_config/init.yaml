@@ -1,5 +1,6 @@
 {%- set env = __grains__['env'] -%}
-{%- set private_ip = __grains__['ip4_interfaces']['eth1'][0] -%}
+{%- set ip4_interfaces = __grains__['ip4_interfaces'] -%}
+{%- set private_ip = ip4_interfaces.get('eth1', ip4_interfaces['eth0'])[0] -%}
 {%- set loadbalancer_id = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:loadbalancer and G@env:' ~ env, fun='internal_ip', tgt_type='compound').keys()|first -%}
 {%- set sessions_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:sessions and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
 {%- set queue_ip = __salt__['saltutil.runner']('mine.get', tgt='*reggie* and G@roles:queue and G@env:' ~ env, fun='internal_ip', tgt_type='compound').values()|first -%}
