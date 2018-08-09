@@ -174,9 +174,9 @@ salt-master rsyslog conf:
     - contents: |
         reactor:
           - 'salt/cloud/*/created':
-            - '/srv/infrastructure/reactor/salt_cloud_created.sls'
+            - '/srv/infrastructure/salt/reactor/salt_cloud_created.sls'
           - 'salt/cloud/*/destroying':
-            - '/srv/infrastructure/reactor/salt_cloud_destroying.sls'
+            - '/srv/infrastructure/salt/reactor/salt_cloud_destroying.sls'
 
 
 # ============================================================================

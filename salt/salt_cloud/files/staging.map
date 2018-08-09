@@ -1,3 +1,10 @@
+{#-
+  NOTE: Changes to this file must be applied with the following command
+  before they take effect:
+
+    salt mcp state.sls salt_cloud
+-#}
+
 staging-loadbalancer:
   - staging-reggie.magfest.org
 
