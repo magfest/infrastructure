@@ -1,7 +1,7 @@
 {%- from 'init.yaml' import env, private_ip -%}
 {%- set backends = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:web and G@env:' ~ env,
-    fun='internal_ip',
+    fun='private_ip',
     tgt_type='compound').items() %}
 
 

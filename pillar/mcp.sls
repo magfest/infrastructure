@@ -1,5 +1,5 @@
 {%- import_yaml 'defaults.sls' as defaults -%}
-{%- set private_ip = salt['network.interface_ip']('eth0' if salt['grains.get']('is_vagrant') else 'eth1') -%}
+{%- set private_ip = salt['network.interface_ip'](salt['grains.get']('private_interface', 'eth1')) -%}
 
 data:
   path: /srv/data

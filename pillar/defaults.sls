@@ -1,6 +1,5 @@
 {%- import_yaml 'ip_blacklist.yaml' as ip_blacklist -%}
-{%- set internal_interface = 'eth0' if salt['grains.get']('is_vagrant') else 'eth1' -%}
-{%- set mcp_ip = salt['network.interface_ip'](internal_interface) -%}
+{%- set mcp_ip = salt['network.interface_ip'](salt['grains.get']('private_interface', 'eth1')) -%}
 
 ip_blacklist: {{ ip_blacklist.ip_blacklist }}
 
@@ -19,12 +18,12 @@ minion:
     - module.run
 
   mine_functions:
-    external_ip:
+    public_ip:
       - mine_function: network.interface_ip
       - eth0
-    internal_ip:
+    private_ip:
       - mine_function: network.interface_ip
-      - {{ internal_interface }}
+      - {{ salt['grains.get']('private_interface', 'eth1') }}
 
 
 freeipa:

@@ -2,7 +2,7 @@
 {%- from 'init.yaml' import env, private_ip -%}
 {%- set glusterfs_ip = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:files and G@env:' ~ env,
-    fun='internal_ip',
+    fun='private_ip',
     tgt_type='compound').values()|first -%}
 
 ufw:
