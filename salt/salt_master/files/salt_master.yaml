@@ -1,6 +1,11 @@
 state_verbose: True
 state_output: changes
 
+log_file: file:///dev/log
+
+use_superseded:
+  - module.run
+
 file_roots:
   base:
     - /srv/infrastructure/salt/
@@ -10,6 +15,16 @@ file_roots:
 fileserver_backend:
   - roots
   - git
+
+pillar_roots:
+  base:
+    - /srv/infrastructure/pillar
+    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/pillar
+
+ext_pillar:
+  - stack:
+    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/reggie_config/stack.cfg
+    - /srv/infrastructure/reggie_config/stack.cfg
 
 gitfs_update_interval: 300
 gitfs_remotes:
@@ -24,15 +39,3 @@ gitfs_remotes:
   - https://github.com/magfest/redis-formula.git
   - https://github.com/magfest/reggie-formula.git
   - https://github.com/magfest/ufw-formula.git
-
-pillar_roots:
-  base:
-    - /srv/infrastructure/pillar
-    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/pillar
-
-ext_pillar:
-  - stack:
-    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/reggie_config/stack.cfg
-    - /srv/infrastructure/reggie_config/stack.cfg
-
-log_file: file:///dev/log

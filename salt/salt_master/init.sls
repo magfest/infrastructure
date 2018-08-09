@@ -185,7 +185,7 @@ salt-master rsyslog conf:
 
 /etc/salt/master:
   file.managed:
-    - source: salt://salt_master/files/salt_master.conf
+    - source: salt://salt_master/files/salt_master.yaml
     - mode: 644
     - makedirs: True
     - template: jinja
