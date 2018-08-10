@@ -33,25 +33,26 @@ base:
   'G@salt-cloud:*':
     - salt_cloud.vm
 
-  '*reggie* and G@roles:db':
+  'G@roles:reggie':
+    - filebeat
+
+  'G@roles:reggie and G@roles:db':
     - reggie.devenv
     - postgres
     - reggie.db
     - reggie_deploy.db
-    - filebeat
 
-  '*reggie* and G@roles:files':
+  'G@roles:reggie and G@roles:files':
     - reggie_deploy.glusterfs
     - glusterfs.server
 
-  '*reggie* and G@roles:loadbalancer':
+  'G@roles:reggie and G@roles:loadbalancer':
     - reggie_deploy.ssl
     - haproxy
     - letsencrypt
     - reggie_deploy.loadbalancer
-    - filebeat
 
-  '*reggie* and G@roles:web':
+  'G@roles:reggie and G@roles:web':
     - reggie.devenv
     - reggie_deploy.ssl
     - reggie_deploy.glusterfs
@@ -59,19 +60,16 @@ base:
     - nginx.ng
     - reggie.web
     - reggie_deploy.web
-    - filebeat
 
-  '*reggie* and G@roles:sessions':
+  'G@roles:reggie and G@roles:sessions':
     - reggie_deploy.sessions
     - redis.server
 
-  '*reggie* and G@roles:queue':
+  'G@roles:reggie and G@roles:queue':
     - rabbitmq
 
-  '*reggie* and G@roles:scheduler':
+  'G@roles:reggie and G@roles:scheduler':
     - reggie.scheduler
-    - filebeat
 
-  '*reggie* and G@roles:worker':
+  'G@roles:reggie and G@roles:worker':
     - reggie.worker
-    - filebeat
