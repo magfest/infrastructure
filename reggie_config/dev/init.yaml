@@ -6,6 +6,7 @@ reggie:
   install_dir: /home/vagrant/reggie-formula/reggie_install
   host: 127.0.0.1
   port: 4443
+  nonssl_port: 8000
 
   plugins:
     ubersystem:
