@@ -1,11 +1,5 @@
 {%- from 'macros.jinja' import filebeat_prospector -%}
 
-reggie:
-  db:
-    backups:
-      enabled: True
-
-
 filebeat:
   enabled: True
   config:

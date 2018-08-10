@@ -19,6 +19,9 @@
 # ============================================================================
 
 /root/.ssh/known_hosts {{ remote_backup_server }}:
+  file.directory:
+    - name: /root/.ssh
+
   cmd.run:
     - name: ssh-keyscan -t rsa {{ remote_backup_server }} >> /root/.ssh/known_hosts 2>&1
     - unless: grep -q '{{ remote_backup_server }}' /root/.ssh/known_hosts

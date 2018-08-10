@@ -1,5 +1,4 @@
 {%- from 'init.yaml' import env, private_ip -%}
-{%- set db_client_target = 'G@roles:reggie and P@roles:(web|worker|scheduler) and G@env:' ~ env -%}
 
 ufw:
   enabled: True

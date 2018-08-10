@@ -39,8 +39,8 @@ glusterfs:
       reggie_volume:
         path: {{ stack['reggie']['mounted_data_dir'] }}
         server: {{ glusterfs_ip }}
-        user: reggie
-        group: reggie
+        user: {{ stack['reggie']['user'] }}
+        group: {{ stack['reggie']['group'] }}
 
 
 nginx:

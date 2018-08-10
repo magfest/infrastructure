@@ -1,12 +1,3 @@
-{%- from 'macros.jinja' import filebeat_prospector -%}
-
-filebeat:
-  enabled: True
-  config:
-    filebeat:
-      prospectors:
-        {{ filebeat_prospector('reggie-web', '/var/log/haproxy.log', multiline=False)|indent(8) }}
-
 
 letsencrypt:
   client:

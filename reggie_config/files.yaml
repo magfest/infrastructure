@@ -1,9 +1,8 @@
 {%- from 'init.yaml' import env, private_ip -%}
-{%- set all_glusterfs_servers = __salt__['saltutil.runner']('mine.get',
+{%- set glusterfs_servers = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:files and G@env:' ~ env,
     fun='private_ip',
     tgt_type='compound').items() -%}
-{%- set glusterfs_servers = all_glusterfs_servers if all_glusterfs_servers else [(minion_id, '127.0.0.1')] -%}
 {%- set glusterfs_servers_count = glusterfs_servers|length -%}
 
 ufw:

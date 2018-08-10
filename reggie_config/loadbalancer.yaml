@@ -1,4 +1,5 @@
 {%- from 'init.yaml' import env, private_ip -%}
+{%- set port = stack['reggie'].get('port', 443) -%}
 {%- set backends = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:web and G@env:' ~ env,
     fun='private_ip',
@@ -33,22 +34,6 @@ ufw:
       from_addr: {{ pillar['ip_blacklist'] }}
 
 
-letsencrypt:
-  client:
-    email: it@magfest.org
-    source:
-      engine: pkg
-      cli: /usr/bin/certbot
-      install_units: True
-    auth:
-      method: standalone
-      type: http-01
-      port: 9999
-    domain:
-      {{ minion_id }}:
-        enabled: True
-
-
 haproxy:
   enabled: True
   overwrite: True
@@ -59,12 +44,12 @@ haproxy:
   listens:
     reggie_http_to_https_redirect:
       mode: http
-      bind: '0.0.0.0:80'
+      bind: '0.0.0.0:{{ nonssl_port }}'
 
       acls:
         'is_letsencrypt path_beg -i /.well-known/acme-challenge/'
 
-      httprequests: 'redirect location https://%[hdr(host),regsub(:80,:443,i)]%[capture.req.uri] code 301 if !is_letsencrypt'
+      httprequests: 'redirect location https://%[hdr(host),regsub(:{{ nonssl_port }},:{{ port }},i)]%[capture.req.uri] code 301 if !is_letsencrypt'
 
       servers:
         letsencrypt:
@@ -74,7 +59,7 @@ haproxy:
   frontends:
     reggie_load_balancer:
       mode: http
-      bind: "0.0.0.0:443 ssl crt {{ stack['ssl']['certs_dir'] }}/{{ minion_id }}.pem"
+      bind: "0.0.0.0:{{ port }} ssl crt {{ stack['ssl']['certs_dir'] }}/{{ minion_id }}.pem"
       redirects: 'scheme https code 301 if !{ ssl_fc }'
 
       acls:
@@ -101,7 +86,7 @@ haproxy:
 
       httpresponses:
         {%- for header in ['Location', 'Refresh'] %}
-        - 'replace-value {{ header }} https://([^/]*)(?:/reggie)?(.*) https://\1:443\2 if header_{{ header|lower }}_exists'
+        - 'replace-value {{ header }} https://([^/]*)(?:/reggie)?(.*) https://\1:{{ port }}\2 if header_{{ header|lower }}_exists'
         {%- endfor %}
 
       use_backends: 'reggie_http_backend if path_starts_with_static'

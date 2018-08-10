@@ -4,11 +4,13 @@ reggie:
   user: vagrant
   group: vagrant
   install_dir: /home/vagrant/reggie-formula/reggie_install
+  host: 127.0.0.1
+  port: 4443
 
   plugins:
     ubersystem:
       config:
-        send_emails: False
+        send_emails: True
         dev_box: True
 
         secret:

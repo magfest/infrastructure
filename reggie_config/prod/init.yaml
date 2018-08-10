@@ -1,6 +1,10 @@
 __: merge-first
 
 reggie:
+  db:
+    backups:
+      enabled: True
+
   plugins:
     ubersystem:
       config:

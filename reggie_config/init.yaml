@@ -20,6 +20,7 @@ reggie:
   user: reggie
   group: reggie
   mounted_data_dir: /srv/mnt/reggie
+  host: {{ loadbalancer_id }}
 
   db:
     username: reggie
@@ -59,7 +60,6 @@ reggie:
     ubersystem:
       config:
         path: ''
-        hostname: {{ loadbalancer_id }}
 
         code_of_conduct_url: 'http://super.magfest.org/codeofconduct'
         consent_form_url: 'http://super.magfest.org/parentalconsentform'
