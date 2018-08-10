@@ -121,36 +121,14 @@ reggie:
           season_level: 200
 
           donation_tier:
-            No thanks: 0
-            T-Shirt Bundle: SHIRT_LEVEL
-            Supporter: SUPPORTER_LEVEL
-            Super Star: 200
+            Coming Soon!: 0
 
         donation_tier_descriptions:
           no_thanks:
-            name: No thanks
+            name: Coming Soon!
             icon: ''
-            description: No thanks
-            link: ''
-
-          shirt:
-            name: T-Shirt Bundle
-            icon: ../static/icons/iconshirt.png
-            description: Ribbon|T-Shirt|Event Pin
-            link: ../static_views/ribbon.html|../static_views/tshirt.html|../static_views/event_pin.html
-
-          supporter:
-            name: Supporter
-            icon: ../static/icons/supporter.png
-            description: Super Swag Bag|Swadge
-            link: ../static_views/super_swag_bag.html|../static_views/swadge.html
-
-          super_star:
-            name: Super Star
-            icon: ../static/icons/super_star.png
-            description: Star Rod Wand|Star Umbrella|Invitation
-            link: ../static_views/star_rod_wand.html|../static_views/star_umbrella.html|../static_views/invitation.html
-            merch_items: ['Star Wand', 'Star Umbrella']
+            description: Updgrade merch tiers will be available soon!
+            link: 'javascript:void(0)'
 
         dept_head_checklist:
           creating_shifts:

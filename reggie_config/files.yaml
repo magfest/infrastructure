@@ -34,6 +34,7 @@ ufw:
 
 glusterfs:
   server:
+{% if glusterfs_servers %}
     enabled: True
     service: glusterd
     peers:
@@ -48,3 +49,6 @@ glusterfs:
           {%- for server, addr in glusterfs_servers %}
           - {{ addr }}:/srv/glusterfs/reggie_volume
           {%- endfor %}
+{% else %}
+    enabled: False
+{% endif %}

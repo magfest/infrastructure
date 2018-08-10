@@ -1,9 +1,9 @@
 {%- from 'macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
 {%- from 'init.yaml' import env, private_ip -%}
-{%- set glusterfs_ip = __salt__['saltutil.runner']('mine.get',
+{%- set glusterfs_ips = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:files and G@env:' ~ env,
     fun='private_ip',
-    tgt_type='compound').values()|first -%}
+    tgt_type='compound').values() -%}
 
 ufw:
   enabled: True
@@ -34,13 +34,17 @@ ufw:
 
 glusterfs:
   client:
+{% if glusterfs_ips %}
     enabled: True
     volumes:
       reggie_volume:
         path: {{ stack['reggie']['mounted_data_dir'] }}
-        server: {{ glusterfs_ip }}
+        server: {{ glusterfs_ips|first }}
         user: {{ stack['reggie']['user'] }}
         group: {{ stack['reggie']['group'] }}
+{% else %}
+    enabled: False
+{% endif %}
 
 
 nginx:
