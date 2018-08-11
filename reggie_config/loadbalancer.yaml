@@ -1,6 +1,7 @@
 {%- from 'init.yaml' import env, private_ip -%}
 {%- set port = stack['reggie'].get('port', 443) -%}
 {%- set nonssl_port = stack['reggie'].get('nonssl_port', 80) -%}
+{%- set url_path = stack['reggie'].get('cherrypy_mount_path', '/reggie') -%}
 {%- set backends = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:web and G@env:' ~ env,
     fun='private_ip',
@@ -68,26 +69,26 @@ haproxy:
         - 'header_{{ header|lower }}_exists res.hdr({{ header }}) -m found'
         {%- endfor %}
 
-        {%- for path in ['reggie', 'uber', 'profiler', 'stats'] %}
+        {%- for path in [url_path.strip('/'), 'profiler', 'stats'] %}
         - 'path_is_{{ path }} path -i /{{ path }}'
         - 'path_starts_with_{{ path }} path_beg -i /{{ path }}/'
         {%- endfor %}
 
-        - 'path_starts_with_static path_beg -i /reggie/static/ /reggie/static_views/ /static/ /static_views/'
+        - 'path_starts_with_static path_beg -i {{ url_path }}/static/ {{ url_path }}/static_views/ /static/ /static_views/'
 
       options:
         - forwardfor
 
       httprequests:
         - 'set-header X-Real-IP %[src]'
-        {%- for path in ['reggie', 'uber'] %}
+        {%- for path in [url_path.strip('/')] %}
         - 'redirect location https://%[hdr(host)]%[url,regsub(^/{{ path }}/?,/,i)] code 302 if path_is_{{ path }} OR path_starts_with_{{ path }}'
         {%- endfor %}
-        - 'set-path /reggie%[path] if !path_is_profiler !path_starts_with_profiler !path_is_stats !path_starts_with_stats'
+        - 'set-path {{ url_path }}%[path] if !path_is_profiler !path_starts_with_profiler !path_is_stats !path_starts_with_stats'
 
       httpresponses:
         {%- for header in ['Location', 'Refresh'] %}
-        - 'replace-value {{ header }} https://([^/]*)(?:/reggie)?(.*) https://\1:{{ port }}\2 if header_{{ header|lower }}_exists'
+        - 'replace-value {{ header }} https://([^/]*)(?:{{ url_path }})?(.*) https://\1:{{ port }}\2 if header_{{ header|lower }}_exists'
         {%- endfor %}
 
       use_backends: 'reggie_http_backend if path_starts_with_static'

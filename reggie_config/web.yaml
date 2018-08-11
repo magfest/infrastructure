@@ -1,5 +1,6 @@
 {%- from 'macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
 {%- from 'init.yaml' import env, private_ip -%}
+{%- set url_path = stack['reggie'].get('cherrypy_mount_path', '/reggie') -%}
 {%- set glusterfs_ips = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:files and G@env:' ~ env,
     fun='private_ip',
@@ -107,13 +108,13 @@ nginx:
                 - rewrite: ^(.*)$ /reggie/static_views/robots.txt last
 
               {%- for location in ['/preregistration/form'] %}
-              - 'location = /reggie{{ location }}':
+              - 'location = {{ url_path }}{{ location }}':
                 - proxy_hide_header: Cache-Control
                 {{ nginx_proxy_config(cache='/etc/nginx/reggie_short_term_cache.conf')|indent(16) }}
               {%- endfor %}
 
               {%- for location in ['/static/', '/static_views/'] %}
-              - 'location /reggie{{ location }}':
+              - 'location {{ url_path }}{{ location }}':
                 {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(16) }}
               {%- endfor %}
 
@@ -129,7 +130,7 @@ nginx:
               - error_log: /var/log/nginx/error_static.log
 
               {%- for location in ['/static/', '/static_views/'] %}
-              - 'location /reggie{{ location }}':
+              - 'location {{ url_path }}{{ location }}':
                 {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(16) }}
               {%- endfor %}
 

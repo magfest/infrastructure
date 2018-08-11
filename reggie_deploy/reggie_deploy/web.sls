@@ -1,8 +1,10 @@
+{% set event_name = salt['pillar.get']('reggie:plugins:ubersystem:config:event_name', 'Event') %}
+
 # ============================================================================
 # Delete nginx cache if there are code updates
 # ============================================================================
 
-delete nginx cache:
+nginx delete cache:
   cmd.run:
     - name: 'find /var/cache/nginx/**/* -type f | xargs rm --'
     - onlyif: 'find /var/cache/nginx/**/* -type f 2> /dev/null | grep -q /var/cache/nginx/'
@@ -18,7 +20,7 @@ nginx maintenance page:
         <!DOCTYPE html>
         <html>
           <head>
-            <title>MAGFest Maintenance</title>
+            <title>{{ event_name }} Maintenance</title>
             <style>
               html, body {
                 font-family: Helvetica, Arial, sans-serif;
@@ -32,7 +34,6 @@ nginx maintenance page:
               }
               pre {
                 display: inline-block;
-                margin: 0;
                 font-family: monospace;
                 font-size: 1.5em;
                 font-weight: bold;
@@ -42,9 +43,9 @@ nginx maintenance page:
             </style>
           </head>
           <body>
-            <h1>MAGFest Registration Maintenance Mode</h1>
+            <h1>{{ event_name }} Registration Maintenance Mode</h1>
             <div>
-              MAGBot is working at 110% to get everything running again... <em>*beep* *boop*</em>
+              Our bots are working at 110% to get everything running again... <em>*beep* *boop*</em>
               <br><br>
               Sorry about that, we'll be back in a few. Hang tight!
               <br><br>
