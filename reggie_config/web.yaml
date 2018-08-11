@@ -92,10 +92,19 @@ nginx:
               - server_name: localhost
               - listen: '127.0.0.1:443 ssl'
               - listen: '{{ private_ip }}:443 ssl'
+              - root: /var/www
+              - error_page: 503 @maintenance
+
               {{ nginx_ssl_config(
                   stack['ssl']['certs_dir'] ~ '/' ~ minion_id ~ '.key',
                   stack['ssl']['certs_dir'] ~ '/' ~ minion_id ~ '.crt',
                   stack['ssl']['certs_dir'] ~ '/dhparams.pem')|indent(14) }}
+
+              - 'location @maintenance':
+                - rewrite: ^(.*)$ /maintenance.html break
+
+              - 'location = /reggie/robots.txt':
+                - rewrite: ^(.*)$ /reggie/static_views/robots.txt last
 
               {%- for location in ['/preregistration/form'] %}
               - 'location = /reggie{{ location }}':

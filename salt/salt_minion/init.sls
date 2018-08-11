@@ -68,12 +68,11 @@
       - |
          {{ {key: value}|yaml(False)|indent(9) }}
       {%- endfor %}
-{% endif %}
 
-salt_minion:
   service.running:
     - name: salt-minion
     - enable: True
     - order: last
     - watch:
       - file: /etc/salt/minion
+{% endif %}

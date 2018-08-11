@@ -21,6 +21,7 @@ reggie:
   group: reggie
   mounted_data_dir: /srv/mnt/reggie
   host: {{ loadbalancer_id }}
+  maintenance: False
 
   db:
     username: reggie

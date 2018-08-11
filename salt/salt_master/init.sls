@@ -190,7 +190,6 @@ salt-master rsyslog conf:
     - makedirs: True
     - template: jinja
 
-salt_master:
   service.running:
     - name: salt-master
     - enable: True

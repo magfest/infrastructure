@@ -8,6 +8,3 @@ reggie:
       config:
         at_the_con: False
         post_con: False
-
-        dates:
-          dealer_reg_start: 2018-08-01 12
