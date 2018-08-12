@@ -40,7 +40,7 @@ base:
     - reggie.devenv
     - postgres
     - reggie.db
-    - reggie_deploy.db
+    - reggie_deploy.db_backup
 
   'G@roles:reggie and G@roles:files':
     - reggie_deploy.glusterfs
@@ -50,7 +50,7 @@ base:
     - reggie_deploy.ssl
     - haproxy
     - letsencrypt
-    - reggie_deploy.loadbalancer
+    - reggie_deploy.letsencrypt
 
   'G@roles:reggie and G@roles:web':
     - reggie.devenv
