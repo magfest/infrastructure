@@ -21,7 +21,7 @@ reggie:
   group: reggie
   mounted_data_dir: /srv/mnt/reggie
   host: {{ loadbalancer_id }}
-  maintenance: False
+  maintenance: {{ pillar.get('reggie', {}).get('maintenance', False) }}
 
   db:
     username: reggie
@@ -98,7 +98,7 @@ reggie:
         prereg_hotel_info_email_signature: '- MAGFest'
 
         secret:
-          barcode_key: 'TEST_ONLY'
+          barcode_key: 'TEST ONLY!'
           barcode_salt: 255
           barcode_event_id: 255
 
