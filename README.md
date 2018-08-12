@@ -3,11 +3,11 @@
 Please refer to our [awesome docs](https://magfest.github.io/infrastructure)!
 
 
-# Quick Commands
+## Quick Commands
 _Run on mcp as root/sudo_
 
 
-#### Reggie Maintenance Mode
+### Reggie Maintenance Mode
 
 To put production Reggie into maintenance mode:
 ```
