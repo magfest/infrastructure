@@ -36,7 +36,7 @@ reggie:
       backup_schedule: '0 3 * * *'  # crontab format "m h dom mon dow"
       preserve_local_backup_count: 7
       remote_backup_dir: /mnt/uber-backups/db-backups/reggie
-      remote_backup_server: 10.136.12.8  # frontend.uber.magfest.org private IP
+      remote_backup_server: backups.magfest.net
 
   queue:
     username: reggie

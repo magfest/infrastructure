@@ -203,7 +203,7 @@
     - name: /etc/logrotate.d/reggie_db_backup
     - contents: |
         {{ log_path }} {
-            daily
+            weekly
             missingok
             rotate 52
             compress

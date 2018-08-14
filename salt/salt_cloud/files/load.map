@@ -1,0 +1,42 @@
+{#-
+  NOTE: Changes to this file must be applied with the following command
+  before they take effect:
+
+    salt mcp state.sls salt_cloud
+-#}
+
+load-locustmaster:
+  - load-locustmaster.magfest.org
+
+load-locustminion:
+  - load-locustminion-01.magfest.org
+  - load-locustminion-02.magfest.org
+  - load-locustminion-03.magfest.org
+  - load-locustminion-04.magfest.org
+  - load-locustminion-05.magfest.org
+  - load-locustminion-06.magfest.org
+  - load-locustminion-07.magfest.org
+  - load-locustminion-08.magfest.org
+  - load-locustminion-09.magfest.org
+
+load-loadbalancer:
+  - load-reggie.magfest.org
+
+load-web:
+  - load-web-01.reggie.magfest.org
+  - load-web-02.reggie.magfest.org
+
+load-sessions:
+  - load-sessions-01.reggie.magfest.org
+
+load-db:
+  - load-db-01.reggie.magfest.org
+
+load-queue:
+  - load-queue-01.reggie.magfest.org
+
+load-scheduler:
+  - load-scheduler-01.reggie.magfest.org
+
+load-worker:
+  - load-worker-01.reggie.magfest.org
