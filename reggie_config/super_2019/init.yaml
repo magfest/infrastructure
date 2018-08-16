@@ -127,7 +127,7 @@ reggie:
           no_thanks:
             name: Coming Soon!
             icon: ''
-            description: Updgrade merch tiers will be available soon!
+            description: Merch upgrade tiers will be available soon!
             link: ../static_views/coming_soon.html
 
         dept_head_checklist:
