@@ -6,18 +6,10 @@
 -#}
 
 load-locustmaster:
-  - load-locustmaster.magfest.org
+  - locustmaster.magfest.org
 
-load-locustminion:
-  - load-locustminion-01.magfest.org
-  - load-locustminion-02.magfest.org
-  - load-locustminion-03.magfest.org
-  - load-locustminion-04.magfest.org
-  - load-locustminion-05.magfest.org
-  - load-locustminion-06.magfest.org
-  - load-locustminion-07.magfest.org
-  - load-locustminion-08.magfest.org
-  - load-locustminion-09.magfest.org
+load-locust:
+  - locust-01.magfest.org
 
 load-loadbalancer:
   - load-reggie.magfest.org
@@ -25,6 +17,14 @@ load-loadbalancer:
 load-web:
   - load-web-01.reggie.magfest.org
   - load-web-02.reggie.magfest.org
+  - load-web-03.reggie.magfest.org
+  - load-web-04.reggie.magfest.org
+  - load-web-05.reggie.magfest.org
+  - load-web-06.reggie.magfest.org
+  - load-web-07.reggie.magfest.org
+  - load-web-08.reggie.magfest.org
+  - load-web-09.reggie.magfest.org
+  - load-web-10.reggie.magfest.org
 
 load-sessions:
   - load-sessions-01.reggie.magfest.org

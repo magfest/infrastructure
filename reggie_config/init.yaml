@@ -16,9 +16,19 @@ __: merge-first
 stack_cfg: |{{ stack_cfg()|indent(4) }}
 -#}
 
+mine_functions:
+  sqlalchemy_pool_size:
+    - mine_function: pillar.get
+    - 'reggie:plugins:ubersystem:config:sqlalchemy_pool_size'
+  sqlalchemy_max_overflow:
+    - mine_function: pillar.get
+    - 'reggie:plugins:ubersystem:config:sqlalchemy_max_overflow'
+
+
 reggie:
   user: reggie
   group: reggie
+  install_dir: /srv/reggie
   mounted_data_dir: /srv/mnt/reggie
   host: {{ loadbalancer_id }}
   maintenance: {{ pillar.get('reggie', {}).get('maintenance', False) }}
@@ -61,6 +71,9 @@ reggie:
     ubersystem:
       config:
         path: ''
+
+        sqlalchemy_pool_size: 5
+        sqlalchemy_max_overflow: 10
 
         code_of_conduct_url: 'http://super.magfest.org/codeofconduct'
         consent_form_url: 'http://super.magfest.org/parentalconsentform'

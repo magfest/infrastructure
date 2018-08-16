@@ -1,8 +1,8 @@
 # Some helpful SaltStack Commands
 
-#### Install Digital Ocean's monitoring tools
+#### Run an Arbitrary Command
 ```
-salt -C 'G@roles:reggie' cmd.run 'curl -sSL https://agent.digitalocean.com/install.sh | sh'
+salt -C 'G@roles:reggie' cmd.run 'ls -la /var/logs/reggie'
 ```
 
 #### Update APT Packages

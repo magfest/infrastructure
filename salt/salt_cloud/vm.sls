@@ -14,3 +14,9 @@ set hostname to minion id:
       {%- if salt['pillar.get']('filebeat:enabled') %}
       - service: filebeat
       {%- endif %}
+
+
+install digitalocean monitoring tools:
+  cmd.run:
+    - name: 'curl -sSL https://agent.digitalocean.com/install.sh | sh'
+    - unless: 'test -f /etc/apt/sources.list.d/digitalocean-agent.list'

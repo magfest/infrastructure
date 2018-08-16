@@ -6,6 +6,10 @@
 {%- set minion_id = salt['grains.get']('id') %}
 
 pip install pyopenssl:
+  pkg.installed:
+    - name: python-pip
+    - reload_modules: True
+
   pip.installed:
     - name: pyopenssl
     - reload_modules: True
@@ -24,4 +28,7 @@ create self signed cert:
 bundle self signed cert:
   cmd.run:
     - name: cat {{ certs_dir }}/{{ minion_id }}.crt {{ certs_dir }}/{{ minion_id }}.key > {{ certs_dir }}/{{ minion_id }}.pem
-    - creates: {{ certs_dir }}/{{ minion_id }}.pem
+    - unless: |
+        cat {{ certs_dir }}/{{ minion_id }}.crt \
+            {{ certs_dir }}/{{ minion_id }}.key | \
+            diff --report-identical-files {{ certs_dir }}/{{ minion_id }}.pem - > /dev/null

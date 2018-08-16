@@ -9,6 +9,11 @@ reggie:
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
 
+        # ===================================================================
+        # TODO: DELETE THIS AFTER PREREG LAUNCH
+        # ===================================================================
+        price_bumps_enabled: False
+
         # This is NOT our attendance cap; this is merely the number of paid attendee
         # and group registrations which we support.  In other words, we will only
         # cut off preregistration once that sum meets this number no matter how

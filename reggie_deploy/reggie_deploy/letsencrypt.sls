@@ -7,6 +7,10 @@
 {%- set certs_dir = salt['pillar.get']('ssl:certs_dir') %}
 
 /usr/local/bin/haproxy_bundle_letsencrypt_cert:
+{%- if not salt['pillar.get']('letsencrypt') %}
+  file.absent:
+    - name: /usr/local/bin/haproxy_bundle_letsencrypt_cert
+{% else %}
   file.managed:
     - name: /usr/local/bin/haproxy_bundle_letsencrypt_cert
     - template: jinja
@@ -48,9 +52,14 @@
       - file: /usr/local/bin/haproxy_bundle_letsencrypt_cert
     - watch:
       - certbot_{{ minion_id }}
+{% endif %}
 
 
 /etc/cron.d/haproxy_bundle_letsencrypt_cert:
+{%- if not salt['pillar.get']('letsencrypt') %}
+  file.absent:
+    - name: /etc/cron.d/haproxy_bundle_letsencrypt_cert
+{% else %}
   file.managed:
     - name: /etc/cron.d/haproxy_bundle_letsencrypt_cert
     - template: jinja
@@ -65,3 +74,4 @@
 
         # m h dom mon dow user  command
         0 3 * * *         root  /usr/local/bin/haproxy_bundle_letsencrypt_cert
+{% endif %}

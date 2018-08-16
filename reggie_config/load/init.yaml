@@ -1,4 +1,4 @@
-__: merge-first
+__: merge-last
 
 reggie:
   plugins:
@@ -20,10 +20,8 @@ reggie:
 
           attendee:
             __: overwrite
-            2019-01-03: 0
 
         table_prices:
-          __: overwrite
           default_price: 0
           1: 0
           2: 0

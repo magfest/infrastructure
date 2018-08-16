@@ -1,0 +1,16 @@
+{%- set public_ip = __grains__['ip4_interfaces']['eth0'][0] -%}
+{%- set private_ip = __grains__['ip4_interfaces'][__grains__.get('private_interface', 'eth1')][0] -%}
+
+ufw:
+  enabled: True
+
+  services:
+    http:
+      protocol: tcp
+      to_addr: {{ public_ip }}
+      comment: Public HTTP
+
+    '5557:5558':
+      protocol: tcp
+      to_addr: {{ public_ip }}
+      comment: Public Locust.io Swarm

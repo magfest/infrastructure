@@ -35,6 +35,14 @@ base:
 
   'G@roles:reggie':
     - filebeat
+    - reggie_deploy
+
+  'G@roles:reggie and G@roles:locust':
+    - reggie.devenv
+    - reggie_deploy.locust
+
+  'G@roles:reggie and G@roles:locustmaster':
+    - reggie_deploy.locustmaster
 
   'G@roles:reggie and G@roles:db':
     - reggie.devenv
@@ -51,6 +59,7 @@ base:
     - haproxy
     - letsencrypt
     - reggie_deploy.letsencrypt
+    - reggie_deploy.loadbalancer
 
   'G@roles:reggie and G@roles:web':
     - reggie.devenv

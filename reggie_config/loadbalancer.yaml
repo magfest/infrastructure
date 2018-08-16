@@ -102,7 +102,7 @@ haproxy:
         {{ server }}:
           host: {{ addr }}
           port: 443
-          extra: 'ssl verify none'
+          extra: 'check ssl verify none'
         {%- endfor %}
 
     reggie_http_backend:
@@ -112,4 +112,5 @@ haproxy:
         {{ server }}:
           host: {{ addr }}
           port: 80
+          extra: 'check'
         {%- endfor %}

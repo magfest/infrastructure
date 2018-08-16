@@ -6,6 +6,15 @@
     fun='private_ip',
     tgt_type='compound').values() -%}
 
+
+reggie:
+  plugins:
+    ubersystem:
+      config:
+        sqlalchemy_pool_size: 10
+        sqlalchemy_max_overflow: 15
+
+
 ufw:
   enabled: True
 
@@ -59,10 +68,10 @@ nginx:
     server:
       config:
         worker_processes: auto
-        worker_rlimit_nofile: 20000
+        worker_rlimit_nofile: 65536
 
         events:
-          worker_connections: 1024
+          worker_connections: 65536
 
         http:
           client_body_buffer_size: 128k

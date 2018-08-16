@@ -1,4 +1,4 @@
-{%- set name = data.get("name", data.get("data", {}).get("name", "*")) -%}
+{%- set name = data.get('name', data.get('data', {}).get('name', '*')) -%}
 
 salt_cloud_created_orchestrate:
   runner.state.orchestrate:

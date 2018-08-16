@@ -1,3 +1,4 @@
+show_jid: True
 state_verbose: True
 state_output: changes
 

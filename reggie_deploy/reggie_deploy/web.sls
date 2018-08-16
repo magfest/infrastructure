@@ -1,6 +1,14 @@
 {% set event_name = salt['pillar.get']('reggie:plugins:ubersystem:config:event_name', 'Event') %}
 
 # ============================================================================
+# Bump up the number of file descriptors our services are allowed to open
+# ============================================================================
+
+{%- from 'macros.jinja' import rlimit_nofile %}
+{{ rlimit_nofile(['reggie', 'www-data'], 1048576, 1048576, watch_in=['service: reggie-web', 'service: nginx']) }}
+
+
+# ============================================================================
 # Delete nginx cache if there are code updates
 # ============================================================================
 
@@ -11,6 +19,10 @@ nginx delete cache:
     - onchanges:
       - sls: reggie.install
 
+
+# ============================================================================
+# Enable/disable maintenance page
+# ============================================================================
 
 nginx maintenance page:
 {% if salt['pillar.get']('reggie:maintenance') %}

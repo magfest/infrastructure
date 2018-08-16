@@ -31,5 +31,3 @@ disable_transparent_hugepage.service:
     - name: disable_transparent_hugepage
     - require:
       - file: disable_transparent_hugepage.service
-    - watch_any:
-      - file: disable_transparent_hugepage.service
