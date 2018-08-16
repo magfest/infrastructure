@@ -4,7 +4,7 @@ reggie:
   sideboard:
     config:
       cherrypy:
-        profiling.on: True
+        profiling.on: False
         profiling.path: /srv/mnt/reggie/profiler
         profiling.aggregate: False
 

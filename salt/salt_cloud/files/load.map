@@ -2,7 +2,7 @@
   NOTE: Changes to this file must be applied with the following command
   before they take effect:
 
-    salt mcp state.sls salt_cloud
+    salt mcp state.sls salt_cloud.manager
 -#}
 
 load-locustmaster:
@@ -10,6 +10,14 @@ load-locustmaster:
 
 load-locust:
   - locust-01.magfest.org
+  - locust-02.magfest.org
+  - locust-03.magfest.org
+  - locust-04.magfest.org
+  - locust-05.magfest.org
+  - locust-06.magfest.org
+  - locust-07.magfest.org
+  - locust-08.magfest.org
+  - locust-09.magfest.org
 
 load-loadbalancer:
   - load-reggie.magfest.org
@@ -25,6 +33,16 @@ load-web:
   - load-web-08.reggie.magfest.org
   - load-web-09.reggie.magfest.org
   - load-web-10.reggie.magfest.org
+  - load-web-11.reggie.magfest.org
+  - load-web-12.reggie.magfest.org
+  - load-web-13.reggie.magfest.org
+  - load-web-14.reggie.magfest.org
+  - load-web-15.reggie.magfest.org
+  - load-web-16.reggie.magfest.org
+  - load-web-17.reggie.magfest.org
+  - load-web-18.reggie.magfest.org
+  - load-web-19.reggie.magfest.org
+  - load-web-20.reggie.magfest.org
 
 load-sessions:
   - load-sessions-01.reggie.magfest.org
