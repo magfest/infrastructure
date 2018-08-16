@@ -36,7 +36,7 @@ locustmaster.service:
           --master-bind-host='{{ public_ip }}' \
           --master-bind-port=5557 \
           --web-host='' \
-          --web-port=80 \
+          --web-port=8089 \
           --master
 
         [Install]

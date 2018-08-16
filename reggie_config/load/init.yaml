@@ -1,6 +1,13 @@
 __: merge-last
 
 reggie:
+  sideboard:
+    config:
+      cherrypy:
+        profiling.on: True
+        profiling.path: /srv/mnt/reggie/profiler
+        profiling.aggregate: False
+
   plugins:
     ubersystem:
       config:

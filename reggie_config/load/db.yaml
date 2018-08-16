@@ -1,0 +1,3 @@
+postgres:
+  postgresconf: |
+    log_min_duration_statement =  250

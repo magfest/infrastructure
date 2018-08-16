@@ -5,7 +5,7 @@ ufw:
   enabled: True
 
   services:
-    http:
+    8089:
       protocol: tcp
       to_addr: {{ public_ip }}
       comment: Public HTTP
