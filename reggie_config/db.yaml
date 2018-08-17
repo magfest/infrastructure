@@ -40,7 +40,7 @@ postgres:
   postgresconf: |
     listen_addresses = '127.0.0.1,{{ private_ip }}'
     max_connections = {{ total_connections + 20 }}
-    {{ (stack['postgres']['postgresconf'] or '')|indent(4) }}
+    {{ stack.get('postgres', {}).get('postgresconf', '')|indent(4) }}
 
   cluster:
     locale: en_US.UTF-8

@@ -1,14 +1,14 @@
-{%- macro rlimit_nofile(username, soft=1024, hard=1048576, watch_in=[]) -%}
+{%- macro ulimit(username, setting, soft=1024, hard=1048576, watch_in=[]) -%}
 {% set users = [username] if username is string else username %}
 {% set watch_in_items = [watch_in] if watch_in is string else watch_in %}
 
 {% for user in users %}
-set {{ user }} nofile in /etc/security/limits.d/{{ user }}.conf:
+set {{ user }} {{ setting }} in /etc/security/limits.d/{{ user }}.conf:
   file.managed:
     - name: /etc/security/limits.d/{{ user }}.conf
     - contents: |
-        {{ user }} soft nofile {{ soft }}
-        {{ user }} hard nofile {{ hard }}
+        {{ user }} soft {{ setting }} {{ soft }}
+        {{ user }} hard {{ setting }} {{ hard }}
     {%- if watch_in_items %}
     - watch_in:
       {%- for watch_in_item in watch_in_items %}
@@ -18,7 +18,7 @@ set {{ user }} nofile in /etc/security/limits.d/{{ user }}.conf:
 {% endfor %}
 
 {% for file in ['common-session', 'common-session-noninteractive'] %}
-session required pam_limits.so in /etc/pam.d/{{ file }}:
+session required pam_limits.so for {{ setting }} in /etc/pam.d/{{ file }}:
   file.replace:
     - name: /etc/pam.d/{{ file }}
     - pattern: ^[\s#]*session\s+required\s+pam_limits\.so.*$

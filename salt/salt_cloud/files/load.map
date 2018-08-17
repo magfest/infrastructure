@@ -43,6 +43,13 @@ load-web:
   - load-web-18.reggie.magfest.org
   - load-web-19.reggie.magfest.org
   - load-web-20.reggie.magfest.org
+  - load-web-21.reggie.magfest.org
+  - load-web-22.reggie.magfest.org
+  - load-web-23.reggie.magfest.org
+  - load-web-24.reggie.magfest.org
+  - load-web-25.reggie.magfest.org
+  - load-web-26.reggie.magfest.org
+  - load-web-27.reggie.magfest.org
 
 load-sessions:
   - load-sessions-01.reggie.magfest.org

@@ -21,8 +21,8 @@
 # Bump up the number of file descriptors our services are allowed to open
 # ============================================================================
 
-{%- from 'macros.jinja' import rlimit_nofile %}
-{{ rlimit_nofile('reggie', 1048576, 1048576, watch_in=['service: locust']) }}
+{%- from 'macros.jinja' import ulimit %}
+{{ ulimit('reggie', 'nofile', 1048576, 1048576, watch_in=['service: locust']) }}
 
 
 include:

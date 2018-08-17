@@ -1,4 +1,12 @@
 # ============================================================================
+# Bump up the number of file descriptors our services are allowed to open
+# ============================================================================
+
+{%- from 'macros.jinja' import ulimit %}
+{{ ulimit('postgres', 'nofile', 1048576, 1048576, watch_in=['service: postgresql']) }}
+
+
+# ============================================================================
 # Automated Reggie database backups
 # ============================================================================
 
@@ -18,6 +26,7 @@
 # Set up SSH keys so backup files can be shipped to the remote backup server
 # ============================================================================
 
+{% if salt['pillar.get']('reggie:db:backups:enabled') %}
 /root/.ssh/known_hosts {{ remote_backup_server }}:
   file.directory:
     - name: /root/.ssh
@@ -33,20 +42,28 @@
     - text: |
         Host {{ remote_backup_server }}
             IdentityFile /root/.ssh/reggie_db_backups_id_rsa
+{% endif %}
 
 
 /root/.ssh/reggie_db_backups_id_rsa:
+{% if salt['pillar.get']('reggie:db:backups:enabled') %}
   file.managed:
-    - name: /root/.ssh/reggie_db_backups_id_rsa
     - mode: 600
     - source: salt://reggie_deploy/ssh_keys/reggie_db_backups_id_rsa
-
+{% else %}
+  file.absent:
+{% endif %}
+    - name: /root/.ssh/reggie_db_backups_id_rsa
 
 /root/.ssh/reggie_db_backups_id_rsa.pub:
+{% if salt['pillar.get']('reggie:db:backups:enabled') %}
   file.managed:
-    - name: /root/.ssh/reggie_db_backups_id_rsa.pub
     - mode: 644
     - source: salt://reggie_deploy/ssh_keys/reggie_db_backups_id_rsa.pub
+{% else %}
+  file.absent:
+{% endif %}
+    - name: /root/.ssh/reggie_db_backups_id_rsa.pub
 
 
 # ============================================================================
@@ -54,12 +71,12 @@
 # ============================================================================
 
 /usr/local/bin/reggie_db_backup:
+{% if salt['pillar.get']('reggie:db:backups:enabled') %}
   cmd.run:
     - name: ssh {{ remote_backup_server }} mkdir -p '{{ remote_backup_dir }}'
     - unless: test -f /usr/local/bin/reggie_db_backup
 
   file.managed:
-    - name: /usr/local/bin/reggie_db_backup
     - template: jinja
     - mode: 755
     - contents: |
@@ -111,14 +128,18 @@
         run "scp -q '${BACKUP_PATH}' '{{ remote_backup_server }}:{{ remote_backup_dir }}/'"
 
         info 'Finished reggie db backup'
+{% else %}
+  file.absent:
+{% endif %}
+    - name: /usr/local/bin/reggie_db_backup
 
 
 /usr/local/bin/reggie_db_prune_backups:
+{% if salt['pillar.get']('reggie:db:backups:enabled') %}
   pkg.installed:
     - name: fdupes
 
   file.managed:
-    - name: /usr/local/bin/reggie_db_prune_backups
     - template: jinja
     - mode: 755
     - require:
@@ -153,6 +174,10 @@
         if [ $DISCARD_COUNT -gt 0 ]; then
           ls -Bt {{ backup_dir }}|grep \.sql\.gz$|tail -n $DISCARD_COUNT|tr '\n' '\0'|xargs -0 printf "%b\0"|xargs -0 rm --
         fi
+{% else %}
+  file.absent:
+{% endif %}
+    - name: /usr/local/bin/reggie_db_prune_backups
 
 
 # ============================================================================
@@ -172,7 +197,6 @@
 /etc/cron.d/reggie_db_backup:
 {% if salt['pillar.get']('reggie:db:backups:enabled') %}
   file.managed:
-    - name: /etc/cron.d/reggie_db_backup
     - template: jinja
     - mode: 644
     - require:
@@ -189,8 +213,8 @@
         {{ backup_schedule }}  root  /usr/local/bin/reggie_db_backup >>{{ log_path }} 2>&1 && /usr/local/bin/reggie_db_prune_backups
 {% else %}
   file.absent:
-    - name: /etc/cron.d/reggie_db_backup
 {% endif %}
+    - name: /etc/cron.d/reggie_db_backup
 
 
 # ============================================================================
@@ -200,7 +224,6 @@
 /etc/logrotate.d/reggie_db_backup:
 {% if salt['pillar.get']('reggie:db:backups:enabled') %}
   file.managed:
-    - name: /etc/logrotate.d/reggie_db_backup
     - contents: |
         {{ log_path }} {
             weekly
@@ -215,5 +238,5 @@
         }
 {% else %}
   file.absent:
-    - name: /etc/logrotate.d/reggie_db_backup
 {% endif %}
+    - name: /etc/logrotate.d/reggie_db_backup
