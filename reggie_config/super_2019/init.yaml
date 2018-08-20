@@ -73,10 +73,11 @@ reggie:
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2019-01-08 11
           band_panel_deadline: 2018-09-30
-          band_bio_deadline: 2018-08-31
-          band_info_deadline: 2018-08-31
+          band_bio_deadline: 2018-09-07
+          band_info_deadline: 2018-09-07
+          band_mc_deadline: 2018-09-30
           band_taxes_deadline: 2018-08-31
-          band_merch_deadline: 2018-09-30
+          band_merch_deadline: 2018-09-16
           band_charity_deadline: 2018-12-15
           band_badges_deadline: 2018-12-15
           band_stage_plot_deadline: 2018-10-01
@@ -101,7 +102,7 @@ reggie:
         badge_prices:
           one_days_enabled: False
           initial_attendee: 75
-          dealer_badge_price: 65
+          dealer_badge_price: 50
           group_discount: 10
           presell_one_days: False
 
