@@ -16,10 +16,6 @@ ufw:
     https:
       protocol: tcp
       comment: Public HTTPS
-    '*':
-      deny: True
-      protocol: any
-      from_addr: {{ pillar['ip_blacklist'] }}
 
 
 haproxy:
@@ -67,6 +63,7 @@ haproxy:
 
       httprequests:
         - 'set-header X-Real-IP %[src]'
+        - 'del-header Cookie if path_starts_with_static'
         {%- for path in [url_path.strip('/')] %}
         - 'redirect location https://%[hdr(host)]%[url,regsub(^/{{ path }}/?,/,i)] code 302 if path_is_{{ path }} OR path_starts_with_{{ path }}'
         {%- endfor %}
