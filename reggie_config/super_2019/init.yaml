@@ -34,6 +34,7 @@ reggie:
 
         dates:
           prereg_open: 2018-08-24
+          prereg_hotel_eligibility_cutoff: 2018-09-04
           shifts_created: 2018-11-02
           room_deadline: 2018-11-29
           shirt_deadline: 2018-12-01
