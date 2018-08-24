@@ -164,6 +164,8 @@
           exit 0
         fi
 
+        cd {{ backup_dir }}
+
         # Delete duplicates before deleting old backups, no reason to keep a bunch of identical files
         fdupes -dN {{ backup_dir }}
 

@@ -46,12 +46,29 @@
     - dir_mode: 700
     - makedirs: True
 
-{% for file in salt['cp.list_master'](prefix='salt_cloud/files') %}
-{% set filename = file.rsplit('/', 1)[-1] %}
-{% set target_dir = '/etc/salt/cloud.maps.d' if filename.endswith('.map') else '/etc/salt/cloud.profiles.d' %}
-{{ target_dir }}/{{ filename }}:
-  file.managed:
-    - source: salt://{{ file }}
-    - makedirs: True
+{% for target_dir in ['cloud.maps.d', 'cloud.profiles.d'] %}
+/etc/salt/{{ target_dir }}:
+  file.recurse:
+    - name: /etc/salt/{{ target_dir }}
+    - source: salt://salt_cloud/files/{{ target_dir }}
     - template: jinja
 {% endfor %}
+
+/etc/salt/roster:
+  file.managed:
+    - name: /etc/salt/roster
+    - template: jinja
+    - contents: |
+        {%- for host in [
+            'archive.uber.magfest.org',
+            'backups.uber.magfest.org',
+            'docker.uber.magfest.org',
+            'docs.magfest.net',
+            'jira.magfest.net',
+            'megamanathon.magfest.org',
+        ] %}
+        {{ host }}:
+          host: {{ host }}
+          user: root
+          priv: /root/.ssh/id_rsa
+        {% endfor %}

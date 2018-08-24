@@ -42,7 +42,7 @@ set +x  # Stop echoing commands to stdout
 echo ""
 echo "================================"
 echo ""
-echo "Done! Please update the files under /srv/data/secret/pillar with your" \
+echo "Done! Please update the files under /srv/data/secret/infrastructure/magfest_config with your" \
      "secret keys/passwords and run the following command:"
 echo ""
 echo "    salt mcp state.apply"

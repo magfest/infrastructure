@@ -28,4 +28,4 @@ filebeat:
     output:
       elasticsearch:
         hosts:
-          - 'docker.magfest.net:9200'
+          - 'logs.magfest.net:9200'

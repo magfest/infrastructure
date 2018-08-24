@@ -76,27 +76,41 @@ ufw:
   applications:
     OpenSSH:
       limit: True
+      to_addr: any
+      comment: Public SSH
+
     Saltmaster:
       enabled: True
       to_addr: {{ private_ip }}
+      comment: Private Saltmaster
 
   services:
     http:
       protocol: tcp
+      comment: Public HTTP
     https:
       protocol: tcp
-    88: # kerberos
+      comment: Public HTTPS
+    88:
       protocol: any
-    464: # kpasswd
+      comment: Kerberos
+    464:
       protocol: any
-    389: # ldap
+      comment: Kerberos kpasswd
+    389:
       protocol: tcp
-    636: # ldapssl
+      comment: LDAP
+    636:
       protocol: tcp
-    7389: # freeipa_replica
+      comment: LDAP SSL
+    7389:
       protocol: tcp
-    "9443:9445": # freeipa_replica_config
+      to_addr: {{ private_ip }}
+      comment: FreeIPA Replica
+    "9443:9445":
       protocol: tcp
+      to_addr: {{ private_ip }}
+      comment: FreeIPA Replica Config
 
     '*':
       deny: True

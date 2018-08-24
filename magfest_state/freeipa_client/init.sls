@@ -36,11 +36,13 @@ freeipa_client install:
         --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
         --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
         --principal={{ salt['pillar.get']('freeipa:client_principal') }}
-        --password={{ salt['pillar.get']('freeipa:client_password') }}
+        --password=$IPA_CLIENT_INSTALL_PASSWORD
         --mkhomedir
         --no-ntp
         --force-join
         --unattended
+    - env:
+        - IPA_CLIENT_INSTALL_PASSWORD: {{ salt['pillar.get']('freeipa:client_password') }}
     - output_loglevel: quiet
     - creates: /etc/ipa/default.conf
     - require:

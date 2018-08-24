@@ -6,20 +6,6 @@
 {%- set glusterfs_servers_count = glusterfs_servers|length -%}
 
 ufw:
-  enabled: True
-
-  settings:
-    ipv6: False
-
-  sysctl:
-    ipv6_autoconf: 0
-
-  applications:
-    OpenSSH:
-      limit: True
-      to_addr: {{ private_ip }}
-      comment: Private network SSH
-
   services:
     24007:
       to_addr: {{ private_ip }}

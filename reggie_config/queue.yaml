@@ -1,20 +1,6 @@
 {%- from 'init.yaml' import private_ip -%}
 
 ufw:
-  enabled: True
-
-  settings:
-    ipv6: False
-
-  sysctl:
-    ipv6_autoconf: 0
-
-  applications:
-    OpenSSH:
-      limit: True
-      to_addr: {{ private_ip }}
-      comment: Private network SSH
-
   services:
     5672:
       protocol: tcp

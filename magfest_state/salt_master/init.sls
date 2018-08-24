@@ -55,10 +55,10 @@ python-git install:
 
 # Copy secret_infrastructure salt files
 # NOTE: These ARE NOT treated as Jinja templates
-{{ secret_infrastructure }}/salt/ files:
+{{ secret_infrastructure }}/magfest_state/ files:
   file.recurse:
-    - name: {{ secret_infrastructure }}/salt/
-    - source: salt://salt_master/files/secret_infrastructure/salt
+    - name: {{ secret_infrastructure }}/magfest_state/
+    - source: salt://salt_master/files/secret_infrastructure/magfest_state
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
@@ -67,10 +67,10 @@ python-git install:
 
 # Copy secret_infrastructure pillar files
 # NOTE: These ARE treated as Jinja templates
-{{ secret_infrastructure }}/pillar/ files:
+{{ secret_infrastructure }}/magfest_config/ files:
   file.recurse:
-    - name: {{ secret_infrastructure }}/pillar/
-    - source: salt://salt_master/files/secret_infrastructure/pillar
+    - name: {{ secret_infrastructure }}/magfest_config/
+    - source: salt://salt_master/files/secret_infrastructure/magfest_config
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
@@ -174,9 +174,9 @@ salt-master rsyslog conf:
     - contents: |
         reactor:
           - 'salt/cloud/*/created':
-            - '/srv/infrastructure/salt/reactor/salt_cloud_created.sls'
+            - '/srv/infrastructure/magfest_state/reactor/salt_cloud_created.sls'
           - 'salt/cloud/*/destroying':
-            - '/srv/infrastructure/salt/reactor/salt_cloud_destroying.sls'
+            - '/srv/infrastructure/magfest_state/reactor/salt_cloud_destroying.sls'
 
 
 # ============================================================================

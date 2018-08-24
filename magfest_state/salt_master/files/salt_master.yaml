@@ -7,11 +7,15 @@ log_file: file:///dev/log
 use_superseded:
   - module.run
 
+roster_defaults:
+  user: root
+  priv: /root/.ssh/id_rsa
+
 file_roots:
   base:
-    - /srv/infrastructure/salt/
-    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/salt/
-    - /srv/infrastructure/reggie_deploy/
+    - /srv/infrastructure/magfest_state/
+    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/magfest_state/
+    - /srv/infrastructure/reggie_state/
 
 fileserver_backend:
   - roots
@@ -19,8 +23,8 @@ fileserver_backend:
 
 pillar_roots:
   base:
-    - /srv/infrastructure/pillar
-    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/pillar
+    - /srv/infrastructure/magfest_config
+    - {{ salt['pillar.get']('data:path') }}/secret/infrastructure/magfest_config
 
 ext_pillar:
   - stack:

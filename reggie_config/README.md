@@ -3,9 +3,9 @@
 Please see the [pillar stack documentation](https://docs.saltstack.com/en/latest/ref/pillar/all/salt.pillar.stack.html)
 for full details on how pillar stack works. The primary motivation for using
 pillar stack is so each file has full access to all previously loaded pillar
-stack data. Regular SaltStack pillar files can't access any other pillar data,
-which can make it difficult to share settings like database passwords across
-files.
+stack data. Regular SaltStack pillar files can't easily access other pillar
+data, which can make it difficult to share settings like database passwords
+across files.
 
 Files are loaded in the following order, with earlier files taking precedence:
 

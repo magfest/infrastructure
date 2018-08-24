@@ -16,5 +16,14 @@ base:
     - slack_irc_secret
     - ignore_missing: True
 
+  'archive.uber.magfest.org':
+    - archive_uber_magfest_org
+
+  'backups.uber.magfest.org':
+    - backups_uber_magfest_org
+
+  'docker.uber.magfest.org':
+    - docker_uber_magfest_org
+
   'G@is_vagrant:True':
     - vagrant

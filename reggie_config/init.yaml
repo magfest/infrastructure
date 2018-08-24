@@ -124,3 +124,25 @@ ssh:
 ssl:
   dir: /etc/ssl
   certs_dir: /etc/ssl/certs
+
+
+ufw:
+  enabled: True
+
+  settings:
+    ipv6: False
+
+  sysctl:
+    ipv6_autoconf: 0
+
+  applications:
+    OpenSSH:
+      limit: True
+      to_addr: {{ private_ip }}
+      comment: Private network SSH
+
+  services:
+    '*':
+      deny: True
+      protocol: any
+      from_addr: {{ pillar['ip_blacklist'] }}

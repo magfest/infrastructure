@@ -14,20 +14,7 @@
 {%- set total_connections = total_pool_size + total_overflow %}
 
 ufw:
-  enabled: True
-
-  settings:
-    ipv6: False
-
-  sysctl:
-    ipv6_autoconf: 0
-
   applications:
-    OpenSSH:
-      limit: True
-      to_addr: {{ private_ip }}
-      comment: Private network SSH
-
     Postgresql:
       to_addr: {{ private_ip }}
       comment: Private network PostgreSQL
