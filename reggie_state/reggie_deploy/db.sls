@@ -94,7 +94,7 @@
             ERROR=$?
             if [ $ERROR -ne 0 ]; then
                 error "${@}
-            Unexpected Error $ERROR:
+            Unexpected error $ERROR:
             $RESULT"
                 info 'Reggie db backup failed'
                 exit $ERROR
