@@ -11,7 +11,7 @@ bootstrap salt-minion:
     - name: >
         curl -L https://bootstrap.saltstack.com |
         sh -s -- -i '{{ salt["grains.get"]("id") }}' -P git 'v{{ salt["test.version"]() }}'
-    - onlyif: systemctl status salt-minion | grep -q 'No such file'
+    - unless: test -f /usr/bin/salt-minion
     - require:
       - service: rsyslog
     - require_in:
