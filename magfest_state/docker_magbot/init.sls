@@ -108,6 +108,7 @@ docker_magbot:
       - file: {{ salt['pillar.get']('data:path') }}/magbot/config.py
       - git: https://github.com/magfest/magbot.git
       - git: https://github.com/shengis/err-profiles.git
+      - git: https://github.com/sijis/err-storage-redis.git
 
 # docker_magbot configure webserver:
 #   cmd.run:
