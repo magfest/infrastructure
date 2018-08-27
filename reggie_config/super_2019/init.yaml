@@ -34,7 +34,7 @@ reggie:
         mivs_start_year: 2013
 
         dates:
-          prereg_open: 2018-09-29
+          prereg_open: 2018-08-28 12
           prereg_hotel_eligibility_cutoff: 2018-09-03
           shifts_created: 2018-11-02
           room_deadline: 2018-11-29
