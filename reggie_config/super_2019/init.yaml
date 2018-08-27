@@ -150,19 +150,19 @@ reggie:
             name: T-Shirt Bundle
             icon: ../static/icons/iconshirt.png
             description: Ribbon|T-Shirt|Event Pin
-            link: ../static_views/ribbon.html|../static_views/tshirt.html|../static_views/event_pin.html
+            link: ../static_views/ribbon.html|../static_views/tshirt.html|../static_views/tshirt.html
 
           supporter:
             name: Supporter
             icon: ../static/icons/supporter.png
             description: Super Swag Bag|Swadge
-            link: ../static_views/super_swag_bag.html|../static_views/swadge.html
+            link: ../static_views/supporter.html|../static_views/swadge.html
 
           barrel_roller:
             name: Barrel Roller
             icon: ../static/icons/barrel_roller.png
-            description: Sun Cats Figure Set|Invitation
-            link: ../static_views/sun_cats.html|../static_views/invitation.html
+            description: Sun Cats Figure Set|Secret Invitation
+            link: ../static_views/barrel_roller.html|../static_views/secret.html
             merch_items: ['Sun Cats']
 
         dept_head_checklist:
