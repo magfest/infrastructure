@@ -102,7 +102,7 @@ nginx:
               - 'location = /reggie/robots.txt':
                 - rewrite: ^(.*)$ /reggie/static_views/robots.txt last
 
-              {%- for location in ['/preregistration/form'] %}
+              {%- for location in ['/preregistration', '/preregistration/', '/preregistration/form'] %}
               - 'location = {{ url_path }}{{ location }}':
                 - proxy_hide_header: Cache-Control
                 {{ nginx_proxy_config(cache='/etc/nginx/reggie_short_term_cache.conf')|indent(16) }}

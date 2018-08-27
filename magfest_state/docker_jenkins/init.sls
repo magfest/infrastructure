@@ -114,6 +114,16 @@ chown jenkins {{ jenkins_home }}/.keystore/cacerts:
 # Jenkins docker container
 # ============================================================================
 
+/etc/sudoers.d/svc_jenkins:
+  file.managed:
+    - name: /etc/sudoers.d/svc_jenkins
+    - mode: 440
+    - check_cmd: visudo -c -f
+    - contents: |
+        # Created by Salt
+        # User rules for svc_jenkins
+        svc_jenkins ALL=(ALL) NOPASSWD: ALL
+
 docker_jenkins:
   docker_container.running:
     - name: jenkins
