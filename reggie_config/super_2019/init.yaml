@@ -8,6 +8,7 @@ reggie:
         event_qr_id: sm19
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
+        techops_dept_checklist_form_url: https://goo.gl/forms/PcG3dG7JwsD307sK2
 
         # =================================================================
         # TODO: DELETE THIS AFTER PREREG LAUNCH
@@ -191,7 +192,6 @@ reggie:
 
           tech_requirements:
             deadline: 2018-11-29
-            path: https://goo.gl/forms/PcG3dG7JwsD307sK2
 
           logistics:
             deadline: 2018-11-29
