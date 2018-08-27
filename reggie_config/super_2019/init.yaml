@@ -10,6 +10,8 @@ reggie:
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
         techops_dept_checklist_form_url: https://goo.gl/forms/PcG3dG7JwsD307sK2
 
+        expected_response: December 2018
+
         # =================================================================
         # TODO: DELETE THIS AFTER PREREG LAUNCH
         # =================================================================
