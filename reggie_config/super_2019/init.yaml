@@ -161,7 +161,7 @@ reggie:
           barrel_roller:
             name: Barrel Roller
             icon: ../static/icons/barrel_roller.png
-            description: All 4 Sun Cats Figures|Invitation
+            description: Sun Cats Figure Set|Invitation
             link: ../static_views/sun_cats.html|../static_views/invitation.html
             merch_items: ['Sun Cats']
 
