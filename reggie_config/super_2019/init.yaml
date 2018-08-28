@@ -49,6 +49,8 @@ reggie:
           prereg_takedown: 2019-01-04
           group_prereg_takedown: 2019-01-04
           badge_price_waived: 2019-01-06 12
+          refund_start: 2018-09-05
+          refund_cutoff: 2018-09-30
 
           printed_badge_deadline: 2018-11-10
 
