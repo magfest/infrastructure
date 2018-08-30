@@ -3,4 +3,4 @@
 # ============================================================================
 
 {%- from 'macros.jinja' import ulimit %}
-{{ ulimit('haproxy', 'nofile', 1048576, 1048576, watch_in=['service: haproxy']) }}
+{{ ulimit('reggie_deploy.loadbalancer', 'haproxy', 'nofile', 1048576, 1048576, watch_in=['service: haproxy']) }}

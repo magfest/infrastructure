@@ -22,7 +22,7 @@
 # ============================================================================
 
 {%- from 'macros.jinja' import ulimit %}
-{{ ulimit('reggie', 'nofile', 1048576, 1048576, watch_in=['service: locust']) }}
+{{ ulimit('reggie_deploy.locust', 'reggie', 'nofile', 1048576, 1048576, watch_in=['service: locust']) }}
 
 
 include:

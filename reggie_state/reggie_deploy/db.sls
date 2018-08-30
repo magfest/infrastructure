@@ -3,7 +3,7 @@
 # ============================================================================
 
 {%- from 'macros.jinja' import ulimit %}
-{{ ulimit('postgres', 'nofile', 1048576, 1048576, watch_in=['service: postgresql']) }}
+{{ ulimit('reggie_deploy.db', 'postgres', 'nofile', 1048576, 1048576, watch_in=['service: postgresql']) }}
 
 
 # ============================================================================
@@ -93,7 +93,7 @@
             RESULT=$( { eval "${@}"; } 2>&1 )
             ERROR=$?
             if [ $ERROR -ne 0 ]; then
-                error "${@}
+                error "${@}"
             Unexpected error $ERROR:
             $RESULT"
                 info 'Reggie db backup failed'

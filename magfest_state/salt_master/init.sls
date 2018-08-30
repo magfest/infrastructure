@@ -155,20 +155,21 @@ file.blockreplace /root/.bash_aliases:
     - user: syslog
     - group: adm
 
-salt-master rsyslog conf:
+{% for service in ['master', 'api'] %}
+salt-{{ service }} rsyslog conf:
   file.managed:
-    - name: /etc/rsyslog.d/salt-master.conf
+    - name: /etc/rsyslog.d/salt-{{ service }}.conf
     - contents: |
-        if $programname == 'salt-master' then /var/log/salt/master.log
-        if $programname == 'salt-master' then ~
+        if $programname == 'salt-{{ service }}' then /var/log/salt/{{ service }}.log
+        if $programname == 'salt-{{ service }}' then ~
     - listen_in:
       - service: rsyslog
 
-/etc/logrotate.d/salt-master:
+/etc/logrotate.d/salt-{{ service }}:
   file.managed:
-    - name: /etc/logrotate.d/salt-master
+    - name: /etc/logrotate.d/salt-{{ service }}
     - contents: |
-        /var/log/salt/master.log {
+        /var/log/salt/{{ service }}.log {
             daily
             missingok
             rotate 52
@@ -181,6 +182,7 @@ salt-master rsyslog conf:
                 invoke-rc.d rsyslog rotate > /dev/null
             endscript
         }
+{% endfor %}
 
 
 # ============================================================================
@@ -204,8 +206,9 @@ salt-master rsyslog conf:
 # Salt master configuration
 # ============================================================================
 
-/etc/salt/master:
+salt-master service:
   file.managed:
+    - name: /etc/salt/master
     - source: salt://salt_master/files/salt_master.yaml
     - mode: 644
     - makedirs: True
@@ -219,3 +222,53 @@ salt-master rsyslog conf:
       - file: /etc/salt/master
     - require_in:
       - sls: salt_minion
+
+
+# ============================================================================
+# Salt master API configuration
+# ============================================================================
+
+/etc/ssl/certs/salt-master.pem:
+  pkg.installed:
+    - name: python-pip
+    - reload_modules: True
+
+  pip.installed:
+    - name: pyopenssl
+    - reload_modules: True
+
+  module.run:
+    - tls.create_self_signed_cert:
+      - tls_dir: '.'
+      - CN: salt-master
+      - C: US
+      - ST: Maryland
+      - L: Baltimore
+      - cacert_path: /etc/ssl
+    - unless: test -f /etc/ssl/certs/salt-master.crt
+
+  cmd.run:
+    - name: cat /etc/ssl/certs/salt-master.crt /etc/ssl/certs/salt-master.key > /etc/ssl/certs/salt-master.pem
+    - unless: >
+        cat /etc/ssl/certs/salt-master.crt /etc/ssl/certs/salt-master.key |
+        diff --report-identical-files /etc/ssl/certs/salt-master.pem - > /dev/null
+
+pip install cherrypy:
+  pip.installed:
+    - name: cherrypy
+    - reload_modules: True
+
+pip install python-ldap:
+  pip.installed:
+    - name: python-ldap
+    - reload_modules: True
+
+salt-api service:
+  service.running:
+    - name: salt-api
+    - enable: True
+    - order: last
+    - watch:
+      - file: /etc/salt/master
+    - require:
+      - service: salt-master

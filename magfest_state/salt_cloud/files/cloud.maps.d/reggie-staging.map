@@ -8,14 +8,6 @@
 staging-loadbalancer:
   - staging-reggie.magfest.org
 
-staging-web:
-{%- for i in range(1, 2) %}
-  - staging-web-{{ '{:02d}'.format(i) }}.reggie.magfest.org
-{%- endfor %}
-
-staging-sessions:
-  - staging-sessions-01.reggie.magfest.org
-
 staging-db:
   - staging-db-01.reggie.magfest.org
 

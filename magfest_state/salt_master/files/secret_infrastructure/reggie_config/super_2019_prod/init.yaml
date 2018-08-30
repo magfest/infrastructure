@@ -4,6 +4,9 @@ reggie:
   db:
     password: '{{ salt["random.get_str"](14) }}'
 
+  loadbalancer:
+    password: '{{ salt["random.get_str"](14) }}'
+
   queue:
     password: '{{ salt["random.get_str"](14) }}'
 

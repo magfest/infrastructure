@@ -111,6 +111,10 @@ ufw:
       protocol: tcp
       to_addr: {{ private_ip }}
       comment: FreeIPA Replica Config
+    8000:
+      protocol: tcp
+      to_addr: {{ private_ip }}
+      comment: Private Saltmaster API
 
     '*':
       deny: True

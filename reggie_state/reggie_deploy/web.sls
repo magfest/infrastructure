@@ -5,7 +5,7 @@
 # ============================================================================
 
 {%- from 'macros.jinja' import ulimit %}
-{{ ulimit(['reggie', 'www-data'], 'nofile', 1048576, 1048576, watch_in=['service: reggie-web', 'service: nginx']) }}
+{{ ulimit('reggie_deploy.web', ['reggie', 'www-data'], 'nofile', 1048576, 1048576, watch_in=['service: reggie-web', 'service: nginx']) }}
 
 
 # ============================================================================

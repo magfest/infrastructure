@@ -59,7 +59,7 @@
 # ============================================================================
 
 {% if salt['pillar.get']('minion') %}
-/etc/salt/minion:
+salt-minion service:
   file.append:
     - name: /etc/salt/minion
     - template: jinja

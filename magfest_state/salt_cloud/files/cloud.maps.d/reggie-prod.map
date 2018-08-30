@@ -9,7 +9,7 @@ prod-loadbalancer:
   - reggie.magfest.org
 
 prod-web:
-{%- for i in range(1, 41) %}
+{%- for i in range(1, 11) %}
   - prod-web-{{ '{:02d}'.format(i) }}.reggie.magfest.org
 {%- endfor %}
 

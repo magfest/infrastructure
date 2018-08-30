@@ -2,6 +2,7 @@
 {%- set port = stack['reggie'].get('port', 443) -%}
 {%- set nonssl_port = stack['reggie'].get('nonssl_port', 80) -%}
 {%- set url_path = stack['reggie'].get('cherrypy_mount_path', '/reggie') -%}
+{%- set loadbalancer_password = stack['reggie'].get('loadbalancer', {}).get('password') -%}
 {%- set backends = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:web and G@env:' ~ env,
     fun='private_ip',
@@ -16,16 +17,41 @@ ufw:
     https:
       protocol: tcp
       comment: Public HTTPS
+    9000:
+      protocol: tcp
+      comment: Public HAProxy Stats
 
 
 haproxy:
   enabled: True
   overwrite: True
 
+  lookup:
+    config_show_changes: {{ False if loadbalancer_password else True}}
+
   global:
     tune.ssl.default-dh-param: 2048
+    stats:
+      enable: True
+      socketpath: /var/run/haproxy/admin.sock
+      mode: 660
+      level: admin
+      extra: user root group haproxy
 
   listens:
+{%- if loadbalancer_password %}
+    haproxy_stats:
+      mode: http
+      bind: "0.0.0.0:9000 ssl crt {{ stack['ssl']['certs_dir'] }}/{{ minion_id }}.pem"
+      stats:
+        enable: True
+        hide-version: True
+        uri: '/haproxy_stats'
+        realm: 'HAProxy\ Statistics'
+        refresh: '20s'
+        auth: 'admin:{{ loadbalancer_password }}'
+{%- endif %}
+
     reggie_http_to_https_redirect:
       mode: http
       bind: '0.0.0.0:{{ nonssl_port }}'

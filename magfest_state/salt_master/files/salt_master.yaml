@@ -11,6 +11,40 @@ roster_defaults:
   user: root
   priv: /root/.ssh/id_rsa
 
+rest_tornado:
+  port: 8000
+  host: {{ salt['network.interface_ip'](salt['grains.get']('private_interface', 'eth1')) }}
+  ssl_crt: /etc/ssl/certs/salt-master.crt
+  ssl_key: /etc/ssl/certs/salt-master.key
+
+
+external_auth:
+  ldap:
+    admins%:
+      - '*':
+        - '.*'
+    salt-users%:
+      - '*':
+        - '.*'
+
+auth.ldap.server: ipa-01.magfest.net
+auth.ldap.port: 636
+auth.ldap.tls: True
+auth.ldap.no_verify: True
+auth.ldap.scope: 2
+auth.ldap.anonymous: False
+auth.ldap.accountattributename: member
+auth.ldap.basedn: dc=magfest,dc=org
+auth.ldap.binddn: uid={{ '{{' }} username {{ '}}' }},cn=users,cn=accounts,dc=magfest,dc=org
+auth.ldap.filter: uid={{ '{{' }} username {{ '}}' }}
+auth.ldap.freeipa: True
+auth.ldap.group_basedn: cn=groups,cn=accounts,dc=magfest,dc=org
+auth.ldap.group_filter: member=uid={{ '{{' }} username {{ '}}' }},cn=users,cn=accounts,dc=magfest,dc=org
+auth.ldap.groupattribute: member
+auth.ldap.groupclass: posixGroup
+auth.ldap.groupou: ''
+
+
 file_roots:
   base:
     - /srv/infrastructure/magfest_state/

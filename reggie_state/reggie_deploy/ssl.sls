@@ -5,7 +5,7 @@
 {%- set certs_dir = salt['pillar.get']('ssl:certs_dir') -%}
 {%- set minion_id = salt['grains.get']('id') %}
 
-pip install pyopenssl:
+{{ certs_dir }}/{{ minion_id }}.pem:
   pkg.installed:
     - name: python-pip
     - reload_modules: True
@@ -14,7 +14,6 @@ pip install pyopenssl:
     - name: pyopenssl
     - reload_modules: True
 
-create self signed cert:
   module.run:
     - tls.create_self_signed_cert:
       - tls_dir: '.'
@@ -25,10 +24,8 @@ create self signed cert:
       - cacert_path: {{ salt['pillar.get']('ssl:dir') }}
     - unless: test -f {{ certs_dir }}/{{ minion_id }}.crt
 
-bundle self signed cert:
   cmd.run:
     - name: cat {{ certs_dir }}/{{ minion_id }}.crt {{ certs_dir }}/{{ minion_id }}.key > {{ certs_dir }}/{{ minion_id }}.pem
-    - unless: |
-        cat {{ certs_dir }}/{{ minion_id }}.crt \
-            {{ certs_dir }}/{{ minion_id }}.key | \
-            diff --report-identical-files {{ certs_dir }}/{{ minion_id }}.pem - > /dev/null
+    - unless: >
+        cat {{ certs_dir }}/{{ minion_id }}.crt {{ certs_dir }}/{{ minion_id }}.key |
+        diff --report-identical-files {{ certs_dir }}/{{ minion_id }}.pem - > /dev/null
