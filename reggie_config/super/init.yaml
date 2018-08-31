@@ -25,6 +25,8 @@ reggie:
 
         shiftless_depts: ['dorsai', 'marketplace', 'simulations', 'merch_contractor', 'con_ops', 'arcade_crew']
 
+        discountable_badge_types: ['attendee_badge', 'child_badge']
+
         accessibility_services_enabled: True
         require_dedicated_guest_table_presence: True
         rock_island_groups: ['band', 'guest']
