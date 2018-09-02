@@ -1,3 +1,5 @@
+{%- import_yaml 'defaults.sls' as defaults -%}
+
 ufw:
   services:
     http:
@@ -7,3 +9,8 @@ ufw:
     https:
       protocol: tcp
       comment: Public HTTPS
+
+    '*':
+      deny: True
+      protocol: any
+      from_addr: {{ defaults.ip_blacklist }}

@@ -10,8 +10,7 @@
     ~ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper ~ '/dse.ldif') -%}
 
 include:
-  - docker_network_external
-  - docker_network_internal
+  - docker.network
 
 # rng-tools help generate entropy for the freeipa server install.
 rng-tools install:

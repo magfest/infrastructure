@@ -20,6 +20,10 @@ ufw:
     9000:
       protocol: tcp
       comment: Public HAProxy Stats
+    '*':
+      deny: True
+      protocol: any
+      from_addr: {{ pillar['ip_blacklist'] }}
 
 
 haproxy:

@@ -1,3 +1,5 @@
+{%- import_yaml 'defaults.sls' as defaults -%}
+
 ufw:
   sysctl:
     forwarding: 1
@@ -21,3 +23,8 @@ ufw:
         - 67.205.144.195  # super2018.uber.magfest.org
         - 67.205.153.181  # archive.uber.magfest.org
         - 67.205.168.250  # labs2.uber.magfest.org
+
+    '*':
+      deny: True
+      protocol: any
+      from_addr: {{ defaults.ip_blacklist }}

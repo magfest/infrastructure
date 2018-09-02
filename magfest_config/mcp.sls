@@ -39,14 +39,17 @@ magbot:
   core_plugins:
     - 'ACLs'
     - 'Backup'
-    # - 'CommandNotFoundFilter'  # Displays 'Command "COMMAND" not found.'
     - 'Health'
     - 'Help'
     - 'Plugins'
     - 'TextCmds'
     - 'Utils'
     - 'VersionChecker'
-    # - 'Webserver'  # Disabled for now
+  port: 9999
+  jira_url: https://jira.magfest.net
+  jira_ignoreusers: jira
+  salt_host: {{ salt['network.interface_ip'](salt['grains.get']('public_interface', 'eth0')) }}
+  salt_api_url: https://salt.{{ defaults.master.domain }}
 
 
 traefik:
@@ -55,7 +58,7 @@ traefik:
   cert_names: ['ipa-01.{{ defaults.master.domain }}']
   domain: '{{ defaults.master.domain }}'
   ui_domain: 'traefik.{{ defaults.master.domain }}'
-  subdomains: ['directory', 'errbot', 'magbot', 'mcp', 'jenkins', 'traefik']
+  subdomains: ['directory', 'errbot', 'jenkins', 'magbot', 'mcp', 'salt', 'traefik']
 
 
 ssh:
@@ -114,7 +117,7 @@ ufw:
     8000:
       protocol: tcp
       to_addr: {{ private_ip }}
-      comment: Private Saltmaster API
+      comment: Private Salt API
 
     '*':
       deny: True

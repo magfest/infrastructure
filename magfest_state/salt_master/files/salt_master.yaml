@@ -11,21 +11,34 @@ roster_defaults:
   user: root
   priv: /root/.ssh/id_rsa
 
-rest_tornado:
+rest_cherrypy:
   port: 8000
   host: {{ salt['network.interface_ip'](salt['grains.get']('private_interface', 'eth1')) }}
   ssl_crt: /etc/ssl/certs/salt-master.crt
   ssl_key: /etc/ssl/certs/salt-master.key
-
+  static: /srv/molten
+  static_path: /assets
+  app: /srv/molten/index.html
+  app_path: /molten
 
 external_auth:
   ldap:
+    {{ salt["pillar.get"]("magbot:salt_username") }}:
+      - '@runner':
+        - 'jobs\.lookup_jid'
+      - 'network\..*'
+      - 'state\..*'
+      - 'test\..*'
     admins%:
-      - '*':
-        - '.*'
+      - '.*'
+      - '@runner'
+      - '@wheel'
+      - '@jobs'
     salt-users%:
-      - '*':
-        - '.*'
+      - '.*'
+      - '@runner'
+      - '@wheel'
+      - '@jobs'
 
 auth.ldap.server: ipa-01.magfest.net
 auth.ldap.port: 636
@@ -43,7 +56,6 @@ auth.ldap.group_filter: member=uid={{ '{{' }} username {{ '}}' }},cn=users,cn=ac
 auth.ldap.groupattribute: member
 auth.ldap.groupclass: posixGroup
 auth.ldap.groupou: ''
-
 
 file_roots:
   base:

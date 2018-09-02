@@ -2,6 +2,7 @@
 {%- set ca_server = salt['pillar.get']('traefik:caServer') -%}
 
 logLevel = "INFO"
+InsecureSkipVerify = true
 defaultEntryPoints = ["http", "https"]
 
 
@@ -32,6 +33,22 @@ defaultEntryPoints = ["http", "https"]
   domain = "{{ salt['pillar.get']('traefik:domain') }}"
   watch = true
   exposedbydefault = false
+
+
+[file]
+
+[backends]
+  [backends.salt]
+    [backends.salt.servers]
+      [backends.salt.servers.server0]
+        url = "https://{{ salt['network.interface_ip'](salt['grains.get']('private_interface', 'eth1')) }}:8000"
+
+[frontends]
+  [frontends.salt]
+    backend = "salt"
+    entrypoints = ["http", "https"]
+    [frontends.salt.routes.salt]
+      rule = "Host:salt.{{ salt['pillar.get']('traefik:domain') }}"
 
 
 {% if salt['pillar.get']('traefik:letsencrypt_enabled') -%}

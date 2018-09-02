@@ -18,13 +18,7 @@ Create a new droplet on [https://digitalocean.com](https://digitalocean.com)
   * Select "Private Networking" and "Monitoring"
   * Add the following SSH Keys: "Saltmaster", "Rob Ruana", and "DomMCP"
 
-### Step 2 – Update DNS
-
-By default the salt-minions will attempt to connect to `saltmaster.magfest.net`,
-so the DNS entry for `saltmaster.magfest.net` should be updated to point to the
-new droplet's **Private IP**.
-
-### Step 3 – Mount Block Storage
+### Step 2 – Mount Block Storage
 
 Follow Digital Ocean's instructions for configuring and mounting your block storage volume on `/srv/data`.
   * If you're adding a _new_ volume, you'll need to format the volume:
@@ -40,7 +34,7 @@ Follow Digital Ocean's instructions for configuring and mounting your block stor
     echo /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/data ext4 defaults,nofail,discard 0 0 | tee -a /etc/fstab
     ```
 
-### Step 4 – Run Bootstrap Script
+### Step 3 – Run Bootstrap Script
 
 As root/sudo run the following command and follow the instructions it prints when finished:
 ```

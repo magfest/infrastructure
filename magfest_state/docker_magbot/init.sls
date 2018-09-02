@@ -1,12 +1,12 @@
 include:
-  - docker_network_internal
+  - docker.network
 
 
 # ============================================================================
 # Configure magbot files and plugins
 # ============================================================================
 
-{%- set errbot_dirs = ['ssl', 'data', 'plugins', 'storage_plugins'] %}
+{%- set errbot_dirs = ['ssl', 'ssh', 'data', 'plugins', 'storage_plugins'] %}
 
 {% for subdir in errbot_dirs %}
 {{ salt['pillar.get']('data:path') }}/magbot/{{ subdir }}/:
@@ -78,6 +78,36 @@ docker_magbot err-storage-redis git latest:
 
 
 # ============================================================================
+# Configure credentials and permissions needed by magbot
+# ============================================================================
+
+/etc/sudoers.d/{{ salt['pillar.get']('magbot:salt_username') }}:
+  file.managed:
+    - name: /etc/sudoers.d/{{ salt['pillar.get']('magbot:salt_username') }}
+    - mode: 440
+    - check_cmd: visudo -c -f
+    - contents: |
+        # Created by Salt
+        # User rules for {{ salt['pillar.get']('magbot:salt_username') }}
+        {{ salt['pillar.get']('magbot:salt_username') }} ALL=(ALL) /usr/bin/git, /usr/bin/salt, /usr/bin/salt-cloud, /usr/bin/salt-run
+
+{{ salt['pillar.get']('data:path') }}/magbot/ssh/ public keys:
+  file.recurse:
+    - name: {{ salt['pillar.get']('data:path') }}/magbot/ssh/
+    - makedirs: True
+    - include_pat: '*.pub'
+    - file_mode: 644
+    - source: salt://magbot/ssh_keys
+
+{{ salt['pillar.get']('data:path') }}/magbot/ssh/ private keys:
+  file.recurse:
+    - name: {{ salt['pillar.get']('data:path') }}/magbot/ssh/
+    - exclude_pat: 'E@\.*\.pub|README\.md'
+    - file_mode: 600
+    - source: salt://magbot/ssh_keys
+
+
+# ============================================================================
 # magbot docker container
 # ============================================================================
 
@@ -87,19 +117,10 @@ docker_magbot:
     - image: magfest/docker-errbot:latest
     - auto_remove: True
     - binds:
-      {% for subdir in errbot_dirs %}
-      - {{ salt['pillar.get']('data:path') }}/magbot/{{subdir}}:/srv/{{subdir}}
-      {% endfor %}
-      - {{ salt['pillar.get']('data:path') }}/magbot/config.py:/app/config.py
+      - {{ salt['pillar.get']('data:path') }}/magbot:/srv
     - log_driver: syslog
     - log_opt:
       - tag: magbot
-    # - labels:
-    #   - traefik.enable=true
-    #   - traefik.frontend.rule=Host:{{ salt['pillar.get']('magbot:webserver_domain') }}
-    #   - traefik.frontend.entryPoints=http,https
-    #   - traefik.port=3141
-    #   - traefik.docker.network=docker_network_internal
     - networks:
       - docker_network_internal
     - require:
@@ -109,20 +130,3 @@ docker_magbot:
       - git: https://github.com/magfest/magbot.git
       - git: https://github.com/shengis/err-profiles.git
       - git: https://github.com/sijis/err-storage-redis.git
-
-# docker_magbot configure webserver:
-#   cmd.run:
-#     - name: >
-#         docker exec -it magbot /app/venv/bin/errbot -c /app/config.py --storage-set
-#         "{'configs': {
-#         'Webserver': {
-#         'PORT': 3141,
-#         'HOST': '0.0.0.0',
-#         'SSL': {
-#         'key': '',
-#         'host': '0.0.0.0',
-#         'certificate': '',
-#         'port': 3142,
-#         'enabled': False}}}}"
-#     - require:
-#       - magbot

@@ -53,9 +53,3 @@ ufw:
       limit: True
       to_addr: {{ private_ip }}
       comment: Private network SSH
-
-  services:
-    '*':
-      deny: True
-      protocol: any
-      from_addr: {{ ip_blacklist.ip_blacklist }}

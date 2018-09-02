@@ -3,7 +3,7 @@
 # ============================================================================
 
 include:
-  - docker_network_internal
+  - docker.network
 
 
 # ============================================================================
@@ -23,6 +23,10 @@ include:
     - mode: 644
     - makedirs: True
     - template: jinja
+
+{{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json:
+  file.managed:
+    - mode: 600
 
 
 # ============================================================================
@@ -77,6 +81,7 @@ docker_traefik:
       - /var/run/docker.sock:/var/run/docker.sock
       - {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/certs:/certs
       - {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml:/traefik.toml
+      - {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json:/acme.json
     - ports: 80,443
     - port_bindings:
       - 80:80
@@ -102,6 +107,7 @@ docker_traefik:
       - docker_network: docker_network_external
       - docker_network: docker_network_internal
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
+      - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
     - require_in:
       - sls: freeipa_client
     - watch_any:

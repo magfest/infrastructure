@@ -1,3 +1,5 @@
+{%- import_yaml 'defaults.sls' as defaults -%}
+
 ssh:
   permit_root_login: True
 
@@ -15,3 +17,8 @@ ufw:
     8000:
       protocol: tcp
       comment: Alternate HTTP
+
+    '*':
+      deny: True
+      protocol: any
+      from_addr: {{ defaults.ip_blacklist }}

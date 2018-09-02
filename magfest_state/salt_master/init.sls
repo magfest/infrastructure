@@ -225,6 +225,25 @@ salt-master service:
 
 
 # ============================================================================
+# Salt master user interface configuration
+# ============================================================================
+
+{% set version = '0.3.1' %}
+molten salt ui:
+  archive.extracted:
+    - name: /srv/
+    - source: https://github.com/martinhoefling/molten/releases/download/v{{ version }}/molten-{{ version }}.tar.gz
+    - source_hash: 675f9c85c8f24cf7fec9dfa0f75c842dde7c968d
+    - archive_format: tar
+    - options: v
+    - if_missing: /srv/molten-{{ version }}
+
+  file.symlink:
+    - name: /srv/molten
+    - target: /srv/molten-{{ version }}
+
+
+# ============================================================================
 # Salt master API configuration
 # ============================================================================
 
@@ -270,5 +289,6 @@ salt-api service:
     - order: last
     - watch:
       - file: /etc/salt/master
+      - file: /srv/molten
     - require:
       - service: salt-master
