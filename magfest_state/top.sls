@@ -3,7 +3,7 @@ base:
     - rsyslog
     - sshd
     - swap
-    - salt_minion
+    - salt.minion
 
   'not bootstrap':
     - ufw
@@ -11,11 +11,11 @@ base:
     - freeipa_client
 
   'mcp or bootstrap':
-    - salt_master
+    - salt.master
     - docker
 
   'mcp':
-    - salt_cloud.manager
+    - salt.cloud.manager
     - docker_freeipa
     - docker_jenkins.import_freeipa_certs
     - docker_jenkins
@@ -31,7 +31,7 @@ base:
     - slack_irc
 
   'G@salt-cloud:*':
-    - salt_cloud.vm
+    - salt.cloud.vm
 
   'G@roles:reggie':
     - filebeat

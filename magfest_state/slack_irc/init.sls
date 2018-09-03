@@ -1,6 +1,6 @@
 include:
   - nodejs
-  - npm
+  - nodejs.npm
 
 slack-irc user:
   user.present:
@@ -11,7 +11,7 @@ slack-irc:
     - name: slack-irc
     - require:
       - sls: nodejs
-      - sls: npm
+      - sls: nodejs.npm
 
 /var/log/slack-irc/:
   file.directory:
@@ -72,4 +72,4 @@ slack-irc.service running:
       - file: /etc/slack-irc.conf.json
     - require:
       - sls: nodejs
-      - sls: npm
+      - sls: nodejs.npm

@@ -70,6 +70,7 @@ locust.service:
 
   service.running:
     - name: locust
+    - enable: True
     - require:
       - file: locust.service
     - watch_any:

@@ -3,6 +3,6 @@
 salt_cloud_created_orchestrate:
   runner.state.orchestrate:
     - args:
-      - mods: orchestration.salt_cloud_created
+      - mods: salt.orchestration.salt_cloud_created
       - pillar:
           id: '{{ name }}'

@@ -4,7 +4,7 @@
 
 include:
   - rsyslog
-  - salt_minion
+  - salt.minion
 
 bootstrap salt-minion:
   cmd.run:

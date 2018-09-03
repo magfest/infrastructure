@@ -1,6 +1,6 @@
 include:
   - nodejs
-  - npm
+  - nodejs.npm
 
 magbot user:
   user.present:
@@ -86,4 +86,4 @@ legacy_magbot service:
     - require:
       - pkg: redis-server
       - sls: nodejs
-      - sls: npm
+      - sls: nodejs.npm

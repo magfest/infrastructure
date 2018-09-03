@@ -68,7 +68,7 @@ file.blockreplace /root/.bash_aliases:
 # Put README.md under configuration management, so local changes are reverted
 {{ secret_infrastructure }}/README.md:
   file.managed:
-    - source: salt://salt_master/files/secret_infrastructure/README.md
+    - source: salt://salt/master/files/secret_infrastructure/README.md
     - mode: 600
     - template: jinja
     - require:
@@ -79,7 +79,7 @@ file.blockreplace /root/.bash_aliases:
 {{ secret_infrastructure }}/magfest_state/ files:
   file.recurse:
     - name: {{ secret_infrastructure }}/magfest_state/
-    - source: salt://salt_master/files/secret_infrastructure/magfest_state
+    - source: salt://salt/master/files/secret_infrastructure/magfest_state
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
@@ -91,7 +91,7 @@ file.blockreplace /root/.bash_aliases:
 {{ secret_infrastructure }}/magfest_config/ files:
   file.recurse:
     - name: {{ secret_infrastructure }}/magfest_config/
-    - source: salt://salt_master/files/secret_infrastructure/magfest_config
+    - source: salt://salt/master/files/secret_infrastructure/magfest_config
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
@@ -105,7 +105,7 @@ file.blockreplace /root/.bash_aliases:
 {{ secret_infrastructure }}/reggie_config/ files:
   file.recurse:
     - name: {{ secret_infrastructure }}/reggie_config/
-    - source: salt://salt_master/files/secret_infrastructure/reggie_config
+    - source: salt://salt/master/files/secret_infrastructure/reggie_config
     - dir_mode: 700
     - file_mode: 600
     - makedirs: True
@@ -134,14 +134,14 @@ file.blockreplace /root/.bash_aliases:
     - makedirs: True
     - include_pat: '*.pub'
     - file_mode: 644
-    - source: salt://salt_master/ssh_keys
+    - source: salt://salt/master/ssh_keys
 
 /root/.ssh/ private keys:
   file.recurse:
     - name: /root/.ssh/
     - exclude_pat: 'E@\.*\.pub|README\.md'
     - file_mode: 600
-    - source: salt://salt_master/ssh_keys
+    - source: salt://salt/master/ssh_keys
 
 
 # ============================================================================
@@ -197,9 +197,9 @@ salt-{{ service }} rsyslog conf:
     - contents: |
         reactor:
           - 'salt/cloud/*/created':
-            - '/srv/infrastructure/magfest_state/reactor/salt_cloud_created.sls'
+            - '/srv/infrastructure/magfest_state/salt/reactor/salt_cloud_created.sls'
           - 'salt/cloud/*/destroying':
-            - '/srv/infrastructure/magfest_state/reactor/salt_cloud_destroying.sls'
+            - '/srv/infrastructure/magfest_state/salt/reactor/salt_cloud_destroying.sls'
 
 
 # ============================================================================
@@ -209,7 +209,7 @@ salt-{{ service }} rsyslog conf:
 salt-master service:
   file.managed:
     - name: /etc/salt/master
-    - source: salt://salt_master/files/salt_master.yaml
+    - source: salt://salt/master/files/salt_master.yaml
     - mode: 644
     - makedirs: True
     - template: jinja
@@ -221,7 +221,7 @@ salt-master service:
     - watch:
       - file: /etc/salt/master
     - require_in:
-      - sls: salt_minion
+      - sls: salt.minion
 
 
 # ============================================================================

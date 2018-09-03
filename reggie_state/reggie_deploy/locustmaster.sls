@@ -44,6 +44,7 @@ locustmaster.service:
 
   service.running:
     - name: locustmaster
+    - enable: True
     - require:
       - file: locustmaster.service
     - watch_any:

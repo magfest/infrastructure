@@ -34,14 +34,14 @@
 
 /etc/salt/pki/cloud/digitalocean.pem:
   file.managed:
-    - source: salt://salt_cloud/pki/digitalocean.pem
+    - source: salt://salt/cloud/pki/digitalocean.pem
     - mode: 600
     - dir_mode: 700
     - makedirs: True
 
 /etc/salt/pki/cloud/digitalocean.pub:
   file.managed:
-    - source: salt://salt_cloud/pki/digitalocean.pub
+    - source: salt://salt/cloud/pki/digitalocean.pub
     - mode: 644
     - dir_mode: 700
     - makedirs: True
@@ -50,7 +50,7 @@
 /etc/salt/{{ target_dir }}:
   file.recurse:
     - name: /etc/salt/{{ target_dir }}
-    - source: salt://salt_cloud/files/{{ target_dir }}
+    - source: salt://salt/cloud/files/{{ target_dir }}
     - template: jinja
 {% endfor %}
 
