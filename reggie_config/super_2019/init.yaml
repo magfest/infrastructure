@@ -19,11 +19,6 @@ reggie:
 
         expected_response: December 2018
 
-        # =================================================================
-        # TODO: DELETE THIS AFTER PREREG LAUNCH
-        # =================================================================
-        badges_sold_estimate_enabled: True
-
         # This is NOT our attendance cap; this is merely the number of paid attendee
         # and group registrations which we support.  In other words, we will only
         # cut off preregistration once that sum meets this number no matter how
@@ -118,11 +113,6 @@ reggie:
           dealer_badge_price: 50
           group_discount: 10
           presell_one_days: False
-
-          # =================================================================
-          # TODO: DELETE THIS AFTER PREREG LAUNCH
-          # =================================================================
-          price_bumps_enabled: False
 
           attendee:
             2019-01-03: 85
