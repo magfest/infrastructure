@@ -75,6 +75,7 @@
   cmd.run:
     - name: ssh {{ remote_backup_server }} mkdir -p '{{ remote_backup_dir }}'
     - unless: test -f /usr/local/bin/reggie_db_backup
+{% endif %}
 
   file.managed:
     - template: jinja
@@ -123,19 +124,14 @@
 
         # Make sure the backup is only user-readable
         run "chmod 600 '${BACKUP_PATH}'"
-
+{% if salt['pillar.get']('reggie:db:backups:enabled') %}
         # Copy the local backup to the remote server
         run "scp -q '${BACKUP_PATH}' '{{ remote_backup_server }}:{{ remote_backup_dir }}/'"
-
-        info 'Finished reggie db backup'
-{% else %}
-  file.absent:
 {% endif %}
-    - name: /usr/local/bin/reggie_db_backup
+        info 'Finished reggie db backup'
 
 
 /usr/local/bin/reggie_db_prune_backups:
-{% if salt['pillar.get']('reggie:db:backups:enabled') %}
   pkg.installed:
     - name: fdupes
 
@@ -176,10 +172,6 @@
         if [ $DISCARD_COUNT -gt 0 ]; then
           ls -Bt {{ backup_dir }}|grep \.sql\.gz$|tail -n $DISCARD_COUNT|tr '\n' '\0'|xargs -0 printf "%b\0"|xargs -0 rm --
         fi
-{% else %}
-  file.absent:
-{% endif %}
-    - name: /usr/local/bin/reggie_db_prune_backups
 
 
 # ============================================================================
@@ -224,7 +216,6 @@
 # ============================================================================
 
 /etc/logrotate.d/reggie_db_backup:
-{% if salt['pillar.get']('reggie:db:backups:enabled') %}
   file.managed:
     - contents: |
         {{ log_path }} {
@@ -238,7 +229,18 @@
             sharedscripts
             endscript
         }
-{% else %}
-  file.absent:
-{% endif %}
-    - name: /etc/logrotate.d/reggie_db_backup
+
+
+# ============================================================================
+# Database backup BEFORE migrations, but AFTER database is created
+# ============================================================================
+
+reggie db pre schema migrations backup:
+  cmd.run:
+    - name: /usr/local/bin/reggie_db_backup && /usr/local/bin/reggie_db_prune_backups
+    - require:
+      - file: /usr/local/bin/reggie_db_backup
+      - file: /usr/local/bin/reggie_db_prune_backups
+      - sls: postgres.manage
+    - prereq:
+      - cmd: reggie db schema migrations
