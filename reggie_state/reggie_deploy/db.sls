@@ -94,7 +94,7 @@
             RESULT=$( { eval "${@}"; } 2>&1 )
             ERROR=$?
             if [ $ERROR -ne 0 ]; then
-                error "${@}"
+                error "${@}
             Unexpected error $ERROR:
             $RESULT"
                 info 'Reggie db backup failed'
