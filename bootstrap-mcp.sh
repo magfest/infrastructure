@@ -28,7 +28,7 @@ else
 fi
 
 # Run salt locally to configure a minimal mcp
-salt-call --local --id='bootstrap' --file-root=salt --pillar-root=pillar state.highstate
+salt-call --local --id='bootstrap' --file-root=magfest_state --pillar-root=magfest_config state.highstate
 
 # Restart the services
 systemctl restart salt-master
