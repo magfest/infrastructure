@@ -36,7 +36,7 @@ freeipa client install:
         --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
         --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
         --principal={{ salt['pillar.get']('freeipa:client_principal') }}
-        --hostname={{ 'mcp.' ~ {{ salt['pillar.get']('master:domain') }} if salt['grains.get']('fqdn') == 'mcp' else salt['grains.get']('fqdn') }}
+        --hostname={{ 'mcp.' ~ salt['pillar.get']('master:domain') if salt['grains.get']('fqdn') == 'mcp' else salt['grains.get']('fqdn') }}
         --password=$IPA_CLIENT_INSTALL_PASSWORD
         --mkhomedir
         --no-ntp
