@@ -30,6 +30,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provider :virtualbox do |vb|
         vb.memory = 1536
         vb.cpus = 2
+        vb.name = 'infrastructure %s' % [Time.now.strftime('%Y-%m-%d %H:%M:%S.%L')]
 
         # Allow symlinks to be created in /srv/infrastructure.
         # Modify "srv_infrastructure" to be different if you change the path.
@@ -49,13 +50,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         cat >> /etc/hosts << EOF
 
-127.0.0.1 magfest.info directory.magfest.info errbot.magfest.info ipa-01.magfest.info jenkins.magfest.info mcp.magfest.info saltmaster.magfest.info traefik.magfest.info
+127.0.0.1 magfest.info
 EOF
 
         mkdir -p /etc/salt
         cat >> /etc/salt/grains << EOF
 env: dev
 is_vagrant: True
+private_interface: eth0
 EOF
 
         mkdir -p ~/.ssh
@@ -70,7 +72,7 @@ EOF
       vagrant ssh
 
   To bootstrap the machine, run the following command as root and follow the instructions:
-      /srv/infrastructure/bootstrap-mcp.sh
+      SALT_ENV=dev /srv/infrastructure/bootstrap-mcp.sh
 
     MESSAGE
 end

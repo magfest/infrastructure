@@ -40,12 +40,15 @@ file.blockreplace /root/.bash_aliases:
 # ============================================================================
 
 {%- set secret_infrastructure = salt['pillar.get']('data:path') ~ '/secret/infrastructure' %}
+{%- set secret_dir_mode = 755 if salt['grains.get']('is_vagrant') else 700 %}
+{%- set secret_file_mode = 644 if salt['grains.get']('is_vagrant') else 600 %}
 
 # Create directory if it doesn't exist
 {{ secret_infrastructure }}/:
   file.directory:
-    - mode: 700
     - makedirs: True
+    - mode: {{ secret_dir_mode }}
+
 
 # Initialize a local git repository. This is mostly to help admins track
 # updates to their secret data.
@@ -69,7 +72,7 @@ file.blockreplace /root/.bash_aliases:
 {{ secret_infrastructure }}/README.md:
   file.managed:
     - source: salt://salt/master/files/secret_infrastructure/README.md
-    - mode: 600
+    - mode: {{ secret_file_mode }}
     - template: jinja
     - require:
       - git: {{ secret_infrastructure }}/
@@ -80,8 +83,8 @@ file.blockreplace /root/.bash_aliases:
   file.recurse:
     - name: {{ secret_infrastructure }}/magfest_state/
     - source: salt://salt/master/files/secret_infrastructure/magfest_state
-    - dir_mode: 700
-    - file_mode: 600
+    - dir_mode: {{ secret_dir_mode }}
+    - file_mode: {{ secret_file_mode }}
     - makedirs: True
     - require:
       - git: {{ secret_infrastructure }}/
@@ -92,8 +95,8 @@ file.blockreplace /root/.bash_aliases:
   file.recurse:
     - name: {{ secret_infrastructure }}/magfest_config/
     - source: salt://salt/master/files/secret_infrastructure/magfest_config
-    - dir_mode: 700
-    - file_mode: 600
+    - dir_mode: {{ secret_dir_mode }}
+    - file_mode: {{ secret_file_mode }}
     - makedirs: True
     - replace: False
     - template: jinja
@@ -106,8 +109,8 @@ file.blockreplace /root/.bash_aliases:
   file.recurse:
     - name: {{ secret_infrastructure }}/reggie_config/
     - source: salt://salt/master/files/secret_infrastructure/reggie_config
-    - dir_mode: 700
-    - file_mode: 600
+    - dir_mode: {{ secret_dir_mode }}
+    - file_mode: {{ secret_file_mode }}
     - makedirs: True
     - replace: False
     - template: jinja
@@ -119,7 +122,7 @@ file.blockreplace /root/.bash_aliases:
   file.managed:
     - name: {{ secret_infrastructure }}/reggie_config/stack.cfg
     - source: file:///srv/infrastructure/reggie_config/stack.cfg
-    - mode: 600
+    - mode: {{ secret_file_mode }}
     - require:
       - file: {{ secret_infrastructure }}/reggie_config/
 
@@ -278,6 +281,15 @@ pip install cherrypy:
     - reload_modules: True
 
 pip install python-ldap:
+  pkg.installed:
+    - pkgs:
+      - build-essential
+      - python3-dev
+      - python2.7-dev
+      - libldap2-dev
+      - libsasl2-dev
+      - ldap-utils
+
   pip.installed:
     - name: python-ldap
     - reload_modules: True

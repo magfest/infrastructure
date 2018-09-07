@@ -1,17 +1,33 @@
-#!/bin/bash
+#!/bin/sh
 
 # This script will bootstrap and configure the salt-master server
 # used to manage the entire MAGFest IT infrastructure.
+
+if [ "$1" != "" ]; then
+    SALT_ENV=$1
+fi
+
+if [ -z "$SALT_ENV" ]; then
+    echo "Usage: $0 SALT_ENV"
+    echo ""
+    echo "    SALT_ENV can be one of the following: prod, staging, dev, load, etc..."
+    echo ""
+    echo "SALT_ENV may also be specified as an environment variable:"
+    echo ""
+    echo "    SALT_ENV=staging $0"
+    echo ""
+    exit 1
+fi
 
 set -x  # Start echoing commands to stdout
 
 # Install SaltStack master and minion
 curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltstack.com
-sh /tmp/bootstrap-salt.sh -i 'mcp' -L -M -P git 'v2018.3.2'
+sh /tmp/bootstrap-salt.sh -i "mcp" -L -M -P git 'v2018.3.2'
 
 # Preseed mcp's minion key
 cd /tmp
-salt-key --gen-keys='mcp'
+salt-key --gen-keys="mcp"
 cp mcp.pub /etc/salt/pki/master/minions/mcp
 cp mcp.pem /etc/salt/pki/minion/minion.pem
 cp mcp.pub /etc/salt/pki/minion/minion.pub
@@ -26,6 +42,9 @@ else
     git clone --depth 1 https://github.com/magfest/infrastructure.git /srv/infrastructure
     cd /srv/infrastructure
 fi
+
+# Set the env grain
+salt-call --local grains.setval env $SALT_ENV
 
 # Run salt locally to configure a minimal mcp
 salt-call --local --id='bootstrap' --file-root=magfest_state --pillar-root=magfest_config state.highstate

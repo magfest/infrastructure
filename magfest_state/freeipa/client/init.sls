@@ -7,7 +7,7 @@
 
 # All of our servers are intially provisioned with /root/.ssh/authorized_keys
 # that are installed on MCP, so we can immediately disable password auth.
-freeipa_client sshd disable password authentication:
+freeipa client sshd disable password authentication:
   file.replace:
     - name: /etc/ssh/sshd_config
     - pattern: ^\s*PasswordAuthentication\s+{{ 'no' if password_auth else 'yes' }}\s*$
@@ -17,7 +17,7 @@ freeipa_client sshd disable password authentication:
       - service: sshd
 
 # Make sure that users home directories are created on initial login.
-freeipa_client sshd create home directory on initial login:
+freeipa client sshd create home directory on initial login:
   file.line:
     - name: /etc/pam.d/sshd
     - content: session required pam_mkhomedir.so skel=/etc/skel/ umask=0022
@@ -26,7 +26,7 @@ freeipa_client sshd create home directory on initial login:
 
 # Install the FreeIPA client package. The ipa client isn't actually installed
 # until the ipa-client-install script is run.
-freeipa_client install:
+freeipa client install:
   pkg.installed:
     - name: freeipa-client
 
@@ -50,7 +50,7 @@ freeipa_client install:
 
 # Disables root login. We must wait until after the ipa client is installed,
 # otherwise we'll end up locking ourselves out of a newly provisioned server.
-freeipa_client sshd disable root login:
+freeipa client sshd disable root login:
   file.replace:
     - name: /etc/ssh/sshd_config
     - pattern: ^\s*PermitRootLogin\s+{{ 'no' if root_login else 'yes' }}\s*$
@@ -59,4 +59,4 @@ freeipa_client sshd disable root login:
     - listen_in:
       - service: sshd
     - require:
-      - freeipa_client install
+      - freeipa client install

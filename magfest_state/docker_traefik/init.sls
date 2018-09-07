@@ -91,7 +91,7 @@ docker_traefik:
       - tag: traefik
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:{{ salt['pillar.get']('traefik:domain') }},{{ salt['pillar.get']('traefik:ui_domain') }}
+      - traefik.frontend.rule=Host:{{ salt['pillar.get']('traefik:domain') }},{{ salt['pillar.get']('traefik:ui_domainname') }}
       - traefik.frontend.entryPoints=http,https
       {% if salt['pillar.get']('traefik:users', {}) -%}
       - traefik.frontend.auth.basic={%- for user, password in salt['pillar.get']('traefik:users').items() -%}
@@ -109,6 +109,6 @@ docker_traefik:
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json
     - require_in:
-      - sls: freeipa_client
+      - sls: freeipa.client
     - watch_any:
       - file: {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/traefik.toml

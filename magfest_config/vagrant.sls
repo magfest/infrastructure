@@ -1,12 +1,4 @@
-master:
-  domain: magfest.info
-  address: saltmaster.magfest.info
-
-
-freeipa:
-  hostname: 'ipa-01.magfest.info'
-  ui_domain: 'directory.magfest.info'
-
+{%- import_yaml 'defaults.sls' as defaults %}
 
 jenkins:
   user: 'vagrant'
@@ -15,5 +7,5 @@ jenkins:
 
 traefik:
   letsencrypt_enabled: False
-  caServer: 'https://acme-staging.api.letsencrypt.org/directory'  # Staging server
-  cert_names: ['ipa-01.magfest.info']
+  caServer: 'https://acme-staging-v02.api.letsencrypt.org/directory'  # Staging server
+  cert_names: ['{{ defaults.master.host_prefix }}ipa-01.{{ defaults.master.domain }}']

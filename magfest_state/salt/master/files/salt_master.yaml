@@ -23,12 +23,6 @@ rest_cherrypy:
 
 external_auth:
   ldap:
-    {{ salt["pillar.get"]("magbot:salt_username") }}:
-      - '@runner':
-        - 'jobs\.lookup_jid'
-      - 'network\..*'
-      - 'state\..*'
-      - 'test\..*'
     admins%:
       - '.*'
       - '@runner'
@@ -39,6 +33,14 @@ external_auth:
       - '@runner'
       - '@wheel'
       - '@jobs'
+    {%- if salt["pillar.get"]("magbot:salt_username") %}
+    {{ salt["pillar.get"]("magbot:salt_username") }}:
+      - '@runner':
+        - 'jobs\.lookup_jid'
+      - 'network\..*'
+      - 'state\..*'
+      - 'test\..*'
+    {%- endif %}
 
 auth.ldap.server: ipa-01.magfest.net
 auth.ldap.port: 636

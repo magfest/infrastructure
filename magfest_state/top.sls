@@ -5,10 +5,13 @@ base:
     - swap
     - salt.minion
 
+  'G@is_vagrant:True':
+    - vagrant
+
   'not bootstrap':
     - ufw
     - fail2ban
-    - freeipa_client
+    - freeipa.client
 
   'mcp or bootstrap':
     - salt.master

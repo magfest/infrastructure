@@ -48,7 +48,7 @@ libnss3-tools install:
     - onchanges:
       - {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.cert
     - require_in:
-      - sls: freeipa_client
+      - sls: freeipa.client
 
 {{ traefik_certs_dir }}/{{ freeipa_hostname }}.key:
   file.copy:
@@ -59,6 +59,6 @@ libnss3-tools install:
     - onchanges:
       - {{ freeipa_certs_dir }}/{{ freeipa_hostname }}.key
     - require_in:
-      - sls: freeipa_client
+      - sls: freeipa.client
     - watch_in:
       - docker_container: traefik

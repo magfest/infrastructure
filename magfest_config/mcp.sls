@@ -11,7 +11,7 @@ master:
 
 
 minion:
-  id: mcp
+  id: mcp.{{ defaults.master.domain }}
   master: 127.0.0.1
   startup_states: highstate
 
@@ -19,7 +19,7 @@ minion:
 jenkins:
   user: 'jenkins'
   group: 'jenkins'
-  domain: 'jenkins.{{ defaults.master.domain }}'
+  domain: '{{ defaults.master.host_prefix }}jenkins.{{ defaults.master.domain }}'
 
 
 redis:
@@ -27,8 +27,8 @@ redis:
 
 
 magbot:
-  deploy_log_domain: 'mcp.{{ defaults.master.domain }}'
-  webserver_domain: 'magbot.{{ defaults.master.domain }}'
+  deploy_log_domain: '{{ defaults.master.host_prefix }}mcp.{{ defaults.master.domain }}'
+  webserver_domain: '{{ defaults.master.host_prefix }}magbot.{{ defaults.master.domain }}'
   admins:
     - '@Dac'
     - '@debra'
@@ -49,21 +49,23 @@ magbot:
   jira_url: https://jira.magfest.net
   jira_ignoreusers: jira
   salt_host: {{ salt['network.interface_ip'](salt['grains.get']('public_interface', 'eth0')) }}
-  salt_api_url: https://salt.{{ defaults.master.domain }}
+  salt_api_url: https://{{ defaults.master.host_prefix }}salt.{{ defaults.master.domain }}
 
 
 traefik:
   letsencrypt_enabled: True
   caServer: ''  # Leave empty for production server
-  cert_names: ['ipa-01.{{ defaults.master.domain }}']
+  cert_names: ['{{ defaults.master.host_prefix }}ipa-01.{{ defaults.master.domain }}']
   domain: '{{ defaults.master.domain }}'
-  ui_domain: 'traefik.{{ defaults.master.domain }}'
-  subdomains: ['directory', 'errbot', 'jenkins', 'magbot', 'mcp', 'salt', 'traefik']
+  ui_domainname: '{{ defaults.master.host_prefix }}traefik.{{ defaults.master.domain }}'
+  subdomains: {% for subdomain in ['directory', 'errbot', 'jenkins', 'magbot', 'mcp', 'salt', 'traefik'] %}
+    - {{ defaults.master.host_prefix }}{{ subdomain }}
+  {% endfor %}
 
 
 ssh:
   password_authentication: False
-  permit_root_login: False
+  permit_root_login: True
 
 
 ufw:

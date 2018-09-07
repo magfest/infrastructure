@@ -62,7 +62,7 @@ docker_freeipa:
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:{{ hostname }},{{ salt['pillar.get']('freeipa:ui_domain') }}
+      - traefik.frontend.rule=Host:{{ hostname }},{{ salt['pillar.get']('freeipa:ui_domainname') }}
       - traefik.frontend.entryPoints=http,https
       - traefik.port=80
       - traefik.docker.network=docker_network_internal
@@ -77,7 +77,7 @@ docker_freeipa:
       - docker_network: docker_network_internal
       - file: {{ data_path }}/freeipa/ipa-data/etc/httpd/conf.d/ipa-rewrite.conf
     - require_in:
-      - sls: freeipa_client
+      - sls: freeipa.client
 
 # Touch a file to indicate the FreeIPA server has installed successfully. The
 # server install takes awhile, and the log file it generates is lengthy. Any

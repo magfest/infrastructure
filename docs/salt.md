@@ -32,7 +32,7 @@ _Note: many of our salt states assume the OS is Ubuntu 16.04 or later._
     a. `/etc/salt/roster` is managed by salt in the [salt.cloud.manager](https://github.com/magfest/infrastructure/blob/master/magfest_state/salt/cloud/manager.sls) state
     b. Update `salt.cloud.manager` and run the following command on `mcp`:
 ```
-salt mcp state.sls salt.cloud.manager
+salt mcp.magfest.net state.sls salt.cloud.manager
 ```
 4. Run the following command on `mcp` to install salt on the target VM:
 ```

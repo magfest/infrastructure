@@ -1,7 +1,7 @@
 {%- set name = data.get("name", data.get("data", {}).get("name")) -%}
 
 {%- if name -%}
-freeipa_client unenroll:
+freeipa client unenroll:
   local.cmd.run:
     - tgt: '{{ name }}'
     - args:
