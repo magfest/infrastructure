@@ -1,7 +1,7 @@
 {%- import_yaml 'ip_blacklist.yaml' as ip_blacklist %}
 {%- set private_ip = salt['grains.get']('ip4_interfaces')[salt['grains.get']('private_interface', 'eth1')][0] %}
 {%- set salt_env = salt['grains.get']('env') %}
-{%- set host_prefix = '' if salt_env is none or salt_env == '' or salt_env == 'prod' else salt_env ~ '-' %}
+{%- set host_prefix = '' if not salt_env or salt_env == 'prod' else salt_env ~ '-' %}
 {%- set master_domain = 'magfest.info' if salt['grains.get']('is_vagrant') else 'magfest.net' %}
 
 ip_blacklist: {{ ip_blacklist.ip_blacklist }}
@@ -9,7 +9,7 @@ ip_blacklist: {{ ip_blacklist.ip_blacklist }}
 master:
   domain: {{ master_domain }}
   address: {{ private_ip }}
-  host_prefix: {{ host_prefix }}
+  host_prefix: '{{ host_prefix }}'
 
 
 minion:
