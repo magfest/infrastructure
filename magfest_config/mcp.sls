@@ -11,7 +11,7 @@ master:
 
 
 minion:
-  id: mcp.{{ defaults.master.domain }}
+  id: mcp
   master: 127.0.0.1
   startup_states: highstate
 
