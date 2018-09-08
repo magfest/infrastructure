@@ -235,6 +235,8 @@ salt-master service:
 molten salt ui:
   archive.extracted:
     - name: /srv/
+    - user: root
+    - group: root
     - source: https://github.com/martinhoefling/molten/releases/download/v{{ version }}/molten-{{ version }}.tar.gz
     - source_hash: 675f9c85c8f24cf7fec9dfa0f75c842dde7c968d
     - archive_format: tar
