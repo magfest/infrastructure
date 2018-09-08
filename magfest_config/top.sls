@@ -6,12 +6,12 @@ base:
     - freeipa_client_secret
     - ignore_missing: True
 
-  'mcp or bootstrap':
-    - mcp
+  'G@roles:saltmaster or bootstrap':
+    - saltmaster
 
-  'mcp':
+  'G@roles:saltmaster':
     - digitalocean_secret
-    - mcp_secret
+    - saltmaster_secret
     - magbot_secret
     - slack_irc_secret
     - ignore_missing: True

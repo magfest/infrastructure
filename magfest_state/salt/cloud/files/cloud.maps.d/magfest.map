@@ -1,0 +1,12 @@
+{#-
+  NOTE: Changes to this file must be applied with the following command
+  before they take effect:
+
+    salt mcp.magfest.net state.sls salt.cloud.manager
+-#}
+
+ipa-master:
+  - ipa-01.magfest.org
+
+ipa-replica:
+  - ipa-02.magfest.org

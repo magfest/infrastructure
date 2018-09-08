@@ -13,12 +13,12 @@ base:
     - fail2ban
     - freeipa.client
 
-  'mcp or bootstrap':
+  'G@roles:saltmaster or bootstrap':
     - salt.master
-    - docker
 
-  'mcp':
+  'G@roles:saltmaster':
     - salt.cloud.manager
+    - docker
     - docker_freeipa
     - docker_jenkins.import_freeipa_certs
     - docker_jenkins
@@ -26,7 +26,7 @@ base:
     - docker_traefik.import_freeipa_certs
     - docker_traefik
 
-  'mcp and not G@is_vagrant:True':
+  'G@roles:saltmaster and not G@is_vagrant:True':
     - docker_magbot
     - legacy_deploy
     - legacy_magbot

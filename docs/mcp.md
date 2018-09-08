@@ -39,5 +39,5 @@ Follow Digital Ocean's instructions for configuring and mounting your block stor
 As root/sudo run the following command and follow the instructions it prints when finished
 (replace SALT_ENV as appropriate):
 ```
-SALT_ENV=staging curl -L https://github.com/magfest/infrastructure/raw/master/bootstrap-mcp.sh | sh
+curl -L https://github.com/magfest/infrastructure/raw/master/bootstrap-mcp.sh | SALT_ENV=staging sh
 ```
