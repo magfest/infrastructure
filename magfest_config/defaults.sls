@@ -1,4 +1,5 @@
 {%- import_yaml 'ip_blacklist.yaml' as ip_blacklist %}
+{%- set master_ip = salt['network.interface_ip']('eth1') -%}
 {%- set private_ip = salt['grains.get']('ip4_interfaces')[salt['grains.get']('private_interface', 'eth1')][0] %}
 {%- set salt_env = salt['grains.get']('env') %}
 {%- set host_prefix = '' if not salt_env or salt_env == 'prod' else salt_env ~ '-' %}
@@ -8,12 +9,12 @@ ip_blacklist: {{ ip_blacklist.ip_blacklist }}
 
 master:
   domain: {{ master_domain }}
-  address: {{ private_ip }}
+  address: {{ master_ip }}
   host_prefix: '{{ host_prefix }}'
 
 
 minion:
-  master: {{ private_ip }}
+  master: {{ master_ip }}
 
   log_file: file:///dev/log
   log_level: info
