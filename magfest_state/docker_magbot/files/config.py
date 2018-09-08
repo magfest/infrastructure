@@ -427,6 +427,7 @@ REVERSE_CHATROOM_RELAY = {}
 
 SALT_HOST = os.environ.get('SALT_HOST', '{{ salt["pillar.get"]("magbot:salt_host") }}')
 SALT_AUTH = os.environ.get('SALT_AUTH', 'ldap')
+SSH_USERNAME = os.environ.get('SALT_USERNAME', '{{ salt["pillar.get"]("magbot:ssh_username") }}')
 SALT_USERNAME = os.environ.get('SALT_USERNAME', '{{ salt["pillar.get"]("magbot:salt_username") }}')
 SALT_PASSWORD = os.environ.get('SALT_PASSWORD', '{{ salt["pillar.get"]("magbot:salt_password") }}')
 SALT_API_URL = os.environ.get('SALT_API_URL', '{{ salt["pillar.get"]("magbot:salt_api_url") }}')
