@@ -21,6 +21,7 @@ python-git install:
 file.managed /root/.bash_aliases:
   file.managed:
     - name: /root/.bash_aliases
+    - replace: False
 
 file.blockreplace /root/.bash_aliases:
   file.blockreplace:
@@ -30,9 +31,9 @@ file.blockreplace /root/.bash_aliases:
     - template: jinja
     - require:
       - file: file.managed /root/.bash_aliases
-    - marker_start: '# ==== START BLOCK MANAGED BY SALT (salt_master) ===='
+    - marker_start: '# ==== START BLOCK MANAGED BY SALT (salt.master) ===='
     - content: alias salt-job='salt-run --out highstate jobs.lookup_jid'
-    - marker_end: '# ==== END BLOCK MANAGED BY SALT (salt_master) ===='
+    - marker_end: '# ==== END BLOCK MANAGED BY SALT (salt.master) ===='
 
 
 # ============================================================================

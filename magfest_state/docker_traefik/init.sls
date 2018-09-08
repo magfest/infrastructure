@@ -27,6 +27,7 @@ include:
 {{ salt['pillar.get']('data:path') }}/traefik/etc/traefik/acme.json:
   file.managed:
     - mode: 600
+    - replace: False
 
 
 # ============================================================================
