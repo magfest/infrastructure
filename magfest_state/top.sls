@@ -16,7 +16,7 @@ base:
   'G@roles:saltmaster or bootstrap':
     - salt.master
 
-  'G@roles:saltmaster':
+  'G@roles:saltmaster and not bootstrap':
     - salt.cloud.manager
     - docker
     - docker_freeipa
