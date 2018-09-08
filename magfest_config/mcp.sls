@@ -48,7 +48,7 @@ magbot:
   port: 9999
   jira_url: https://jira.magfest.net
   jira_ignoreusers: jira
-  salt_host: {{ salt['network.interface_ip'](salt['grains.get']('public_interface', 'eth0')) }}
+  ssh_host: {{ salt['network.interface_ip'](salt['grains.get']('public_interface', 'eth0')) }}
   salt_api_url: https://{{ defaults.master.host_prefix }}salt.{{ defaults.master.domain }}
 
 
