@@ -13,6 +13,7 @@ include:
   file.managed:
     - user: {{ reggie_user }}
     - makedirs: True
+    - replace: False
 
 
 locustmaster.service:

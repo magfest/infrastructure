@@ -42,6 +42,7 @@ locust.io requirements:
   file.managed:
     - user: {{ reggie_user }}
     - makedirs: True
+    - replace: False
 
 
 locust.service:
