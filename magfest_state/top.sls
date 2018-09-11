@@ -23,18 +23,20 @@ base:
     - salt.cloud.manager
     - docker
     - docker_freeipa
-    - docker_jenkins.import_freeipa_certs
-    - docker_jenkins
+    # Uncomment to re-enable docker_jenkins
+    # - docker_jenkins.import_freeipa_certs
+    # - docker_jenkins
     - docker_redis
     - docker_traefik.import_freeipa_certs
     - docker_traefik
 
   'G@roles:saltmaster and not G@is_vagrant:True':
     - docker_magbot
-    - legacy_deploy
-    - legacy_magbot
-    - legacy_magbot.deploy_logs
     - slack_irc
+    # Uncomment to re-enable legacy_magbot
+    # - legacy_deploy
+    # - legacy_magbot
+    # - legacy_magbot.deploy_logs
 
   'G@salt-cloud:*':
     - salt.cloud.vm
