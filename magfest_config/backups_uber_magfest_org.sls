@@ -1,6 +1,7 @@
 {%- import_yaml 'defaults.sls' as defaults -%}
 
 ssh:
+  password_authentication: False
   permit_root_login: True
 
 

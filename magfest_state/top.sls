@@ -13,6 +13,9 @@ base:
     - fail2ban
     - freeipa.client
 
+  'G@roles:ipa-replica':
+    - freeipa.server.replica
+
   'G@roles:saltmaster or bootstrap':
     - salt.master
 

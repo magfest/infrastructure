@@ -6,7 +6,7 @@
 -#}
 
 ipa-master:
-  - ipa-01.magfest.org
+  - ipa-01.magfest.net
 
 ipa-replica:
-  - ipa-02.magfest.org
+  - ipa-02.magfest.net

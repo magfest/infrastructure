@@ -24,6 +24,7 @@ freeipa client sshd create home directory on initial login:
     - after: session\s+.+?\s+pam_selinux\.so\s+close
     - mode: ensure
 
+{% if salt['pillar.get']('freeipa:client:enabled') %}
 # Install the FreeIPA client package. The ipa client isn't actually installed
 # until the ipa-client-install script is run.
 freeipa client install:
@@ -33,9 +34,9 @@ freeipa client install:
   cmd.run:
     - name: >
         ipa-client-install
-        --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
-        --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
-        --principal={{ salt['pillar.get']('freeipa:client_principal') }}
+        --domain={{ salt['pillar.get']('freeipa:client:domain', salt['pillar.get']('freeipa:client:realm'))|lower }}
+        --realm={{ salt['pillar.get']('freeipa:client:realm')|upper }}
+        --principal={{ salt['pillar.get']('freeipa:client:principal') }}
         --hostname={{ 'mcp.' ~ salt['pillar.get']('master:domain') if salt['grains.get']('fqdn') == 'mcp' else salt['grains.get']('fqdn') }}
         --password=$IPA_CLIENT_INSTALL_PASSWORD
         --mkhomedir
@@ -43,11 +44,14 @@ freeipa client install:
         --force-join
         --unattended
     - env:
-        - IPA_CLIENT_INSTALL_PASSWORD: {{ salt['pillar.get']('freeipa:client_password') }}
+        - IPA_CLIENT_INSTALL_PASSWORD: {{ salt['pillar.get']('freeipa:client:principal_password') }}
     - output_loglevel: quiet
     - creates: /etc/ipa/default.conf
     - require:
       - pkg: freeipa-client
+    - require_in:
+      - freeipa client sshd disable root login
+{% endif %}
 
 # Disables root login. We must wait until after the ipa client is installed,
 # otherwise we'll end up locking ourselves out of a newly provisioned server.
@@ -59,5 +63,3 @@ freeipa client sshd disable root login:
     - append_if_not_found: True
     - listen_in:
       - service: sshd
-    - require:
-      - freeipa client install

@@ -2,12 +2,12 @@
 # Installs a FreeIPA server in a docker container
 # ============================================================================
 
-{% set hostname = salt['pillar.get']('freeipa:hostname') -%}
+{% set hostname = salt['pillar.get']('freeipa:server:hostname') -%}
 {%- set data_path = salt['pillar.get']('data:path') -%}
 {%- set slapd_dse_ldif = (
     data_path
     ~ '/freeipa/ipa-data/etc/dirsrv/slapd-'
-    ~ salt['pillar.get']('freeipa:realm')|replace('.', '-')|upper ~ '/dse.ldif') -%}
+    ~ salt['pillar.get']('freeipa:server:realm')|replace('.', '-')|upper ~ '/dse.ldif') -%}
 
 include:
   - docker.network
@@ -33,7 +33,7 @@ rng-tools install:
 docker_freeipa:
   docker_container.running:
     - name: freeipa
-    - image: freeipa/freeipa-server:latest
+    - image: freeipa/freeipa-server:latest  # 01ba0946ec8a
     - auto_remove: True
     - binds:
       - {{ data_path }}/freeipa/ipa-data:/data:Z
@@ -50,10 +50,10 @@ docker_freeipa:
       - 9443-9445:9443-9445  # ipa replica config
     - environment:
       - IPA_SERVER_INSTALL_OPTS: >
-          --domain={{ salt['pillar.get']('freeipa:realm')|lower }}
-          --realm={{ salt['pillar.get']('freeipa:realm')|upper }}
-          --ds-password={{ salt['pillar.get']('freeipa:ds_password') }}
-          --admin-password={{ salt['pillar.get']('freeipa:admin_password') }}
+          --domain={{ salt['pillar.get']('freeipa:server:domain', salt['pillar.get']('freeipa:server:realm'))|lower }}
+          --realm={{ salt['pillar.get']('freeipa:server:realm')|upper }}
+          --ds-password={{ salt['pillar.get']('freeipa:server:dm_password') }}
+          --admin-password={{ salt['pillar.get']('freeipa:server:admin_password') }}
           --no-ntp
           --unattended
       - IPA_SERVER_HOSTNAME: {{ hostname }}
@@ -62,7 +62,7 @@ docker_freeipa:
       - /tmp: ''
     - labels:
       - traefik.enable=true
-      - traefik.frontend.rule=Host:{{ hostname }},{{ salt['pillar.get']('freeipa:ui_domainname') }}
+      - traefik.frontend.rule=Host:{{ hostname }},{{ salt['pillar.get']('freeipa:server:ui_domainname') }}
       - traefik.frontend.entryPoints=http,https
       - traefik.port=80
       - traefik.docker.network=docker_network_internal

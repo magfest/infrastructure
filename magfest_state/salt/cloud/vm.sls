@@ -9,6 +9,8 @@ set hostname to minion id:
     - unless: test "$(hostname)" = "{{ salt['grains.get']('id') }}"
     - watch:
       - file: /etc/cloud/cloud.cfg
+    - require_in:
+      - sls: freeipa.client
     - listen_in:
       - service: rsyslog
       {%- if salt['pillar.get']('filebeat:enabled') %}

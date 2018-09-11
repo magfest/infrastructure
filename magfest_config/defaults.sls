@@ -32,12 +32,6 @@ mine_functions:
     - {{ salt['grains.get']('private_interface', 'eth1') }}
 
 
-freeipa:
-  realm: 'magfest.org'
-  hostname: '{{ host_prefix }}ipa-01.{{ master_domain }}'
-  ui_domainname: '{{ host_prefix }}directory.{{ master_domain }}'
-
-
 ssh:
   password_authentication: True
   permit_root_login: False

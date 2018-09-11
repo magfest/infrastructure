@@ -2,7 +2,7 @@
 # Imports the FreeIPA CA certificate into the Jenkins JVM keystore
 # ============================================================================
 
-{% set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
+{% set freeipa_hostname = salt['pillar.get']('freeipa:server:hostname') -%}
 {%- set freeipa_alias = freeipa_hostname|replace('.', '_') ~ '_ca' -%}
 {%- set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home' -%}
 {%- set jenkins_user = salt['pillar.get']('jenkins:user') -%}

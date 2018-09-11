@@ -1,4 +1,4 @@
-{%- set freeipa_hostname = salt['pillar.get']('freeipa:hostname') -%}
+{%- set freeipa_hostname = salt['pillar.get']('freeipa:server:hostname') -%}
 {%- set ca_server = salt['pillar.get']('traefik:caServer') -%}
 
 logLevel = "INFO"

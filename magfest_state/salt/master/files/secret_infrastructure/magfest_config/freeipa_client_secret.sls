@@ -1,3 +1,4 @@
 freeipa:
-  client_principal: 'svc_deploy'
-  client_password: '{{ salt["random.get_str"](14) }}'
+  client:
+    principal: 'svc_deploy'
+    principal_password: '{{ salt["random.get_str"](14) }}'

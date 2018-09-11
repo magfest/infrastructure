@@ -25,6 +25,11 @@ redis:
   hostname: 'redis'
 
 
+freeipa:
+  client:
+    hostname: '{{ defaults.master.host_prefix }}mcp.{{ defaults.master.domain }}'
+
+
 magbot:
   deploy_log_domain: '{{ defaults.master.host_prefix }}mcp.{{ defaults.master.domain }}'
   webserver_domain: '{{ defaults.master.host_prefix }}magbot.{{ defaults.master.domain }}'
@@ -64,7 +69,7 @@ traefik:
 
 ssh:
   password_authentication: False
-  permit_root_login: True
+  permit_root_login: False
 
 
 ufw:
@@ -95,30 +100,6 @@ ufw:
     https:
       protocol: tcp
       comment: Public HTTPS
-    88:
-      protocol: any
-      comment: Kerberos
-    464:
-      protocol: any
-      comment: Kerberos kpasswd
-    389:
-      protocol: tcp
-      comment: LDAP
-    636:
-      protocol: tcp
-      comment: LDAP SSL
-    7389:
-      protocol: tcp
-      to_addr: {{ private_ip }}
-      comment: FreeIPA Replica
-    "9443:9445":
-      protocol: tcp
-      to_addr: {{ private_ip }}
-      comment: FreeIPA Replica Config
-    8000:
-      protocol: tcp
-      to_addr: {{ private_ip }}
-      comment: Private Salt API
 
     '*':
       deny: True
