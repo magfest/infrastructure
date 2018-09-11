@@ -106,6 +106,10 @@ ufw:
     https:
       protocol: tcp
       comment: Public HTTPS
+    8000:
+      protocol: tcp
+      to_addr: {{ private_ip }}
+      comment: Private Salt API
 
     '*':
       deny: True

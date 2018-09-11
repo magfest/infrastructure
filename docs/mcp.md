@@ -18,23 +18,7 @@ Create a new droplet on [https://digitalocean.com](https://digitalocean.com)
   * Select "Private Networking" and "Monitoring"
   * Add the following SSH Keys: "Saltmaster", "Rob Ruana", and "DomMCP"
 
-### Step 2 – Mount Block Storage
-
-Follow Digital Ocean's instructions for configuring and mounting your block storage volume on `/srv/data`.
-  * If you're adding a _new_ volume, you'll need to format the volume:
-    <div class="bs-callout bs-callout-danger bg-white">
-    <div class="title">This step will <b>DESTROY</b> any existing data on the volume!</div>
-    <pre><code>mkfs.ext4 -F /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01</code></pre>
-    </div>
-
-  * After formatting, or if you're mounting an already formatted volume:
-    ```
-    mkdir -p /srv/data; \
-    mount -o discard,defaults /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/data; \
-    echo /dev/disk/by-id/scsi-0DO_Volume_volume-nyc1-01 /srv/data ext4 defaults,nofail,discard 0 0 | tee -a /etc/fstab
-    ```
-
-### Step 3 – Run Bootstrap Script
+### Step 2 – Run Bootstrap Script
 
 As root/sudo run the following command and follow the instructions it prints when finished
 (replace SALT_ENV as appropriate):
