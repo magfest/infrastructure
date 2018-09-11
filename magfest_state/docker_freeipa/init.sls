@@ -38,7 +38,7 @@ docker_freeipa:
     - binds:
       - {{ data_path }}/freeipa/ipa-data:/data:Z
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    - ports: 80,88,88/udp,123/udp,389,443,464,464/udp,636,7389/tcp,9443-9445/tcp
+    - ports: 80,88,88/udp,123/udp,389,443,464,464/udp,636,7389/tcp,8443/tcp,9443-9445/tcp
     - port_bindings:
       - 88:88  # kerberos
       - 88:88/udp  # kerberos
@@ -47,6 +47,7 @@ docker_freeipa:
       - 389:389  # ldap
       - 636:636  # ldapssl
       - 7389:7389  # ipa replica
+      - 8443:8443  # ipa replica bug
       - 9443-9445:9443-9445  # ipa replica config
     - environment:
       - IPA_SERVER_INSTALL_OPTS: >
