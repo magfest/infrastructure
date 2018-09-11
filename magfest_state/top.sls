@@ -20,6 +20,8 @@ base:
     - salt.master
 
   'G@roles:saltmaster and not bootstrap':
+    - sshfs
+    - tinc
     - salt.cloud.manager
     - docker
     - docker_freeipa

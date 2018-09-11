@@ -30,6 +30,12 @@ freeipa:
     hostname: '{{ defaults.master.host_prefix }}mcp.{{ defaults.master.domain }}'
 
 
+tinc:
+  hosts:
+    reggienet:
+      private_key: ''  # See saltmaster_secret.sls
+
+
 magbot:
   deploy_log_domain: '{{ defaults.master.host_prefix }}mcp.{{ defaults.master.domain }}'
   webserver_domain: '{{ defaults.master.host_prefix }}magbot.{{ defaults.master.domain }}'
