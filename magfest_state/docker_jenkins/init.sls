@@ -1,5 +1,27 @@
 # ============================================================================
 # Installs a Jenkins server in a docker container
+#
+# After installation, configure authentication in the Jenkins web UI and
+# in FreeIPA at https://directory.magfest.net. Jenkins users must belong to
+# either the "jenkins-users" group, or the "developers" group. Jenkins
+# administrators must belong to the "jenkins-admins" group or the "admins"
+# group.
+#
+# In the Jenkins web UI:
+#
+# Manage Jenkins > Configure Global Security > Advanced Server Configuration...
+#
+#     Server: ldaps://ipa-01.magfest.org
+#     root DN: dc=magfest,dc=org
+#     User search base: cn=users,cn=accounts
+#     User search filter: uid={0}
+#     Group search base:
+#     Group search filter:
+#     Group membership: Search for LDAP groups containing user
+#         Group membership filter: (| (member={0}) (uniqueMember={0}) (memberUid={1}))
+#     Manager DN: uid=svc_jenkins,cn=users,cn=accounts,dc=magfest,dc=org
+#     Manager Password: secret
+#
 # ============================================================================
 
 {% set jenkins_home = salt['pillar.get']('data:path') ~ '/jenkins/jenkins_home' -%}

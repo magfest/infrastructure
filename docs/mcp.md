@@ -4,8 +4,6 @@
 MCP is the central piece of MAGFest's IT infrastructure. MCP provisions and
 manages the configuration of all of our other servers.
 
-<img src="assets/images/mcp.png" alt="MCP Network Diagram" class="inline"/>
-
 ## Bootstrapping the MCP server
 
 Creating an MCP server should only need to be done rarely; ideally just once.
