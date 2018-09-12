@@ -2,7 +2,7 @@
 
 # Services We Use
 
-<i>See also [Technologies We Use](technologies.html)</i>
+See also [Technologies We Use](technologies.html)
 
 <h1><img src="assets/images/slack.png" alt="MAGFest Slack" class="inline"/></h1>
 
