@@ -1,5 +1,3 @@
-{% include header.html %}
-
 # Services We Use
 
 See also [Technologies We Use](technologies.html)
