@@ -84,6 +84,7 @@ _Note: many of our salt states assume the OS is Ubuntu 16.04 or later._
 3. Update `/etc/salt/roster` on `mcp` to include the target VM you want to bootstrap
 
     a. `/etc/salt/roster` is managed by salt in the [salt.cloud.manager](https://github.com/magfest/infrastructure/blob/master/magfest_state/salt/cloud/manager.sls) state
+
     b. Update `salt.cloud.manager` and run the following command on `mcp`:
 ```
 salt mcp.magfest.net state.sls salt.cloud.manager
