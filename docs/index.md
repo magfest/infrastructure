@@ -1,5 +1,6 @@
 # MAGFest IT Infrastructure
 
+1. [Getting Started](gettingstarted.html)
 1. [FreeIPA](freeipa.html)
 2. [Jenkins](jenkins.html)
 3. [Jira](jira.html)

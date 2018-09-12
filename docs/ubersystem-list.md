@@ -46,6 +46,7 @@ We also have really old ones floating around somewhere. Talk to Eli or Dom about
 ## Additional Info:
 
 Servers migrated to archive.uber.magfest.org:
+
 * magstock4
 * magstock5
 * magstock6
