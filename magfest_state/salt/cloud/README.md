@@ -18,7 +18,7 @@ There are a few steps to configuring new Reggie servers:
 
 In order to provision new Reggie servers using `salt-cloud`, you'll need SSH
 access to mcp.magfest.net. Follow the instructions in the top-level
-[README](README.md) for getting SSH access to mcp.magfest.net.
+[README](/README.md) for getting SSH access to mcp.magfest.net.
 
 
 ### 1. Create a Cloud Profile
