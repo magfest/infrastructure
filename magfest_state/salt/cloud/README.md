@@ -4,7 +4,7 @@ All new Reggie servers should be created using the `salt-cloud` command.
 For a general guide to using `salt-cloud` to create Digital Ocean servers,
 please refer to Digital Ocean's [excellent tutorial](https://www.digitalocean.com/community/tutorials/saltstack-infrastructure-configuring-salt-cloud-to-spin-up-digitalocean-resources).
 
-> *SIDE NOTE*: This whole process is a little janky, and could be rethought.
+> **SIDE NOTE**: This whole process is a little janky, and could be rethought.
 > A lot of this process is formulaic and could easily be automated – perhaps
 > built into [magbot](https://github.com/magfest/magbot). Alternatively, we
 > may want to consider using a different provisioning technology, like
@@ -64,7 +64,7 @@ reggie-prod-stock-2019-single:
 ### 2. Create a Cloud Map
 
 Create an appropriately named file in the
-[cloud.maps.d](magfest_state/salt/cloud/files/cloud.maps.d)
+[cloud.maps.d](/magfest_state/salt/cloud/files/cloud.maps.d)
 directory. Something like `reggie-ENV-EVENT_NAME-EVENT_YEAR.map`.
 
 For production MAGStock 2019, `reggie-prod-stock-2019.map`:
@@ -125,7 +125,7 @@ or when it's finished. There are a couple of ways you can get results:
   salt-run --out highstate jobs.lookup_jid 201800000000000000
   ```
 
-> *SIDE NOTE*: The configuration process that happens after a server is
+> **SIDE NOTE**: The configuration process that happens after a server is
 > created is initiated by events in the [salt reactor](magfest_state/salt/reactor)
 > and ultimately controlled by [salt orchestration](magfest_state/salt/orchestration).
 

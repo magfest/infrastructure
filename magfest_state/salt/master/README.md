@@ -11,14 +11,14 @@ for configuration details.
 
 # Some Helpful Salt Commands
 
-#### Targeting Minions
+### Targeting Minions
 All Reggie servers have the `roles:reggie` grain. All staging servers have
 a `env:staging` grain. Likewise, production servers have a `env:prod` grain.
 Each Reggie server is also tagged with `event_name` and `event_year`
 grains. Using combinations of `roles`, `env`, `event_name`, and `event_year`,
 we can target various minions.
 
-#### Deploying Reggie
+### Deploying Reggie
 Production Super 2019:
 ```
 salt -C 'G@roles:reggie and G@env:prod and G@event_name:super and G@event_year:2019' state.apply
@@ -38,7 +38,7 @@ git pull
 salt-run fileserver.update
 ```
 
-#### Asynchronous Commands
+### Asynchronous Commands
 Some commands may take a long time to run. In that case, you may optionally
 pass the `--async` flag, and check for results later using the following command:
 ```
@@ -50,17 +50,17 @@ A helpful alias has been installed for root on MCP for looking up salt jobs:
 alias salt-job='salt-run --out highstate jobs.lookup_jid'
 ```
 
-#### Run an Arbitrary Command
+### Run an Arbitrary Command
 ```
 salt -C 'G@roles:reggie' cmd.run 'ls -la /var/logs/reggie'
 ```
 
-#### Update APT Packages
+### Update APT Packages
 ```
 salt -C 'G@roles:reggie' cmd.run 'export DEBIAN_FRONTEND=noninteractive; export DEBIAN_PRIORITY=critical; apt-get -qy update; apt-get -qy -o "Dpkg::Options::=--force-confdef" -o "Dpkg::Options::=--force-confold" upgrade; apt-get -qy autoclean'
 ```
 
-#### Reggie Maintenance Mode
+### Reggie Maintenance Mode
 
 To put production Reggie into maintenance mode:
 ```
@@ -72,7 +72,7 @@ And to undo maintenance mode:
 salt -C 'G@roles:reggie and G@roles:web and G@env:prod' state.sls reggie_deploy.web
 ```
 
-#### Bootstrap an Existing VM
+### Bootstrap an Existing VM
 
 _Note: many of our salt states assume the OS is Ubuntu 16.04 or later._
 

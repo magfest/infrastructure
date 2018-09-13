@@ -27,6 +27,7 @@ role.yaml
 Where:
 * `event` is the name of the event (super, stock, labs, west)
 * `year` is the year of the event (2018, 2019, 2020)
+* `environment` is the server environment (prod, staging, load, dev)
 * `role` is the role played by the server (db, web, scheduler, worker)
 
 If a server has more than one role, the role files will be loaded sequentially.
@@ -56,6 +57,7 @@ The `init.yaml` file in each directory should open with the following line:
 __: merge-first
 ```
 
-Any _other_ files (like `db.yaml`) should **not** include the `merge-first`
-directive. This ensures the settings are merged in the correct order, and
-are available in any subsequently loaded file.
+Unless you know what you're doing, any _other_ files (like `db.yaml`)
+should **NOT** include the `merge-first` directive. This ensures the
+settings are merged in the correct order, and are available in any
+subsequently loaded file.
