@@ -24,7 +24,7 @@ access to mcp.magfest.net. Follow the instructions in the top-level
 ### 1. Create a Cloud Profile
 
 Create an appropriately named file in the
-[cloud.profiles.d](magfest_state/salt/cloud/files/cloud.profiles.d)
+[cloud.profiles.d](/magfest_state/salt/cloud/files/cloud.profiles.d)
 directory. Something like `reggie-ENV-EVENT_NAME-EVENT_YEAR-profiles.conf`.
 
 For production MAGStock 2019, `reggie-prod-stock-2019-profiles.conf`:
@@ -111,7 +111,7 @@ happens in the background, so there's no real way to tell what is happening,
 or when it's finished. There are a couple of ways you can get results:
 
 * Find the `highstate` job in the Salt Master web UI at https://salt.magfest.net.
-  See the [Salt Master README](magfest_state/salt/master/README.md) for details
+  See the [Salt Master README](/magfest_state/salt/master/README.md) for details
   on getting access to the Salt Master web UI.
 * Find the JID by attempting to run another `highstate` job on the command line:
   ```
@@ -126,8 +126,8 @@ or when it's finished. There are a couple of ways you can get results:
   ```
 
 > **SIDE NOTE**: The configuration process that happens after a server is
-> created is initiated by events in the [salt reactor](magfest_state/salt/reactor)
-> and ultimately controlled by [salt orchestration](magfest_state/salt/orchestration).
+> created is initiated by events in the [salt reactor](/magfest_state/salt/reactor)
+> and ultimately controlled by [salt orchestration](/magfest_state/salt/orchestration).
 
 
 ### 5. Verify Configuration
