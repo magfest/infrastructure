@@ -1,3 +1,7 @@
+---
+redirect_from: "/ubersystem-list.html"
+---
+
 # 2019 Events
 
 * [Super MAGFest 2019 Jan 3-6](https://reggie.magfest.org) (MAGFest 17)

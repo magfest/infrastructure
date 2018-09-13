@@ -1,3 +1,5 @@
 theme: jekyll-theme-slate
 title: MAGFest IT Infrastructure
 description: (╯°□°）╯︵ ┻━┻
+plugins:
+  - jekyll-redirect-from
