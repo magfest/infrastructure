@@ -1,5 +1,7 @@
 ---
-redirect_from: "/ubersystem-list"
+redirect_from:
+  - /ubersystem-list
+  - /ubersystem-list.html
 ---
 
 # Reggie Servers
