@@ -77,12 +77,13 @@ _Note: many of our salt states assume the OS is Ubuntu 16.04 or later._
 
 1. Make sure the target VM is in the same region as the Salt Master (mcp.magfest.net is in NYC1)
 2. Enable private networking for the target VM by following [these instructions](https://www.digitalocean.com/docs/networking/private-networking/how-to/enable/)
-3. Update `/etc/salt/roster` on `mcp` to include the target VM you want to bootstrap
-
-    a. Update the `/etc/salt/roster` state in [salt/cloud/manager.sls](https://github.com/magfest/infrastructure/blob/master/magfest_state/salt/cloud/manager.sls) (CTRL-F for "/etc/salt/roster") and run the following command on `mcp`:
-```
-salt mcp.magfest.net state.sls salt.cloud.manager
-```
+3. Update `/etc/salt/roster` on `mcp` to include the target VM you want
+   to bootstrap. Edit the `/etc/salt/roster` state in
+   [salt/cloud/manager.sls](https://github.com/magfest/infrastructure/blob/master/magfest_state/salt/cloud/manager.sls)
+   (CTRL-F for "/etc/salt/roster") and run the following command on `mcp`:
+   ```
+   salt mcp.magfest.net state.sls salt.cloud.manager
+   ```
 4. Run the following command on `mcp` to install salt on the target VM:
 ```
 salt-ssh existing.vm.magfest.org state.sls salt.minion.bootstrap
