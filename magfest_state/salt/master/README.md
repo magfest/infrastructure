@@ -5,7 +5,7 @@ Authorization for this interface is provided by FreeIPA LDAP services at
 https://directory.magfest.net. In order to use the Salt Web UI you must be
 a member of either the `admins` or `salt-users` groups on
 https://directory.magfest.net. See the
-[salt master config](magfest_state/salt/master/files/salt_master.yaml)
+[salt master config](/magfest_state/salt/master/files/salt_master.yaml)
 for configuration details.
 
 

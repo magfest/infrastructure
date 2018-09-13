@@ -10,7 +10,7 @@ Try looking in the [reggie_config](reggie_config) directory!
 
 ### Provision a Reggie Cloud Server for a New Event
 
-Take a look at the [salt cloud README](magfest_state/salt/cloud/README.md)!
+Take a look at the [salt cloud README](/magfest_state/salt/cloud/README.md)!
 
 
 ### Set Up a Reggie Development Environment
@@ -34,4 +34,4 @@ NOT BE UPLOADED UNTIL YOU CLICK "SAVE" AT THE TOP OF THE SCREEN**.
 
 ### Run Salt Commands On MCP
 
-Try the [Salt Master README](magfest_state/salt/master/README.md)!
+Try the [Salt Master README](/magfest_state/salt/master/README.md)!
