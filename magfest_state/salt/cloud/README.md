@@ -20,6 +20,12 @@ In order to provision new Reggie servers using `salt-cloud`, you'll need SSH
 access to mcp.magfest.net. Follow the instructions in the top-level
 [README](/README.md) for getting SSH access to mcp.magfest.net.
 
+If you're going to be using a new domain, then at some point you'll need to
+log into our DNS provider (for MAGFest this is DNSMadeEasy) and create a new
+A record for the subdomain.  You should probably do this before creating the
+server, but in theory you can do it later and just do another deploy on the
+server afterwards.  The only real consequence is that the server won't have
+a valid LetsEncrypt cert until the first deploy after we have DNS working.
 
 ### 1. Create a Cloud Profile
 
