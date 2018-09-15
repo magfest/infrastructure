@@ -150,6 +150,21 @@ salt -C 'G@roles:reggie and G@env:prod and G@event_name:stock and G@event_year:2
 ```
 
 
+### 6. Add private data
+
+By default, all of our "sensitive" config settings like passwords and API
+keys use the default values defined in the reggie salt states.  This means
+that the passwords are mostly just "reggie".  This is fine for our staging
+servers, since those should never contain sensitive data.
+
+When deploying a production server, we'll need to configure values such as
+passwords and API tokens in a place that doesn't get saved to Github.  Such
+data is saved under the /srv/data/secret/infrastructure directory, which
+has the exact same directory structure as this "infrastructure" repository.
+You can edit those files by hand to set secure values for such options.
+
+
+
 # Importance of `roles` Salt Grains
 
 Almost all of our salt targeting is done using the following salt grains:
