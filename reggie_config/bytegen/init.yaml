@@ -1,0 +1,8 @@
+__: merge-first
+
+reggie:
+  plugins:
+    ubersystem:
+      config:
+        event_year: 2019
+        event_name: ByteGen
