@@ -1,11 +1,12 @@
-{%- from 'init.yaml' import env, private_ip %}
+{%- from 'init.yaml' import env, event_name, event_year, private_ip %}
+
 {%- set sqlalchemy_pool_sizes = __salt__['saltutil.runner']('mine.get',
-    tgt='G@roles:reggie and P@roles:(web|worker|scheduler) and G@env:' ~ env,
+    tgt='G@roles:reggie and P@roles:(web|worker|scheduler) and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
     fun='sqlalchemy_pool_size',
     tgt_type='compound').values() %}
 
 {%- set sqlalchemy_max_overflows = __salt__['saltutil.runner']('mine.get',
-    tgt='G@roles:reggie and P@roles:(web|worker|scheduler) and G@env:' ~ env,
+    tgt='G@roles:reggie and P@roles:(web|worker|scheduler) and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
     fun='sqlalchemy_max_overflow',
     tgt_type='compound').values() %}
 
