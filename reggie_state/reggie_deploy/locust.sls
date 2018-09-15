@@ -6,12 +6,12 @@
 {%- set install_dir = salt['pillar.get']('reggie:install_dir') %}
 {%- set env = salt['grains.get']('env', 'load') %}
 {%- set locustmaster_id, locustmaster_ip = salt['mine.get'](
-    'G@roles:reggie and G@roles:locustmaster and G@env:' ~ env,
+    'G@roles:reggie and G@roles:locustmaster and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
     'public_ip',
     'compound').items()|first %}
 
 {%- set load_target_id = salt['mine.get'](
-    'G@roles:reggie and G@roles:loadbalancer and G@env:' ~ env,
+    'G@roles:reggie and G@roles:loadbalancer and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
     'public_ip',
     'compound').keys()|first %}
 
