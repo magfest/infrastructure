@@ -17,12 +17,12 @@ reggie:
 
 ufw:
   services:
-    http:
+    8080:
       protocol: tcp
       to_addr: {{ private_ip }}
       comment: Private network HTTP
 
-    https:
+    8443:
       protocol: tcp
       to_addr: {{ private_ip }}
       comment: Private network HTTPS
