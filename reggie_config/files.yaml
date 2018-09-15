@@ -1,6 +1,8 @@
 {%- from 'init.yaml' import env, private_ip -%}
+{%- set event_name = __grains__['event_name'] -%}
+{%- set event_year = __grains__['event_year'] -%}
 {%- set glusterfs_servers = __salt__['saltutil.runner']('mine.get',
-    tgt='G@roles:reggie and G@roles:files and G@env:' ~ env,
+    tgt='G@roles:reggie and G@roles:files and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
     fun='private_ip',
     tgt_type='compound').items() -%}
 {%- set glusterfs_servers_count = glusterfs_servers|length -%}
