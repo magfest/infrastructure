@@ -17,5 +17,8 @@ staging-queue:
 staging-scheduler:
   - staging-scheduler-01.reggie.magfest.org
 
+staging-web:
+  - staging-web-01.reggie.magfest.org
+
 staging-worker:
   - staging-worker-01.reggie.magfest.org
