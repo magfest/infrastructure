@@ -1,8 +1,8 @@
 {%- from 'macros.jinja' import nginx_ssl_config, nginx_proxy_config -%}
-{%- from 'init.yaml' import env, private_ip -%}
+{%- from 'init.yaml' import env, event_name, event_year, private_ip -%}
 {%- set url_path = stack['reggie'].get('cherrypy_mount_path', '/reggie') -%}
 {%- set glusterfs_ips = __salt__['saltutil.runner']('mine.get',
-    tgt='G@roles:reggie and G@roles:files and G@env:' ~ env,
+    tgt='G@roles:reggie and G@roles:files and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
     fun='private_ip',
     tgt_type='compound').values() -%}
 
@@ -86,8 +86,8 @@ nginx:
           config:
             - server:
               - server_name: localhost
-              - listen: '127.0.0.1:443 ssl'
-              - listen: '{{ private_ip }}:443 ssl'
+              - listen: '127.0.0.1:8443 ssl'
+              - listen: '{{ private_ip }}:8443 ssl'
               - root: /var/www
               - error_page: 503 @maintenance
 
@@ -118,8 +118,8 @@ nginx:
 
             - server:
               - server_name: localhost
-              - listen: '127.0.0.1:80'
-              - listen: '{{ private_ip }}:80'
+              - listen: '127.0.0.1:8080'
+              - listen: '{{ private_ip }}:8080'
 
               - access_log: /var/log/nginx/access_static.log
               - error_log: /var/log/nginx/error_static.log
@@ -130,7 +130,7 @@ nginx:
               {%- endfor %}
 
               - 'location /':
-                - return: '301 https://$host:443$request_uri'
+                - return: '301 https://$host:8443$request_uri'
 
         reggie_long_term_cache.conf:
           enabled: True
