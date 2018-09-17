@@ -53,6 +53,7 @@ reggie:
           badge_price_waived: 2019-01-06 12
           refund_start: 2018-09-05
           refund_cutoff: 2018-09-30
+          rock_island_dealine: 2018-11-17
 
           printed_badge_deadline: 2018-11-10
 
