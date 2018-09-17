@@ -53,7 +53,6 @@ reggie:
           badge_price_waived: 2019-01-06 12
           refund_start: 2018-09-05
           refund_cutoff: 2018-09-30
-          rock_island_dealine: 2018-11-17
 
           printed_badge_deadline: 2018-11-10
 
@@ -77,7 +76,7 @@ reggie:
 
           panel_app_deadline: 2018-10-31
 
-          rock_island_deadline: ''
+          rock_island_deadline: 2018-11-17
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2019-01-08 11
