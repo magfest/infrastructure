@@ -15,6 +15,7 @@ reggie:
         event_qr_id: sm19
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
+        treasury_dept_checklist_form_url: https://docs.google.com/forms/u/3/d/e/1FAIpQLSciy4leBGk9jZyu8Us_PtcCK8VNuekXQ9XL2ZJd4jh9Mwir0w/viewform
         techops_dept_checklist_form_url: https://goo.gl/forms/PcG3dG7JwsD307sK2
 
         expected_response: December 2018
@@ -168,43 +169,54 @@ reggie:
 
         dept_head_checklist:
           creating_shifts:
-            deadline: 2018-11-06
+            deadline: 2018-10-24
+            description: >
+                We have the ability to import shifts from MAGFest 2017 to MAGFest 2018, if you are only 
+                making minor changes and want assistance with this step, please let us know.
 
           assigned_volunteers:
-            deadline: 2018-11-07
+            deadline: 2018-10-24
 
           treasury:
-            deadline: 2018-11-08
+            deadline: 2018-10-31
 
           allotments:
-            deadline: 2018-11-08
-
-          hotel_setup:
-            deadline: 2018-11-15
+            deadline: 2018-10-31
 
           approve_setup_teardown:
-            deadline: 2018-11-22
+            name: Approve/Decline Additional Hotel Nights
+            deadline: 2018-11-07
+            description: >
+                An overwhelming majority of staffers want to work setup and teardown shifts rather than
+                work during the event itself, so we have far more offers than we have need for. Since this
+                affects what hotel nights staffers get, please approve and decline requests for this for
+                people in your department. Please only approve staffers who will sign up for a setup or 
+                teardown shift in your department.
 
           placeholders:
-            deadline: 2018-11-22
+            deadline: 2018-11-07
 
           hotel_eligible:
-            deadline: 2018-11-22
+            deadline: 2018-11-07
 
           tech_requirements:
-            deadline: 2018-11-29
+            deadline: 2018-11-10
+
+          hotel_setup:
+            deadline: 2018-11-14
 
           logistics:
-            deadline: 2018-11-29
+            deadline: 2018-11-21
 
           printed_signs:
-            deadline: 2018-12-06
+            deadline: 2018-12-05
 
           office_supplies:
-            deadline: 2018-12-06
+            deadline: 2018-12-05
 
           custom_ribbons:
-            deadline: 2018-12-06
+            deadline: 2018-12-05
 
           postcon_hours:
-            deadline: 2019-01-24
+            name: (After the Event) Marking + Rating Shifts
+            deadline: 2019-01-23
