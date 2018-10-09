@@ -6,3 +6,5 @@ reggie:
       config:
         event_year: 2019
         event_name: ByteGen
+        send_emails: False
+        send_sms: False
