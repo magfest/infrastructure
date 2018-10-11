@@ -74,6 +74,9 @@ reggie:
           mivs_round_two_deadline: 2018-10-07
           mivs_judging_deadline: 2018-11-04
           mivs_round_two_complete: 2018-11-05
+          
+          mits_submission_deadline: 2018-11-14
+          mits_editing_deadline: 2018-12-28
 
           panel_app_deadline: 2018-10-31
 
