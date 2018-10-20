@@ -18,6 +18,7 @@ reggie:
 
         mits_enabled: True
         mivs_enabled: True
+        volunteer_agreement_enabled: True
 
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4']
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']
@@ -388,5 +389,7 @@ reggie:
             email_post_con: True
 
         volunteer_checklist:
+          2: signups/volunteer_agreement_item.html
           4: hotel_requests/hotel_item.html
+          5: signups/shirt_item.html
           99: signups/shifts_item.html
