@@ -388,6 +388,7 @@ reggie:
             email_post_con: True
 
         volunteer_checklist:
+          2: signups/food_item.html
           3: hotel_requests/hotel_item.html
           4: signups/shirt_item.html
           99: signups/shifts_item.html
