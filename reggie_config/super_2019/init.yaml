@@ -15,7 +15,6 @@ reggie:
         event_qr_id: sm19
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
-        treasury_dept_checklist_form_url: https://docs.google.com/forms/u/3/d/e/1FAIpQLSciy4leBGk9jZyu8Us_PtcCK8VNuekXQ9XL2ZJd4jh9Mwir0w/viewform
         techops_dept_checklist_form_url: https://goo.gl/forms/PcG3dG7JwsD307sK2
 
         expected_response: December 2018
