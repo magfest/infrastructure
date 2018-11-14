@@ -19,7 +19,7 @@ reggie:
         mits_enabled: True
         mivs_enabled: True
 
-        panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4']
+        panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'tabletop_panels', 'forge']
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic']
 
@@ -208,21 +208,24 @@ reggie:
             handmade: General Handmade
 
           event_location:
+            demoparty: Demoparty (Magnolia 3)
+            magfest_vs: MAGFEST VS (Baltimore 5)
             panels_1: Panels 1 (Cherry Blossom Ballroom)
             panels_2: Panels 2 (Woodrow Wilson Ballroom)
             panels_3: Panels 3 (Woodrow Wilson Ballroom)
             panels_4: Panels 4 (Annapolis 1-4)
-            mages_1: MAGES 1 (Chesapeake G,H,I)
-            mages_2: MAGES 2 (Chesapeake 7,8,9)
-            forum: Forum (Chesapeake 10,11,12)
+            panels_5: Panels 5 (National Harbor 14-15)
+            mages_1: MAGES 1 (Chesapeake 1,2)
+            mages_2: MAGES 2 (Chesapeake 10,11,12)
+            forum: Forum (Chesapeake H,I)
             the_forge: Forge (Baltimore 3,4)
-            soapbox: The Soapbox (Camellia 3,4)
+            soapbox: The Soapbox (Magnolia 2)
             autographs: Autographs Red (Expo Hall E)
             autographs_1: Autographs Blue (Expo Hall E)
-            film_fest: Games on Film (Chesapeake J,K,L)
-            console_stage: Arena (Maryland D)
-            starship_horizons: Starship Horizons (Maryland C)
-            simulations: Artemis (Maryland C)
+            film_fest: Games on Film 
+            console_stage: Arena (Maryland C)
+            starship_horizons: Starship Horizons (National Harbor 10,11)
+            simulations: Artemis (National Harbor 10,11)
             console_tournament: Console (Gameroom Tournaments)
             console_tournament_2: Console (Attendee-Run Tournaments 2)
             console_attendee: Console (Attendee-Run Tournaments)
@@ -234,14 +237,14 @@ reggie:
             lan_1: LAN 1
             lan_2: LAN 2
             lan_theater: LAN Theater
-            larp: LARP (Expo Hall E)
+            larp: LARP (National Harbor 14,15)
             tabletop_indie: Tabletop Indie Showcase (National Harbor 10,11)
             tabletop_tournaments: Tabletop (Tournaments 1)
             tabletop_tournaments_2: Tabletop (Tournaments 2)
-            tabletop_panels: Tabletop Discussions (National Harbor 8)
-            tabletop_ccg: Tabletop CCG (National Harbor 4,5,6,7)
-            pathfinder: Pathfinder (National Harbor 12,13)
-            ddal: D&D Adventurers League, 5th edition (National Harbor 12,13)
+            tabletop_panels: Tabletop Discussions (RiverView Ballroom)
+            tabletop_ccg: Tabletop CCG (National Harbor 1,2,3)
+            pathfinder: Pathfinder (National Harbor 6,7,8)
+            ddal: D&D Adventurers League, 5th edition (National Harbor 4,5,8)
             concerts: Concerts (Potomac Ballrooms)
             chiptunes: Chipspace (Potomac Hallway)
             zombie_tag: Zombie Tag (Magnolia 1)
@@ -250,8 +253,10 @@ reggie:
             pose_lounge: POSE Lounge
             lobby_bar: Belvedere Lobby Bar
             jamspace: Jamspace + Community Curated Stage (Eastern Shore 1,2,3)
-            jam_clinic: Jam Clinic (Chesapeake A,B,C)
-            vrzone: VRZone (Magnolia 2,3)
+            jam_clinic: Jam Clinic (Chesapeake 4,5,6)
+            jam_shop: Jam Shop (Chesapeake 3)
+            vrzone: VRZone (Baltimore 1,2)
+            Museum: Museum (Chesapeake D,E,F)
 
           sandwich:
             turkey: Turkey
