@@ -19,7 +19,7 @@ reggie:
         mits_enabled: True
         mivs_enabled: True
 
-        panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'tabletop_panels', 'forge']
+        panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'tabletop_panels', 'the_forge']
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic']
 
