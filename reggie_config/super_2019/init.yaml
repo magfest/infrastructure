@@ -170,6 +170,53 @@ reggie:
             link: ../static_views/barrel_roller.html|../static_views/secret.html
             merch_items: ['Sun Cats']
 
+        mivs_checklist:
+          core_hours:
+            deadline: 2018-11-27
+            name: Accept Core Hours
+            description: >
+              In exchange for your space and two free badges, MIVS expects your studio to have your booth area
+              up-and-running during core hours. You also must have at least one representative from your studio present,
+              in your booth, during core hours.
+
+          discussion:
+            deadline: 2018-11-27
+            name: MIVS Discussion Group
+            editable: True
+            description: >
+              The primary contact for your game will be added to a MIVS Google Discussion group. You may
+              enter emails for any team members associated with your game who you think should also be added to the group.
+
+          hotel_space:
+            deadline: 2018-11-27
+            name: Hotel Signups
+            editable: True
+            description: >
+              As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
+              use and you are not allowed to transfer your reservation to someone else unless authorized
+              by MAGFest. Dropping out of MIVS may cause your room to be canceled.
+
+          selling_at_event:
+            deadline: 2018-12-01
+            name: Selling at MAGFest
+            editable: True
+            description: >
+              We are allowing Indies to sell items directly related to your game or studio in MIVS.
+              Studios will need to sign a waiver and provide some information for tax purposes.
+
+          handbook:
+            start: 2018-12-15
+            deadline: 2018-12-29
+            name: Indie Handbook
+            description:
+
+          training:
+            start: 2018-12-15
+            deadline: 2018-12-29
+            name: MIVS Training
+            editable: True
+            description:
+
         dept_head_checklist:
           creating_shifts:
             deadline: 2018-10-24
