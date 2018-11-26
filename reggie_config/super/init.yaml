@@ -217,20 +217,20 @@ reggie:
 
           event_location:
             demoparty: Demoparty (Magnolia 3)
-            magfest_vs: MAGFEST VS (Baltimore 5)
+            magfest_vs: Indie Arcade Tournaments (Expo Hall B)
             panels_1: Panels 1 (Cherry Blossom Ballroom)
             panels_2: Panels 2 (Woodrow Wilson Ballroom)
             panels_3: Panels 3 (Woodrow Wilson Ballroom)
-            panels_4: Panels 4 (Annapolis 1-4)
+            panels_4: Panels 4 (Annapolis 1-3)
             panels_5: Panels 5 (National Harbor 14-15)
-            mages_1: MAGES 1 (Chesapeake 1,2)
+            mages_1: MAGES 1 (Chesapeake 7,8,9)
             mages_2: MAGES 2 (Chesapeake 10,11,12)
             forum: Forum (Chesapeake H,I)
-            the_forge: Forge (Baltimore 3,4)
+            the_forge: Makerspace (Baltimore 3,4)
             soapbox: The Soapbox (Magnolia 2)
             autographs: Autographs Red (Expo Hall E)
             autographs_1: Autographs Blue (Expo Hall E)
-            film_fest: Games on Film 
+            film_fest: MAGES Game Jam (Chesapeake 1,2)
             console_stage: Arena (Maryland C)
             starship_horizons: Starship Horizons (National Harbor 10,11)
             simulations: Artemis (National Harbor 10,11)
@@ -256,7 +256,7 @@ reggie:
             concerts: Concerts (Potomac Ballrooms)
             chiptunes: Chipspace (Potomac Hallway)
             zombie_tag: Zombie Tag (Magnolia 1)
-            escape_room: Escape Room (Baltimore 1,2)
+            escape_room: Robotics (Expo Hall E)
             MegaManathon: Mega Man-athon 6 (Maryland Hallway)
             pose_lounge: POSE Lounge
             lobby_bar: Belvedere Lobby Bar
