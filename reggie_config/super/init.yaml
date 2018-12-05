@@ -246,6 +246,7 @@ reggie:
             lan_2: LAN 2
             lan_theater: LAN Theater
             larp: LARP (National Harbor 14,15)
+            laser_tag: Laser Tag (Chesapeake A,B,C)
             tabletop_indie: Tabletop Indie Showcase (National Harbor 10,11)
             tabletop_tournaments: Tabletop (Tournaments 1)
             tabletop_tournaments_2: Tabletop (Tournaments 2)
@@ -265,6 +266,7 @@ reggie:
             jam_shop: Jam Shop (Chesapeake 3)
             vrzone: VRZone (Baltimore 1,2)
             Museum: Museum (Chesapeake D,E,F)
+            rock_island: Rock Island - Band Merch (Potomac 1)
 
           sandwich:
             turkey: Turkey
