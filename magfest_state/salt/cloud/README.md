@@ -111,6 +111,12 @@ From the command line on mcp.magfest.net:
 sudo salt-cloud -P -m /etc/salt/cloud.maps.d/reggie-prod-stock-2019.map
 ```
 
+This will tell you that the VMs don't exist yet:
+
+> No minions matched the target. No command was sent, no jid was assigned. The following virtual machines are set to be created: (YOUR MACHINE NAMES GO HERE)
+
+You will be asked if you want to create the machine(s) you specified - you should say yes.
+
 This will take awhile to complete. Once the server has been created, it will
 check-in to the Salt Master to complete it's configuration. This process
 happens in the background, so there's no real way to tell what is happening,
