@@ -22,10 +22,10 @@ access to mcp.magfest.net. Follow the instructions in the top-level
 
 If you're going to be using a new domain, then at some point you'll need to
 log into our DNS provider (for MAGFest this is DNSMadeEasy) and create a new
-A record for the subdomain.  You should probably do this before creating the
-server, but in theory you can do it later and just do another deploy on the
-server afterwards.  The only real consequence is that the server won't have
-a valid LetsEncrypt cert until the first deploy after we have DNS working.
+A record for the subdomain.  You should make sure that you have a DNSMadeEasy
+login before you start, but you won't be able to configure the IP address
+until after the server has been created, since you won't know the server's IP
+until that time.
 
 ### 1. Create a Cloud Profile
 
@@ -142,21 +142,49 @@ or when it's finished. There are a couple of ways you can get results:
 > and ultimately controlled by [salt orchestration](/magfest_state/salt/orchestration).
 
 
-### 5. Verify Configuration
+### 5. Create a DNS record
+
+After your servers have been created, you can run the ``network.ip_addrs``
+command to look up the server's IP address, e.g.
+
+```
+root@mcp:~# salt onsite-staging.reggie.magfest.org network.ip_addrs
+jid: 20181210005956980918
+onsite-staging.reggie.magfest.org:
+    - 10.10.0.7
+    - 10.136.136.237
+    - 167.99.148.64
+```
+
+Note that there are three IP addresses listed:
+
+* The first IP address is a private network IP and we don't use that
+  directly for anything.
+* The second IP address is the IP address that we can use to SSH into
+  the server.
+* The third IP address is the internet-accessible IP address; this is
+  the one which should be used when creating a DNS record.
+
+Now that we have the IP address, we can set up the A record in our
+DNSMadeEasy account.
+
+
+### 6. Verify Configuration
 
 The deployment command may need to be run several times before all errors
 are resolved, especially for larger distributed deployments. This is mostly
 due to vagaries in the order servers come online, and how long they
 take to configure themselves.
 
-If there are any errors after the initial provisioning, try running the
-deployment command again:
+Regardless of any potential failures, this must be run at least one time
+after setting up a DNS record in DNSMadeEasy.
+
 ```
 salt -C 'G@roles:reggie and G@env:prod and G@event_name:stock and G@event_year:2019' state.apply
 ```
 
 
-### 6. Add private data
+### 7. Add private data
 
 By default, all of our "sensitive" config settings like passwords and API
 keys use the default values defined in the reggie salt states.  This means
