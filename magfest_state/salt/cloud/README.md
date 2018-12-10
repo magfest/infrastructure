@@ -169,7 +169,17 @@ Now that we have the IP address, we can set up the A record in our
 DNSMadeEasy account.
 
 
-### 6. Verify Configuration
+### 6. Add configuration
+
+You probably need to set some config options for the event whose Reggie
+you are configuring, such as the event name, the year the event takes
+place, whether or not to send emails, etc.
+
+You do this by creating a pillar file following the README instructions
+at https://github.com/magfest/infrastructure/blob/master/reggie_config/
+
+
+### 7. Verify Configuration
 
 The deployment command may need to be run several times before all errors
 are resolved, especially for larger distributed deployments. This is mostly
@@ -184,7 +194,7 @@ salt -C 'G@roles:reggie and G@env:prod and G@event_name:stock and G@event_year:2
 ```
 
 
-### 7. Add private data
+### 8. Add private data
 
 By default, all of our "sensitive" config settings like passwords and API
 keys use the default values defined in the reggie salt states.  This means
