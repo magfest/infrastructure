@@ -10,6 +10,8 @@ across files.
 Files are loaded in the following order, with earlier files taking precedence:
 
 ```
+hostname/init.yaml
+hostname/role.yaml
 event_year_environment/init.yaml
 event_year_environment/role.yaml
 event_year/init.yaml
@@ -25,6 +27,7 @@ role.yaml
 ```
 
 Where:
+* `hostname` is the hostname of the machine (e.g. `onsite-staging.reggie.magfest.org`)
 * `event` is the name of the event (super, stock, labs, west)
 * `year` is the year of the event (2018, 2019, 2020)
 * `environment` is the server environment (prod, staging, load, dev)
@@ -32,9 +35,11 @@ Where:
 
 If a server has more than one role, the role files will be loaded sequentially.
 
-For example, the database server for Super 2019 would load files in this order:
+For example, the database server for staging Super 2019 would load files in this order:
 
 ```
+staging-db-01.reggie.magfest.org/init.yaml
+staging-db-01.reggie.magfest.org/db.yaml
 super_2019_staging/init.yaml
 super_2019_staging/db.yaml
 super_2019/init.yaml
@@ -48,6 +53,12 @@ staging/db.yaml
 init.yaml
 db.yaml
 ```
+
+WARNING: Using the hostname of the machine is recommended ONLY for single-VM
+deploys. The problem with setting hostname-specific config on multi-VM deploys
+is that it requires you to know exactly which config options are necessary for
+which components. For example, `web` and `worker` VMs each have Reggie config
+options, but there's no documentation for which is which!
 
 Data from any of the previously loaded files can be accessed using the Jinja
 `stack` variable, like this: `{{ stack['reggie']['db']['username'] }}`.
