@@ -37,6 +37,7 @@ reggie:
         mivs_confirm_deadline: 14
         mivs_submission_grace_period: 10
         mivs_start_year: 2013
+        mivs_training_password: WHATISARUG
 
         dates:
           prereg_open: 2018-08-28 12
@@ -206,16 +207,16 @@ reggie:
 
           handbook:
             start: 2018-12-15
-            deadline: 2018-12-29
+            deadline: 2018-12-30
             name: Indie Handbook
-            description:
+            description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
 
           training:
             start: 2018-12-15
-            deadline: 2018-12-29
+            deadline: 2018-12-30
             name: MIVS Training
             editable: True
-            description:
+            description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
 
         dept_head_checklist:
           creating_shifts:
