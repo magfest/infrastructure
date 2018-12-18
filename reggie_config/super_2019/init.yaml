@@ -212,7 +212,7 @@ reggie:
             description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
 
           training:
-            start: 2018-12-20
+            start: 2018-12-15
             deadline: 2018-12-30
             name: MIVS Training
             editable: True
