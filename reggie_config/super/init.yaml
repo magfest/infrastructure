@@ -249,10 +249,10 @@ reggie:
             lan_theater: LAN Theater
             larp: LARP (National Harbor 14,15)
             laser_tag: Laser Tag (Chesapeake A,B,C)
-            tabletop_indie: Tabletop Indie Showcase (National Harbor 10,11)
-            tabletop_tournaments: Tabletop (Tournaments 1)
-            tabletop_tournaments_2: Tabletop (Tournaments 2)
-            tabletop_panels: Tabletop Discussions (RiverView Ballroom)
+            tabletop_indie: Tabletop Indie Showcase (Riverview Ballroom)
+            tabletop_tournaments: Tabletop Tournaments 1 (Riverview Ballroom)
+            tabletop_tournaments_2: Tabletop Tournaments 2 (Riverview Ballroom)
+            tabletop_panels: Tabletop Discussions (Riverview Ballroom)
             tabletop_ccg: Tabletop CCG (National Harbor 1,2,3)
             pathfinder: Pathfinder (National Harbor 6,7,8)
             ddal: D&D Adventurers League, 5th edition (National Harbor 4,5,8)
@@ -260,7 +260,7 @@ reggie:
             chiptunes: Chipspace (Potomac Hallway)
             zombie_tag: Zombie Tag (Magnolia 1)
             escape_room: Robotics (Expo Hall E)
-            MegaManathon: Mega Man-athon 6 (Maryland Hallway)
+            MegaManathon: Mega Man-athon/MAGFast (Maryland Hallway)
             pose_lounge: POSE Lounge
             lobby_bar: Belvedere Lobby Bar
             jamspace: Jamspace + Community Curated Stage (Eastern Shore 1,2,3)
