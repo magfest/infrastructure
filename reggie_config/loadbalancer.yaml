@@ -1,10 +1,15 @@
-{%- from 'init.yaml' import env, event_name, event_year, private_ip -%}
+{%- from 'init.yaml' import env, event_name, event_year, event_tag, private_ip -%}
 {%- set port = stack['reggie'].get('port', 443) -%}
 {%- set nonssl_port = stack['reggie'].get('nonssl_port', 80) -%}
 {%- set url_path = stack['reggie'].get('cherrypy_mount_path', '/reggie') -%}
 {%- set loadbalancer_password = stack['reggie'].get('loadbalancer', {}).get('password') -%}
+{%- if event_tag -%}
+  {%- set tag_match = 'G@event_tag:' ~ event_tag -%}
+{%- else -%}
+  {%- set tag_match = 'not G@event_tag:*' -%}
+{%- endif -%}
 {%- set backends = __salt__['saltutil.runner']('mine.get',
-    tgt='G@roles:reggie and G@roles:web and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
+    tgt='G@roles:reggie and G@roles:web and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year ~ ' and ' ~ tag_match,
     fun='private_ip',
     tgt_type='compound').items() %}
 

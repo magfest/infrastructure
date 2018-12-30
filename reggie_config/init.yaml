@@ -1,6 +1,7 @@
 {%- set env = __grains__['env'] -%}
 {%- set event_name = __grains__['event_name'] -%}
 {%- set event_year = __grains__['event_year'] -%}
+{%- set event_tag = __grains__.get('event_tag', '') -%}
 {%- set private_ip = __grains__['ip4_interfaces'][__grains__.get('private_interface', 'eth1')][0] -%}
 {%- set loadbalancer_id = __salt__['saltutil.runner']('mine.get',
     tgt='G@roles:reggie and G@roles:loadbalancer and G@env:' ~ env ~ ' and G@event_name:' ~ event_name ~ ' and G@event_year:' ~ event_year,
