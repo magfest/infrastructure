@@ -21,7 +21,7 @@ reggie:
 
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'tabletop_panels', 'the_forge']
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']
-        music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic']
+        music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop']
 
         shiftless_depts: ['dorsai', 'marketplace', 'simulations', 'merch_contractor', 'con_ops', 'arcade_crew']
 
