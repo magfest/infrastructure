@@ -8,4 +8,4 @@ reggie:
   plugins:
     ubersystem:
       config:
-        at_the_con: False
+        at_the_con: True
