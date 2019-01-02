@@ -14,7 +14,9 @@ master:
 
 
 minion:
+{% if salt_env != 'onsite' %}
   master: {{ master_ip }}
+{% endif %}
 
   log_file: file:///dev/log
   log_level: info

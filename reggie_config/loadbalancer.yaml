@@ -3,6 +3,7 @@
 {%- set nonssl_port = stack['reggie'].get('nonssl_port', 80) -%}
 {%- set url_path = stack['reggie'].get('cherrypy_mount_path', '/reggie') -%}
 {%- set loadbalancer_password = stack['reggie'].get('loadbalancer', {}).get('password') -%}
+{%- set onsite_redirect_host = stack['reggie'].get('onsite_redirect_host', '') -%}
 {%- if event_tag -%}
   {%- set tag_match = 'G@event_tag:' ~ event_tag -%}
 {%- else -%}
@@ -75,6 +76,12 @@ haproxy:
           host: 127.0.0.1
           port: 9999
 
+{% if onsite_redirect_host %}
+    reggie_onsite_redirect:
+      mode: http
+      bind: "0.0.0.0:{{ port }} ssl crt {{ stack['ssl']['certs_dir'] }}/{{ minion_id }}.pem"
+      httprequests: 'redirect location https://{{ onsite_redirect_host }}%[capture.req.uri] code 301'
+{% else %}
   frontends:
     reggie_load_balancer:
       mode: http
@@ -132,3 +139,4 @@ haproxy:
           port: 8080
           extra: 'check'
         {%- endfor %}
+{% endif %}
