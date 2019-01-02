@@ -1,6 +1,7 @@
 __: merge-first
 
 reggie:
+  maintenance: True
   plugins:
     ubersystem:
       config:

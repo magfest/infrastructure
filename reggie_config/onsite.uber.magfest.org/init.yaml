@@ -1,6 +1,7 @@
 __: merge-first
 
 reggie:
+  maintenance: False
   db:
     backups:
       enabled: False
