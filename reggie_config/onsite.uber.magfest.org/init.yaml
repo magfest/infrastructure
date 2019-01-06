@@ -2,6 +2,7 @@ __: merge-first
 
 reggie:
   maintenance: True
+  onsite_redirect_host: reggie.magfest.org
   db:
     backups:
       enabled: False
