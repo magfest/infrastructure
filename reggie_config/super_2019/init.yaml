@@ -24,7 +24,7 @@ reggie:
         # and group registrations which we support.  In other words, we will only
         # cut off preregistration once that sum meets this number no matter how
         # many other registrations (Staff, Dealers, Guests, etc) are in the system.
-        max_badge_sales: 22300
+        max_badge_sales: 22350
 
         # The number of dealer apps we will accept before auto-waitlisting further
         # applications. If dealer_reg_deadline is also set, we will auto-wailist
