@@ -59,6 +59,38 @@ reggie:
           guest_badge: [1000, 1999]
           attendee_badge: [2000, 9999]
 
+        enums:
+          interest:
+            console: "Consoles"
+            arcade: "Arcade"
+            lan: "LAN"
+            music: "Concerts"
+            Jams: "Jam Space"
+            panels: "Guests/Panels"
+            tabletop: "Tabletop games"
+            dealers: "Dealers"
+            tournaments: "Tournaments"
+            tea_room: "Tea Room"
+            indie_games: "Indie Games"
+
+          event_location:
+            panels_1: "Panels 1"
+            panels_2: "Panels 2"
+            arcade_tournaments_1: "Arcade (Tournaments 1)"
+            arcade_tournaments_2: "Arcade (Tournaments 2)"
+            concerts: "Concerts"
+            jamspace: "Jam Space"
+            chipspace: "Chipspace"
+            console_tournament: "Consoles (Tournaments)"
+            console_attendee: "Consoles (Attendee Tournaments)"
+            tabletop_tournaments: "Tabletop"
+
+          food_restriction:
+            gluten: No gluten
+            pork: No pork
+            nuts: No nuts
+            vegan: Vegetarian/Vegan
+
         dates:
           epoch: 2019-09-13 08
           eschaton: 2019-09-15 18
