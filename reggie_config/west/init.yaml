@@ -87,3 +87,32 @@ reggie:
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
 
+          # WARNING - everything below this is set to a temporary value just so
+          #           that we won't get an exception at import time.
+          panel_app_deadline: 2019-08-01
+          mivs_round_one_deadline: 2019-08-01
+          mivs_round_two_start: 2019-08-01
+          mivs_round_two_deadline: 2019-08-01
+          mivs_judging_deadline: 2019-08-01
+          mivs_round_two_complete: 2019-08-01
+          rock_island_deadline: 2019-08-01
+          band_panel_deadline: 2019-08-01
+          band_bio_deadline: 2019-08-01
+          band_info_deadline: 2019-08-01
+          band_mc_deadline: 2019-08-01
+          band_taxes_deadline: 2019-08-01
+          band_merch_deadline: 2019-08-01
+          band_charity_deadline: 2019-08-01
+          band_badges_deadline: 2019-08-01
+          band_stage_plot_deadline: 2019-08-01
+          guest_panel_deadline: 2019-08-01
+          guest_bio_deadline: 2019-08-01
+          guest_info_deadline: 2019-08-01
+          guest_taxes_deadline: 2019-08-01
+          guest_merch_deadline: 2019-08-01
+          guest_charity_deadline: 2019-08-01
+          guest_badges_deadline: 2019-08-01
+          guest_autograph_deadline: 2019-08-01
+          guest_interview_deadline: 2019-08-01
+          guest_travel_plans_deadline: 2019-08-01
+
