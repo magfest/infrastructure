@@ -11,5 +11,140 @@ reggie:
         organization_name: MAGFest INC
         event_name: MAGWest
         event_timezone: US/Pacific
-        event_venue: The Hyatt Regency Santa Clara
-        event_venue_address: 5101 Great America Pkwy, Santa Clara, CA 95054
+        event_venue: "The DoubleTree by Hilton, San Jose"
+        event_venue_address: "2050 Gateway Place, San Jose, CA 95110"
+
+        api_enabled: true
+        mivs_enabled: true
+        panels_enabled: true
+        kiosk_cc_enabled: true
+        attractions_enabled: false
+        shift_custom_badges: false
+        separate_staff_merch: false
+        collect_extra_donation: true
+        collect_exact_birthdate: true
+        badge_promo_codes_enabled: true
+        volunteer_agreement_enabled: true
+
+        min_group_size: 5
+        min_group_addition: 3
+        shirts_per_staffer: 1
+        max_badge_sales: 2000
+        preassigned_badge_types: ["staff_badge"]
+
+        admin_email: "MAGFest Sys Admin <sysadmin@magfest.org>"
+        developer_email: "MAGFest Software <developers@magfest.org>"
+        security_email: "MAGWest Security <security@magwest.org>"
+
+        regdesk_email: "MAGWest Registration <registration@magwest.org>"
+        regdesk_email_signature: " - MAGWest Registration Department"
+
+        staff_email: "MAGWest Staffing <stops@magwest.org>"
+        stops_email_signature: " - MAGWest Staff Operations"
+
+        marketplace_email: "MAGWest Marketplace <marketplace@magwest.org>"
+        marketplace_email_signature: " - MAGWest Marketplace"
+
+        panels_email: "MAGWest Panels <panels@magwest.org>"
+        peglegs_email_signature: " - MAGWest Panels Department"
+
+        guest_email: "MAGWest Guests <guests@magwest.org>"
+        guest_email_signature: " - MAGWest Guest Department"
+
+        band_email: "MAGWest Music Department <music@magwest.org>"
+        band_email_signature: "- MAGWest Music Department"
+
+        badge_ranges:
+          staff_badge: [25, 999]
+          guest_badge: [1000, 1999]
+          attendee_badge: [2000, 9999]
+
+        enums:
+          interest:
+            console: "Consoles"
+            arcade: "Arcade"
+            lan: "LAN"
+            music: "Concerts"
+            Jams: "Jam Space"
+            panels: "Guests/Panels"
+            tabletop: "Tabletop games"
+            dealers: "Dealers"
+            tournaments: "Tournaments"
+            tea_room: "Tea Room"
+            indie_games: "Indie Games"
+
+          event_location:
+            panels_1: "Panels 1"
+            panels_2: "Panels 2"
+            arcade_tournaments_1: "Arcade (Tournaments 1)"
+            arcade_tournaments_2: "Arcade (Tournaments 2)"
+            concerts: "Concerts"
+            jamspace: "Jam Space"
+            chipspace: "Chipspace"
+            console_tournament: "Consoles (Tournaments)"
+            console_attendee: "Consoles (Attendee Tournaments)"
+            tabletop_tournaments: "Tabletop"
+
+          food_restriction:
+            gluten: No gluten
+            pork: No pork
+            nuts: No nuts
+            vegan: Vegetarian/Vegan
+
+        dates:
+          epoch: 2019-09-13 08
+          eschaton: 2019-09-15 18
+          badge_price_waived: 2019-09-15 12
+          prereg_takedown: 2019-09-12
+          group_prereg_takedown: 2019-09-12
+          placeholder_deadline: 2019-09-09
+          prereg_open: 2019-03-15 12
+          shifts_created: 2019-06-01
+          shirt_deadline: 2019-08-13
+          supporter_deadline: 2019-07-13
+          uber_takedown: 2019-09-16
+          room_deadline: 2019-08-01
+
+          printed_badge_deadline: 2019-08-01
+
+          # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
+          # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
+          # can no longer even add themselves to the waitlist.  Dealer payment reminder emails are
+          # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
+          # be emailed when the waitlist has been exhausted and all available positions have been
+          # filled, as defined by DEALER_WAITLIST_CLOSED.
+          dealer_reg_start: 2019-05-01 12
+          dealer_reg_shutdown: 2019-08-01
+          dealer_payment_due: 2019-08-13
+          dealer_reg_deadline: ""  # Disable automatic waitlist
+          dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
+
+          # WARNING - everything below this is set to a temporary value just so
+          #           that we won't get an exception at import time.
+          panel_app_deadline: 2019-08-01
+          mivs_round_one_deadline: 2019-08-01
+          mivs_round_two_start: 2019-08-01
+          mivs_round_two_deadline: 2019-08-01
+          mivs_judging_deadline: 2019-08-01
+          mivs_round_two_complete: 2019-08-01
+          rock_island_deadline: 2019-08-01
+          band_panel_deadline: 2019-08-01
+          band_bio_deadline: 2019-08-01
+          band_info_deadline: 2019-08-01
+          band_mc_deadline: 2019-08-01
+          band_taxes_deadline: 2019-08-01
+          band_merch_deadline: 2019-08-01
+          band_charity_deadline: 2019-08-01
+          band_badges_deadline: 2019-08-01
+          band_stage_plot_deadline: 2019-08-01
+          guest_panel_deadline: 2019-08-01
+          guest_bio_deadline: 2019-08-01
+          guest_info_deadline: 2019-08-01
+          guest_taxes_deadline: 2019-08-01
+          guest_merch_deadline: 2019-08-01
+          guest_charity_deadline: 2019-08-01
+          guest_badges_deadline: 2019-08-01
+          guest_autograph_deadline: 2019-08-01
+          guest_interview_deadline: 2019-08-01
+          guest_travel_plans_deadline: 2019-08-01
+
