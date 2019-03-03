@@ -8,7 +8,7 @@ reggie:
 
       config:
         food_price: 30
-        food_stock: 75
+        food_stock: 200
 
         enums:
           noise_level:
@@ -80,19 +80,13 @@ reggie:
         badge_prices:
           one_days_enabled: False
           initial_attendee: 50
-          dealer_badge_price: 30
-          group_discount: 10
-          presell_one_days: True
-
-          attendee:
-            2018-04-18: 60
-            2018-06-01: 70
+          presell_one_days: False
 
         integer_enums:
-          shirt_level:
-          supporter_level:
-          season_level: 0
-          supporter_stock:
+          shirt_level: 20
+          supporter_level: 50
+          season_level: 100
+          supporter_stock: 50
 
           shirt:
             no shirt: 0
@@ -110,11 +104,11 @@ reggie:
             x-large (female): 10
             xx-large (female): 13
 
-        donation_tier:
-          No thanks: 0
-          T-Shirt Bundle: SHIRT_LEVEL
-          Supporter Package: SUPPORTER_LEVEL
-          Pioneer Package: SEASON_LEVEL
+          donation_tier:
+            No thanks: 0
+            T-Shirt Bundle: SHIRT_LEVEL
+            Supporter Package: SUPPORTER_LEVEL
+            Pioneer Package: SEASON_LEVEL
 
         enums:
           badge:
@@ -213,18 +207,15 @@ reggie:
 
         dept_head_checklist:
           creating_shifts:
-            deadline: 2018-06-6
             description: The managment team is happy to assist you in creating shifts. Please let us know if you need assistance with this step.
             path: /jobs/index?department_id={department_id}
 
           assigned_volunteers:
-            deadline: 2015-06-13
             name: Volunteers Assigned to Your Department
             description: Check all of the volunteers currently assigned to your department to make sure no one is missing AND that no one is there who shouldn't be.
             path: /jobs/staffers?department_id={department_id}
 
           postcon_hours:
-            deadline: 2018-07-15
             name: (After the Event) Marking and Rating Shifts
             description: After the weekend is over, we'll want all department heads to ensure that their volunteers had their shifts marked and rated.
             path: /jobs/signups?department_id={department_id}
