@@ -12,3 +12,17 @@ reggie:
     ubersystem:
       config:
         event_year: 2019
+
+        dates:
+          epoch: 2019-06-07 10
+          eschaton: 2019-06-10 12
+
+        dept_head_checklist:
+          creating_shifts:
+            deadline: 2019-05-01
+
+          assigned_volunteers:
+            deadline: 2019-05-01
+
+          postcon_hours:
+            deadline: 2019-06-15
