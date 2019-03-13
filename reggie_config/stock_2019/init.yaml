@@ -14,8 +14,8 @@ reggie:
         event_year: 2019
 
         dates:
-          epoch: 2019-06-07 10
-          eschaton: 2019-06-10 18
+          epoch: 2019-06-06 10
+          eschaton: 2019-06-09 18
 
         dept_head_checklist:
           creating_shifts:
