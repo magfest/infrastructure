@@ -85,7 +85,7 @@ reggie:
           shirt_level: 20
           supporter_level: 50
           season_level: 100
-          supporter_stock: 50
+          supporter_stock: 200
 
           shirt:
             no shirt: 0
@@ -107,7 +107,7 @@ reggie:
             No thanks: 0
             T-Shirt Bundle: SHIRT_LEVEL
             Supporter Package: SUPPORTER_LEVEL
-            Pioneer Package: SEASON_LEVEL
+            Mayor's Package: SEASON_LEVEL
 
         enums:
           badge:
@@ -199,8 +199,8 @@ reggie:
             link: ../static_views/supporter.html
 
           super_supporter:
-            name: Pioneer Package
-            icon: ../static/icons/wagon.png
+            name: Mayor's Package
+            icon: ../static/icons/heart.png
             description: Crazy Exclusive Swag
             link: ../static_views/pioneer.html
 
