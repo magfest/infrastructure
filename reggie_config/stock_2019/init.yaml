@@ -16,6 +16,9 @@ reggie:
         dates:
           epoch: 2019-06-06 10
           eschaton: 2019-06-09 18
+          prereg_open: 2019-04-07 12
+          shirt_deadline: 2019-05-01
+          supporter_deadline: 2019-05-01
 
         dept_head_checklist:
           creating_shifts:
