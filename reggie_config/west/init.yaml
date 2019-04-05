@@ -118,6 +118,12 @@ reggie:
             "XL Women's slim fit": 22
             "2XL Women's slim fit": 23
 
+          donation_tier:
+            No thanks: 0
+            T-Shirt Bundle: SHIRT_LEVEL
+            Supporter Package: SUPPORTER_LEVEL
+            Mayor's Package: SEASON_LEVEL
+
         dates:
           epoch: 2019-09-13 08
           eschaton: 2019-09-15 18
