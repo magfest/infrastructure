@@ -92,6 +92,10 @@ reggie:
             vegan: Vegetarian/Vegan
 
         integer_enums:
+          shirt_level: 25
+          supporter_level: 75
+          season_level: 200
+          
           shirt:
             "no shirt": 0
             "S Unisex": 1
