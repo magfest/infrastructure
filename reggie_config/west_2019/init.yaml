@@ -12,3 +12,37 @@ reggie:
     ubersystem:
       config:
         event_year: 2019
+
+        badge_prices:
+          initial_attendee: 55
+          group_discount: 10
+
+          attendee:
+            2019-04-30: 60
+            2019-06-30: 65
+            2019-08-31: 70
+
+        donation_tier_descriptions:
+          no_thanks:
+            name: No thanks
+            icon: ''
+            description: No thanks
+            link: ''
+
+          shirt:
+            name: T-Shirt Bundle
+            icon: ../static/icons/iconshirt.png
+            description: T-Shirt
+            link: ../static_views/tshirt.html
+
+          supporter_package:
+            name: Supporter Package
+            icon: ../static/icons/iconsupporter.png
+            description: Supporter Swag
+            link: ../static_views/supporter.html
+
+          super_supporter:
+            name: Mayor's Package
+            icon: ../static/icons/iconmayor.png
+            description: Crazy Exclusive Swag
+            link: ../static_views/super.html
