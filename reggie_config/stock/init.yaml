@@ -9,6 +9,8 @@ reggie:
       config:
         food_price: 30
         food_stock: 150
+        
+        groups_enabled: False
 
         enums:
           noise_level:
