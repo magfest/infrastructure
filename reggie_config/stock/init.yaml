@@ -48,6 +48,7 @@ reggie:
         event_venue_address: 4400 Byrd Mill Road, Louisa, VA 23093
 
         numbered_badges: False
+        attractions_enabled: false
         require_dedicated_guest_table_presence: False
         groups_enabled: False
 
