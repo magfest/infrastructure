@@ -1,11 +1,7 @@
 __: merge-first
 
 reggie:
-  plugins:
-    ubersystem:
-      config:
-        groups_enabled: False
-        
+  plugins:        
     magstock:
       name: magstock
       source: https://github.com/magfest/magstock.git
@@ -54,6 +50,7 @@ reggie:
 
         numbered_badges: False
         require_dedicated_guest_table_presence: False
+        groups_enabled: False
 
         admin_email: MAGFest Sys Admin <sysadmin@magfest.org>
         regdesk_email: MAGStock Registration <admin@magstock.org>
