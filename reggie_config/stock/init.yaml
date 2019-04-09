@@ -13,7 +13,6 @@ reggie:
         enums:
           noise_level:
             quiet: Away from the main drag
-            conversational: I can sleep while people talk
             normal: I can sleep through reasonable levels of noise
             noisy: While others sleep, I PARTY!
 
