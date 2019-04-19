@@ -51,6 +51,7 @@ reggie:
         attractions_enabled: false
         require_dedicated_guest_table_presence: False
         groups_enabled: False
+        untransferable_attrs: first_name,last_name,legal_name,email,birthdate,zip_code,international,ec_name,ec_phone,cellphone,interests,age_group,staffing,requested_depts,waiver_consent,license_plate,site_number,coming_as,camping_type,coming_with,site_type,noise_level,allergies
 
         admin_email: MAGFest Sys Admin <sysadmin@magfest.org>
         regdesk_email: MAGStock Registration <admin@magstock.org>
