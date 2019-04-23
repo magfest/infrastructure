@@ -14,16 +14,68 @@ reggie:
         event_year: 2019
         
         consent_form_url: ''
-        expected_response: no later than August 15, 2019
+        expected_response: August 15, 2019
+
+        dates:
+          epoch: 2019-09-13 08
+          eschaton: 2019-09-15 18
+          badge_price_waived: 2019-09-15 12
+          prereg_takedown: 2019-09-12
+          group_prereg_takedown: 2019-09-12
+          placeholder_deadline: 2019-09-09
+          prereg_open: 2019-04-26 12
+          shifts_created: 2019-06-01
+          shirt_deadline: 2019-08-01
+          supporter_deadline: 2019-07-01
+          uber_takedown: 2019-09-16
+          room_deadline: 2019-08-01
+
+          printed_badge_deadline: 2019-08-01
+
+          # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
+          # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
+          # can no longer even add themselves to the waitlist.  Dealer payment reminder emails are
+          # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
+          # be emailed when the waitlist has been exhausted and all available positions have been
+          # filled, as defined by DEALER_WAITLIST_CLOSED.
+          dealer_reg_start: 2019-05-01 12
+          dealer_reg_shutdown: 2019-08-01
+          dealer_payment_due: 2019-08-13
+          dealer_reg_deadline: ""  # Disable automatic waitlist
+          dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
+
+          # WARNING - everything below this is set to a temporary value just so
+          #           that we won't get an exception at import time.
+          panel_app_deadline: 2019-08-04
+          mivs_round_one_deadline: 2019-08-01
+          mivs_round_two_start: 2019-08-01
+          mivs_round_two_deadline: 2019-08-01
+          mivs_judging_deadline: 2019-08-01
+          mivs_round_two_complete: 2019-08-01
+          rock_island_deadline: 2019-08-01
+          band_panel_deadline: 2019-08-01
+          band_bio_deadline: 2019-08-01
+          band_info_deadline: 2019-08-01
+          band_mc_deadline: 2019-08-01
+          band_taxes_deadline: 2019-08-01
+          band_merch_deadline: 2019-08-01
+          band_charity_deadline: 2019-08-01
+          band_badges_deadline: 2019-08-01
+          band_stage_plot_deadline: 2019-08-01
+          guest_panel_deadline: 2019-08-01
+          guest_bio_deadline: 2019-08-01
+          guest_info_deadline: 2019-08-01
+          guest_taxes_deadline: 2019-08-01
+          guest_merch_deadline: 2019-08-01
+          guest_charity_deadline: 2019-08-01
+          guest_badges_deadline: 2019-08-01
+          guest_autograph_deadline: 2019-08-01
+          guest_interview_deadline: 2019-08-01
+          guest_travel_plans_deadline: 2019-08-01
 
         badge_prices:
-          initial_attendee: 55
-          group_discount: 10
-
-          attendee:
-            2019-04-30: 60
-            2019-06-30: 65
-            2019-08-31: 70
+          initial_attendee: 75
+          group_discount: 25
 
         donation_tier_descriptions:
           no_thanks:
