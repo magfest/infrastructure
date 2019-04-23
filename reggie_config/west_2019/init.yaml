@@ -12,6 +12,9 @@ reggie:
     ubersystem:
       config:
         event_year: 2019
+        
+        consent_form_url: ''
+        expected_response: no later than August 15, 2019
 
         badge_prices:
           initial_attendee: 55
