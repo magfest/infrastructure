@@ -19,6 +19,12 @@ reggie:
           prereg_open: 2019-04-11 12
           shirt_deadline: 2019-05-01
           supporter_deadline: 2019-05-01
+          
+          band_bio_deadline: 2019-05-10
+          band_info_deadline: 2019-05-10
+          band_taxes_deadline: 2019-05-10
+          band_badges_deadline: 2019-05-10
+          band_stage_plot_deadline: 2019-05-10
 
         dept_head_checklist:
           creating_shifts:
