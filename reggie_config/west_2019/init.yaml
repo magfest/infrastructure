@@ -11,6 +11,8 @@ reggie:
   plugins:
     ubersystem:
       config:
+        supporter_stock: 100
+        season_stock: 20
         event_year: 2019
         
         consent_form_url: ''
