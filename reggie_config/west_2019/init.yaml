@@ -14,6 +14,9 @@ reggie:
         event_year: 2019
         
         consent_form_url: ''
+        code_of_conduct_url: 'https://www.magwest.org/code-of-conduct'
+        prereg_faq_url: 'https://www.magwest.org/faq'
+        contact_url: 'https://www.magwest.org/contact-us'
         expected_response: August 15, 2019
 
         dates:
