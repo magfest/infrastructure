@@ -46,6 +46,16 @@ reggie:
           dealer_payment_due: 2019-08-13
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
+          band_info_deadline: 2019-05-31 # A/V RFC (deadline not tracked by Reggie)
+          band_stage_plot_deadline: 2019-05-31 # A/V RFC (deadline not tracked by Reggie)
+          band_bio_deadline: 2019-08-01
+          band_panel_deadline: 2019-08-01 # Should be <= panel_app_deadline
+          band_taxes_deadline: 2019-08-13
+          band_badges_deadline: 2019-09-01 # Should be <= placeholder_deadline
+          band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
+          band_mc_deadline: "" # Starting with this off, we may turn it on.
+          band_merch_deadline: "" # Rock Island not yet confirmed, not enough space in market for all bands
+          rock_island_deadline: "" # Rock Island not yet confirmed.
 
           # WARNING - everything below this is set to a temporary value just so
           #           that we won't get an exception at import time.
@@ -55,16 +65,6 @@ reggie:
           mivs_round_two_deadline: 2019-08-01
           mivs_judging_deadline: 2019-08-01
           mivs_round_two_complete: 2019-08-01
-          rock_island_deadline: 2019-08-01
-          band_panel_deadline: 2019-08-01
-          band_bio_deadline: 2019-08-01
-          band_info_deadline: 2019-08-01
-          band_mc_deadline: 2019-08-01
-          band_taxes_deadline: 2019-08-01
-          band_merch_deadline: 2019-08-01
-          band_charity_deadline: 2019-08-01
-          band_badges_deadline: 2019-08-01
-          band_stage_plot_deadline: 2019-08-01
           guest_panel_deadline: 2019-08-01
           guest_bio_deadline: 2019-08-01
           guest_info_deadline: 2019-08-01
