@@ -48,7 +48,7 @@ reggie:
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
           band_info_deadline: 2019-05-31 # A/V RFC (deadline not tracked by Reggie)
           band_stage_plot_deadline: 2019-05-31 # A/V RFC (deadline not tracked by Reggie)
-          band_bio_deadline: 2019-08-01
+          band_bio_deadline: 2019-07-15
           band_panel_deadline: 2019-08-01 # Should be <= panel_app_deadline
           band_taxes_deadline: 2019-08-13
           band_badges_deadline: 2019-09-01 # Should be <= placeholder_deadline
