@@ -81,10 +81,10 @@ reggie:
         badge_prices:
           initial_attendee: 75
           group_discount: 25
-          vendor_badge_price: 40
+          dealer_badge_price: 40
           
         table_prices:
-          # default_price: ?? I don't know what to do with this variable.
+          default_price: 100
           1: 60
           2: 210
           3: 410
