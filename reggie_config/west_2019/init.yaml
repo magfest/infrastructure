@@ -44,7 +44,7 @@ reggie:
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
           dealer_reg_start: 2019-05-01 12
-          dealer_reg_shutdown: 2019-08-01
+          dealer_reg_shutdown: 2019-08-04
           dealer_payment_due: 2019-08-13
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
@@ -81,6 +81,14 @@ reggie:
         badge_prices:
           initial_attendee: 75
           group_discount: 25
+          vendor_badge_price: 40
+          
+        table_prices:
+          # default_price: ?? I don't know what to do with this variable.
+          1: 60
+          2: 210
+          3: 410
+          4: 610
 
         donation_tier_descriptions:
           no_thanks:
