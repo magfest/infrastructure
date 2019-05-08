@@ -74,6 +74,18 @@ reggie:
             dealers: "Dealers"
             tournaments: "Tournaments"
             indie_games: "Indie Games"
+          
+          dealer_wares:
+            vgames: Video Games
+            tshirts: T-shirts
+            figures: Figures
+            general: General Merchandise
+            prints: Prints
+            plushes: Plushes
+            lanyards: Lanyards/Keychains
+            perler: Perler Beads
+            jewelry: Jewelry
+            handmade: General Handmade
 
           event_location:
             panels_1: "Panels 1"
