@@ -84,11 +84,9 @@ reggie:
           dealer_badge_price: 40
           
         table_prices:
-          default_price: 100
+          default_price: 200
           1: 60
-          2: 210
-          3: 410
-          4: 610
+          2: 150
 
         donation_tier_descriptions:
           no_thanks:
