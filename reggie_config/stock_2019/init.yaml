@@ -35,3 +35,9 @@ reggie:
 
           postcon_hours:
             deadline: 2019-06-15
+
+          logistics:
+            deadline: 2019-05-21
+
+          printed_signs:
+            deadline: 2019-05-14
