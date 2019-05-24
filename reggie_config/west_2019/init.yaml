@@ -14,6 +14,7 @@ reggie:
         supporter_stock: 100
         season_stock: 20
         event_year: 2019
+        max_dealers: 5
         
         consent_form_url: ''
         code_of_conduct_url: 'https://www.magwest.org/code-of-conduct'
@@ -44,7 +45,7 @@ reggie:
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
           dealer_reg_start: 2019-05-01 12
-          dealer_reg_shutdown: 2019-08-04
+          dealer_reg_shutdown: 2019-06-21
           dealer_payment_due: 2019-08-13
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
@@ -86,7 +87,9 @@ reggie:
         table_prices:
           default_price: 200
           1: 60
-          2: 150
+          2: 100
+          3: 200
+          4: 275
 
         donation_tier_descriptions:
           no_thanks:
