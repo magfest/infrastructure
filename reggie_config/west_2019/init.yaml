@@ -45,7 +45,7 @@ reggie:
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
           dealer_reg_start: 2019-05-01 12
-          dealer_reg_shutdown: 2019-06-21
+          dealer_reg_shutdown: 2019-06-14
           dealer_payment_due: 2019-08-13
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
