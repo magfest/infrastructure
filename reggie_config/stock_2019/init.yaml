@@ -12,6 +12,8 @@ reggie:
     ubersystem:
       config:
         event_year: 2019
+        at_the_con: True
+        post_con: False
 
         dates:
           epoch: 2019-06-06 10
