@@ -47,7 +47,7 @@ reggie:
         event_venue: Small Country Campground
         event_venue_address: 4400 Byrd Mill Road, Louisa, VA 23093
 
-        numbered_badges: False
+        numbered_badges: True
         attractions_enabled: false
         require_dedicated_guest_table_presence: False
         groups_enabled: False
@@ -74,9 +74,9 @@ reggie:
 
 
         badge_ranges:
-          staff_badge: [1, 99]
-          supporter_badge: [100, 299]
-          attendee_badge: [300, 650]
+          staff_badge: [1, 2000]
+          supporter_badge: [1, 2000]
+          attendee_badge: [1, 2000]
           one_day_badge: [30000, 39999]
 
         badge_prices:
