@@ -126,4 +126,10 @@ reggie:
             T-Shirt Bundle: SHIRT_LEVEL
             Supporter Package: SUPPORTER_LEVEL
             Mayor's Package: SEASON_LEVEL
-
+            
+        volunteer_checklist:
+          2: signups/food_item.html
+          3: signups/shirt_item.html
+          4: hotel_requests/hotel_item.html
+          98: signups/volunteer_agreement_item.html
+          99: signups/shifts_item.html

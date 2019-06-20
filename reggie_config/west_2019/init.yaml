@@ -34,7 +34,7 @@ reggie:
           shirt_deadline: 2019-08-01
           supporter_deadline: 2019-07-01
           uber_takedown: 2019-09-16
-          room_deadline: 2019-08-01
+          room_deadline: 2019-07-31
 
           printed_badge_deadline: 2019-08-01
 
@@ -115,3 +115,48 @@ reggie:
             icon: ../static/icons/iconmayor.png
             description: Crazy Exclusive Swag
             link: ../static_views/super.html
+            
+        dept_head_checklist:
+          creating_shifts:
+            deadline: 2019-07-18
+            description: >
+                We have the ability to import shifts from MAGWest 2018 to MAGWest 2019, if you are only 
+                making minor changes and want assistance with this step, please let us know.
+            
+          assigned_volunteers:
+            deadline: 2019-07-18
+            
+          approve_setup_teardown:
+            name: Approve/Decline Additional Hotel Nights
+            deadline: 2019-08-01
+            description: >
+                An overwhelming majority of staffers want to work setup and teardown shifts rather than
+                work during the event itself, so we have far more offers than we have need for. Since this
+                affects what hotel nights staffers get, please approve and decline requests for this for
+                people in your department. Please only approve staffers who will sign up for a setup or 
+                teardown shift in your department.
+                
+          hotel_eligible:
+            deadline: 2019-08-01
+            
+          placeholders:
+            deadline: 2019-08-01
+            
+          printed_signs:
+            deadline: 2019-08-08
+
+          treasury:
+            deadline: 2019-08-15
+            
+          tech_requirements:
+            deadline: 2019-08-15
+
+          allotments:
+            deadline: 2019-08-15
+            
+          office_supplies:
+            deadline: 2019-08-22
+
+          postcon_hours:
+            name: (After the Event) Marking + Rating Shifts
+            deadline: 2019-10-03
