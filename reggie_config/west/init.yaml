@@ -195,12 +195,6 @@ reggie:
             deadline: ''
             description: Do you need any paper, pens, sharpies, tripods, whiteboards, scissors, staplers, etc?
 
-          hotel_setup:
-            deadline: ''
-            name: Hotel Setup Information
-            description: Do you need tables, chairs, trash cans, water dispensers, etc?
-            path: /dept_checklist/hotel_setup?department_id={department_id}
-
           postcon_hours:
             deadline: ''
             name: (After the Event) Marking and Rating Shifts
