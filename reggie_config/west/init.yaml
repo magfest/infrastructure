@@ -13,7 +13,7 @@ reggie:
         event_timezone: US/Pacific
         event_venue: "The DoubleTree by Hilton, San Jose"
         event_venue_address: "2050 Gateway Place, San Jose, CA 95110"
-
+        
         api_enabled: true
         mivs_enabled: true
         panels_enabled: true
@@ -210,3 +210,5 @@ reggie:
           4: hotel_requests/hotel_item.html
           98: signups/volunteer_agreement_item.html
           99: signups/shifts_item.html
+
+        techops_dept_checklist_form_url: https://forms.gle/MiPrDDC8wYVhu7qSA
