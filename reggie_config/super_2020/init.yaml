@@ -1,0 +1,266 @@
+__: merge-first
+
+
+{% macro extra_attendance_data() %}{% include 'super_2020/extra-attendance-data.json' %}{% endmacro %}
+
+reggie:
+  extra_files:
+    plugins/uber/uber/static/analytics/extra-attendance-data.json: |
+        {{ extra_attendance_data()|indent(8) }}
+  plugins:
+    ubersystem:
+      config:
+        event_year: 2020
+        event_qr_id: sm19
+
+        alt_schedule_url: https://guidebook.com/guide/101720/schedule
+        treasury_dept_checklist_form_url: https://docs.google.com/spreadsheets/d/1gw9ON-64XiHebVG_TnZEIA6DLMjAEOdyVD21W3XmIr0/edit?usp=sharing
+        techops_dept_checklist_form_url: https://goo.gl/forms/PcG3dG7JwsD307sK2
+
+        expected_response: December 2019
+
+        # This is NOT our attendance cap; this is merely the number of paid attendee
+        # and group registrations which we support.  In other words, we will only
+        # cut off preregistration once that sum meets this number no matter how
+        # many other registrations (Staff, Dealers, Guests, etc) are in the system.
+        max_badge_sales: 22999
+
+        # The number of dealer apps we will accept before auto-waitlisting further
+        # applications. If dealer_reg_deadline is also set, we will auto-wailist
+        # dealers if either the deadline has passed or this number has been reached.
+        # Dealers who have been waitlisted/approved/declined and dealers who do not
+        # have to pay are not counted towards this cap. A value of 0 means no cap.
+        max_dealer_apps: 530
+
+        mivs_video_response_expected: "no later than September 17th"
+        mivs_confirm_deadline: 14
+        mivs_submission_grace_period: 10
+        mivs_start_year: 2013
+        mivs_training_password: WHATISARUG
+
+        dates:
+          prereg_open: 2019-08-28 12
+          prereg_hotel_eligibility_cutoff: 2019-09-03
+          shifts_created: 2019-11-02
+          room_deadline: 2019-11-14
+          shirt_deadline: 2019-11-25
+          supporter_deadline: 2019-11-18
+          placeholder_deadline: 2019-12-26
+          uber_takedown: 2020-01-07
+          epoch: 2020-01-03 08
+          eschaton: 2020-01-06 18
+          prereg_takedown: 2020-01-04
+          group_prereg_takedown: 2020-01-04
+          badge_price_waived: 2020-01-06 12
+          refund_start: 2019-09-05
+          refund_cutoff: 2019-09-30
+
+          printed_badge_deadline: 2019-11-15
+
+          # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
+          # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
+          # can no longer even add themselves to the waitlist.  Dealer payment reminder emails are
+          # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
+          # be emailed when the waitlist has been exhausted and all available positions have been
+          # filled, as defined by DEALER_WAITLIST_CLOSED.
+          dealer_reg_start: 2019-08-17 21
+          dealer_reg_deadline: ''  # Disable automatic waitlist
+          dealer_reg_shutdown: 2019-08-23 12
+          dealer_payment_due: 2019-11-04
+          dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
+
+          mivs_round_one_deadline: 2019-09-02
+          mivs_round_two_start: 2019-09-22
+          mivs_round_two_deadline: 2019-10-07
+          mivs_judging_deadline: 2019-11-04
+          mivs_round_two_complete: 2019-11-05
+          
+          mits_submission_deadline: 2019-11-14
+          mits_editing_deadline: 2019-12-28
+
+          panel_app_deadline: 2019-10-31
+
+          rock_island_deadline: 2019-11-17
+
+          # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
+          auction_start: 2020-01-08 11
+          band_panel_deadline: 2019-09-30
+          band_bio_deadline: 2019-09-07
+          band_info_deadline: 2019-09-07
+          band_mc_deadline: 2019-09-30
+          band_taxes_deadline: 2019-08-31
+          band_merch_deadline: 2019-09-16
+          band_charity_deadline: 2019-12-15
+          band_badges_deadline: 2019-12-15
+          band_stage_plot_deadline: 2019-09-24
+          guest_panel_deadline: 2019-10-21
+          guest_bio_deadline: 2019-10-21
+          guest_info_deadline: 2019-11-01
+          guest_taxes_deadline: 2019-10-21
+          guest_merch_deadline: 2019-10-21
+          guest_charity_deadline: 2019-10-21
+          guest_badges_deadline: 2019-12-01
+          guest_autograph_deadline: 2019-10-21
+          guest_interview_deadline: 2019-10-21
+          guest_travel_plans_deadline: 2019-10-21
+
+        badge_ranges:
+          staff_badge: [25, 2999]
+          guest_badge: [3000, 3600]
+          attendee_badge: [3601, 39999]
+          one_day_badge: [40000, 49999]
+          child_badge: [50000, 59999]
+
+        badge_prices:
+          one_days_enabled: False
+          initial_attendee: 75
+          dealer_badge_price: 50
+          group_discount: 10
+          presell_one_days: False
+
+          attendee:
+            2020-01-03: 85
+            2020-01-04: 80
+            2020-01-05: 60
+            2020-01-06: 20
+
+          stocks: {}
+
+        table_prices:
+          default_price: 350
+          1: 150
+          2: 250
+          3: 400
+          4: 550
+
+        integer_enums:
+          shirt_level: 25
+          supporter_level: 75
+          season_level: 200
+
+          donation_tier:
+            No thanks: 0
+            T-Shirt Bundle: SHIRT_LEVEL
+            Supporter: SUPPORTER_LEVEL
+            Barrel Roller: 200
+
+        donation_tier_descriptions:
+          no_thanks:
+            name: No thanks
+            icon: ''
+            description: No thanks
+            link: ''
+
+          shirt:
+            name: T-Shirt Bundle
+            icon: ../static/icons/iconshirt.png
+            description: Ribbon|T-Shirt|Event Pin
+            link: ../static_views/ribbon.html|../static_views/tshirt.html|../static_views/tshirt.html
+
+          supporter:
+            name: Supporter
+            icon: ../static/icons/supporter.png
+            description: Super Swag Bag|Swadge
+            link: ../static_views/supporter.html|../static_views/swadge.html
+
+          barrel_roller:
+            name: Barrel Roller
+            icon: ../static/icons/barrel_roller.png
+            description: Sun Cats Figure Set|Secret Invitation
+            link: ../static_views/barrel_roller.html|../static_views/secret.html
+            merch_items: ['Sun Cats']
+
+        mivs_checklist:
+          core_hours:
+            deadline: 2019-11-27
+            name: Accept Core Hours
+            description: >
+              In exchange for your space and two free badges, MIVS expects your studio to have your booth area
+              up-and-running during core hours. You also must have at least one representative from your studio present,
+              in your booth, during core hours.
+          discussion:
+            deadline: 2019-11-27
+            name: MIVS Discussion Group
+            editable: True
+            description: >
+              The primary contact for your game will be added to a MIVS Google Discussion group. You may
+              enter emails for any team members associated with your game who you think should also be added to the group.
+          hotel_space:
+            deadline: 2019-11-27
+            name: Hotel Signups
+            editable: True
+            description: >
+              As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
+              use and you are not allowed to transfer your reservation to someone else unless authorized
+              by MAGFest. Dropping out of MIVS may cause your room to be canceled.
+          selling_at_event:
+            deadline: 2019-12-01
+            name: Selling at MAGFest
+            editable: True
+            description: >
+              We are allowing Indies to sell items directly related to your game or studio in MIVS.
+              Studios will need to sign a waiver and provide some information for tax purposes.
+          handbook:
+            start: 2019-12-15
+            deadline: 2019-12-30
+            name: Indie Handbook
+            description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
+
+          training:
+            start: 2019-12-15
+            deadline: 2019-12-30
+            name: MIVS Training
+            editable: True
+            description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
+
+        dept_head_checklist:
+          creating_shifts:
+            deadline: 2019-10-24
+            description: >
+                We have the ability to import shifts from MAGFest 2017 to MAGFest 2019, if you are only 
+                making minor changes and want assistance with this step, please let us know.
+          assigned_volunteers:
+            deadline: 2019-10-24
+
+          treasury:
+            deadline: 2019-10-31
+
+          allotments:
+            deadline: 2019-10-31
+
+          approve_setup_teardown:
+            name: Approve/Decline Additional Hotel Nights
+            deadline: 2019-11-07
+            description: >
+                An overwhelming majority of staffers want to work setup and teardown shifts rather than
+                work during the event itself, so we have far more offers than we have need for. Since this
+                affects what hotel nights staffers get, please approve and decline requests for this for
+                people in your department. Please only approve staffers who will sign up for a setup or 
+                teardown shift in your department.
+          placeholders:
+            deadline: 2019-11-07
+
+          hotel_eligible:
+            deadline: 2019-11-07
+
+          tech_requirements:
+            deadline: 2019-11-10
+
+          hotel_setup:
+            deadline: 2019-11-14
+
+          logistics:
+            deadline: 2019-11-21
+
+          printed_signs:
+            deadline: 2019-12-05
+
+          office_supplies:
+            deadline: 2019-12-05
+
+          custom_ribbons:
+            deadline: 2019-12-05
+
+          postcon_hours:
+            name: (After the Event) Marking + Rating Shifts
+            deadline: 2020-01-23
