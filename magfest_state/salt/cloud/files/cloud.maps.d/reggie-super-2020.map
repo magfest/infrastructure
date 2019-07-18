@@ -1,0 +1,29 @@
+{#-
+  NOTE: Changes to this file must be applied with the following command
+  before they take effect:
+
+    salt mcp.magfest.net state.sls salt.cloud.manager
+-#}
+
+prod-loadbalancer:
+  - super2020.reggie.magfest.org
+
+prod-web:
+{%- for i in range(1, 11) %}
+  - super2020-prod-web-{{ '{:02d}'.format(i) }}.reggie.magfest.org
+{%- endfor %}
+
+prod-sessions:
+  - super2020-prod-sessions-01.reggie.magfest.org
+
+prod-db:
+  - super2020-prod-db-01.reggie.magfest.org
+
+prod-queue:
+  - super2020-prod-queue-01.reggie.magfest.org
+
+prod-scheduler:
+  - super2020-prod-scheduler-01.reggie.magfest.org
+
+prod-worker:
+  - super2020-prod-worker-01.reggie.magfest.org
