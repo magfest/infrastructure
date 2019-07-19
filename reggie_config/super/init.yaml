@@ -92,6 +92,10 @@ reggie:
             - XL Women's slim fit: 22
             - 2XL Women's slim fit: 23
 
+          staff_event_shirt:
+            "Two Staff Shirts": 0
+            "One Event Shirt and One Staff Shirt": 1
+
         enums:
           badge:
             attendee_badge: Attendee
