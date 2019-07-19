@@ -121,6 +121,10 @@ reggie:
             "4XL Unisex": 11
             "5XL Unisex": 12
 
+          staff_event_shirt:
+            "Generic MAGWest Shirt": 0
+            "Event Shirt": 1
+
           donation_tier:
             No thanks: 0
             T-Shirt Bundle: SHIRT_LEVEL
