@@ -298,10 +298,11 @@ reggie:
             participation: Audience Participation
             physical_activity: Physical Activity (either group participation or performance)
             performance: Comedy Performance
-            music: Music Performance
+            music: Music Performance (Jam Clinic)
             advanced_av: Podcast/Vodcast Recording
             karaoke: Karaoke/Sing a Long
             movie: Movie Screening
+            mivs: Indie Developer Showcase
             other: Other
 
           guest_merch:
