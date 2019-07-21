@@ -25,7 +25,7 @@ set -x  # Start echoing commands to stdout
 
 # Install SaltStack master and minion
 curl -o /tmp/bootstrap-salt.sh -L https://bootstrap.saltstack.com
-sh /tmp/bootstrap-salt.sh -i "${HOST}" -L -M -P git 'v2018.3.2'
+sh /tmp/bootstrap-salt.sh -i "${HOST}" -L -M -P git 'v2019.2.0'
 
 # Preseed mcp's minion key
 cd /tmp
