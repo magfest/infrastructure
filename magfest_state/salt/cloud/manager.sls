@@ -30,7 +30,7 @@
           ssh_key_file: /etc/salt/pki/cloud/digitalocean.pem
           ssh_key_names: {{ salt['pillar.get']('digitalocean:ssh_key_names') }}
           script: bootstrap-salt
-          script_args: -P git 'v2018.3.2'
+          script_args: -P git 'v2019.2.0'
 
 /etc/salt/pki/cloud/digitalocean.pem:
   file.managed:
