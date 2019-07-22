@@ -319,7 +319,7 @@ reggie:
             path: /jobs/index?department_id={department_id}
 
           assigned_volunteers:
-            deadline: ''
+            deadline: 1970-01-01
             name: Volunteers Assigned to Your Department
             description: >
                 Check all of the volunteers currently assigned to your department to make sure no one is
@@ -327,25 +327,25 @@ reggie:
             path: /jobs/staffers?department_id={department_id}
 
           treasury:
-            deadline: ''
+            deadline: 1970-01-01
             name: MPoint Needs
             description: Tell us whether you need any mpoints for your department.
             path: /dept_checklist/treasury?department_id={department_id}
 
           allotments:
-            deadline: ''
+            deadline: 1970-01-01
             name: Treasury Information
             description: If you need cash and/or mpoints, tell us your department schedule and your specific cash needs.
             path: /dept_checklist/allotments?department_id={department_id}
 
           hotel_setup:
-            deadline: ''
+            deadline: 1970-01-01
             name: Hotel Setup Information
             description: Do you need tables, chairs, trash cans, water dispensers, etc?
             path: /dept_checklist/hotel_setup?department_id={department_id}
 
           approve_setup_teardown:
-            deadline: ''
+            deadline: 1970-01-01
             name: Approve/Decline Additional Hotel Nights to Help With Setup/Teardown
             description: >
                 An overwhelming majority of staffers want to work setup and teardown shifts rather than
@@ -355,7 +355,7 @@ reggie:
             path: /hotel/requests?department_id={department_id}
 
           placeholders:
-            deadline: ''
+            deadline: 1970-01-01
             name: Checking Placeholder Registrations
             description: >
                 We create placeholder registrations for volunteers and ask them to fill out the rest of
@@ -365,33 +365,33 @@ reggie:
             path: /registration/placeholders?department_id={department_id}
 
           hotel_eligible:
-            deadline: ''
+            deadline: 1970-01-01
             name: Staffers Requesting Hotel Space
             description: Double check that everyone in your department who you know needs hotel space has requested it.
             path: /hotel/index?department_id={department_id}
 
           tech_requirements:
-            deadline: ''
+            deadline: 1970-01-01
             name: Tech Requirements
             description: What do you need in terms of laptops, projectors, cables, internet access, etc?
             path: /dept_checklist/tech_requirements?department_id={department_id}
 
           logistics:
-            deadline: ''
+            deadline: 1970-01-01
             name: Logistics Needs
             description: What do you need brought from the warehouse?
             path: /dept_checklist/logistics?department_id={department_id}
 
           printed_signs:
-            deadline: ''
+            deadline: 1970-01-01
             description: Other than a sign for your area, what printed signs/banners/forms do you need?
 
           office_supplies:
-            deadline: ''
+            deadline: 1970-01-01
             description: Do you need any paper, pens, sharpies, tripods, whiteboards, scissors, staplers, etc?
 
           custom_ribbons:
-            deadline: ''
+            deadline: 1970-01-01
             description: >
                 Besides the ribbons given out at registration, you may need your own ribbon type to help
                 manage access to certain restricted areas. If so, please let us know what they should say,
@@ -401,7 +401,7 @@ reggie:
                 us why you need it so we can make sure there's no duplication between departments.)
 
           postcon_hours:
-            deadline: ''
+            deadline: 1970-01-01
             name: (After the Event) Marking and Rating Shifts
             description: >
                 After the weekend is over, we'll want all department heads to
