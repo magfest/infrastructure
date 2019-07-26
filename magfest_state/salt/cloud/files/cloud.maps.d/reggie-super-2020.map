@@ -9,7 +9,7 @@ prod-loadbalancer:
   - super2020.reggie.magfest.org
 
 prod-web:
-{%- for i in range(1, 11) %}
+{%- for i in range(1, 3) %}
   - super2020-prod-web-{{ '{:02d}'.format(i) }}.reggie.magfest.org
 {%- endfor %}
 
