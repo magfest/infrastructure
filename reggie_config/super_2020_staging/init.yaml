@@ -1,0 +1,8 @@
+__: merge-first
+
+reggie:
+  plugins:
+    ubersystem:
+      config:
+        dates:
+          dealer_reg_start: 2019-07-17 21
