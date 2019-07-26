@@ -76,7 +76,7 @@ base:
     - reggie_deploy.ssl
     - reggie_deploy.glusterfs
     - glusterfs.client
-    - nginx.ng
+    - nginx
     - reggie.web
     - reggie_deploy.web
 
