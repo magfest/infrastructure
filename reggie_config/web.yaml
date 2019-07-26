@@ -93,7 +93,7 @@ nginx:
             {{ nginx_ssl_config(
                 stack['ssl']['certs_dir'] ~ '/' ~ minion_id ~ '.key',
                 stack['ssl']['certs_dir'] ~ '/' ~ minion_id ~ '.crt',
-                stack['ssl']['certs_dir'] ~ '/dhparams.pem')|indent(14) }}
+                stack['ssl']['certs_dir'] ~ '/dhparams.pem')|indent(12) }}
 
             - 'location @maintenance':
               - rewrite: ^(.*)$ /maintenance.html break
@@ -104,16 +104,16 @@ nginx:
             {%- for location in ['/preregistration', '/preregistration/', '/preregistration/form'] %}
             - 'location = {{ url_path }}{{ location }}':
               - proxy_hide_header: Cache-Control
-              {{ nginx_proxy_config(cache='/etc/nginx/reggie_short_term_cache.conf')|indent(16) }}
+              {{ nginx_proxy_config(cache='/etc/nginx/reggie_short_term_cache.conf')|indent(14) }}
             {%- endfor %}
 
             {%- for location in ['/static/', '/static_views/'] %}
             - 'location {{ url_path }}{{ location }}':
-              {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(16) }}
+              {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(14) }}
             {%- endfor %}
 
             - 'location /':
-              {{ nginx_proxy_config()|indent(16) }}
+              {{ nginx_proxy_config()|indent(14) }}
 
           - server:
             - server_name: localhost
@@ -125,7 +125,7 @@ nginx:
 
             {%- for location in ['/static/', '/static_views/'] %}
             - 'location {{ url_path }}{{ location }}':
-              {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(16) }}
+              {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(14) }}
             {%- endfor %}
 
             - 'location /':
