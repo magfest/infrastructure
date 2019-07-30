@@ -65,6 +65,14 @@ reggie:
         band_email: MAGFest Music Department <music@magfest.org>
         band_email_signature: '- MAGFest Music Department'
 
+        social_media: ["Social Media Info"]
+
+        social_media_urls:
+          social_media_info: ""
+
+        social_media_placeholders:
+          social_media_info: "List social media sites you use and include a link to your page, or your username."
+
         integer_enums:
           shirt:
             - no shirt: 0

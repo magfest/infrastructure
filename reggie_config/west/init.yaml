@@ -62,6 +62,20 @@ reggie:
           guest_badge: [1000, 1999]
           attendee_badge: [2000, 9999]
 
+        social_media: ["Facebook", "Twitter", "Instagram", "LinkedIn"]
+
+        social_media_urls:
+          facebook: "https://www.facebook.com/{}"
+          twitter: "https://twitter.com/{}"
+          instagram: "https://www.instagram.com/{}"
+          linked_in: "https://www.linkedin.com/in/{}"
+
+        social_media_placeholders:
+          facebook: "Facebook page or username"
+          twitter: "Twitter profile or username"
+          instagram: "Instagram page or username"
+          linked_in: "LinkedIn page or username"
+
         enums:
           interest:
             console: "Consoles"
