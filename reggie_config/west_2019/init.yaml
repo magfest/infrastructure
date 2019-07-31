@@ -85,6 +85,13 @@ reggie:
           initial_attendee: 75
           group_discount: 25
           dealer_badge_price: 40
+          one_days_enabled: True
+          presell_one_days: True
+
+          single_day:
+            Friday: 35
+            Saturday: 45
+            Sunday: 25
           
         table_prices:
           default_price: 200
@@ -117,6 +124,13 @@ reggie:
             icon: ../static/icons/iconmayor.png
             description: Crazy Exclusive Swag
             link: ../static_views/super.html
+
+        enums:
+          new_reg_payment_method:
+            group: Groupon
+
+          door_payment_method:
+            group: "I have a Groupon to redeem at the registration desk"
             
         dept_head_checklist:
           creating_shifts:
