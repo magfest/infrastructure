@@ -38,7 +38,7 @@ reggie:
           uber_takedown: 2019-09-16
           room_deadline: 2019-07-31
 
-          printed_badge_deadline: 2019-08-01
+          printed_badge_deadline: 2019-08-06
 
           # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
           # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
