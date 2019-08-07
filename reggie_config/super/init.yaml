@@ -73,6 +73,12 @@ reggie:
         social_media_placeholders:
           social_media_info: "List social media sites you use and include a link to your page, or your username."
 
+        dealer_term: vendor
+        dealer_helper_term: Marketplace Assistant
+        dealer_app_term: marketplace application
+        dealer_loc_term: marketplace
+        dealer_reg_term: marketplace registration
+
         integer_enums:
           shirt:
             - no shirt: 0
@@ -211,7 +217,7 @@ reggie:
             Jams: Jam Space
             panels: Guests/Panels
             tabletop: Tabletop games
-            dealers: Dealers
+            dealers: Marketplace
             tournaments: Tournaments
 
           dealer_wares:
