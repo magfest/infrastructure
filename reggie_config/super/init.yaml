@@ -330,7 +330,7 @@ reggie:
             description: >
                 We have the ability to import shifts from last year's MAGFest, if you are only
                 making minor changes and want assistance with this step, please let us know.
-            path: /jobs/index?department_id={department_id}
+            path: /shifts_admin/index?department_id={department_id}
 
           assigned_volunteers:
             deadline: 1970-01-01
@@ -338,7 +338,7 @@ reggie:
             description: >
                 Check all of the volunteers currently assigned to your department to make sure no one is
                 missing AND that no one is there who shouldn't be.
-            path: /jobs/staffers?department_id={department_id}
+            path: /shifts_admin/staffers?department_id={department_id}
 
           treasury:
             deadline: 1970-01-01
@@ -366,7 +366,7 @@ reggie:
                 work during the event itself, so we have far more offers than we have need for. Since this
                 affects what hotel nights staffers get, please approve and decline requests for this for
                 people in your department.
-            path: /hotel/requests?department_id={department_id}
+            path: /dept_checklist/hotel_requests?department_id={department_id}
 
           placeholders:
             deadline: 1970-01-01
@@ -382,7 +382,7 @@ reggie:
             deadline: 1970-01-01
             name: Staffers Requesting Hotel Space
             description: Double check that everyone in your department who you know needs hotel space has requested it.
-            path: /hotel/index?department_id={department_id}
+            path: /dept_checklist/hotel_eligible?department_id={department_id}
 
           tech_requirements:
             deadline: 1970-01-01
@@ -420,11 +420,11 @@ reggie:
             description: >
                 After the weekend is over, we'll want all department heads to
                 ensure that their volunteers had their shifts marked and rated.
-            path: /jobs/signups?department_id={department_id}
+            path: /shifts_admin/signups?department_id={department_id}
             email_post_con: True
 
         volunteer_checklist:
           2: signups/food_item.html
-          3: hotel_requests/hotel_item.html
+          3: hotel/hotel_item.html
           4: signups/shirt_item.html
           99: signups/shifts_item.html
