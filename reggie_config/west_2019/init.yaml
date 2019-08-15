@@ -22,6 +22,7 @@ reggie:
         code_of_conduct_url: 'https://www.magwest.org/code-of-conduct'
         prereg_faq_url: 'https://www.magwest.org/faq'
         contact_url: 'https://www.magwest.org/contact-us'
+        treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
         expected_response: August 15, 2019
 
         dates:
