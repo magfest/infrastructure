@@ -224,10 +224,10 @@ reggie:
             email_post_con: True
             
         volunteer_checklist:
-          2: signups/food_item.html
-          3: signups/shirt_item.html
+          2: staffing/food_item.html
+          3: staffing/shirt_item.html
           4: hotel/hotel_item.html
-          98: signups/volunteer_agreement_item.html
-          99: signups/shifts_item.html
+          98: staffing/volunteer_agreement_item.html
+          99: staffing/shifts_item.html
 
         techops_dept_checklist_form_url: https://forms.gle/MiPrDDC8wYVhu7qSA

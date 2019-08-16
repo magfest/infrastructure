@@ -227,6 +227,6 @@ reggie:
           2: ''
           3: ''
           4: ''
-          99: signups/shifts_item.html
+          99: staffing/shifts_item.html
 
         age_groups: {}

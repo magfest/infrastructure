@@ -278,6 +278,6 @@ reggie:
         volunteer_checklist:
           3: ''
           4: hotel/hotel_item.html
-          99: signups/shifts_item.html
+          99: staffing/shifts_item.html
 
         age_groups: {}

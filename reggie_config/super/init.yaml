@@ -420,11 +420,11 @@ reggie:
             description: >
                 After the weekend is over, we'll want all department heads to
                 ensure that their volunteers had their shifts marked and rated.
-            path: /shifts_admin/signups?department_id={department_id}
+            path: /shifts_admin/shifts?department_id={department_id}
             email_post_con: True
 
         volunteer_checklist:
-          2: signups/food_item.html
+          2: staffing/food_item.html
           3: hotel/hotel_item.html
-          4: signups/shirt_item.html
-          99: signups/shifts_item.html
+          4: staffing/shirt_item.html
+          99: staffing/shifts_item.html
