@@ -30,7 +30,7 @@ reggie:
         # dealers if either the deadline has passed or this number has been reached.
         # Dealers who have been waitlisted/approved/declined and dealers who do not
         # have to pay are not counted towards this cap. A value of 0 means no cap.
-        max_dealer_apps: 530
+        max_dealer_apps: 515
 
         mivs_video_response_expected: "no later than September 17th"
         mivs_confirm_deadline: 14
@@ -63,9 +63,9 @@ reggie:
           # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
-          dealer_reg_start: 2019-08-17 21
+          dealer_reg_start: 2019-08-16 20
           dealer_reg_deadline: ''  # Disable automatic waitlist
-          dealer_reg_shutdown: 2019-08-23 12
+          dealer_reg_shutdown: 2019-08-27 20
           dealer_payment_due: 2019-11-04
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
 
