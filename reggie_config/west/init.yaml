@@ -226,7 +226,7 @@ reggie:
         volunteer_checklist:
           2: staffing/food_item.html
           3: staffing/shirt_item.html
-          4: hotel/hotel_item.html
+          4: staffing/hotel_item.html
           98: staffing/volunteer_agreement_item.html
           99: staffing/shifts_item.html
 
