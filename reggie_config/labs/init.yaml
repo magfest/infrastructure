@@ -32,11 +32,10 @@ reggie:
           band_bio_deadline: 2018-10-21
           guest_bio_deadline: 2018-10-21
 
-          mivs_round_one_deadline: 1970-01-01
-          mivs_round_two_start: 1970-01-01
-          mivs_round_two_deadline: 1970-01-01
+          mivs_deadline: 1970-01-01
+          mivs_start: 1970-01-01
           mivs_judging_deadline: 1970-01-01
-          mivs_round_two_complete: 1970-01-01
+          mivs_results_reveal: 1970-01-01
 
         table_prices:
           default_price: 80
