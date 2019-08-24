@@ -69,9 +69,9 @@ reggie:
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
 
           mivs_start: 2019-09-01
-          mivs_deadline: 2019-09-30
-          mivs_judging_deadline: 2019-11-04
-          mivs_results_reveal: 2019-11-05
+          mivs_deadline: 2019-09-22
+          mivs_judging_deadline: 2019-10-20
+          mivs_results_reveal: 2019-10-28
           
           mits_submission_deadline: 2019-11-14
           mits_editing_deadline: 2019-12-28
