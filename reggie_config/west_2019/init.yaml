@@ -55,7 +55,7 @@ reggie:
           band_info_deadline: 2019-06-03 # A/V RFC (deadline not tracked by Reggie)
           band_stage_plot_deadline: 2019-06-03 # A/V RFC (deadline not tracked by Reggie)
           band_bio_deadline: 2019-07-15
-          band_panel_deadline: 2019-08-04 # Should be <= panel_app_deadline
+          band_panel_deadline: 2019-08-04 # Should be <= panels_deadline
           band_taxes_deadline: 2019-08-13
           band_badges_deadline: 2019-09-01 # Should be <= placeholder_deadline
           band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
@@ -65,7 +65,7 @@ reggie:
 
           # WARNING - everything below this is set to a temporary value just so
           #           that we won't get an exception at import time.
-          panel_app_deadline: 2019-08-04
+          panels_deadline: 2019-08-04
           mivs_round_one_deadline: 2019-08-01
           mivs_round_two_start: 2019-08-01
           mivs_round_two_deadline: 2019-08-01
