@@ -25,6 +25,7 @@ reggie:
         contact_url: 'https://www.magwest.org/contact-us'
         treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
         expected_response: August 15, 2019
+        mivs_video_response_expected: "no later than September 17th"
 
         dates:
           epoch: 2019-09-13 08
@@ -56,7 +57,7 @@ reggie:
           band_info_deadline: 2019-06-03 # A/V RFC (deadline not tracked by Reggie)
           band_stage_plot_deadline: 2019-06-03 # A/V RFC (deadline not tracked by Reggie)
           band_bio_deadline: 2019-07-15
-          band_panel_deadline: 2019-08-04 # Should be <= panels_deadline
+          band_panel_deadline: 2019-08-04 # Should be <= panel_app_deadline
           band_taxes_deadline: 2019-08-13
           band_badges_deadline: 2019-09-01 # Should be <= placeholder_deadline
           band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
@@ -66,7 +67,7 @@ reggie:
 
           # WARNING - everything below this is set to a temporary value just so
           #           that we won't get an exception at import time.
-          panels_deadline: 2019-08-04
+          panel_app_deadline: 2019-08-04
           mivs_round_one_deadline: 2019-08-01
           mivs_round_two_start: 2019-08-01
           mivs_round_two_deadline: 2019-08-01
@@ -140,9 +141,11 @@ reggie:
             description: >
                 We have the ability to import shifts from MAGWest 2018 to MAGWest 2019, if you are only 
                 making minor changes and want assistance with this step, please let us know.
+            path: /jobs/index?department_id={department_id}
             
           assigned_volunteers:
             deadline: 2019-07-18
+            path: /jobs/staffers?department_id={department_id}
             
           approve_setup_teardown:
             name: Approve/Decline Additional Hotel Nights
@@ -153,9 +156,11 @@ reggie:
                 affects what hotel nights staffers get, please approve and decline requests for this for
                 people in your department. Please only approve staffers who will sign up for a setup or 
                 teardown shift in your department.
+            path: /hotel/requests?department_id={department_id}
                 
           hotel_eligible:
             deadline: 2019-08-01
+            path: /hotel/index?department_id={department_id}
             
           placeholders:
             deadline: 2019-08-01
@@ -178,3 +183,11 @@ reggie:
           postcon_hours:
             name: (After the Event) Marking + Rating Shifts
             deadline: 2019-10-03
+            path: /jobs/signups?department_id={department_id}
+
+        volunteer_checklist:
+          2: signups/food_item.html
+          3: signups/shirt_item.html
+          4: hotel_requests/hotel_item.html
+          98: signups/volunteer_agreement_item.html
+          99: signups/shifts_item.html
