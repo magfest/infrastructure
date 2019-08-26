@@ -10,6 +10,7 @@ reggie:
 
   plugins:
     ubersystem:
+      branch: west2019
       config:
         shirt_stock: 300
         supporter_stock: 72
