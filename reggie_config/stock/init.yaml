@@ -210,23 +210,23 @@ reggie:
         dept_head_checklist:
           creating_shifts:
             description: The managment team is happy to assist you in creating shifts. Please let us know if you need assistance with this step.
-            path: /jobs/index?department_id={department_id}
+            path: /shifts_admin/index?department_id={department_id}
 
           assigned_volunteers:
             name: Volunteers Assigned to Your Department
             description: Check all of the volunteers currently assigned to your department to make sure no one is missing AND that no one is there who shouldn't be.
-            path: /jobs/staffers?department_id={department_id}
+            path: /shifts_admin/staffers?department_id={department_id}
 
           postcon_hours:
             name: (After the Event) Marking and Rating Shifts
             description: After the weekend is over, we'll want all department heads to ensure that their volunteers had their shifts marked and rated.
-            path: /jobs/signups?department_id={department_id}
+            path: /shifts_admin/signups?department_id={department_id}
             email_post_con: True
 
         volunteer_checklist:
           2: ''
           3: ''
           4: ''
-          99: signups/shifts_item.html
+          99: staffing/shifts_item.html
 
         age_groups: {}
