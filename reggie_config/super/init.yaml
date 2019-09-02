@@ -131,61 +131,6 @@ reggie:
             xl: XL
             2xl: 2XL
 
-          job_location:
-            console: Consoles
-            arcade: Arcade
-            arcade_crew: Arcade_Crew
-            attendee_service: Attendee Services
-            autographs: Autographs
-            challenges: Challenges
-            charity: Charity
-            chipspace: Chipspace
-            concert_ops: Main Theater Operations
-            concert_tech: Main Theater Tech
-            con_ops: Fest Ops
-            dispatch: Dispatch
-            dorsai: Dorsai
-            escape_room: Escape Room
-            events: Events
-            hotel: Hotel
-            panels: Panels
-            food_prep: Staff Suite
-            film_fest: Games on Film
-            indie_arcade: Indie Arcade
-            indie_games: Indie Games
-            indie_tabletop: Indie Tabletop
-            jamspace: Jam Space
-            lan: LAN
-            larp: LARP
-            loadin: Logistics
-            loudr: Rock Island
-            mages: MAGES
-            marketplace: Marketplace
-            merch: Merchandise
-            merch_contractor: Yetee Staff
-            mops: MEDIATRON!
-            museum: Museum
-            music: Music
-            public_safety: Public Safety
-            regdesk: Registration
-            reg_managers: Reg Managers
-            rescuers: Rescuers
-            security: Security
-            shedspace: Jam Clinic
-            signage: Signage
-            simulations: Simulations
-            staff_support: Staff Support
-            tea_room: Staff Tea Room
-            stops: Staffing Ops
-            tabletop: Tabletop
-            tabletop_rpg: Tabletop (Pathfinder)
-            tabletop_ddal: Tabletop (DDAL)
-            tabletop_ccg: Tabletop (CCG)
-            treasury: Treasury
-            tech_ops: Tech Ops
-            vrzone: VRZone
-            zombie_tag: Zombie Tag
-
           job_interest:
             anything: Anything
             arcade: Arcade
