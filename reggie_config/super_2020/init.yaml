@@ -133,14 +133,14 @@ reggie:
 
         integer_enums:
           shirt_level: 25
-          supporter_level: 75
+          supporter_level: 85
           season_level: 200
 
           donation_tier:
             No thanks: 0
-            T-Shirt Bundle: SHIRT_LEVEL
-            Supporter: SUPPORTER_LEVEL
-            Barrel Roller: 200
+            T-Shirt Tier: SHIRT_LEVEL
+            Supporter Tier: SUPPORTER_LEVEL
+            Funky Tier: 200
 
         donation_tier_descriptions:
           no_thanks:
@@ -150,23 +150,22 @@ reggie:
             link: ''
 
           shirt:
-            name: T-Shirt Bundle
+            name: T-Shirt Tier
             icon: ../static/icons/iconshirt.png
             description: Ribbon|T-Shirt|Event Pin
             link: ../static_views/ribbon.html|../static_views/tshirt.html|../static_views/tshirt.html
 
           supporter:
-            name: Supporter
+            name: Supporter Tier
             icon: ../static/icons/supporter.png
-            description: Super Swag Bag|Swadge
+            description: MAGFest Fanny Pack|Custom Lanyard|Squeezy-nanner|Jungle Sunglasses|Funky Bandana|Gold “MF” Coin|Collapsible Canteen|Barrel Swadge
             link: ../static_views/supporter.html|../static_views/swadge.html
 
           barrel_roller:
-            name: Barrel Roller
-            icon: ../static/icons/barrel_roller.png
-            description: Sun Cats Figure Set|Secret Invitation
-            link: ../static_views/barrel_roller.html|../static_views/secret.html
-            merch_items: ['Sun Cats']
+            name: Funky Tier
+            icon: ../static/icons/super.png
+            description: Mystery Swag|Secret Invitation
+            link: ../static_views/super.html|../static_views/secret.html
 
         mivs_checklist:
           core_hours:
