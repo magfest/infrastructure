@@ -123,6 +123,14 @@ reggie:
             under_13: 12 & Under
             mivs: Indie Dev
 
+          sweatpants:
+            no_sweatpants: Select a sweatpants size
+            s: S
+            m: M
+            l: L
+            xl: XL
+            2xl: 2XL
+
           job_location:
             console: Consoles
             arcade: Arcade
