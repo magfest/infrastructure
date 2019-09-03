@@ -159,7 +159,7 @@ reggie:
             name: Supporter Tier
             icon: ../static/icons/supporter.png
             description: MAGFest Fanny Pack|Custom Lanyard|Squeezy-nanner|Jungle Sunglasses|Funky Bandana|Gold "MF" Coin|Collapsible Canteen|Barrel Swadge
-            link: ../static_views/supporter.html|../static_views/swadge.html
+            link: ../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/swadge.html
 
           barrel_roller:
             name: Funky Tier
