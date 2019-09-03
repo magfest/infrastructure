@@ -1,0 +1,29 @@
+{#-
+  NOTE: Changes to this file must be applied with the following command
+  before they take effect:
+
+    salt mcp.magfest.net state.sls salt.cloud.manager
+-#}
+
+perf-loadbalancer:
+  - perftesting.reggie.magfest.org
+
+perf-web:
+{%- for i in range(1, 41) %}
+  - super2020-perf-web-{{ '{:02d}'.format(i) }}.reggie.magfest.org
+{%- endfor %}
+
+perf-sessions:
+  - super2020-perf-sessions-01.reggie.magfest.org
+
+perf-db:
+  - super2020-perf-db-01.reggie.magfest.org
+
+perf-queue:
+  - super2020-perf-queue-01.reggie.magfest.org
+
+perf-scheduler:
+  - super2020-perf-scheduler-01.reggie.magfest.org
+
+perf-worker:
+  - super2020-perf-worker-01.reggie.magfest.org
