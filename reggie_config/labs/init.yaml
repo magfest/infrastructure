@@ -243,7 +243,7 @@ reggie:
                 their information and also confirm that they'll be coming. We need our department heads
                 to review the unclaimed badges for their departments to check for any essential volunteers
                 who haven't claimed their badges.
-            path: /registration/placeholders?department_id={department_id}
+            path: /dept_checklist/placeholders?department_id={department_id}
 
           hotel_eligible:
             deadline: 2018-07-21
