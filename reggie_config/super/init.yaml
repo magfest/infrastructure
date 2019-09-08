@@ -376,7 +376,7 @@ reggie:
                 their information and also confirm that they'll be coming. We need our department heads
                 to review the unclaimed badges for their departments to check for any essential volunteers
                 who haven't claimed their badges.
-            path: /registration/placeholders?department_id={department_id}
+            path: /dept_checklist/placeholders?department_id={department_id}
 
           hotel_eligible:
             deadline: 1970-01-01
@@ -420,7 +420,7 @@ reggie:
             description: >
                 After the weekend is over, we'll want all department heads to
                 ensure that their volunteers had their shifts marked and rated.
-            path: /shifts_admin/shifts?department_id={department_id}
+            path: /shifts_admin/signups?department_id={department_id}
             email_post_con: True
 
         volunteer_checklist:
