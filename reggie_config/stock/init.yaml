@@ -121,14 +121,6 @@ reggie:
           ribbon:
             roughing_it: Roughing It
 
-          job_location:
-            misc: General Support
-            registration: Registration
-            food: Food Prep
-            activities: Events
-            music: Music Pavilion
-            cat_herding: Security
-
           job_interest:
             misc: General Support
             registration: Registration

@@ -72,40 +72,6 @@ reggie:
           ribbon:
             band: RockStar
 
-          job_location:
-            console: Consoles
-            arcade: Arcade
-            lan: LAN
-            music: Music
-            panels: Panels
-            tabletop: Tabletop
-            loading_crew: Loading Crew
-            registration: Registration
-            bridge_simulator: Escape Room
-            techops: Tech Ops / AV
-            dispatch: Dispatch
-            jamspace: Jamspace
-            marketplace: Marketplace
-            stops: Stops
-            fest_ops: Guest
-            charity: Charity
-            dorsai: Dorsai
-            mops: Mediatron!
-            merch: Merchandise
-            rescuers: Rescuers
-            security: Security
-            staff_support: Staff Support
-            ccg_tabletop: Tabletop (CCG)
-            tea_room: Tea Room
-            treasury: Treasury
-            concert_security: Concert Security
-            makerspace: Makerspace
-            museum: Computer Museum
-            lego_room: Lego Room
-            music_av: Music A/V
-            games_on_film: Games on Film
-            vrcade: VRCade
-
           job_interest:
             console: Consoles
             arcade: Arcade
@@ -243,7 +209,7 @@ reggie:
                 their information and also confirm that they'll be coming. We need our department heads
                 to review the unclaimed badges for their departments to check for any essential volunteers
                 who haven't claimed their badges.
-            path: /registration/placeholders?department_id={department_id}
+            path: /dept_checklist/placeholders?department_id={department_id}
 
           hotel_eligible:
             deadline: 2018-07-21
