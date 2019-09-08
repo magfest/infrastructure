@@ -18,8 +18,6 @@ reggie:
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']
         music_rooms: ['concerts', 'chiptunes', 'jamspace', 'jam_clinic']
 
-        shiftless_depts: ['dorsai', 'bridge_simulator', 'marketplace']
-
         require_dedicated_guest_table_presence: False
         rock_island_groups: ['band', 'guest']
 
