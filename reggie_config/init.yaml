@@ -100,7 +100,7 @@ reggie:
         panels_twilio_number: '+12405415595'
         tabletop_twilio_number: '+15713646627'
 
-        preassigned_badge_types: ['staff_badge', 'supporter_badge']
+        preassigned_badge_types: ['staff_badge', 'contractor_badge']
 
         admin_email: MAGFest Sys Admin <sysadmin@magfest.org>
         developer_email: MAGFest Software <code@magfest.org>

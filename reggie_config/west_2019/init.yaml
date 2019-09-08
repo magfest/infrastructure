@@ -27,6 +27,8 @@ reggie:
         expected_response: August 15, 2019
         mivs_video_response_expected: "no later than September 17th"
 
+        preassigned_badge_types: ['staff_badge', 'contractor_badge']
+
         dates:
           epoch: 2019-09-13 08
           eschaton: 2019-09-15 18
