@@ -38,7 +38,7 @@ reggie:
         mivs_training_password: WHATISARUG
 
         dates:
-          prereg_open: 2019-09-10 12
+          prereg_open: 2019-09-10 15
           prereg_hotel_eligibility_cutoff: 2019-09-15
           shifts_created: 2019-11-02
           room_deadline: 2019-11-14
