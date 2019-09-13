@@ -58,7 +58,7 @@ reggie:
         band_email_signature: "- MAGWest Music Department"
 
         badge_ranges:
-          staff_badge: [25, 999]
+          staff_badge: [7, 999]
           guest_badge: [1000, 1999]
           attendee_badge: [2000, 9999]
 
