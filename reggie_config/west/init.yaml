@@ -59,8 +59,9 @@ reggie:
 
         badge_ranges:
           staff_badge: [7, 999]
-          guest_badge: [1000, 1999]
+          guest_badge: [2000, 9999]
           attendee_badge: [2000, 9999]
+          one_day_badge: [2000, 9999]
 
         social_media: ["Facebook", "Twitter", "Instagram", "LinkedIn"]
 
@@ -77,6 +78,10 @@ reggie:
           linked_in: "LinkedIn page or username"
 
         enums:
+          ribbon:
+            band: RockStar
+            guest: Guest
+
           interest:
             console: "Consoles"
             chipspace: "Chipspace"
