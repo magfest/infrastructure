@@ -28,6 +28,9 @@ reggie:
         treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
         expected_response: August 15, 2019
         mivs_video_response_expected: "no later than September 17th"
+        
+        badge_ranges:
+          staff_badge: [7, 999]
 
         dates:
           epoch: 2019-09-13 08
