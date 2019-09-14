@@ -84,7 +84,7 @@ reggie:
           auction_start: 2020-01-08 11
           band_panel_deadline: 2019-09-30
           band_bio_deadline: 2019-09-07
-          band_info_deadline: 2019-09-07
+          band_info_deadline: ''  # Temporarily disable until new contracts are ready
           band_mc_deadline: 2019-09-30
           band_taxes_deadline: 2019-08-31
           band_merch_deadline: 2019-09-16
@@ -93,7 +93,7 @@ reggie:
           band_stage_plot_deadline: 2019-09-24
           guest_panel_deadline: 2019-10-21
           guest_bio_deadline: 2019-10-21
-          guest_info_deadline: 2019-11-01
+          guest_info_deadline: ''  # Temporarily disable until new contracts are ready
           guest_taxes_deadline: 2019-10-21
           guest_merch_deadline: 2019-10-21
           guest_charity_deadline: 2019-10-21
