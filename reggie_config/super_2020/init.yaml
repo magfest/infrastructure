@@ -81,7 +81,7 @@ reggie:
           rock_island_deadline: 2019-11-17
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
-          auction_start: 2020-01-08 11
+          auction_start: 2020-01-05 11
           band_panel_deadline: 2019-09-30
           band_bio_deadline: 2019-09-07
           band_info_deadline: ''  # Temporarily disable until new contracts are ready
