@@ -57,8 +57,7 @@ reggie:
 
         guest_email: MAGFest Guests <guests@magfest.org>
         guest_email_signature: |
-            - Steph Prader,
-            MAGFest Guest Coordinator
+            Super MAGFest Guests & MAGMoves Team
 
         band_email: MAGFest Music Department <music@magfest.org>
         band_email_signature: '- MAGFest Music Department'
