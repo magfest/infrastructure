@@ -9,7 +9,11 @@ reggie:
         {{ extra_attendance_data()|indent(8) }}
 
   plugins:
+    magprime:
+      branch: super2019
+
     ubersystem:
+      branch: super2019
       config:
         event_year: 2019
         event_qr_id: sm19
