@@ -18,8 +18,10 @@ reggie:
         shared_kickin_stocks: False
         event_year: 2019
         max_dealers: 5
-        at_the_con: True
-        post_con: False
+        at_the_con: False
+        post_con: True
+        send_emails: False
+        send_sms: False
         
         consent_form_url: ''
         code_of_conduct_url: 'https://www.magwest.org/code-of-conduct'
