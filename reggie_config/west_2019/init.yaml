@@ -20,7 +20,6 @@ reggie:
         max_dealers: 5
         at_the_con: False
         post_con: True
-        send_emails: False
         send_sms: False
         
         consent_form_url: ''
