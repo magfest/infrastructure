@@ -78,19 +78,20 @@ reggie:
 
           panels_deadline: 2019-10-31
 
-          rock_island_deadline: 2019-11-17
+          rock_island_deadline: 2019-11-13
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2020-01-05 11
-          band_panel_deadline: 2019-09-30
-          band_bio_deadline: 2019-09-07
           band_info_deadline: ''  # Temporarily disable until new contracts are ready
-          band_mc_deadline: 2019-09-30
-          band_taxes_deadline: 2019-08-31
-          band_merch_deadline: 2019-09-16
-          band_charity_deadline: 2019-12-15
-          band_badges_deadline: 2019-12-15
-          band_stage_plot_deadline: 2019-09-24
+          band_taxes_deadline: 2019-10-02
+          band_bio_deadline: 2019-10-09
+          band_merch_deadline: 2019-10-09
+          band_charity_deadline: 2019-10-09
+          band_stage_plot_deadline: 2019-10-16
+          band_panel_deadline: 2019-10-23
+          band_mc_deadline: 2019-10-30
+          band_badges_deadline: 2019-11-13
+          
           guest_panel_deadline: 2019-10-21
           guest_bio_deadline: 2019-10-21
           guest_info_deadline: ''  # Temporarily disable until new contracts are ready
