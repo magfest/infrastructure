@@ -6,3 +6,4 @@ reggie:
       config:
         dates:
           dealer_reg_start: 2019-07-17 21
+          refund_start: 2019-09-20
