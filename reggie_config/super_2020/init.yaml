@@ -65,7 +65,7 @@ reggie:
           dealer_reg_start: 2019-08-16 20
           dealer_reg_deadline: ''  # Disable automatic waitlist
           dealer_reg_shutdown: 2019-08-27 20
-          dealer_payment_due: 2019-11-04
+          dealer_payment_due: 2019-11-01
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
 
           mivs_start: 2019-08-31
