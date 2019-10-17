@@ -233,6 +233,9 @@ reggie:
           tech_requirements:
             deadline: 2019-11-13
 
+          social_media:
+            deadline: 2019-11-13
+
           hotel_eligible:
             deadline: 2019-11-20
 
@@ -249,10 +252,13 @@ reggie:
           printed_signs:
             deadline: 2019-11-27
 
-          treasury:
+          allotments:
             deadline: 2019-11-27
             
           logistics:
+            deadline: 2019-12-04
+
+          mediatron:
             deadline: 2019-12-04
 
           office_supplies:
