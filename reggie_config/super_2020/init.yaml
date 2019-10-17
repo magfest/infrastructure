@@ -216,52 +216,48 @@ reggie:
 
         dept_head_checklist:
           creating_shifts:
-            deadline: 2019-10-24
+            deadline: 2019-10-23
             description: >
                 We have the ability to import shifts from MAGFest 2017 to MAGFest 2019, if you are only 
                 making minor changes and want assistance with this step, please let us know.
+
           assigned_volunteers:
-            deadline: 2019-10-24
+            deadline: 2019-10-23
 
-          treasury:
-            deadline: 2019-10-31
+          placeholders:
+            deadline: 2019-11-06
 
-          allotments:
-            deadline: 2019-10-31
+          hotel_setup:
+            deadline: 2019-11-06
+
+          tech_requirements:
+            deadline: 2019-11-13
+
+          hotel_eligible:
+            deadline: 2019-11-20
 
           approve_setup_teardown:
             name: Approve/Decline Additional Hotel Nights
-            deadline: 2019-11-07
+            deadline: 2019-11-20
             description: >
                 An overwhelming majority of staffers want to work setup and teardown shifts rather than
                 work during the event itself, so we have far more offers than we have need for. Since this
                 affects what hotel nights staffers get, please approve and decline requests for this for
                 people in your department. Please only approve staffers who will sign up for a setup or 
                 teardown shift in your department.
-          placeholders:
-            deadline: 2019-11-07
-
-          hotel_eligible:
-            deadline: 2019-11-07
-
-          tech_requirements:
-            deadline: 2019-11-10
-
-          hotel_setup:
-            deadline: 2019-11-14
-
-          logistics:
-            deadline: 2019-11-21
 
           printed_signs:
-            deadline: 2019-12-05
+            deadline: 2019-11-27
+
+          treasury:
+            deadline: 2019-11-27
+            
+          logistics:
+            deadline: 2019-12-04
 
           office_supplies:
-            deadline: 2019-12-05
-
-          custom_ribbons:
-            deadline: 2019-12-05
+            deadline: 2019-12-11
 
           postcon_hours:
             name: (After the Event) Marking + Rating Shifts
-            deadline: 2020-01-23
+            deadline: 2020-01-15
