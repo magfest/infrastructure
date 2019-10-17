@@ -356,7 +356,7 @@ reggie:
 
           postcon_hours:
             deadline: 1970-01-01
-            name: (After the Event) Marking and Rating Shifts
+            name: (After the Event) Marking + Rating Shifts
             description: >
                 Please go through your volunteers’ shifts carefully. This ensures that they receive the appropriate perks, 
                 are imported as staff next year, maintain eligibility for hotel crash space, etc.
