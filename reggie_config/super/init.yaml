@@ -270,7 +270,7 @@ reggie:
           creating_shifts:
             deadline: 1970-01-01
             description: >
-                We are able to import shifts from last year. If you want us to import last year’s shifts, please 
+                We are able to import shifts from last year. If you want us to import last year's shifts, please 
                 email stops@magfest.org. You will still need to approve these via the checklist after the import.
             path: /shifts_admin/index?department_id={department_id}
 
@@ -358,7 +358,7 @@ reggie:
             deadline: 1970-01-01
             name: (After the Event) Marking + Rating Shifts
             description: >
-                Please go through your volunteers’ shifts carefully. This ensures that they receive the appropriate perks, 
+                Please go through your volunteers shifts carefully. This ensures that they receive the appropriate perks, 
                 are imported as staff next year, maintain eligibility for hotel crash space, etc.
             path: /shifts_admin/signups?department_id={department_id}
             email_post_con: True
