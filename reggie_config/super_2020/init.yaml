@@ -17,7 +17,9 @@ reggie:
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
         treasury_dept_checklist_form_url: https://docs.google.com/spreadsheets/d/1gw9ON-64XiHebVG_TnZEIA6DLMjAEOdyVD21W3XmIr0/edit?usp=sharing
-        techops_dept_checklist_form_url: https://goo.gl/forms/PcG3dG7JwsD307sK2
+        techops_dept_checklist_form_url: https://docs.google.com/forms/d/e/1FAIpQLSd_QgmCKYp7CRn5IsZHlzuky7CrPKYXQSPi03Ywy72UEnlegA/viewform
+        hotel_setup_form_url: https://docs.google.com/forms/d/e/1FAIpQLSeQ7LRiKRc39inuWYAi_RtQ-DKRuZO3R40O-8ag5W-CHePSsw/viewform
+        logistics_form_url: https://docs.google.com/forms/d/1FX8dFgdTl6YkBjliGUWPLcumUDeNJEVhhafudP6ZnPg/viewform
 
         expected_response: December 2019
 
