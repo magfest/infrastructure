@@ -16,7 +16,7 @@ reggie:
         event_qr_id: sm19
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
-        treasury_dept_checklist_form_url: https://docs.google.com/spreadsheets/d/1gw9ON-64XiHebVG_TnZEIA6DLMjAEOdyVD21W3XmIr0/edit?usp=sharing
+        treasury_dept_checklist_form_url: https://docs.google.com/forms/d/1PSieJiQJJU6vubr0Grf8KxQaG8OlZGF-EAWhHaDIqe4
         techops_dept_checklist_form_url: https://docs.google.com/forms/d/e/1FAIpQLSd_QgmCKYp7CRn5IsZHlzuky7CrPKYXQSPi03Ywy72UEnlegA/viewform
         hotel_setup_form_url: https://docs.google.com/forms/d/e/1FAIpQLSeQ7LRiKRc39inuWYAi_RtQ-DKRuZO3R40O-8ag5W-CHePSsw/viewform
         logistics_form_url: https://docs.google.com/forms/d/1FX8dFgdTl6YkBjliGUWPLcumUDeNJEVhhafudP6ZnPg/viewform
@@ -252,6 +252,9 @@ reggie:
 
           mediatron:
             deadline: 2019-12-04
+
+          bulk_print_jobs:
+            deadline: 2019-12-11
 
           office_supplies:
             deadline: 2019-12-11
