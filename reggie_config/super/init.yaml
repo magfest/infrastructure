@@ -343,7 +343,7 @@ reggie:
             description: >
                 STOPS can provide the following office supplies: pens, sharpies, paper, whiteboard, whiteboard markers, 
                 sticky notes, scissors, painters tape, scotch tape, staplers, clipboards, flip charts/easel pads. List 
-                WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don’t give a quantity, 
+                WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don't give a quantity, 
                 you will get 1). If you need a very specific office item, you will need to purchase it yourself using your 
                 department's budget. Note 1: STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
                 Anything more than 50 pages needs to go into 'Printed Signs.' Note 2: A ream of paper is 500 sheets.
@@ -366,7 +366,7 @@ reggie:
           bulk_print_jobs:
             deadline: 1970-01-01
             description: >
-                Do you have any bulk print jobs (more than 50 pages) you’d like us to print in advance? STOPS has a paper 
+                Do you have any bulk print jobs (more than 50 pages) you'd like us to print in advance? STOPS has a paper 
                 cutter and a printer for small jobs (less than 50 pages). Anything more than 50 pages should go here! For 
                 EACH item you need printed, please include a link to the document and the number of copies.
 
