@@ -333,11 +333,20 @@ reggie:
 
           printed_signs:
             deadline: 1970-01-01
-            description: Other than a sign for your area, what printed signs/banners/forms do you need?
+            description: >
+                Other than a sign for your area, what printed signs/banners/forms do you need? If you have small printing 
+                jobs, they can be done on-site at STOPS. Any printing project over 50 pages will NOT be printed at STOPS 
+                and needs to be entered here for printing pre-event.
 
           office_supplies:
             deadline: 1970-01-01
-            description: Do you need any paper, pens, sharpies, tripods, whiteboards, scissors, staplers, etc?
+            description: >
+                STOPS can provide the following office supplies: pens, sharpies, paper, whiteboard, whiteboard markers, 
+                sticky notes, scissors, painters tape, scotch tape, staplers, clipboards, flip charts/easel pads. List 
+                WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don’t give a quantity, 
+                you will get 1). If you need a very specific office item, you will need to purchase it yourself using your 
+                department’s budget. Note 1: STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
+                Anything more than 50 pages needs to go into 'Printed Signs.' Note 2: A ream of paper is 500 sheets.
             
           social_media:
             deadline: 1970-01-01
@@ -353,6 +362,13 @@ reggie:
                 If you have something especially cool happening that you would like Mediatron! to capture, let us know 
                 here so they can do their best to get your event on their schedule. For detailed or special requests, 
                 please contact mediatron@magfest.org.
+                
+          bulk_print_jobs:
+            deadline: 1970-01-01
+            description: >
+                Do you have any bulk print jobs (more than 50 pages) you’d like us to print in advance? STOPS has a paper 
+                cutter and a printer for small jobs (less than 50 pages). Anything more than 50 pages should go here! For 
+                EACH item you need printed, please include a link to the document and the number of copies.
 
           postcon_hours:
             deadline: 1970-01-01
