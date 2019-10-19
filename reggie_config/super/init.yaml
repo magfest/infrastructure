@@ -282,11 +282,11 @@ reggie:
                 missing AND that no one is there who shouldn't be.
             path: /shifts_admin/staffers?department_id={department_id}
 
-          allotments:
+          treasury:
             deadline: 1970-01-01
             name: Treasury Information
             description: If you need cash and/or mpoints, tell us your department schedule and your specific cash needs.
-            path: /dept_checklist/allotments?department_id={department_id}
+            path: /dept_checklist/treasury?department_id={department_id}
 
           hotel_setup:
             deadline: 1970-01-01
