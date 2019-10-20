@@ -244,7 +244,7 @@ reggie:
           printed_signs:
             deadline: 2019-11-27
 
-          allotments:
+          treasury:
             deadline: 2019-11-27
             
           logistics:
