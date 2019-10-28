@@ -104,7 +104,7 @@ reggie:
         preassigned_badge_types: ['staff_badge',]
 
         admin_email: MAGFest Sys Admin <sysadmin@magfest.org>
-        developer_email: MAGFest Software <code@magfest.org>
+        developer_email: MAGFest Software <developers@magfest.org>
         security_email: MAGFest Security <security@magfest.org>
 
         regdesk_email: MAGFest Registration <regsupport@magfest.org>

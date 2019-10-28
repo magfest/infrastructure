@@ -19,6 +19,8 @@ reggie:
         mits_enabled: True
         mivs_enabled: True
 
+        volunteer_perks_url: 'https://www.notion.so/magfest/MAGFest-Super-Perks-f001221c31484ef4957a6513c54a6fd6'
+
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'tabletop_panels', 'the_forge']
         tabletop_locations: ['tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_indie']
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop']
@@ -26,11 +28,12 @@ reggie:
         discountable_badge_types: ['attendee_badge', 'child_badge']
 
         accessibility_services_enabled: True
+        volunteer_agreement_enabled: True
         require_dedicated_guest_table_presence: True
         rock_island_groups: ['band', 'guest']
 
         admin_email: MAGFest Sys Admin <sysadmin@magfest.org>
-        developer_email: MAGFest Software <code@magfest.org>
+        developer_email: MAGFest Software <developers@magfest.org>
         security_email: MAGFest Security <security@magfest.org>
 
         regdesk_email: MAGFest Registration <regsupport@magfest.org>
@@ -380,7 +383,9 @@ reggie:
             email_post_con: True
 
         volunteer_checklist:
-          2: staffing/food_item.html
+          2: staffing/volunteer_agreement_item.html
           3: staffing/hotel_item.html
-          4: staffing/shirt_item.html
+          4: staffing/food_item.html
+          5: staffing/shirt_item.html
+          6: staffing/emergency_procedures_item.html
           99: staffing/shifts_item.html
