@@ -59,7 +59,7 @@ reggie:
         staff_email: MAGStock Staffing <admin@magstock.org>
         marketplace_email: MAGStock Marketplace <admin@magstock.org>
         panels_email: MAGStock Panels <admin@magstock.org>
-        developer_email: MAGFest Software <code@magfest.org>
+        developer_email: MAGFest Software <developers@magfest.org>
         security_email: MAGStock Security <security@magstock.org>
         guest_email: MAGStock Guests <admin@magstock.org>
         band_email: MAGStock Music <music@magstock.org>
