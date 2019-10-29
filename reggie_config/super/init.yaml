@@ -15,6 +15,7 @@ reggie:
         event_venue_address: 201 Waterfront St, National Harbor, MD 20745
 
         shirts_per_staffer: 2
+        hours_for_shirt: 12
 
         mits_enabled: True
         mivs_enabled: True
