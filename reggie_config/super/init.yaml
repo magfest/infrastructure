@@ -329,6 +329,12 @@ reggie:
             description: What do you need in terms of laptops, projectors, cables, internet access, etc?
             path: /dept_checklist/tech_requirements?department_id={department_id}
 
+          guidebook_schedule:
+            deadline: 1970-01-01
+            name: Schedule for Guidebook
+            description: Make sure your public-facing events or open hours are on our Uber schedule so they can be exported to Guidebook.
+            path: /dept_checklist/guidebook_schedule?department_id={department_id}
+
           logistics:
             deadline: 1970-01-01
             name: Logistics Needs
@@ -337,10 +343,9 @@ reggie:
 
           printed_signs:
             deadline: 1970-01-01
-            description: >
-                Other than a sign for your area, what printed signs/banners/forms do you need? If you have small printing 
-                jobs, they can be done on-site at STOPS. Any printing project over 50 pages will NOT be printed at STOPS 
-                and needs to be entered here for printing pre-event.
+            name: Room Signage
+            description: Other than a sign for your area, what printed coroplast signs or banners do you need?
+            path: /dept_checklist/printed_signs?department_id={department_id}
 
           office_supplies:
             deadline: 1970-01-01
@@ -350,7 +355,7 @@ reggie:
                 WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don't give a quantity, 
                 you will get 1). If you need a very specific office item, you will need to purchase it yourself using your 
                 department's budget. Note 1: STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
-                Anything more than 50 pages needs to go into 'Printed Signs.' Note 2: A ream of paper is 500 sheets.
+                Anything more than 50 pages needs to go into 'Bulk Print Jobs.' Note 2: A ream of paper is 500 sheets.
             
           social_media:
             deadline: 1970-01-01
