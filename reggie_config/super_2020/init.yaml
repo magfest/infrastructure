@@ -246,7 +246,10 @@ reggie:
 
           treasury:
             deadline: 2019-11-27
-            
+
+          guidebook_schedule:
+            deadline: 2019-12-04
+
           logistics:
             deadline: 2019-12-04
 
