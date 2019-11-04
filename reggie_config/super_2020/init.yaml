@@ -196,16 +196,15 @@ reggie:
               As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
               use and you are not allowed to transfer your reservation to someone else unless authorized
               by MAGFest. Dropping out of MIVS may cause your room to be canceled.
-          """
-          We're turning this off temporarily at MIVS' request
-          selling_at_event:
-            deadline: 2019-12-01
-            name: Selling at MAGFest
-            editable: True
-            description: >
-              We are allowing Indies to sell items directly related to your game or studio in MIVS.
-              Studios will need to sign a waiver and provide some information for tax purposes.
-          """
+          
+          #We're turning this off temporarily at MIVS' request
+          #selling_at_event:
+          #  deadline: 2019-12-01
+          #  name: Selling at MAGFest
+          #  editable: True
+          #  description: >
+          #    We are allowing Indies to sell items directly related to your game or studio in MIVS.
+          #    Studios will need to sign a waiver and provide some information for tax purposes.
           
         dept_head_checklist:
           creating_shifts:
