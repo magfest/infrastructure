@@ -175,27 +175,29 @@ reggie:
 
         mivs_checklist:
           core_hours:
-            deadline: 2019-11-27
+            deadline: 2019-11-06
             name: Accept Core Hours
             description: >
               In exchange for your space and two free badges, MIVS expects your studio to have your booth area
               up-and-running during core hours. You also must have at least one representative from your studio present,
               in your booth, during core hours.
           discussion:
-            deadline: 2019-11-27
+            deadline: 2019-11-07
             name: MIVS Discussion Group
             editable: True
             description: >
               The primary contact for your game will be added to a MIVS Google Discussion group. You may
               enter emails for any team members associated with your game who you think should also be added to the group.
           hotel_space:
-            deadline: 2019-11-27
+            deadline: 2019-11-10
             name: Hotel Signups
             editable: True
             description: >
               As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
               use and you are not allowed to transfer your reservation to someone else unless authorized
               by MAGFest. Dropping out of MIVS may cause your room to be canceled.
+          """
+          We're turning this off temporarily at MIVS' request
           selling_at_event:
             deadline: 2019-12-01
             name: Selling at MAGFest
@@ -203,19 +205,8 @@ reggie:
             description: >
               We are allowing Indies to sell items directly related to your game or studio in MIVS.
               Studios will need to sign a waiver and provide some information for tax purposes.
-          handbook:
-            start: 2019-12-15
-            deadline: 2019-12-30
-            name: Indie Handbook
-            description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
-
-          training:
-            start: 2019-12-15
-            deadline: 2019-12-30
-            name: MIVS Training
-            editable: True
-            description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
-
+          """
+          
         dept_head_checklist:
           creating_shifts:
             deadline: 2019-10-27
