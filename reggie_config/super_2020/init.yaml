@@ -240,8 +240,8 @@ reggie:
           social_media:
             deadline: 2019-11-13
 
-          hotel_eligible:
-            deadline: 2019-11-20
+          #hotel_eligible:
+          #  deadline: 2019-11-20
 
           approve_setup_teardown:
             deadline: 2019-11-20

@@ -328,11 +328,12 @@ reggie:
                 who haven't claimed their badges.
             path: /dept_checklist/placeholders?department_id={department_id}
 
-          hotel_eligible:
-            deadline: 1970-01-01
-            name: Staffers Requesting Hotel Space
-            description: Double check that everyone in your department who you know needs hotel space has requested it.
-            path: /dept_checklist/hotel_eligible?department_id={department_id}
+          # Turned off for Super 2020 as Tuber does not have the relevant page
+          #hotel_eligible:
+          #  deadline: 1970-01-01
+          #  name: Staffers Requesting Hotel Space
+          #  description: Double check that everyone in your department who you know needs hotel space has requested it.
+          #  path: /dept_checklist/hotel_eligible?department_id={department_id}
 
           tech_requirements:
             deadline: 1970-01-01
