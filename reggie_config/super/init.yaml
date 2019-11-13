@@ -406,4 +406,5 @@ reggie:
           4: staffing/food_item.html
           5: staffing/shirt_item.html
           6: staffing/emergency_procedures_item.html
+          7: staffing/credits_item.html
           99: staffing/shifts_item.html
