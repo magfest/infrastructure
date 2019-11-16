@@ -115,6 +115,10 @@ nginx:
             - 'location /':
               {{ nginx_proxy_config()|indent(14) }}
 
+
+            - 'location ~ /schedule/(.*)$':
+              - return: 302 https://super2020.reggie.magfest.org/schedule
+
           - server:
             - server_name: localhost
             - listen: '127.0.0.1:8080'
