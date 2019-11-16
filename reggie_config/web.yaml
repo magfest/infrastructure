@@ -111,7 +111,8 @@ nginx:
             - 'location {{ url_path }}{{ location }}':
               {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(14) }}
             {%- endfor %}
-
+            - 'location ~ /schedule/':
+              - return: '302 {{ url_path }}/schedule/'
             - 'location /':
               {{ nginx_proxy_config()|indent(14) }}
 
