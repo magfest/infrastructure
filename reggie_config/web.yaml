@@ -101,7 +101,7 @@ nginx:
             - 'location = /reggie/robots.txt':
               - rewrite: ^(.*)$ /reggie/static_views/robots.txt last
 
-            {%- for location in ['/preregistration', '/preregistration/', '/preregistration/form'] %}
+            {%- for location in ['/preregicd ..stration', '/preregistration/', '/preregistration/form'] %}
             - 'location = {{ url_path }}{{ location }}':
               - proxy_hide_header: Cache-Control
               {{ nginx_proxy_config(cache='/etc/nginx/reggie_short_term_cache.conf')|indent(14) }}
@@ -111,8 +111,9 @@ nginx:
             - 'location {{ url_path }}{{ location }}':
               {{ nginx_proxy_config(cache='/etc/nginx/reggie_long_term_cache.conf')|indent(14) }}
             {%- endfor %}
-            - 'location ~ /schedule/':
-              - return: '302 {{ url_path }}/schedule/'
+            - 'location ~ ^/schedule/.*$':
+              - return: '302 https://super2020.reggie.magfest.org/schedule/'
+              
             - 'location /':
               {{ nginx_proxy_config()|indent(14) }}
 
