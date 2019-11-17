@@ -115,11 +115,9 @@ nginx:
             - 'location /':
               {{ nginx_proxy_config()|indent(14) }}
 
-
             - 'location ~ /schedule/(.*)$':
-              - 'if ($arg_redir = "")':
-                - add_header: uber_redir 1
-                - return: 302 https://super2020.reggie.magfest.org/schedule/?redir=1
+              - 'if (-f /schedule_disabled.html)':
+                - return: 302 https://super2020.reggie.magfest.org/schedule_disabled.html
               {{ nginx_proxy_config()|indent(14) }}
               
             # - 'location = /schedule':

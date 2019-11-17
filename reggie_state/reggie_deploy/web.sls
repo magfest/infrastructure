@@ -79,3 +79,54 @@ nginx maintenance page:
   file.absent:
     - name: /var/www/maintenance.html
 {% endif %}
+
+
+# ============================================================================
+# Enable/disable Schedule Routes
+# ============================================================================
+
+nginx schedule disabled page:
+{% if salt['pillar.get']('reggie:schedule_disabled') %}
+  file.managed:
+    - name: /var/www/schedule_disabled.html
+    - contents: |
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>{{ event_name }} - Schedule Disabled</title>
+            <style>
+              html, body {
+                font-family: Helvetica, Arial, sans-serif;
+                text-align: center;
+              }
+              div {
+                margin: 0 auto;
+                max-width: 640px;
+                text-align: left;
+                width: 100%;
+              }
+              pre {
+                display: inline-block;
+                font-family: monospace;
+                font-size: 1.5em;
+                font-weight: bold;
+                text-align: left;
+                white-space: pre;
+              }
+            </style>
+          </head>
+          <body>
+            <h1>{{ event_name }} - IT'S NOT READY YET</h1>
+            <div>
+              Our Schedule isn't finished quite yet, so we're keeping things under wraps for a bit longer. 
+              <br><br>
+              Stay tuned to our social media channels for all the exciting announcements!
+              <br><br>
+            </div>
+          </body>
+        </html>
+
+{% else %}
+  file.absent:
+    - name: /var/www/schedule_disabled.html
+{% endif %}
