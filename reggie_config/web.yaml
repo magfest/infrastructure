@@ -120,7 +120,8 @@ nginx:
               - 'if ($http_sched_redir_bad)':
                 - add_header: sched_redir_bad 1
                 - return: 302 https://super2020.reggie.magfest.org/schedule
-            
+              {{ nginx_proxy_config()|indent(14) }}
+              
             # - 'location = /schedule':
             #   - return: 301 https://$host:8443$request_uri'
 
