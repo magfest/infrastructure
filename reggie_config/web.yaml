@@ -118,6 +118,7 @@ nginx:
 
             - 'location ~ /schedule/(.*)$':
               - 'if ($arg_redir = "")':
+                - add_header: uber_redir 1
                 - return: 302 https://super2020.reggie.magfest.org/schedule/?redir=1
               {{ nginx_proxy_config()|indent(14) }}
               
