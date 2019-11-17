@@ -120,7 +120,7 @@ nginx:
               {{ nginx_proxy_config()|indent(14) }}
 
             - 'location ~ /schedule/(.*)$':
-              - 'if (-f /schedule_disabled.html)':
+              - 'if (-f $document_root/schedule_disabled.html)':
                 - return: 530
               {{ nginx_proxy_config()|indent(14) }}
               
