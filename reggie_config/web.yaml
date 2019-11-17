@@ -117,9 +117,8 @@ nginx:
 
 
             - 'location ~ /schedule/(.*)$':
-              - 'if ($http_sched_redir_bad = "")':
-                - add_header: sched_redir_bad 1
-                - return: 302 https://super2020.reggie.magfest.org/schedule
+              - 'if ($arg_redir = "")':
+                - return: 302 https://super2020.reggie.magfest.org/schedule/?redir=1
               {{ nginx_proxy_config()|indent(14) }}
               
             # - 'location = /schedule':
