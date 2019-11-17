@@ -89,6 +89,7 @@ nginx:
             - listen: '{{ private_ip }}:8443 ssl'
             - root: /var/www
             - error_page: 503 @maintenance
+            - error_page: 530 @schedule_disabled
 
             {{ nginx_ssl_config(
                 stack['ssl']['certs_dir'] ~ '/' ~ minion_id ~ '.key',
@@ -97,6 +98,9 @@ nginx:
 
             - 'location @maintenance':
               - rewrite: ^(.*)$ /maintenance.html break
+            
+            - 'location @schedule_disabled':
+              - rewrite: ^(.*)$ /schedule_disabled.html break
 
             - 'location = /reggie/robots.txt':
               - rewrite: ^(.*)$ /reggie/static_views/robots.txt last
@@ -117,7 +121,7 @@ nginx:
 
             - 'location ~ /schedule/(.*)$':
               - 'if (-f /schedule_disabled.html)':
-                - return: 302 https://super2020.reggie.magfest.org/schedule_disabled.html
+                - return: 530
               {{ nginx_proxy_config()|indent(14) }}
               
             # - 'location = /schedule':
