@@ -278,7 +278,7 @@ reggie:
 
           guest_merch:
             no_merch: Not selling merch
-            own_table: Dedicated table
+            own_table: Dedicated half-table in the Marketplace
             rock_island: Rock Island
 
         dept_head_checklist:
