@@ -11,6 +11,10 @@ reggie:
     ubersystem:
       config:
         app_limit: 0
+        shirt_stock: 1100
+        supporter_stock: 850
+        season_stock: 300
+        shared_kickin_stocks: False
         
         event_year: 2020
         event_qr_id: sm19
@@ -46,7 +50,7 @@ reggie:
           prereg_hotel_eligibility_cutoff: 2019-09-17
           shifts_created: 2019-10-27
           room_deadline: 2019-11-14
-          shirt_deadline: 2019-11-25
+          shirt_deadline: 2020-01-02
           supporter_deadline: 2020-01-02
           placeholder_deadline: 2019-12-26
           uber_takedown: 2020-01-07
