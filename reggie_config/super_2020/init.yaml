@@ -217,6 +217,7 @@ reggie:
             start: 2020-12-15
             deadline: 2020-12-30
             name: Indie Handbook
+            editable: True
             description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
 
           training:
@@ -225,6 +226,12 @@ reggie:
             name: MIVS Training
             editable: True
             description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
+
+          show_info:
+            deadline: 2020-12-30
+            name: Update Studio and Game Information
+            editable: True
+            description: Please make sure your studio and game information is up to date so it can be displayed on the MAGFest website.
           
         dept_head_checklist:
           creating_shifts:
