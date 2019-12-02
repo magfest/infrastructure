@@ -62,7 +62,7 @@ reggie:
           refund_start: 2019-09-30
           refund_cutoff: 2019-10-31
 
-          printed_badge_deadline: 2019-12-02
+          printed_badge_deadline: 2019-12-03
 
           # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
           # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
