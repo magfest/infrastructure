@@ -113,10 +113,10 @@ reggie:
           guest_travel_plans_deadline: 2019-10-21
 
         badge_ranges:
-          staff_badge: [25, 2999]
-          guest_badge: [3000, 3600]
-          contractor_badge: [3601, 4999]
-          attendee_badge: [5000, 39999]
+          staff_badge: [25, 1999]
+          contractor_badge: [2000, 2999]
+          guest_badge: [3000, 3499]
+          attendee_badge: [3500, 39999]
           one_day_badge: [40000, 49999]
           child_badge: [50000, 59999]
 
