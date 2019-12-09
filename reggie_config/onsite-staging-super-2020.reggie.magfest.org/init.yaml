@@ -1,0 +1,10 @@
+__: merge-first
+
+reggie:
+  plugins:
+    ubersystem:
+      config:
+        at_the_con: True
+        send_emails: False
+        send_sms: False
+        dev_box: True
