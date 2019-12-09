@@ -205,8 +205,8 @@ reggie:
               by MAGFest. Dropping out of MIVS may cause your room to be canceled.
           
           selling_at_event:
-            start: 2020-12-01
-            deadline: 2019-12-01
+            start: 2019-12-01
+            deadline: 2019-12-15
             name: Selling at MAGFest
             editable: True
             description: >
