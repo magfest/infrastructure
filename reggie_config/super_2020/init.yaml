@@ -214,8 +214,8 @@ reggie:
               Studios will need to sign a waiver and provide some information for tax purposes.
 
           handbook:
-            start: 2020-12-10
-            deadline: 2020-12-20
+            start: 2019-12-10
+            deadline: 2019-12-20
             name: Indie Handbook
             editable: True
             description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
