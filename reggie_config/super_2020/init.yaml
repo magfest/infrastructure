@@ -27,12 +27,6 @@ reggie:
 
         expected_response: December 2019
 
-        # This is NOT our attendance cap; this is merely the number of paid attendee
-        # and group registrations which we support.  In other words, we will only
-        # cut off preregistration once that sum meets this number no matter how
-        # many other registrations (Staff, Dealers, Guests, etc) are in the system.
-        max_badge_sales: 22999
-
         # The number of dealer apps we will accept before auto-waitlisting further
         # applications. If dealer_reg_deadline is also set, we will auto-wailist
         # dealers if either the deadline has passed or this number has been reached.
@@ -133,7 +127,9 @@ reggie:
             2020-01-04: 70
             2020-01-05: 25
 
-          stocks: {}
+          stocks:
+            attendee_badge: 23800
+            child_badge: 1080
 
         table_prices:
           default_price: 350
