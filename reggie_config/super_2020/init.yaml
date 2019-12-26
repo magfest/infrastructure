@@ -50,6 +50,7 @@ reggie:
           prereg_hotel_eligibility_cutoff: 2019-09-17
           shifts_created: 2019-10-27
           room_deadline: 2019-11-14
+          drop_shifts_deadline: 2019-12-27
           shirt_deadline: 2020-01-02
           supporter_deadline: 2020-01-02
           placeholder_deadline: 2019-12-26
