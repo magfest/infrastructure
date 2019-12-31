@@ -1,0 +1,33 @@
+__: merge-first
+
+reggie:
+  db:
+    backups:
+      enabled: True
+
+  plugins:
+    ubersystem:
+      config:
+        send_emails: False
+        send_sms: False
+        dev_box: True
+        at_the_con: True
+
+
+filebeat:
+  enabled: False
+  repo_managed: True
+  config:
+    filebeat:
+      registry_file: /var/lib/filebeat/registry
+    logging:
+      to_syslog: False
+      to_files: True
+      files:
+        path: /var/log/filebeat
+        name: filebeat.log
+        keepfiles: 2
+    output:
+      elasticsearch:
+        hosts:
+          - 'logs.magfest.net:9200'

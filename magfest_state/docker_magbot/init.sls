@@ -122,8 +122,10 @@ docker_magbot:
     - log_opt:
       - tag: magbot
     - networks:
+      - docker_network_external
       - docker_network_internal
     - require:
+      - docker_network: docker_network_external
       - docker_network: docker_network_internal
     - watch_any:
       - file: {{ salt['pillar.get']('data:path') }}/magbot/config.py

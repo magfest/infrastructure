@@ -92,3 +92,6 @@ base:
 
   'G@roles:reggie and G@roles:worker':
     - reggie.worker
+
+  'G@roles:reggie and G@env:onsite':
+    - zabbix
