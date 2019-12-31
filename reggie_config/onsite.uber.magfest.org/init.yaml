@@ -1,8 +1,8 @@
 __: merge-first
 
 reggie:
-  maintenance: True
-  onsite_redirect_host: reggie.magfest.org
+  maintenance: False
+  #onsite_redirect_host: super2020.reggie.magfest.org
   db:
     backups:
       enabled: False
