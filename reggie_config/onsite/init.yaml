@@ -8,9 +8,9 @@ reggie:
   plugins:
     ubersystem:
       config:
-        send_emails: False
-        send_sms: False
-        dev_box: True
+        send_emails: True
+        send_sms: True
+        dev_box: False
         at_the_con: True
 
 
