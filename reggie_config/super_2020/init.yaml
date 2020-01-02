@@ -54,7 +54,7 @@ reggie:
           epoch: 2020-01-02 08
           eschaton: 2020-01-05 20
           prereg_takedown: 2020-01-02
-          group_prereg_takedown: 2020-01-02
+          group_prereg_takedown: 2020-01-01
           badge_price_waived: 2020-01-05 14
           refund_start: 2019-09-30
           refund_cutoff: 2019-10-31
