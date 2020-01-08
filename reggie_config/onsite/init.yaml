@@ -1,6 +1,9 @@
 __: merge-first
 
 reggie:
+  #maintenance: True
+  onsite_redirect_host: super2020.reggie.magfest.org
+  
   db:
     backups:
       enabled: True
@@ -8,9 +11,9 @@ reggie:
   plugins:
     ubersystem:
       config:
-        send_emails: True
-        send_sms: True
-        dev_box: False
+        send_emails: False
+        send_sms: False
+        dev_box: True
         at_the_con: True
 
 

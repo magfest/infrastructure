@@ -1,13 +1,11 @@
 __: merge-first
 
 reggie:
-  maintenance: True
-  onsite_redirect_host: onsite.reggie.magfest.org
   plugins:
     ubersystem:
       config:
-        dev_box: True
-        send_emails: False
-        send_sms: False
+        dev_box: False
+        send_emails: True
+        send_sms: True
         at_the_con: False
-        post_con: False
+        post_con: True
