@@ -13,7 +13,7 @@ redirect_from:
 
 ### 2019 Events
 
-* [Super MAGFest 2019 Jan 3-6](https://reggie.magfest.org) (MAGFest 17)
+* [Super MAGFest 2019 Jan 3-6](https://super2019.reggie.magfest.org) (MAGFest 17)
 * [MAGStock 2019 Jun 6-9](https://stock2019.reggie.magfest.org/) (MAGStock 9)
 * [MAGWest 2019 Sep 13-15](https://west2019.reggie.magfest.org/) (MAGWest 3)
 
