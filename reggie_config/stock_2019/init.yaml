@@ -10,7 +10,7 @@ reggie:
 
   plugins:
     ubersystem:
-      branch: west2019
+      branch: stock2019
       config:
         event_year: 2019
         at_the_con: False
