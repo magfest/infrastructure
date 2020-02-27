@@ -15,6 +15,9 @@ reggie:
         event_year: 2020
         at_the_con: False
         post_con: False
+        shirt_stock: 0
+        supporter_stock: 0
+        season_stock: 0
 
         dates:
           epoch: 2020-06-04 10
