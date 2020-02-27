@@ -99,12 +99,11 @@ reggie:
             xx-large: 5
             xxx-large: 6
             xxxx-large: 11
-            xxxxx-large: 12
             small (female): 7
             medium (female): 8
             large (female): 9
             x-large (female): 10
-            xx-large (female): 13
+            xx-large (female): 12
 
           donation_tier:
             No thanks: 0
