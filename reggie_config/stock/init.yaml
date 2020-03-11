@@ -89,6 +89,9 @@ reggie:
           supporter_level: 50
           season_level: 100
           supporter_stock: 200
+          staff_event_shirt:
+            "Generic MAGStock Shirt": 0
+            "Event Shirt": 1
 
           shirt:
             no shirt: 0
