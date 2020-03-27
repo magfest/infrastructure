@@ -168,7 +168,7 @@
         # Arcane black magic to delete every file while keeping the most recent
         # Safe for filenames with weird characters, spaces, or newlines
         FILE_COUNT=$(ls {{ backup_dir }}|grep \.sql\.gz$|wc -l)
-        export DISCARD_COUNT=$(expr $FILE_COUNT - $PRESERVE_COUNT)
+        DISCARD_COUNT=$(expr $FILE_COUNT - $PRESERVE_COUNT) || true
         if [ $DISCARD_COUNT -gt 0 ]; then
           ls -Bt {{ backup_dir }}|grep \.sql\.gz$|tail -n $DISCARD_COUNT|tr '\n' '\0'|xargs -0 printf "%b\0"|xargs -0 rm --
         fi
