@@ -102,6 +102,7 @@ reggie:
         contact_url: 'http://super.magfest.org/contact'
         prereg_faq_url: 'http://super.magfest.org/faq'
         privacy_policy_url: 'https://super.magfest.org/privacy-policy'
+        jira_enabled: true
 
         panels_twilio_number: '+12405415595'
         tabletop_twilio_number: '+15713646627'
