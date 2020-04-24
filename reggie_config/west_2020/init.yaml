@@ -10,7 +10,7 @@ reggie:
 
   plugins:
     ubersystem:
-      branch: west2020
+      branch: master
       config:
         shirt_stock: 0
         supporter_stock: 0
