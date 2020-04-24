@@ -31,7 +31,7 @@ reggie:
         shirts_per_staffer: 1
         hours_for_shirt: 8
         max_badge_sales: 2000
-        preassigned_badge_types: ["staff_badge"]
+        preassigned_badge_types: ["staff_badge", "contractor_badge"]
 
         admin_email: "MAGFest Sys Admin <sysadmin@magfest.org>"
         developer_email: "MAGFest Software <developers@magfest.org>"
