@@ -1,0 +1,196 @@
+__: merge-first
+
+
+{% macro extra_attendance_data() %}{% include 'west_2020/extra-attendance-data.json' %}{% endmacro %}
+
+reggie:
+  extra_files:
+    plugins/uber/uber/static/analytics/extra-attendance-data.json: |
+        {{ extra_attendance_data()|indent(8) }}
+
+  plugins:
+    ubersystem:
+      branch: west2020
+      config:
+        shirt_stock: 0
+        supporter_stock: 0
+        season_stock: 0
+        shared_kickin_stocks: False
+        event_year: 2020
+        max_dealers: 5
+        at_the_con: False
+        post_con: False
+        send_sms: False
+        
+        consent_form_url: ''
+        code_of_conduct_url: 'https://www.magwest.org/code-of-conduct'
+        prereg_faq_url: 'https://www.magwest.org/faq'
+        contact_url: 'https://www.magwest.org/contact-us'
+        treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
+        expected_response: August 15, 2020
+        mivs_video_response_expected: "no later than September 17th"
+
+        dates:
+          epoch: 2020-09-13 08
+          eschaton: 2020-09-15 18
+          badge_price_waived: 2020-09-15 12
+          prereg_takedown: 2020-09-12
+          group_prereg_takedown: 2020-09-12
+          placeholder_deadline: 2020-09-09
+          prereg_open: 2020-07-26 12
+          shifts_created: 2020-06-01
+          shirt_deadline: 2020-09-12
+          supporter_deadline: 2020-09-12
+          uber_takedown: 2020-09-16
+          room_deadline: 2020-07-31
+
+          printed_badge_deadline: 2020-08-06
+
+          # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
+          # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
+          # can no longer even add themselves to the waitlist.  Dealer payment reminder emails are
+          # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
+          # be emailed when the waitlist has been exhausted and all available positions have been
+          # filled, as defined by DEALER_WAITLIST_CLOSED.
+          dealer_reg_start: 2020-07-01 12
+          dealer_reg_shutdown: 2020-06-14
+          dealer_payment_due: 2020-09-05
+          dealer_reg_deadline: ""  # Disable automatic waitlist
+          dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
+          band_info_deadline: 2020-06-03 # A/V RFC (deadline not tracked by Reggie)
+          band_stage_plot_deadline: 2020-06-03 # A/V RFC (deadline not tracked by Reggie)
+          band_bio_deadline: 2020-07-15
+          band_panel_deadline: 2020-08-04 # Should be <= panel_app_deadline
+          band_taxes_deadline: 2020-08-13
+          band_badges_deadline: 2020-09-01 # Should be <= placeholder_deadline
+          band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
+          band_mc_deadline: "" # Starting with this off, we may turn it on.
+          band_merch_deadline: "" # Rock Island not yet confirmed, not enough space in market for all bands
+          rock_island_deadline: "" # Rock Island not yet confirmed.
+
+          # WARNING - everything below this is set to a temporary value just so
+          #           that we won't get an exception at import time.
+          panel_app_deadline: 2020-08-04
+          mivs_round_one_deadline: 2020-08-01
+          mivs_round_two_start: 2020-08-01
+          mivs_round_two_deadline: 2020-08-01
+          mivs_judging_deadline: 2020-08-01
+          mivs_round_two_complete: 2020-08-01
+          guest_panel_deadline: 2020-08-01
+          guest_bio_deadline: 2020-08-01
+          guest_info_deadline: 2020-08-01
+          guest_taxes_deadline: 2020-08-01
+          guest_merch_deadline: 2020-08-01
+          guest_charity_deadline: 2020-08-01
+          guest_badges_deadline: 2020-08-01
+          guest_autograph_deadline: 2020-08-01
+          guest_interview_deadline: 2020-08-01
+          guest_travel_plans_deadline: 2020-08-01
+
+        badge_prices:
+          initial_attendee: 75
+          group_discount: 25
+          dealer_badge_price: 40
+          one_days_enabled: True
+          presell_one_days: True
+
+          single_day:
+            Friday: 35
+            Saturday: 45
+            Sunday: 25
+          
+        table_prices:
+          default_price: 200
+          1: 60
+          2: 100
+          3: 200
+          4: 275
+
+        donation_tier_descriptions:
+          no_thanks:
+            name: No thanks
+            icon: ''
+            description: No thanks
+            link: ''
+
+          shirt:
+            name: T-Shirt Bundle
+            icon: ../static/icons/iconshirt.png
+            description: T-Shirt
+            link: ../static_views/tshirt.html
+
+          supporter_package:
+            name: Supporter Package
+            icon: ../static/icons/iconsupporter.png
+            description: Supporter Swag
+            link: ../static_views/supporter.html
+
+          super_supporter:
+            name: Mayor's Package
+            icon: ../static/icons/iconmayor.png
+            description: Crazy Exclusive Swag
+            link: ../static_views/super.html
+
+        enums:
+          new_reg_payment_method:
+            group: Groupon
+
+          door_payment_method:
+            group: "I have a Groupon to redeem at the registration desk"
+            
+        dept_head_checklist:
+          creating_shifts:
+            deadline: 2020-07-18
+            description: >
+                We have the ability to import shifts from MAGWest 2018 to MAGWest 2020, if you are only 
+                making minor changes and want assistance with this step, please let us know.
+            path: /jobs/index?department_id={department_id}
+            
+          assigned_volunteers:
+            deadline: 2020-07-18
+            path: /jobs/staffers?department_id={department_id}
+            
+          approve_setup_teardown:
+            name: Approve/Decline Additional Hotel Nights
+            deadline: 2020-08-01
+            description: >
+                An overwhelming majority of staffers want to work setup and teardown shifts rather than
+                work during the event itself, so we have far more offers than we have need for. Since this
+                affects what hotel nights staffers get, please approve and decline requests for this for
+                people in your department. Please only approve staffers who will sign up for a setup or 
+                teardown shift in your department.
+            path: /hotel/requests?department_id={department_id}
+                
+          hotel_eligible:
+            deadline: 2020-08-01
+            path: /hotel/index?department_id={department_id}
+            
+          placeholders:
+            deadline: 2020-08-01
+            
+          printed_signs:
+            deadline: 2020-08-08
+
+          treasury:
+            deadline: 2020-08-15
+            
+          tech_requirements:
+            deadline: 2020-08-15
+
+          allotments:
+            deadline: 2020-08-15
+            
+          office_supplies:
+            deadline: 2020-08-22
+
+          postcon_hours:
+            name: (After the Event) Marking + Rating Shifts
+            deadline: 2020-10-03
+            path: /jobs/signups?department_id={department_id}
+
+        volunteer_checklist:
+          2: signups/food_item.html
+          3: signups/shirt_item.html
+          4: hotel_requests/hotel_item.html
+          98: signups/volunteer_agreement_item.html
+          99: signups/shifts_item.html
