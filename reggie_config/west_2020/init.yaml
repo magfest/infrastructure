@@ -27,7 +27,7 @@ reggie:
         prereg_faq_url: 'https://www.magwest.org/faq'
         contact_url: 'https://www.magwest.org/contact-us'
         treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
-        expected_response: August 15, 2020
+        expected_response: July 15, 2020
         mivs_video_response_expected: "no later than September 17th"
 
         dates:
@@ -70,7 +70,8 @@ reggie:
 
           # WARNING - everything below this is set to a temporary value just so
           #           that we won't get an exception at import time.
-          panel_app_deadline: 2020-08-04
+          panels_deadline: 2020-06-30
+          panel_app_deadline: 2020-08-04 # Is this actually used?
           mivs_round_one_deadline: 2020-08-01
           mivs_round_two_start: 2020-08-01
           mivs_round_two_deadline: 2020-08-01
