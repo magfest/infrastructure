@@ -11,7 +11,7 @@ reggie:
         organization_name: MAGFest INC
         event_name: MAGWest
         event_timezone: US/Pacific
-        event_venue: "The DoubleTree by Hilton, San Jose"
+        event_venue: "DoubleTree by Hilton, San Jose"
         event_venue_address: "2050 Gateway Place, San Jose, CA 95110"
         
         api_enabled: true
@@ -81,6 +81,7 @@ reggie:
           ribbon:
             band: RockStar
             guest: Guest
+            mivs: Indie Dev
 
           interest:
             console: "Consoles"
