@@ -23,9 +23,9 @@ reggie:
         send_sms: False
         
         consent_form_url: ''
-        code_of_conduct_url: 'https://www.magwest.org/code-of-conduct'
-        prereg_faq_url: 'https://www.magwest.org/faq'
-        contact_url: 'https://www.magwest.org/contact-us'
+        code_of_conduct_url: 'https://www.magwest.org/codeofconduct/'
+        prereg_faq_url: 'https://www.magwest.org/faq/'
+        contact_url: 'mailto:contact@magwest.org'
         treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
         expected_response: July 15, 2020
         mivs_video_response_expected: "no later than September 17th"
@@ -91,9 +91,9 @@ reggie:
         badge_prices:
           initial_attendee: 75
           group_discount: 25
-          dealer_badge_price: 40
+          dealer_badge_price: 45
           one_days_enabled: True
-          presell_one_days: True
+          presell_one_days: False
 
           single_day:
             Friday: 35
