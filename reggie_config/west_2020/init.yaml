@@ -188,9 +188,17 @@ reggie:
             
           mediatron:
             deadline: 2020-08-26
+            full_description: >
+                If you have something especially cool happening that you would like Mediatron! to capture, let us know here so 
+                they can do their best to get your event on their schedule. For detailed or special requests, please contact 
+                mediatron@magwest.org.
             
           bulk_print_jobs:
             deadline: 2020-09-02
+            full_description: >
+                STOPS has a printer for small jobs (less than 50 pages). Anything more than 50 pages should go 
+                here! For EACH item you need printed, please include a link to the document and the number of copies.
+                <br/><br/>Note: please submit this even if this doesn't apply to you so we know you don't need anything from us.
 
           treasury:
             deadline: 2020-09-02
@@ -198,6 +206,12 @@ reggie:
           office_supplies:
             deadline: 2020-09-02
             description: Do you need any paper, pens, sharpies, whiteboards, scissors, staplers, etc?
+            full_description: >
+                STOPS can provide the following office supplies: pens, sharpies, paper, whiteboard, whiteboard 
+                markers, sticky notes, scissors, scotch tape, staplers, clipboards, flip charts/easel pads. List 
+                WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don't give 
+                a quantity, you will get 1). If you need a very specific office item, you will need to purchase 
+                it yourself using your department's budget.
 
           postcon_hours:
             name: (After the Event) Marking + Rating Shifts
