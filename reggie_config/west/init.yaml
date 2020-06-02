@@ -169,6 +169,13 @@ reggie:
                 missing AND that no one is there who shouldn't be.
             path: /shifts_admin/staffers?department_id={department_id}
             
+          social_media:
+            deadline: 1970-01-01
+            name: Social Media Requests
+            description: >
+                If you have a guest or event that you believe is worth promoting on social media beforehand, 
+                let us know here!
+            
           approve_setup_teardown:
             deadline: ''
             name: Approve/Decline Additional Hotel Nights to Help With Setup/Teardown
@@ -179,11 +186,11 @@ reggie:
                 people in your department.
             path: /dept_checklist/hotel_requests?department_id={department_id}
             
-          hotel_eligible:
-            deadline: ''
-            name: Staffers Requesting Hotel Space
-            description: Double check that everyone in your department who you know needs hotel space has requested it.
-            path: /dept_checklist/hotel_eligible?department_id={department_id}
+          #hotel_eligible:
+          #  deadline: ''
+          #  name: Staffers Requesting Hotel Space
+          #  description: Double check that everyone in your department who you know needs hotel space has requested it.
+          #  path: /dept_checklist/hotel_eligible?department_id={department_id}
 
           placeholders:
             deadline: ''
@@ -195,14 +202,26 @@ reggie:
                 who haven't claimed their badges.
             path: /registration/placeholders?department_id={department_id}
             
+          hotel_setup:
+            deadline: 1970-01-01
+            name: Hotel Set-up Requests
+            description: Do you need tables, chairs, trash cans, water dispensers, etc?
+            path: /dept_checklist/hotel_setup?department_id={department_id}
+            
           printed_signs:
             deadline: ''
             description: Other than a sign for your area, what printed signs/banners/forms do you need?
+            
+          logistics:
+            deadline: 1970-01-01
+            name: Logistics Needs
+            description: What do you need brought from the warehouse?
+            path: /dept_checklist/logistics?department_id={department_id}
 
           treasury:
             deadline: ''
-            name: MPoint Needs
-            description: Tell us whether you need any mpoints for your department.
+            name: Treasury Information
+            description: If you need cash and/or mpoints, tell us your department schedule and your specific cash needs.
             path: /dept_checklist/treasury?department_id={department_id}
             
           tech_requirements:
@@ -210,16 +229,22 @@ reggie:
             name: Tech Requirements
             description: What do you need in terms of laptops, projectors, cables, internet access, etc?
             path: /dept_checklist/tech_requirements?department_id={department_id}
-
-          allotments:
-            deadline: ''
-            name: Treasury Information
-            description: If you need cash and/or mpoints, tell us your department schedule and your specific cash needs.
-            path: /dept_checklist/allotments?department_id={department_id}
+            
+          bulk_print_jobs:
+            deadline: 1970-01-01
+            description: >
+                Do you have any bulk print jobs (more than 50 pages) you'd like us to print in advance?
             
           office_supplies:
             deadline: ''
             description: Do you need any paper, pens, sharpies, tripods, whiteboards, scissors, staplers, etc?
+            
+          mediatron:
+            deadline: 1970-01-01
+            name: Mediatron! Shot List
+            description: >
+                If you have something especially cool happening that you would like Mediatron! to capture, let 
+                us know here!
 
           postcon_hours:
             deadline: ''
