@@ -1,0 +1,11 @@
+__: merge-first
+
+reggie:
+  plugins:
+    ubersystem:
+      config:
+        at_the_con: False
+        post_con: False
+
+        dates:
+          dealer_reg_start: 2020-06-01
