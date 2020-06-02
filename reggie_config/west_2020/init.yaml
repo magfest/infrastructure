@@ -155,6 +155,10 @@ reggie:
             
           social_media:
             deadline: 2020-07-08
+            full_description: >
+                If you have a guest or event that you believe is worth promoting on social media beforehand, 
+                let us know! For detailed or special requests, please contact socialmedia@magfest.org or post 
+                in #socialmedia-requests in Slack.
             
           approve_setup_teardown:
             name: Approve/Decline Additional Hotel Nights
@@ -179,6 +183,19 @@ reggie:
             name: Room Signage
             deadline: 2020-08-12
             description: Other than a sign for your area, what printed coroplast signs or banners do you need?
+            full_description: >
+                Signage comes in three types: 12"x18" coroplast, 24"x36" coroplast, and 33"x80" retractable floor 
+                banner. All attendee-facing rooms will automatically receive either a 24"x36" coroplast or 33"x80" 
+                retractable sign for outside of the room.
+                <br/><br/>Please submit requests for additional signage here, and be sure to specify FOR EACH SIGN:
+                <br/>Number needed
+                <br/>Size of sign
+                <br/>Primary text of sign
+                <br/>Sub text of sign (if applicable)
+                <br/>Intended placement location for sign
+                <br/>Link to any custom artwork that is needed
+                <br/>Any additional notes
+                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
             
           logistics:
             deadline: 2020-08-12
@@ -198,7 +215,6 @@ reggie:
             full_description: >
                 STOPS has a printer for small jobs (less than 50 pages). Anything more than 50 pages should go 
                 here! For EACH item you need printed, please include a link to the document and the number of copies.
-                <br/><br/>Note: please submit this even if this doesn't apply to you so we know you don't need anything from us.
 
           treasury:
             deadline: 2020-09-02
