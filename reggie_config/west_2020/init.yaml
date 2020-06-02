@@ -168,10 +168,6 @@ reggie:
                 more volunteers than we need to do this, so we require DH approval of volunteers who need hotel 
                 space for those dates.
             path: /hotel/requests?department_id={department_id}
-                
-          hotel_eligible:
-            deadline: 2020-07-29
-            path: /hotel/index?department_id={department_id}
             
           placeholders:
             deadline: 2020-07-29
