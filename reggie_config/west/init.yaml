@@ -186,11 +186,11 @@ reggie:
                 people in your department.
             path: /dept_checklist/hotel_requests?department_id={department_id}
             
-          hotel_eligible:
-            deadline: ''
-            name: Staffers Requesting Hotel Space
-            description: Double check that everyone in your department who you know needs hotel space has requested it.
-            path: /dept_checklist/hotel_eligible?department_id={department_id}
+          #hotel_eligible:
+          #  deadline: ''
+          #  name: Staffers Requesting Hotel Space
+          #  description: Double check that everyone in your department who you know needs hotel space has requested it.
+          #  path: /dept_checklist/hotel_eligible?department_id={department_id}
 
           placeholders:
             deadline: ''
