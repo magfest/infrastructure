@@ -180,9 +180,8 @@ reggie:
             deadline: 2020-08-12
             description: Other than a sign for your area, what printed coroplast signs or banners do you need?
             full_description: >
-                Signage comes in three types: 12"x18" coroplast, 24"x36" coroplast, and 33"x80" retractable floor 
-                banner. All attendee-facing rooms will automatically receive either a 24"x36" coroplast or 33"x80" 
-                retractable sign for outside of the room.
+                Signage comes in two types: 12"x18" coroplast and 24"x36" coroplast. All attendee-facing rooms will automatically 
+                receive a 24"x36" coroplast for outside of the room.
                 <br/><br/>Please submit requests for additional signage here, and be sure to specify FOR EACH SIGN:
                 <br/>Number needed
                 <br/>Size of sign
@@ -191,7 +190,9 @@ reggie:
                 <br/>Intended placement location for sign
                 <br/>Link to any custom artwork that is needed
                 <br/>Any additional notes
-                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
+                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else 
+                that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
+                Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
             
           logistics:
             deadline: 2020-08-12
