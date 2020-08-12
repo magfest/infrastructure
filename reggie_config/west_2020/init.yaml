@@ -21,6 +21,7 @@ reggie:
         at_the_con: False
         post_con: False
         send_sms: False
+        panels_enabled: False
         
         consent_form_url: ''
         code_of_conduct_url: 'https://www.magwest.org/codeofconduct/'
@@ -32,8 +33,8 @@ reggie:
         mivs_video_response_expected: "no later than September 17th"
 
         dates:
-          epoch: 2020-09-13 08
-          eschaton: 2020-09-15 18
+          epoch: 2020-10-02 12
+          eschaton: 2020-10-04
           badge_price_waived: 2020-09-15 12
           prereg_takedown: 2020-09-12
           group_prereg_takedown: 2020-09-12
@@ -53,9 +54,9 @@ reggie:
           # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
-          dealer_reg_start: 2020-07-01 12
-          dealer_reg_shutdown: 2020-06-14
-          dealer_payment_due: 2020-09-05
+          dealer_reg_start: ""
+          dealer_reg_shutdown: ""
+          dealer_payment_due: ""
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
           band_info_deadline: 2020-06-03 # A/V RFC (deadline not tracked by Reggie)
@@ -90,16 +91,16 @@ reggie:
           guest_travel_plans_deadline: 2020-08-01
 
         badge_prices:
-          initial_attendee: 75
-          group_discount: 25
-          dealer_badge_price: 45
-          one_days_enabled: True
+          initial_attendee: 0
+          group_discount: 0
+          dealer_badge_price: 0
+          one_days_enabled: False
           presell_one_days: False
 
           single_day:
-            Friday: 35
-            Saturday: 45
-            Sunday: 25
+            Friday: 0
+            Saturday: 0
+            Sunday: 0
           
         table_prices:
           default_price: 200
