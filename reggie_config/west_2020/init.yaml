@@ -31,6 +31,7 @@ reggie:
         expected_response: July 15, 2020
         mivs_video_response_expected: "no later than September 17th"
         volunteer_checklist_deadline: "September 18"
+        volunteer_placeholder_deadline: "September 18"
         
         # Remove for next in-person event
         hours_for_food: 0
@@ -52,7 +53,6 @@ reggie:
           shirt_deadline: 2020-09-12
           supporter_deadline: 2020-09-12
           uber_takedown: 2020-09-16
-          volunteer_placeholder_deadline: 2020-09-18
 
           printed_badge_deadline: 2020-10-04
 
