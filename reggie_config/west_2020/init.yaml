@@ -40,6 +40,7 @@ reggie:
         panels_enabled: False
         enable_pending_emails_report: False
         check_placeholders: False
+        collect_full_address: True
 
         dates:
           epoch: 2020-10-02 12
