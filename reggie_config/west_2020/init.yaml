@@ -35,12 +35,14 @@ reggie:
         
         # Remove for next in-person event
         hours_for_food: 0
+        hours_for_shirt: 0
         hotels_enabled: False
         emergency_procedures_enabled: False
         panels_enabled: False
         enable_pending_emails_report: False
         check_placeholders: False
         collect_full_address: True
+        donations_enabled: False
 
         dates:
           epoch: 2020-10-02 12
@@ -55,7 +57,7 @@ reggie:
           supporter_deadline: 2020-09-12
           uber_takedown: 2020-09-16
 
-          printed_badge_deadline: 2020-10-04
+          printed_badge_deadline: ""
 
           # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
           # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
