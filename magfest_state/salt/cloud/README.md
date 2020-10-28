@@ -27,7 +27,16 @@ login before you start, but you won't be able to configure the IP address
 until after the server has been created, since you won't know the server's IP
 until that time.
 
-### 1. Create a Cloud Profile
+### 1a. Change Event Year on Staging
+
+The staging server corresponding to the event needs its year changed on MCP.
+To change, e.g., staging Super 2020 to staging Super 2021:
+```
+sudo salt -C 'G@roles:reggie and G@env:staging and G@event_name:super and G@event_year:2020' grains.set 'event_year' 2021
+```
+
+
+### 1b. Create a Cloud Profile
 
 Create an appropriately named file in the
 [cloud.profiles.d](/magfest_state/salt/cloud/files/cloud.profiles.d)
