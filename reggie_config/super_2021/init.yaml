@@ -11,9 +11,9 @@ reggie:
     ubersystem:
       config:
         app_limit: 0
-        shirt_stock: 1100
-        supporter_stock: 850
-        season_stock: 300
+        shirt_stock: 0
+        supporter_stock: 0
+        season_stock: 0
         shared_kickin_stocks: False
         
         event_year: 2021
@@ -53,7 +53,7 @@ reggie:
         donations_enabled: False
 
         dates:
-          prereg_open: 2020-09-10 15
+          prereg_open: 2021-09-10 15
           prereg_hotel_eligibility_cutoff: 2020-09-17
           shifts_created: 2020-10-27
           room_deadline: 2020-11-14
@@ -78,7 +78,7 @@ reggie:
           # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
-          dealer_reg_start: 2020-08-16 20
+          dealer_reg_start: 2021-08-16 20
           dealer_reg_deadline: ''  # Disable automatic waitlist
           dealer_reg_shutdown: 2020-08-27 20
           dealer_payment_due: 2020-11-01
