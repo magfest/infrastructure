@@ -71,8 +71,8 @@ reggie:
           supporter_deadline: 2021-01-02
           placeholder_deadline: 2020-12-26
           uber_takedown: 2021-01-07
-          epoch: 2021-01-02 08
-          eschaton: 2021-01-05 20
+          epoch: 2021-01-22 08
+          eschaton: 2021-01-24 23
           prereg_takedown: 2021-01-02
           group_prereg_takedown: 2021-01-01
           badge_price_waived: 2021-01-05 14
@@ -294,6 +294,15 @@ reggie:
 
           office_supplies:
             deadline: ''
+            
+          find_virtual:
+            deadline: 2021-01-08
+            name: How To Find Your Virtual Content
+            description: >
+                How can we direct attendees to your content? Please include as much information as possible, including any 
+                landing pages, separate Twitch stream links or other platforms, information about which section of the MAGFest 
+                Discord your content will be in, or your Discord server link if hosted elsewhere. We want the public info to 
+                cross-reference "locations" so attendees can find the content they want in the quickest way possible.
 
           postcon_hours:
             deadline: 2021-01-31
