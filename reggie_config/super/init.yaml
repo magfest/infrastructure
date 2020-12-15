@@ -382,7 +382,8 @@ reggie:
             name: Social Media Requests
             description: >
                 If you have a guest or event that you believe is worth promoting on social media beforehand, let us know! 
-                For detailed or special requests, please contact socialmedia@magfest.org.
+                For detailed or special requests, please contact socialmedia@magfest.org. You can also make requests in 
+                #socialmedia-requests on Slack.
                 
           mediatron:
             deadline: 1970-01-01
