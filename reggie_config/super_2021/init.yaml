@@ -254,7 +254,7 @@ reggie:
             deadline: 2021-12-18
 
           hotel_eligible:
-            deadline: 2021-12-18
+            deadline: ''
 
           approve_setup_teardown:
             deadline: 2021-12-18
