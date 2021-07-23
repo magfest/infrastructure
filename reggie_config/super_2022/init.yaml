@@ -1,7 +1,7 @@
 __: merge-first
 
 
-{% macro extra_attendance_data() %}{% include 'super_2021/extra-attendance-data.json' %}{% endmacro %}
+{% macro extra_attendance_data() %}{% include 'super_2022/extra-attendance-data.json' %}{% endmacro %}
 
 reggie:
   extra_files:
