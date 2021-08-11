@@ -1,0 +1,254 @@
+__: merge-first
+
+
+{% macro extra_attendance_data() %}{% include 'west_2021/extra-attendance-data.json' %}{% endmacro %}
+
+reggie:
+  extra_files:
+    plugins/uber/uber/static/analytics/extra-attendance-data.json: |
+        {{ extra_attendance_data()|indent(8) }}
+
+  plugins:
+    ubersystem:
+      branch: master
+      config:
+        shirt_stock: 0
+        supporter_stock: 0
+        season_stock: 0
+        shared_kickin_stocks: False
+        event_year: 2021
+        max_dealers: 5
+        at_the_con: False
+        post_con: False
+        send_sms: False
+        
+        consent_form_url: ''
+        code_of_conduct_url: 'https://www.magwest.org/codeofconduct/'
+        prereg_faq_url: 'https://www.magwest.org/faq/'
+        contact_url: 'mailto:contact@magwest.org'
+        techops_dept_checklist_form_url: 'https://docs.google.com/forms/d/e/1FAIpQLSdXG4veibh11LR3FvFte_LxXuASys9IWbnkLNNI0WjdvjDRYw/viewform'
+        treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
+        expected_response: July 15, 2021
+        mivs_video_response_expected: "no later than September 17th"
+        volunteer_checklist_deadline: "September 25"
+        volunteer_placeholder_deadline: "September 25"
+        
+        # Remove for next in-person event
+        hours_for_food: 0
+        hours_for_shirt: 0
+        hotels_enabled: False
+        emergency_procedures_enabled: False
+        panels_enabled: False
+        enable_pending_emails_report: False
+        check_placeholders: False
+        collect_full_address: True
+        donations_enabled: False
+
+        dates:
+          epoch: 2021-10-02 12
+          eschaton: 2021-10-04
+          badge_price_waived: 2021-09-15 12
+          prereg_takedown: 2021-09-12
+          group_prereg_takedown: 2021-09-12
+          placeholder_deadline: 2021-09-09
+          prereg_open: 2021-07-26 12
+          shifts_created: 2021-06-01
+          shirt_deadline: 2021-09-12
+          supporter_deadline: 2021-09-12
+          uber_takedown: 2021-09-16
+
+          printed_badge_deadline: ""
+
+          # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
+          # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
+          # can no longer even add themselves to the waitlist.  Dealer payment reminder emails are
+          # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
+          # be emailed when the waitlist has been exhausted and all available positions have been
+          # filled, as defined by DEALER_WAITLIST_CLOSED.
+          dealer_reg_start: ""
+          dealer_reg_shutdown: ""
+          dealer_payment_due: ""
+          dealer_reg_deadline: ""  # Disable automatic waitlist
+          dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
+          band_info_deadline: 2021-06-03 # A/V RFC (deadline not tracked by Reggie)
+          band_stage_plot_deadline: 2021-06-03 # A/V RFC (deadline not tracked by Reggie)
+          band_bio_deadline: 2021-07-15
+          band_panel_deadline: 2021-08-04 # Should be <= panel_app_deadline
+          band_taxes_deadline: 2021-08-13
+          band_badges_deadline: 2021-09-01 # Should be <= placeholder_deadline
+          band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
+          band_mc_deadline: "" # Starting with this off, we may turn it on.
+          band_merch_deadline: "" # Rock Island not yet confirmed, not enough space in market for all bands
+          rock_island_deadline: "" # Rock Island not yet confirmed.
+
+          # WARNING - everything below this is set to a temporary value just so
+          #           that we won't get an exception at import time.
+          panels_deadline: 2021-06-30
+          panel_app_deadline: 2021-08-04 # Is this actually used?
+          mivs_round_one_deadline: 2021-08-01
+          mivs_round_two_start: 2021-08-01
+          mivs_round_two_deadline: 2021-08-01
+          mivs_judging_deadline: 2021-08-01
+          mivs_round_two_complete: 2021-08-01
+          guest_panel_deadline: 2021-08-01
+          guest_bio_deadline: 2021-08-01
+          guest_info_deadline: 2021-08-01
+          guest_taxes_deadline: 2021-08-01
+          guest_merch_deadline: 2021-08-01
+          guest_charity_deadline: 2021-08-01
+          guest_badges_deadline: 2021-08-01
+          guest_autograph_deadline: 2021-08-01
+          guest_interview_deadline: 2021-08-01
+          guest_travel_plans_deadline: 2021-08-01
+
+        badge_prices:
+          initial_attendee: 0
+          group_discount: 0
+          dealer_badge_price: 0
+          one_days_enabled: False
+          presell_one_days: False
+
+          single_day:
+            Friday: 0
+            Saturday: 0
+            Sunday: 0
+          
+        table_prices:
+          default_price: 200
+          1: 60
+          2: 100
+          3: 200
+          4: 275
+
+        donation_tier_descriptions:
+          no_thanks:
+            name: No thanks
+            icon: ''
+            description: No thanks
+            link: ''
+
+          shirt:
+            name: T-Shirt Bundle
+            icon: ../static/icons/iconshirt.png
+            description: T-Shirt
+            link: ../static_views/tshirt.html
+
+          supporter_package:
+            name: Supporter Package
+            icon: ../static/icons/iconsupporter.png
+            description: Supporter Swag
+            link: ../static_views/supporter.html
+
+          super_supporter:
+            name: Mayor's Package
+            icon: ../static/icons/iconmayor.png
+            description: Crazy Exclusive Swag
+            link: ../static_views/super.html
+
+        enums:
+          new_reg_payment_method:
+            group: Groupon
+
+          door_payment_method:
+            group: "I have a Groupon to redeem at the registration desk"
+            
+        dept_head_checklist:
+          creating_shifts:
+            deadline: 2021-09-18
+            description: >
+                STOPS is happy to assist you in creating shifts. Please let us know if you need assistance 
+                with this step. If you want us to import last year's shifts, please email stops@magwest.org. 
+                You will still need to approve these via the checklist after the import.
+            path: /jobs/index?department_id={department_id}
+            
+          assigned_volunteers:
+            deadline: 2021-09-18
+            path: /jobs/staffers?department_id={department_id}
+            
+          social_media:
+            deadline: 2021-09-18
+            full_description: >
+                If you have a guest or event that you believe is worth promoting on social media beforehand, 
+                let us know! For detailed or special requests, please contact socialmedia@magfest.org or post 
+                in #socialmedia-requests in Slack.
+            
+          approve_setup_teardown:
+            name: Approve/Decline Additional Hotel Nights
+            deadline: ''
+            description: >
+                Many staffers want to work setup and teardown shifts rather than work during the event. We have 
+                more volunteers than we need to do this, so we require DH approval of volunteers who need hotel 
+                space for those dates.
+            path: /hotel/requests?department_id={department_id}
+            
+          placeholders:
+            deadline: 2021-09-18
+            
+          hotel_setup:
+            deadline: ''
+            
+          printed_signs:
+            name: Room Signage
+            deadline: ''
+            description: Other than a sign for your area, what printed coroplast signs or banners do you need?
+            full_description: >
+                Signage comes in two types: 12"x18" coroplast and 24"x36" coroplast. All attendee-facing rooms will automatically 
+                receive a 24"x36" coroplast for outside of the room.
+                <br/><br/>Please submit requests for additional signage here, and be sure to specify FOR EACH SIGN:
+                <br/>Number needed
+                <br/>Size of sign
+                <br/>Primary text of sign
+                <br/>Sub text of sign (if applicable)
+                <br/>Intended placement location for sign
+                <br/>Link to any custom artwork that is needed
+                <br/>Any additional notes
+                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else 
+                that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
+                Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
+            
+          logistics:
+            deadline: ''
+            
+          tech_requirements:
+            deadline: 2021-09-18
+            
+          mediatron:
+            deadline: ''
+            full_description: >
+                If you have something especially cool happening that you would like Mediatron! to capture, let us know here so 
+                they can do their best to get your event on their schedule. For detailed or special requests, please contact 
+                mediatron@magwest.org.
+            
+          bulk_print_jobs:
+            deadline: ''
+            full_description: >
+                STOPS has a printer for small jobs (less than 50 pages). Anything more than 50 pages should go 
+                here! For EACH item you need printed, please include a link to the document and the number of copies.
+
+          treasury:
+            deadline: ''
+            
+          office_supplies:
+            deadline: ''
+            description: Do you need any paper, pens, sharpies, whiteboards, scissors, staplers, etc?
+            full_description: >
+                STOPS can provide the following office supplies: pens, sharpies, paper, whiteboard, whiteboard 
+                markers, sticky notes, scissors, scotch tape, staplers, clipboards, flip charts/easel pads. List 
+                WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don't give 
+                a quantity, you will get 1). If you need a very specific office item, you will need to purchase 
+                it yourself using your department's budget.
+
+          postcon_hours:
+            name: (After the Event) Marking + Rating Shifts
+            deadline: 2021-10-21
+            path: /jobs/signups?department_id={department_id}
+            description: >
+                Please go through your volunteers' shifts carefully. This ensures that they receive the appropriate perks, 
+                are imported as staff next year, maintain eligibility for hotel crash space, etc.
+
+        volunteer_checklist:
+          2: staffing/food_item.html
+          3: staffing/shirt_item.html
+          4: staffing/hotel_item.html
+          98: staffing/volunteer_agreement_item.html
+          99: staffing/shifts_item.html
