@@ -45,17 +45,17 @@ reggie:
         donations_enabled: False
 
         dates:
-          epoch: 2021-10-02 12
-          eschaton: 2021-10-04
+          epoch: 2021-11-04 12
+          eschaton: 2021-11-06
           badge_price_waived: 2021-09-15 12
           prereg_takedown: 2021-09-12
           group_prereg_takedown: 2021-09-12
           placeholder_deadline: 2021-09-09
-          prereg_open: 2021-07-26 12
+          prereg_open: 2021-12-26 12
           shifts_created: 2021-06-01
           shirt_deadline: 2021-09-12
           supporter_deadline: 2021-09-12
-          uber_takedown: 2021-09-16
+          uber_takedown: 2021-11-16
 
           printed_badge_deadline: ""
 
