@@ -4,6 +4,7 @@ reggie:
   plugins:
     ubersystem:
       config:
+        at_the_con: True
         dates:
           prereg_open: 2019-09-10 15
           shifts_created: 2019-10-27
