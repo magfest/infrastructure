@@ -45,6 +45,9 @@ reggie:
         mivs_handbook_url: https://docs.google.com/document/d/1D2j2d56wtbyy5iZ6ZtaBURsZHRd77wuTHxNCGAQqfkQ/edit?usp=sharing
         mivs_training_url: https://docs.google.com/forms/d/e/1FAIpQLScEkVeuytloaLTp41UIj9A42elk65YA4ptCbAN_gSyg0bp_ww/viewform
         extra_donation_url: https://givebutter.com/magfest
+        
+        mits_badges_per_team: 2
+        mits_email: "MAGFest Indie Tabletop Showcase <mits@magfest.org>"
 
         dates:
           prereg_open: 2022-09-10 15
