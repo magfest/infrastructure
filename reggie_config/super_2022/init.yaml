@@ -81,8 +81,8 @@ reggie:
           dealer_payment_due: 2021-11-01
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
 
-          mivs_start: 2021-08-02 09
-          mivs_deadline: 2021-09-06
+          mivs_start: 2021-09-12 09
+          mivs_deadline: 2021-10-03
           mivs_judging_deadline: 2021-10-20
           mivs_results_reveal: 2021-10-28
           
