@@ -36,7 +36,7 @@ reggie:
         # dealers if either the deadline has passed or this number has been reached.
         # Dealers who have been waitlisted/approved/declined and dealers who do not
         # have to pay are not counted towards this cap. A value of 0 means no cap.
-        max_dealer_apps: 515
+        max_dealer_apps: 0
 
         mivs_confirm_deadline: 14
         mivs_submission_grace_period: 10
@@ -80,6 +80,7 @@ reggie:
           dealer_reg_shutdown: 2021-10-03
           dealer_payment_due: 2021-11-01
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
+          dealer_reg_public: ''
 
           mivs_start: 2021-08-02 09
           mivs_deadline: 2021-09-06
@@ -127,16 +128,16 @@ reggie:
 
         badge_prices:
           one_days_enabled: False
-          initial_attendee: 85
+          initial_attendee: 110
           dealer_badge_price: 80
           group_discount: 10
           presell_one_days: False
 
           attendee:
-            2022-01-01: 95
-            2022-01-03: 90
-            2022-01-04: 70
-            2022-01-05: 25
+            2022-01-05: 125
+            2022-01-06: 120
+            2022-01-07: 100
+            2022-01-08: 40
 
           stocks:
             attendee_badge: 23800
@@ -144,10 +145,10 @@ reggie:
 
         table_prices:
           default_price: 350
-          1: 150
-          2: 250
-          3: 400
-          4: 550
+          1: 180
+          2: 300
+          3: 500
+          4: 700
 
         integer_enums:
           shirt_level: 35
