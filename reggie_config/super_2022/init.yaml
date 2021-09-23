@@ -75,9 +75,9 @@ reggie:
           # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
-          dealer_reg_start: 2022-08-16 20
+          dealer_reg_start: 2021-09-24 20
           dealer_reg_deadline: ''  # Disable automatic waitlist
-          dealer_reg_shutdown: 2021-08-27 20
+          dealer_reg_shutdown: 2021-10-03
           dealer_payment_due: 2021-11-01
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
 
@@ -128,7 +128,7 @@ reggie:
         badge_prices:
           one_days_enabled: False
           initial_attendee: 85
-          dealer_badge_price: 50
+          dealer_badge_price: 80
           group_discount: 10
           presell_one_days: False
 
