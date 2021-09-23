@@ -11,9 +11,9 @@ reggie:
     ubersystem:
       config:
         app_limit: 0
-        shirt_stock: 0
-        supporter_stock: 0
-        season_stock: 0
+        #shirt_stock: 0
+        #supporter_stock: 0
+        #season_stock: 0
         shared_kickin_stocks: False
         
         event_year: 2022
@@ -150,15 +150,15 @@ reggie:
           4: 550
 
         integer_enums:
-          shirt_level: 25
-          supporter_level: 85
+          shirt_level: 35
+          supporter_level: 95
           season_level: 200
 
           donation_tier:
             No thanks: 0
             T-Shirt Tier: SHIRT_LEVEL
-            Supporter Tier: SUPPORTER_LEVEL
-            Funky Tier: 200
+            Merch Me Plenty: SUPPORTER_LEVEL
+            Rip and Wear: 200
 
         donation_tier_descriptions:
           no_thanks:
@@ -169,21 +169,21 @@ reggie:
 
           shirt:
             name: T-Shirt Tier
-            icon: ../static/icons/iconshirt.png
-            description: Ribbon|T-Shirt|Event Pin
-            link: ../static_views/ribbon.html|../static_views/tshirt.html|../static_views/tshirt.html
+            icon: ../static/icons/shirt.png
+            description: Lanyard|T-Shirt|Event Pin
+            link: ../static_views/tshirt.html|../static_views/tshirt.html|../static_views/tshirt.html
 
           supporter:
-            name: Supporter Tier
+            name: Merch Me Plenty
             icon: ../static/icons/supporter.png
-            description: MAGFest Fanny Pack|Custom Lanyard|Squeezy-nanner|Jungle Sunglasses|Funky Bandana|Gold "MF" Coin|Collapsible Canteen|PLUS MORE!|Barrel Swadge
-            link: ../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/swadge.html
+            description: Germ Slaying Sanitization Fluid|Bacterium Busting Barrier|Hydration Hopper|Health Kit Bag|Mystery Items|Swadge
+            link: ../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/swadge.html
 
           barrel_roller:
-            name: Funky Tier
+            name: Rip and Wear
             icon: ../static/icons/super.png
-            description: Mystery Swag|Secret Invitation
-            link: ../static_views/super.html|../static_views/secret.html
+            description: Nightmare Knit Skullcap|Button-Down Shirt|Exclusive Mystery Item|The Swadge Programmer
+            link: ../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html
 
         mivs_checklist:
           core_hours:
