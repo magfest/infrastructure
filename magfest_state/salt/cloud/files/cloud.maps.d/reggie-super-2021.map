@@ -5,25 +5,25 @@
     salt mcp.magfest.net state.sls salt.cloud.manager
 -#}
 
-prod-loadbalancer:
+super-2022-prod-loadbalancer:
   - super2022.reggie.magfest.org
 
-prod-web:
+super-2022-prod-web:
 {%- for i in range(1, 11) %}
   - super2022-prod-web-{{ '{:02d}'.format(i) }}.reggie.magfest.org
 {%- endfor %}
 
-prod-sessions:
+super-2022-prod-sessions:
   - super2022-prod-sessions-01.reggie.magfest.org
 
-prod-db:
+super-2022-prod-db:
   - super2022-prod-db-01.reggie.magfest.org
 
-prod-queue:
+super-2022-prod-queue:
   - super2022-prod-queue-01.reggie.magfest.org
 
-prod-scheduler:
+super-2022-prod-scheduler:
   - super2022-prod-scheduler-01.reggie.magfest.org
 
-prod-worker:
+super-2022-prod-worker:
   - super2022-prod-worker-01.reggie.magfest.org
