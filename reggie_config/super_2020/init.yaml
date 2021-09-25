@@ -189,6 +189,15 @@ reggie:
             - 4XL Unisex: 11
             - 5XL Unisex: 12
 
+        enums:
+          sweatpants:
+              no_sweatpants: Select a sweatpants size
+              s: S
+              m: M
+              l: L
+              xl: XL
+              2xl: 2XL
+
         donation_tier_descriptions:
           no_thanks:
             name: No thanks

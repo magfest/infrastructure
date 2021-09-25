@@ -181,6 +181,18 @@ reggie:
             - Women's 3X: 17
             - Women's 4X: 18
 
+        enums:
+          special_merch:
+            xs: XS
+            s: S
+            m: M
+            l: L
+            xl: XL
+            2x: 2X
+            3x: 3X
+            4x: 4X
+            5x: 5X
+
         donation_tier_descriptions:
           no_thanks:
             name: No thanks
