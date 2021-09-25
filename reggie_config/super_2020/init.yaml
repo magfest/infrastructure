@@ -152,6 +152,43 @@ reggie:
             Supporter Tier: SUPPORTER_LEVEL
             Funky Tier: 200
 
+          shirt:
+            - no shirt: 0
+            - S Unisex: 1
+            - M Unisex: 2
+            - L Unisex: 3
+            - XL Unisex: 4
+            - 2XL Unisex: 5
+            - 3XL Unisex: 6
+            - 4XL Unisex: 11
+            - 5XL Unisex: 12
+            - S Unisex slim fit: 14
+            - M Unisex slim fit: 15
+            - L Unisex slim fit: 16
+            - XL Unisex slim fit: 17
+            - 2XL Unisex slim fit: 18
+            - S Women's: 7
+            - M Women's: 8
+            - L Women's: 9
+            - XL Women's: 10
+            - 2XL Women's: 13
+            - S Women's slim fit: 19
+            - M Women's slim fit: 20
+            - L Women's slim fit: 21
+            - XL Women's slim fit: 22
+            - 2XL Women's slim fit: 23
+
+          prereg_shirt:
+            - no shirt: 0
+            - S Unisex: 1
+            - M Unisex: 2
+            - L Unisex: 3
+            - XL Unisex: 4
+            - 2XL Unisex: 5
+            - 3XL Unisex: 6
+            - 4XL Unisex: 11
+            - 5XL Unisex: 12
+
         donation_tier_descriptions:
           no_thanks:
             name: No thanks
