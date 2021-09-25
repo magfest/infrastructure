@@ -11,9 +11,9 @@ reggie:
     ubersystem:
       config:
         app_limit: 0
-        #shirt_stock: 0
-        #supporter_stock: 0
-        #season_stock: 0
+        shirt_stock: 1000
+        supporter_stock: 750
+        season_stock: 250
         shared_kickin_stocks: False
         
         event_year: 2022
@@ -55,8 +55,8 @@ reggie:
           shifts_created: 2021-10-27
           room_deadline: 2021-11-14
           drop_shifts_deadline: 2022-1-15
-          shirt_deadline: 2022-01-02
-          supporter_deadline: 2022-01-02
+          shirt_deadline: 2021-12-31
+          supporter_deadline: 2021-12-31
           placeholder_deadline: 2021-12-26
           uber_takedown: 2022-01-07
           epoch: 2022-01-22 08
@@ -160,6 +160,26 @@ reggie:
             T-Shirt Tier: SHIRT_LEVEL
             Merch Me Plenty: SUPPORTER_LEVEL
             Rip and Wear: 200
+            
+          shirt:
+            - Unisex XS: 1
+            - Unisex S: 2
+            - Unisex M: 3
+            - Unisex L: 4
+            - Unisex XL: 5
+            - Unisex 2X: 6
+            - Unisex 3X: 7
+            - Unisex 4X: 8
+            - Unisex 5X: 9
+            - Unisex 6X: 10
+            - Women's XS: 11
+            - Women's S: 12
+            - Women's M: 13
+            - Women's L: 14
+            - Women's XL: 15
+            - Women's 2X: 16
+            - Women's 3X: 17
+            - Women's 4X: 18
 
         donation_tier_descriptions:
           no_thanks:
@@ -177,14 +197,14 @@ reggie:
           supporter:
             name: Merch Me Plenty
             icon: ../static/icons/supporter.png
-            description: Germ Slaying Sanitization Fluid|Bacterium Busting Barrier|Hydration Hopper|Health Kit Bag|Mystery Items|Swadge
-            link: ../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/swadge.html
+            description: Health Kit Bag|Swadge|PLUS MORE!
+            link: ../static_views/supporter.html|../static_views/swadge.html|../static_views/supporter.html
 
           barrel_roller:
             name: Rip and Wear
             icon: ../static/icons/super.png
-            description: Nightmare Knit Skullcap|Button-Down Shirt|Exclusive Mystery Item|The Swadge Programmer
-            link: ../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html
+            description: Knit Skullcap|Button-Down Shirt|Swadge Programmer
+            link: ../static_views/super.html|../static_views/super.html|../static_views/super.html
 
         mivs_checklist:
           core_hours:
