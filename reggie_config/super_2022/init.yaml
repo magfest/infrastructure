@@ -150,6 +150,18 @@ reggie:
           3: 500
           4: 700
 
+        age_groups:
+          under_12:
+            desc: "Between 6 and 12"
+            min_age: 6
+            max_age: 11
+            can_volunteer: False
+            can_register: False
+
+          under_13:
+            desc: "12"
+            min_age: 12
+
         integer_enums:
           shirt_level: 35
           supporter_level: 95
