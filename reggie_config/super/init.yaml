@@ -102,13 +102,8 @@ reggie:
             under_13: 12 & Under
             mivs: Indie Dev
 
-          sweatpants:
-            no_sweatpants: Select a sweatpants size
-            s: S
-            m: M
-            l: L
-            xl: XL
-            2xl: 2XL
+          special_merch:
+            no_merch: Select a size
 
           job_interest:
             anything: Anything
