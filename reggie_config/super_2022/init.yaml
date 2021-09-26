@@ -15,6 +15,7 @@ reggie:
         supporter_stock: 750
         season_stock: 250
         shared_kickin_stocks: False
+        groups_enabled: False
         
         event_year: 2022
         event_qr_id: sm22
