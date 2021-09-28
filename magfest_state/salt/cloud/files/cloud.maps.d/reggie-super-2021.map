@@ -1,2 +1,29 @@
-reggie-prod-super-2021-single:
+{#-
+  NOTE: Changes to this file must be applied with the following command
+  before they take effect:
+
+    salt mcp.magfest.net state.sls salt.cloud.manager
+-#}
+
+super-2022-prod-loadbalancer:
   - super2022.reggie.magfest.org
+
+super-2022-prod-web:
+{%- for i in range(1, 11) %}
+  - super2022-prod-web-{{ '{:02d}'.format(i) }}.reggie.magfest.org
+{%- endfor %}
+
+super-2022-prod-sessions:
+  - super2022-prod-sessions-01.reggie.magfest.org
+
+super-2022-prod-db:
+  - super2022-prod-db-01.reggie.magfest.org
+
+super-2022-prod-queue:
+  - super2022-prod-queue-01.reggie.magfest.org
+
+super-2022-prod-scheduler:
+  - super2022-prod-scheduler-01.reggie.magfest.org
+
+super-2022-prod-worker:
+  - super2022-prod-worker-01.reggie.magfest.org
