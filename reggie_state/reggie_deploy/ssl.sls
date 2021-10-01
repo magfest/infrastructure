@@ -2,7 +2,6 @@
 # Generate self-signed certs
 # ============================================================================
 
-{%- set install_dir = salt['pillar.get']('reggie:install_dir') %}
 {%- set certs_dir = salt['pillar.get']('ssl:certs_dir') -%}
 {%- set minion_id = salt['grains.get']('id') %}
 
@@ -13,7 +12,7 @@
 
   pip.installed:
     - name: pyopenssl
-    - env_bin: {{ install_dir }}/env
+    - env_bin: /usr/bin/pip3
     - reload_modules: True
 
   module.run:
