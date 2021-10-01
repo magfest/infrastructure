@@ -7,7 +7,7 @@
 
 {{ certs_dir }}/{{ minion_id }}.pem:
   pkg.installed:
-    - name: python-pip
+    - name: python3-pip
     - reload_modules: True
 
   pip.installed:
