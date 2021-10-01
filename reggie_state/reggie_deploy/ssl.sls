@@ -12,7 +12,7 @@
 
   pip.installed:
     - name: pyopenssl
-    - env_bin: /usr/bin/pip3
+    - env_bin: /usr/bin/pip
     - reload_modules: True
 
   module.run:
