@@ -13,7 +13,7 @@ reggie:
         app_limit: 0
         shirt_stock: 1000
         supporter_stock: 750
-        season_stock: 250
+        season_stock: 230
         shared_kickin_stocks: False
         groups_enabled: False
         
@@ -52,11 +52,11 @@ reggie:
 
         dates:
           prereg_open: 2021-10-05 15
-          prereg_hotel_eligibility_cutoff: 2021-10-06
+          prereg_hotel_eligibility_cutoff: 2021-10-12
           shifts_created: 2021-10-31
           room_deadline: 2021-11-14
-          drop_shifts_deadline: 2022-1-15
-          shirt_deadline: 2021-12-31
+          drop_shifts_deadline: 2021-12-29
+          shirt_deadline: 2021-11-04
           supporter_deadline: 2021-12-31
           placeholder_deadline: 2021-12-31
           uber_takedown: 2022-01-09
@@ -135,10 +135,10 @@ reggie:
           presell_one_days: False
 
           attendee:
-            2022-01-05: 125
-            2022-01-06: 120
-            2022-01-07: 100
-            2022-01-08: 40
+            2022-12-31: 125
+            2022-01-06: 115
+            2022-01-07: 95
+            2022-01-08: 35
 
           stocks:
             attendee_badge: 23800
