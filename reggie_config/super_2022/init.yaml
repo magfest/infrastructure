@@ -11,7 +11,7 @@ reggie:
     ubersystem:
       config:
         app_limit: 0
-        shirt_stock: 1000
+        shirt_stock: 950
         supporter_stock: 750
         season_stock: 230
         shared_kickin_stocks: False
