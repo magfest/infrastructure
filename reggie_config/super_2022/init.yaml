@@ -25,6 +25,7 @@ reggie:
         techops_dept_checklist_form_url: https://docs.google.com/forms/d/e/1FAIpQLSd_QgmCKYp7CRn5IsZHlzuky7CrPKYXQSPi03Ywy72UEnlegA/viewform
         hotel_setup_form_url: https://docs.google.com/forms/d/e/1FAIpQLSeQ7LRiKRc39inuWYAi_RtQ-DKRuZO3R40O-8ag5W-CHePSsw/viewform
         logistics_form_url: https://docs.google.com/forms/d/1FX8dFgdTl6YkBjliGUWPLcumUDeNJEVhhafudP6ZnPg/viewform
+        ppe_form_url: https://docs.google.com/forms/d/1FX8dFgdTl6YkBjliGUWPLcumUDeNJEVhhafudP6ZnPg/viewform
         volunteer_perks_url: https://www.notion.so/magfest/MAGFest-Super-Perks-f001221c31484ef4957a6513c54a6fd6
 
         expected_response: December 2021
@@ -300,7 +301,7 @@ reggie:
             
           ppe_requests:
             deadline: 2021-11-05
-            name: Personal Protective Equipment Requests
+            name: Bulk PPE & Sanitizing Supplies
             description: >
                 We are placing a bulk order for personal protective equipment (PPE) and sanitizing supplies for departments for Super 2022. 
                 Please let us know what you need and we will do our best to accommodate.
