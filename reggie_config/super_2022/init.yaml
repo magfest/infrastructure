@@ -31,6 +31,7 @@ reggie:
         
         volunteer_placeholder_deadline: November 5
         volunteer_checklist_deadline: November 12
+        emergency_procedures_deadline: December 17
 
         # The number of dealer apps we will accept before auto-waitlisting further
         # applications. If dealer_reg_deadline is also set, we will auto-wailist
@@ -54,8 +55,9 @@ reggie:
           prereg_open: 2021-10-05 15
           prereg_hotel_eligibility_cutoff: 2021-10-12
           shifts_created: 2021-10-31
-          room_deadline: 2021-11-14
-          drop_shifts_deadline: 2021-12-29
+          room_deadline: 2021-11-12
+          volunteer_shirt_deadline: 2021-11-05
+          drop_shifts_deadline: 2021-12-30
           shirt_deadline: 2021-12-31
           supporter_deadline: 2021-12-31
           placeholder_deadline: 2021-12-31
@@ -230,6 +232,12 @@ reggie:
             icon: ../static/icons/super.png
             description: Knit Skullcap|Button-Down Shirt|Swadge Programmer
             link: ../static_views/super.html|../static_views/super.html|../static_views/super.html
+            
+        volunteer_checklist:
+          2: staffing/shirt_item.html
+          3: staffing/volunteer_agreement_item.html
+          4: staffing/hotel_item.html
+          5: staffing/food_item.html
 
         mivs_checklist:
           core_hours:
