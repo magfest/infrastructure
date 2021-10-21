@@ -34,6 +34,7 @@ reggie:
 
         accessibility_services_enabled: True
         volunteer_agreement_enabled: True
+        emergency_procedures_enabled: True
         require_dedicated_guest_table_presence: True
         rock_island_groups: ['band', 'guest']
 
