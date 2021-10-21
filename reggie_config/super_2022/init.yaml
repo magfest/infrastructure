@@ -29,8 +29,8 @@ reggie:
 
         expected_response: December 2021
         
-        volunteer_placeholder_deadline: January 8
-        volunteer_checklist_deadline: January 8
+        volunteer_placeholder_deadline: November 5
+        volunteer_checklist_deadline: November 12
 
         # The number of dealer apps we will accept before auto-waitlisting further
         # applications. If dealer_reg_deadline is also set, we will auto-wailist
@@ -284,59 +284,58 @@ reggie:
             description: Please make sure your studio and game information is up to date so it can be displayed on the MAGFest website.
           
         dept_head_checklist:
+          placeholders:
+            deadline: 2021-10-29
+            
           assigned_volunteers:
-            deadline: 2021-12-11
+            deadline: 2021-10-29
+            
+          ppe_requests:
+            deadline: 2021-11-05
+            name: Personal Protective Equipment Requests
+            description: >
+                We are placing a bulk order for personal protective equipment (PPE) and sanitizing supplies for departments for Super 2022. 
+                Please let us know what you need and we will do our best to accommodate.
+            path: /dept_checklist/ppe_requests?department_id={department_id}
             
           creating_shifts:
-            deadline: 2021-12-18
-
-          placeholders:
-            deadline: 2021-12-18
-
-          hotel_setup:
-            deadline: 2021-12-18
+            deadline: 2021-11-12
 
           tech_requirements:
-            deadline: 2021-12-18
+            deadline: 2021-11-12
 
-          social_media:
-            deadline: 2021-12-18
+          hotel_setup:
+            deadline: 2021-11-12
 
           hotel_eligible:
             deadline: ''
 
           approve_setup_teardown:
-            deadline: 2021-12-18
+            deadline: 2021-11-19
 
           printed_signs:
-            deadline: 2021-12-18
-
-          treasury:
-            deadline: 2021-12-18
+            deadline: 2021-11-19
+            
+          logistics:
+            deadline: 2021-11-19
+            
+          office_supplies:
+            deadline: 2021-12-03
 
           guidebook_schedule:
-            deadline: 2021-12-18
-
-          logistics:
-            deadline: 2021-12-18
+            deadline: 2021-12-03
 
           mediatron:
-            deadline: 2021-12-18
+            deadline: 2021-12-03
+            
+          social_media:
+            deadline: 2021-12-10
 
           bulk_print_jobs:
-            deadline: 2021-12-18
-
-          office_supplies:
-            deadline: 2021-12-18
+            deadline: 2021-12-10
             
-          find_virtual:
-            deadline: 2021-01-08
-            name: How To Find Your Virtual Content
-            description: >
-                How can we direct attendees to your content? Please include as much information as possible, including any 
-                landing pages, separate Twitch stream links or other platforms, information about which section of the MAGFest 
-                Discord your content will be in, or your Discord server link if hosted elsewhere. We want the public info to 
-                cross-reference "locations" so attendees can find the content they want in the quickest way possible.
+          treasury:
+            deadline: 2021-12-17
 
           postcon_hours:
-            deadline: 2022-01-31
+            deadline: 2022-01-21
