@@ -154,20 +154,20 @@ reggie:
             group: "I have a Groupon to redeem at the registration desk"
             
         dept_head_checklist:
+          assigned_volunteers:
+            deadline: 2021-10-22
+            path: /jobs/staffers?department_id={department_id}
+
           creating_shifts:
-            deadline: 2021-09-18
+            deadline: 2021-10-29
             description: >
                 STOPS is happy to assist you in creating shifts. Please let us know if you need assistance 
                 with this step. If you want us to import last year's shifts, please email stops@magwest.org. 
                 You will still need to approve these via the checklist after the import.
             path: /jobs/index?department_id={department_id}
             
-          assigned_volunteers:
-            deadline: 2021-09-18
-            path: /jobs/staffers?department_id={department_id}
-            
           social_media:
-            deadline: 2021-09-18
+            deadline: ''
             full_description: >
                 If you have a guest or event that you believe is worth promoting on social media beforehand, 
                 let us know! For detailed or special requests, please contact socialmedia@magfest.org or post 
@@ -183,7 +183,7 @@ reggie:
             path: /hotel/requests?department_id={department_id}
             
           placeholders:
-            deadline: 2021-09-18
+            deadline: ''
             
           hotel_setup:
             deadline: ''
@@ -211,7 +211,7 @@ reggie:
             deadline: ''
             
           tech_requirements:
-            deadline: 2021-09-18
+            deadline: ''
             
           mediatron:
             deadline: ''
@@ -241,11 +241,11 @@ reggie:
 
           postcon_hours:
             name: (After the Event) Marking + Rating Shifts
-            deadline: 2021-10-21
+            deadline: 2021-11-13
             path: /jobs/signups?department_id={department_id}
             description: >
                 Please go through your volunteers' shifts carefully. This ensures that they receive the appropriate perks, 
-                are imported as staff next year, maintain eligibility for hotel crash space, etc.
+                are imported as staff next year.
 
         volunteer_checklist:
           2: staffing/food_item.html
