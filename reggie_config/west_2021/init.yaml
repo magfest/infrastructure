@@ -30,8 +30,9 @@ reggie:
         treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
         expected_response: July 15, 2021
         mivs_video_response_expected: "no later than September 17th"
-        volunteer_checklist_deadline: "September 25"
-        volunteer_placeholder_deadline: "September 25"
+        
+        volunteer_placeholder_deadline: "October 25"
+        volunteer_checklist_deadline: "November 3"
         
         # Remove for next in-person event
         hours_for_food: 0
