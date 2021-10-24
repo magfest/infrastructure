@@ -8,6 +8,8 @@ reggie:
     plugins/uber/uber/static/analytics/extra-attendance-data.json: |
         {{ extra_attendance_data()|indent(8) }}
   plugins:
+    magprime:
+      branch: super2020
     ubersystem:
       branch: super2020
       config:
