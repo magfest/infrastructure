@@ -319,8 +319,7 @@ reggie:
             deadline: 2021-11-05
             name: Bulk PPE & Sanitizing Supplies
             description: >
-                We are placing a bulk order for personal protective equipment (PPE) and sanitizing supplies for departments for Super 2022. 
-                Please let us know what you need and we will do our best to accommodate.
+                MAGFest is providing basic PPE for departments for Super 2022. Please let us know what you need and we will do our best to accommodate.
             path: /dept_checklist/ppe_requests?department_id={department_id}
             
           creating_shifts:
