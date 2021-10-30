@@ -22,9 +22,10 @@ reggie:
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
         treasury_dept_checklist_form_url: https://docs.google.com/forms/d/1PSieJiQJJU6vubr0Grf8KxQaG8OlZGF-EAWhHaDIqe4
-        techops_dept_checklist_form_url: https://docs.google.com/forms/d/e/1FAIpQLSd_QgmCKYp7CRn5IsZHlzuky7CrPKYXQSPi03Ywy72UEnlegA/viewform
-        hotel_setup_form_url: https://docs.google.com/forms/d/e/1FAIpQLSeQ7LRiKRc39inuWYAi_RtQ-DKRuZO3R40O-8ag5W-CHePSsw/viewform
-        logistics_form_url: https://docs.google.com/forms/d/1FX8dFgdTl6YkBjliGUWPLcumUDeNJEVhhafudP6ZnPg/viewform
+        techops_dept_checklist_form_url: https://forms.gle/UnVmgAihABQ71Swn8
+        hotel_setup_form_url: https://forms.gle/dkgVaa5aM85SDV8v9
+        logistics_form_url: https://forms.gle/5pSswz87rFS96YU26
+        office_supplies_form_url: https://forms.gle/jdQ4eDRtN4Kk6qWJ7
         ppe_form_url: https://forms.gle/6tECv9LkpWc1Pi9K8
         volunteer_perks_url: https://www.notion.so/magfest/MAGFest-Super-Perks-f001221c31484ef4957a6513c54a6fd6
         staff_room_faq_url: https://www.notion.so/magfest/Staff-Room-FAQ-656edde68e324dae97891c2002439465
@@ -309,26 +310,25 @@ reggie:
           
         dept_head_checklist:
           placeholders:
-            deadline: 2021-10-29
+            deadline: 2021-11-05
             
           assigned_volunteers:
-            deadline: 2021-10-29
+            deadline: 2021-11-05
             
           ppe_requests:
             deadline: 2021-11-05
             name: Bulk PPE & Sanitizing Supplies
             description: >
-                We are placing a bulk order for personal protective equipment (PPE) and sanitizing supplies for departments for Super 2022. 
-                Please let us know what you need and we will do our best to accommodate.
+                MAGFest is providing basic PPE for departments for Super 2022. Please let us know what you need and we will do our best to accommodate.
             path: /dept_checklist/ppe_requests?department_id={department_id}
             
           creating_shifts:
             deadline: 2021-11-12
-
-          tech_requirements:
+            
+          hotel_setup:
             deadline: 2021-11-12
 
-          hotel_setup:
+          tech_requirements:
             deadline: 2021-11-12
 
           hotel_eligible:
@@ -342,14 +342,15 @@ reggie:
             
           logistics:
             deadline: 2021-11-19
+
+          mediatron:
+            deadline: 2021-12-03
             
           office_supplies:
             deadline: 2021-12-03
+            path: path: /dept_checklist/office_supplies?department_id={department_id}
 
           guidebook_schedule:
-            deadline: 2021-12-03
-
-          mediatron:
             deadline: 2021-12-03
             
           social_media:
