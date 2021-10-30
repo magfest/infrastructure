@@ -85,11 +85,6 @@ reggie:
         dealer_loc_term: marketplace
         dealer_reg_term: marketplace registration
 
-        integer_enums:
-          staff_event_shirt:
-            "Two Staff Shirts": 0
-            "One Event Shirt and One Staff Shirt": 1
-
         enums:
           badge:
             attendee_badge: Attendee

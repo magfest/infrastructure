@@ -149,6 +149,10 @@ reggie:
           supporter_level: 85
           season_level: 200
 
+          staff_event_shirt:
+            "Two Staff Shirts": 0
+            "One Event Shirt and One Staff Shirt": 1
+
           donation_tier:
             No thanks: 0
             T-Shirt Tier: SHIRT_LEVEL
