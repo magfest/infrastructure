@@ -195,6 +195,16 @@ reggie:
             - Women's 2X: 16
             - Women's 3X: 17
             - Women's 4X: 18
+            
+          staff_shirt:
+            - Unisex S: 1
+            - Unisex M: 2
+            - Unisex L: 3
+            - Unisex XL: 4
+            - Unisex 2X: 5
+            - Unisex 3X: 6
+            - Unisex 4X: 7
+            - Unisex 5X: 8
 
         enums:
           special_merch:
