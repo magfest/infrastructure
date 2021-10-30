@@ -348,6 +348,7 @@ reggie:
             
           office_supplies:
             deadline: 2021-12-03
+            path: path: /dept_checklist/office_supplies?department_id={department_id}
 
           guidebook_schedule:
             deadline: 2021-12-03
