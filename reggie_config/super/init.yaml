@@ -244,6 +244,16 @@ reggie:
             rock_island: Rock Island
 
         dept_head_checklist:
+          placeholders:
+            deadline: 1970-01-01
+            name: Checking Placeholder Registrations
+            description: >
+                We create placeholder registrations for volunteers and ask them to fill out the rest of
+                their information and also confirm that they'll be coming. We need our department heads
+                to review the unclaimed badges for their departments to check for any essential volunteers
+                who haven't claimed their badges.
+            path: /dept_checklist/placeholders?department_id={department_id}
+
           creating_shifts:
             deadline: 1970-01-01
             description: >
@@ -280,16 +290,6 @@ reggie:
                 those dates.
             path: /dept_checklist/hotel_requests?department_id={department_id}
 
-          placeholders:
-            deadline: 1970-01-01
-            name: Checking Placeholder Registrations
-            description: >
-                We create placeholder registrations for volunteers and ask them to fill out the rest of
-                their information and also confirm that they'll be coming. We need our department heads
-                to review the unclaimed badges for their departments to check for any essential volunteers
-                who haven't claimed their badges.
-            path: /dept_checklist/placeholders?department_id={department_id}
-
           # Turned off for Super 2020 as Tuber does not have the relevant page
           #hotel_eligible:
           #  deadline: 1970-01-01
@@ -302,24 +302,26 @@ reggie:
             name: Tech Requirements
             description: What do you need in terms of laptops, projectors, cables, internet access, etc?
             path: /dept_checklist/tech_requirements?department_id={department_id}
-
-          guidebook_schedule:
+            
+          printed_signs:
             deadline: 1970-01-01
-            name: Schedule for Guidebook
-            description: Make sure your public-facing events or open hours are on our Uber schedule so they can be exported to Guidebook.
-            path: /dept_checklist/guidebook_schedule?department_id={department_id}
+            name: Room Signage
+            description: Other than a sign for your area, what printed coroplast signs or banners do you need?
+            path: /dept_checklist/printed_signs?department_id={department_id}
 
           logistics:
             deadline: 1970-01-01
             name: Logistics Needs
             description: What do you need brought from the warehouse?
             path: /dept_checklist/logistics?department_id={department_id}
-
-          printed_signs:
+            
+          mediatron:
             deadline: 1970-01-01
-            name: Room Signage
-            description: Other than a sign for your area, what printed coroplast signs or banners do you need?
-            path: /dept_checklist/printed_signs?department_id={department_id}
+            name: Mediatron! Shot List
+            description: >
+                If you have something especially cool happening that you would like Mediatron! to capture, let us know 
+                here so they can do their best to get your event on their schedule. For detailed or special requests, 
+                please contact mediatron@magfest.org.
 
           office_supplies:
             deadline: 1970-01-01
@@ -330,6 +332,12 @@ reggie:
                 you will get 1). If you need a very specific office item, you will need to purchase it yourself using your 
                 department's budget. Note 1: STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
                 Anything more than 50 pages needs to go into 'Bulk Print Jobs.' Note 2: A ream of paper is 500 sheets.
+                
+          guidebook_schedule:
+            deadline: 1970-01-01
+            name: Schedule for Guidebook
+            description: Make sure your public-facing events or open hours are on our Uber schedule so they can be exported to Guidebook.
+            path: /dept_checklist/guidebook_schedule?department_id={department_id}
             
           social_media:
             deadline: 1970-01-01
@@ -338,14 +346,6 @@ reggie:
                 If you have a guest or event that you believe is worth promoting on social media beforehand, let us know! 
                 For detailed or special requests, please contact socialmedia@magfest.org. You can also make requests in 
                 #socialmedia-requests on Slack.
-                
-          mediatron:
-            deadline: 1970-01-01
-            name: Mediatron! Shot List
-            description: >
-                If you have something especially cool happening that you would like Mediatron! to capture, let us know 
-                here so they can do their best to get your event on their schedule. For detailed or special requests, 
-                please contact mediatron@magfest.org.
                 
           bulk_print_jobs:
             deadline: 1970-01-01
