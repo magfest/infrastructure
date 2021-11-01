@@ -257,6 +257,8 @@ reggie:
           3: staffing/volunteer_agreement_item.html
 #          4: staffing/hotel_item.html
           4: staffing/food_item.html
+          5: staffing/emergency_procedures_item.html
+          6: staffing/credits_item.html
 
         mivs_checklist:
           core_hours:
