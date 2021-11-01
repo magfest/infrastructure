@@ -158,12 +158,17 @@ reggie:
           4: 700
 
         age_groups:
+          under_6:
+            desc: "Under 5"
+            min_age: 0
+            max_age: 4
+            can_register: False
+
           under_12:
-            desc: "Between 6 and 12"
-            min_age: 6
+            desc: "Between 5 and 12"
+            min_age: 5
             max_age: 11
             can_volunteer: False
-            can_register: False
 
           under_13:
             desc: "12"
