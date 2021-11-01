@@ -216,10 +216,11 @@ reggie:
             salad: Prefer salad instead of sandwich
 
           food_restriction:
-            gluten: No gluten
-            pork: No pork
-            nuts: No nuts
-            vegan: Vegetarian/Vegan
+            dairy: No Dairy
+            gluten: No Gluten
+            nuts: No Nuts
+            veggie: Vegetarian
+            vegan: Vegan
 
           presentation:
             basic: Lecture
