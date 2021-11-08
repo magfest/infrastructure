@@ -16,6 +16,7 @@ reggie:
         season_stock: 230
         shared_kickin_stocks: False
         groups_enabled: False
+        blank_staff_badges: 200
         
         event_year: 2022
         event_qr_id: sm22
