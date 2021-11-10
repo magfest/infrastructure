@@ -9,3 +9,7 @@ reggie:
           shifts_created: 2019-10-27
           dealer_reg_start: 2020-08-16 20
           mivs_start: 2019-08-31
+        volunteer_checklist:
+          2: staffing/shirt_item.html
+          3: staffing/volunteer_agreement_item.html
+          4: staffing/food_item.html
