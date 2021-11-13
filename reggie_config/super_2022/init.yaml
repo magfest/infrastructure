@@ -17,6 +17,7 @@ reggie:
         shared_kickin_stocks: False
         groups_enabled: False
         blank_staff_badges: 200
+        shirts_per_staffer: 1
         
         event_year: 2022
         event_qr_id: sm22
@@ -86,7 +87,7 @@ reggie:
           dealer_reg_start: 2021-09-24 20
           dealer_reg_deadline: ''  # Disable automatic waitlist
           dealer_reg_shutdown: 2021-10-03
-          dealer_payment_due: 2021-11-01
+          dealer_payment_due: 2021-11-30
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
           dealer_reg_public: ''
 
