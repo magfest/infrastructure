@@ -106,14 +106,14 @@ reggie:
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2022-01-05 11
           band_info_deadline: ''  # Temporarily disable until new contracts are ready
-          band_taxes_deadline: 2021-10-02
-          band_bio_deadline: 2021-10-09
-          band_merch_deadline: 2021-10-09
-          band_charity_deadline: 2021-10-09
-          band_stage_plot_deadline: 2021-10-16
-          band_panel_deadline: 2021-10-23
-          band_mc_deadline: 2021-10-30
-          band_badges_deadline: 2021-11-13
+          band_taxes_deadline: 2021-11-20
+          band_bio_deadline: 2021-11-20
+          band_merch_deadline: 2021-11-20
+          band_charity_deadline: 2021-11-20
+          band_stage_plot_deadline: 2021-11-20
+          band_panel_deadline: 2021-11-20
+          band_mc_deadline: 2021-11-20
+          band_badges_deadline: 2021-11-20
           band_rehearsal_deadline: 2021-11-27
           
           guest_panel_deadline: 2021-10-21
@@ -139,7 +139,7 @@ reggie:
           one_days_enabled: False
           initial_attendee: 110
           dealer_badge_price: 80
-          group_discount: 10
+          group_discount: 0
           presell_one_days: False
 
           attendee:
@@ -262,7 +262,7 @@ reggie:
 
         mivs_checklist:
           core_hours:
-            deadline: 2021-11-06
+            deadline: 2021-11-22
             name: Accept Core Hours
             description: >
               In exchange for your space and two free badges, MIVS expects your studio to have your booth area
@@ -270,7 +270,7 @@ reggie:
               in your booth, during core hours.
 
           discussion:
-            deadline: 2021-11-07
+            deadline: 2021-11-23
             name: MIVS Discussion Group
             editable: True
             description: >
@@ -285,6 +285,12 @@ reggie:
 #              As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
 #              use and you are not allowed to transfer your reservation to someone else unless authorized
 #              by MAGFest. Dropping out of MIVS may cause your room to be canceled.
+
+          show_info:
+            deadline: 2021-11-24
+            name: Update Studio and Game Information
+            editable: True
+            description: Please make sure your studio and game information is up to date so it can be displayed on the MAGFest website.
           
           selling_at_event:
             start: 2021-12-01
@@ -308,12 +314,6 @@ reggie:
 #            name: MIVS Training
 #            editable: True
 #            description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
-
-          show_info:
-            deadline: 2021-12-30
-            name: Update Studio and Game Information
-            editable: True
-            description: Please make sure your studio and game information is up to date so it can be displayed on the MAGFest website.
           
         dept_head_checklist:
           placeholders:
