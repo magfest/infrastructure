@@ -101,7 +101,7 @@ reggie:
 
           panels_deadline: 2021-11-10
           
-          rock_island_deadline: 2021-11-13
+          rock_island_deadline: 2021-12-10
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2022-01-05 11
