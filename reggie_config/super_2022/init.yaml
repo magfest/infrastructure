@@ -277,14 +277,14 @@ reggie:
               The primary contact for your game will be added to a MIVS Google Discussion group. You may
               enter emails for any team members associated with your game who you think should also be added to the group.
 
-#          hotel_space:
-#            deadline: 2021-11-10
-#            name: Hotel Signups
-#            editable: True
-#            description: >
-#              As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
-#              use and you are not allowed to transfer your reservation to someone else unless authorized
-#              by MAGFest. Dropping out of MIVS may cause your room to be canceled.
+          hotel_space:
+            deadline: 2021-12-15
+            name: Hotel Signups
+            editable: True
+            description: >
+              As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
+              use and you are not allowed to transfer your reservation to someone else unless authorized
+              by MAGFest. Dropping out of MIVS may cause your room to be canceled.
 
           show_info:
             deadline: 2021-11-24
