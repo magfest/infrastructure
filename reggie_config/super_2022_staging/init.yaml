@@ -4,6 +4,9 @@ reggie:
   plugins:
     ubersystem:
       config:
+        shirt_stock: 10
+        supporter_stock: 10
+        season_stock: 10
         dates:
           prereg_open: 2019-09-10 15
           shifts_created: 2019-10-27
