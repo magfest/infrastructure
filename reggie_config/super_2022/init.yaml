@@ -57,6 +57,11 @@ reggie:
         
         mits_badges_per_team: 2
         mits_email: "MAGFest Indie Tabletop Showcase <mits@magfest.org>"
+        
+        panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'mages_1', 'the_forge']
+        tabletop_locations: ['tabletop_indie', 'tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_panels', 
+                            'tabletop_ccg', 'pathfinder', 'ddal']
+        music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop', 'rock_island']
 
         dates:
           prereg_open: 2021-10-05 15
