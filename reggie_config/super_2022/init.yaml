@@ -51,7 +51,7 @@ reggie:
         mivs_start_year: 2013
         mivs_training_password: 2RugOrNot2Rug?ThatIsTheQuestion!
         mivs_handbook_url: https://docs.google.com/document/d/102ylB6tWLU4sGbduJ_VrBMfZwRzE3yerY075QD6Rnc0/
-        mivs_training_url: https://docs.google.com/forms/d/e/1FAIpQLScEkVeuytloaLTp41UIj9A42elk65YA4ptCbAN_gSyg0bp_ww/viewform
+        mivs_training_url: https://forms.gle/bMnYnth4D87EaCSL7
         mivs_selling_url: https://docs.google.com/forms/d/e/1FAIpQLSfxVM_ymIfWbetRfPkLiJmFuIbq-Ap0-W5Xt4xBRxJkHeIMuQ/viewform
         extra_donation_url: https://givebutter.com/magfest
         
@@ -376,12 +376,12 @@ reggie:
             editable: True
             description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
 
-#          training:
-#            start: 2021-12-26
-#            deadline: 2021-12-30
-#            name: MIVS Training
-#            editable: True
-#            description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
+          training:
+            start: 2021-12-22
+            deadline: 2021-12-30
+            name: MIVS Training
+            editable: True
+            description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
           
         dept_head_checklist:
           placeholders:
