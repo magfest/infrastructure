@@ -18,6 +18,8 @@ reggie:
         groups_enabled: False
         blank_staff_badges: 200
         shirts_per_staffer: 1
+        self_service_deferrals_open: True
+        merch_shipping_fee: 15
         
         event_year: 2022
         event_qr_id: sm22
