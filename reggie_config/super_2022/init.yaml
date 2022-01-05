@@ -20,6 +20,7 @@ reggie:
         shirts_per_staffer: 1
         self_service_deferrals_open: True
         merch_shipping_fee: 15
+        at_the_con: True
         
         event_year: 2022
         event_qr_id: sm22
