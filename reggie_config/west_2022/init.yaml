@@ -1,7 +1,7 @@
 __: merge-first
 
 
-{% macro extra_attendance_data() %}{% include 'west_2021/extra-attendance-data.json' %}{% endmacro %}
+{% macro extra_attendance_data() %}{% include 'west_2022/extra-attendance-data.json' %}{% endmacro %}
 
 reggie:
   extra_files:
@@ -24,7 +24,7 @@ reggie:
         
         techops_dept_checklist_form_url: 'https://docs.google.com/forms/d/e/1FAIpQLSdXG4veibh11LR3FvFte_LxXuASys9IWbnkLNNI0WjdvjDRYw/viewform'
         treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
-        expected_response: July 15, 2021
+        expected_response: July 15, 2022
         mivs_video_response_expected: "no later than September 17th"
         
         volunteer_placeholder_deadline: "October 25"
@@ -57,12 +57,12 @@ reggie:
           dealer_payment_due: 2022-06-30
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
-          band_info_deadline: 2021-06-03 # A/V RFC (deadline not tracked by Reggie)
-          band_stage_plot_deadline: 2021-06-03 # A/V RFC (deadline not tracked by Reggie)
-          band_bio_deadline: 2021-07-15
-          band_panel_deadline: 2021-08-04 # Should be <= panel_app_deadline
-          band_taxes_deadline: 2021-08-13
-          band_badges_deadline: 2021-09-01 # Should be <= placeholder_deadline
+          band_info_deadline: 2022-06-03 # A/V RFC (deadline not tracked by Reggie)
+          band_stage_plot_deadline: 2022-06-03 # A/V RFC (deadline not tracked by Reggie)
+          band_bio_deadline: 2022-07-15
+          band_panel_deadline: 2022-08-04 # Should be <= panel_app_deadline
+          band_taxes_deadline: 2022-08-13
+          band_badges_deadline: 2022-09-01 # Should be <= placeholder_deadline
           band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
           band_mc_deadline: "" # Starting with this off, we may turn it on.
           band_merch_deadline: "" # Rock Island not yet confirmed, not enough space in market for all bands
@@ -70,23 +70,23 @@ reggie:
 
           # WARNING - everything below this is set to a temporary value just so
           #           that we won't get an exception at import time.
-          panels_deadline: 2021-06-30
-          panel_app_deadline: 2021-08-04 # Is this actually used?
-          mivs_round_one_deadline: 2021-08-01
-          mivs_round_two_start: 2021-08-01
-          mivs_round_two_deadline: 2021-08-01
-          mivs_judging_deadline: 2021-08-01
-          mivs_round_two_complete: 2021-08-01
-          guest_panel_deadline: 2021-08-01
-          guest_bio_deadline: 2021-08-01
-          guest_info_deadline: 2021-08-01
-          guest_taxes_deadline: 2021-08-01
-          guest_merch_deadline: 2021-08-01
-          guest_charity_deadline: 2021-08-01
-          guest_badges_deadline: 2021-08-01
-          guest_autograph_deadline: 2021-08-01
-          guest_interview_deadline: 2021-08-01
-          guest_travel_plans_deadline: 2021-08-01
+          panels_deadline: 2022-06-30
+          panel_app_deadline: 2022-08-04 # Is this actually used?
+          mivs_round_one_deadline: 2022-08-01
+          mivs_round_two_start: 2022-08-01
+          mivs_round_two_deadline: 2022-08-01
+          mivs_judging_deadline: 2022-08-01
+          mivs_round_two_complete: 2022-08-01
+          guest_panel_deadline: 2022-08-01
+          guest_bio_deadline: 2022-08-01
+          guest_info_deadline: 2022-08-01
+          guest_taxes_deadline: 2022-08-01
+          guest_merch_deadline: 2022-08-01
+          guest_charity_deadline: 2022-08-01
+          guest_badges_deadline: 2022-08-01
+          guest_autograph_deadline: 2022-08-01
+          guest_interview_deadline: 2022-08-01
+          guest_travel_plans_deadline: 2022-08-01
 
         badge_prices:
           initial_attendee: 85
@@ -141,11 +141,11 @@ reggie:
             
         dept_head_checklist:
           assigned_volunteers:
-            deadline: 2021-10-22
+            deadline: 2022-10-22
             path: /jobs/staffers?department_id={department_id}
 
           creating_shifts:
-            deadline: 2021-10-29
+            deadline: 2022-10-29
             description: >
                 STOPS is happy to assist you in creating shifts. Please let us know if you need assistance 
                 with this step. If you want us to import last year's shifts, please email stops@magwest.org. 
@@ -225,7 +225,7 @@ reggie:
                 it yourself using your department's budget.
           postcon_hours:
             name: (After the Event) Marking + Rating Shifts
-            deadline: 2021-11-13
+            deadline: 2022-11-13
             path: /jobs/signups?department_id={department_id}
             description: >
                 Please go through your volunteers' shifts carefully. This ensures that they receive the appropriate perks, 
