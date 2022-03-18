@@ -8,23 +8,29 @@ reggie:
 
     ubersystem:
       config:
-        organization_name: MAGFest INC
+        organization_name: MAGFest, Inc.
         event_name: MAGWest
         event_timezone: US/Pacific
         event_venue: "DoubleTree by Hilton, San Jose"
-        event_venue_address: "2050 Gateway Place, San Jose, CA 95110"
+        event_venue_address: "2050 Gateway Pl, San Jose, CA 95110"
         
         api_enabled: true
-        mivs_enabled: true
+        mivs_enabled: false
         panels_enabled: true
         kiosk_cc_enabled: true
-        attractions_enabled: false
+        attractions_enabled: true
         shift_custom_badges: false
         separate_staff_merch: false
         collect_extra_donation: true
         collect_exact_birthdate: true
         badge_promo_codes_enabled: true
         volunteer_agreement_enabled: true
+        use_checkin_barcode: true
+        
+        consent_form_url: ''
+        contact_url: 'mailto:contact@magwest.org'
+        code_of_conduct_url: 'https://www.magwest.org/codeofconduct/'
+        prereg_faq_url: 'https://www.magwest.org/faq/'
 
         min_group_size: 5
         min_group_addition: 3
