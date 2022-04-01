@@ -140,43 +140,39 @@ reggie:
             group: "I have a Groupon to redeem at the registration desk"
             
         dept_head_checklist:
+          placeholders:
+            deadline: 2022-06-01
+
           assigned_volunteers:
-            deadline: 2022-10-22
+            deadline: 2022-06-01
             path: /jobs/staffers?department_id={department_id}
 
           creating_shifts:
-            deadline: 2022-10-29
+            deadline: 2022-06-15
             description: >
                 STOPS is happy to assist you in creating shifts. Please let us know if you need assistance 
                 with this step. If you want us to import last year's shifts, please email stops@magwest.org. 
                 You will still need to approve these via the checklist after the import.
             path: /jobs/index?department_id={department_id}
             
-          social_media:
-            deadline: ''
-            full_description: >
-                If you have a guest or event that you believe is worth promoting on social media beforehand, 
-                let us know! For detailed or special requests, please contact socialmedia@magfest.org or post 
-                in #socialmedia-requests in Slack.
+          hotel_setup:
+            deadline: 2022-06-22
+            
+          tech_requirements:
+            deadline: 2022-06-22
             
           approve_setup_teardown:
             name: Approve/Decline Additional Hotel Nights
-            deadline: ''
+            deadline: 2022-07-06
             description: >
                 Many staffers want to work setup and teardown shifts rather than work during the event. We have 
                 more volunteers than we need to do this, so we require DH approval of volunteers who need hotel 
                 space for those dates.
             path: /hotel/requests?department_id={department_id}
             
-          placeholders:
-            deadline: ''
-            
-          hotel_setup:
-            deadline: ''
-            
           printed_signs:
             name: Room Signage
-            deadline: ''
+            deadline: 2022-07-13
             description: Other than a sign for your area, what printed coroplast signs or banners do you need?
             full_description: >
                 Signage comes in two types: 12"x18" coroplast and 24"x36" coroplast. All attendee-facing rooms will automatically 
@@ -193,29 +189,22 @@ reggie:
                 that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
                 Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
             
-          logistics:
-            deadline: ''
-            
-          tech_requirements:
-            deadline: ''
-            
           mediatron:
-            deadline: ''
+            deadline: 2022-07-13
             full_description: >
                 If you have something especially cool happening that you would like Mediatron! to capture, let us know here so 
                 they can do their best to get your event on their schedule. For detailed or special requests, please contact 
                 mediatron@magwest.org.
-            
-          bulk_print_jobs:
-            deadline: ''
-            full_description: >
-                STOPS has a printer for small jobs (less than 50 pages). Anything more than 50 pages should go 
-                here! For EACH item you need printed, please include a link to the document and the number of copies.
-          treasury:
-            deadline: ''
-            
+                
+          ppe_requests:
+            deadline: 2022-07-20
+            name: Bulk PPE & Sanitizing Supplies
+            description: >
+              MAGFest is providing basic PPE for departments for Super 2022. Please let us know what you need and we will do our best to accommodate.
+            path: /dept_checklist/ppe_requests?department_id={department_id}
+                
           office_supplies:
-            deadline: ''
+            deadline: 2022-07-20
             description: Do you need any paper, pens, sharpies, whiteboards, scissors, staplers, etc?
             full_description: >
                 STOPS can provide the following office supplies: pens, sharpies, paper, whiteboard, whiteboard 
@@ -223,13 +212,37 @@ reggie:
                 WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don't give 
                 a quantity, you will get 1). If you need a very specific office item, you will need to purchase 
                 it yourself using your department's budget.
+                
+          logistics:
+            deadline: ''
+                
+          guidebook_schedule:
+            deadline: 2022-08-03
+            
+          bulk_print_jobs:
+            deadline: 2022-08-03
+            full_description: >
+                STOPS has a printer for small jobs (less than 50 pages). Anything more than 50 pages should go 
+                here! For EACH item you need printed, please include a link to the document and the number of copies.
+                
+          treasury:
+            deadline: 2022-08-03
+                
+          social_media:
+            deadline: 2022-08-10
+            full_description: >
+                If you have a guest or event that you believe is worth promoting on social media beforehand, 
+                let us know! For detailed or special requests, please contact socialmedia@magfest.org or post 
+                in #socialmedia-requests in Slack.
+
           postcon_hours:
             name: (After the Event) Marking + Rating Shifts
-            deadline: 2022-11-13
+            deadline: 2022-08-31
             path: /jobs/signups?department_id={department_id}
             description: >
                 Please go through your volunteers' shifts carefully. This ensures that they receive the appropriate perks, 
                 are imported as staff next year.
+
         volunteer_checklist:
           2: staffing/food_item.html
           3: staffing/shirt_item.html
