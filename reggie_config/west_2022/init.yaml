@@ -218,6 +218,9 @@ reggie:
                 
           guidebook_schedule:
             deadline: 2022-08-03
+            name: Schedule for Guidebook
+            description: Make sure your public-facing events or open hours are on our Uber schedule so they can be exported to Guidebook.
+            path: /dept_checklist/guidebook_schedule?department_id={department_id}
             
           bulk_print_jobs:
             deadline: 2022-08-03
