@@ -32,7 +32,6 @@ reggie:
         volunteer_food_deadline: "June 23"
         volunteer_checklist_deadline: "August 4"
         emergency_procedures_deadline: "August 4"
-        hotel_requests_url: ""
 
         dates:
           epoch: 2022-08-19 08
