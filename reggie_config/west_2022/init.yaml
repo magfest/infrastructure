@@ -30,7 +30,6 @@ reggie:
         
         volunteer_placeholder_deadline: "June 16"
         volunteer_food_deadline: "June 23"
-        volunteer_shirt_deadline: "June 23"
         volunteer_checklist_deadline: "August 4"
         emergency_procedures_deadline: "August 4"
         hotel_requests_url: ""
@@ -44,7 +43,8 @@ reggie:
           placeholder_deadline: 2022-08-19
           prereg_open: 2022-05-31
           shifts_created: 2022-06-16
-          shirt_deadline: 2022-06-23 00
+          shirt_deadline: 2022-06-23
+          volunteer_shirt_deadline: 2022-06-23
           supporter_deadline: 2022-07-15
           room_deadline: 2022-06-30
           drop_shifts_deadline: 2022-08-11
