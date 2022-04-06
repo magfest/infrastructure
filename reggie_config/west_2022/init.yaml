@@ -28,22 +28,27 @@ reggie:
         expected_response: "June 30th"
         mivs_video_response_expected: "no later than September 17th"
         
-        volunteer_placeholder_deadline: "October 25"
-        volunteer_checklist_deadline: "November 3"
+        volunteer_placeholder_deadline: "June 16"
+        volunteer_food_deadline: "June 23"
+        volunteer_shirt_deadline: "June 23"
+        volunteer_checklist_deadline: "August 4"
+        emergency_procedures_deadline: "August 4"
+        hotel_requests_url: ""
 
         dates:
           epoch: 2022-08-19 08
           eschaton: 2022-08-21 15
           badge_price_waived: 2022-08-21 12
-          prereg_takedown: 2022-08-18 00
-          group_prereg_takedown: 2022-08-18 00
-          placeholder_deadline: 2022-08-19 00
+          prereg_takedown: 2022-08-18
+          group_prereg_takedown: 2022-08-18
+          placeholder_deadline: 2022-08-19
           prereg_open: 2022-05-31
           shifts_created: 2022-06-16
           shirt_deadline: 2022-06-23 00
           supporter_deadline: 2022-07-15
           room_deadline: 2022-06-30
-          uber_takedown: 2022-08-18 00
+          drop_shifts_deadline: 2022-08-11
+          uber_takedown: 2022-08-18
 
           printed_badge_deadline: 2022-07-15
 
