@@ -21,10 +21,11 @@ reggie:
         at_the_con: False
         post_con: False
         send_sms: False
+        emergency_procedures_enabled: True
         
         techops_dept_checklist_form_url: 'https://docs.google.com/forms/d/e/1FAIpQLSdXG4veibh11LR3FvFte_LxXuASys9IWbnkLNNI0WjdvjDRYw/viewform'
         treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
-        expected_response: July 15, 2022
+        expected_response: "June 30th"
         mivs_video_response_expected: "no later than September 17th"
         
         volunteer_placeholder_deadline: "October 25"
@@ -34,8 +35,8 @@ reggie:
           epoch: 2022-08-19 08
           eschaton: 2022-08-21 15
           badge_price_waived: 2022-08-21 12
-          prereg_takedown: 2022-08-19 00
-          group_prereg_takedown: 2022-08-19 00
+          prereg_takedown: 2022-08-18 00
+          group_prereg_takedown: 2022-08-18 00
           placeholder_deadline: 2022-08-19 00
           prereg_open: 2022-05-31
           shifts_created: 2022-06-16
@@ -70,8 +71,8 @@ reggie:
 
           # WARNING - everything below this is set to a temporary value just so
           #           that we won't get an exception at import time.
-          panels_deadline: 2022-06-30
-          panel_app_deadline: 2022-08-04 # Is this actually used?
+          panels_deadline: 2022-05-01
+          panel_app_deadline: 2022-05-01 # Is this actually used?
           mivs_round_one_deadline: 2022-08-01
           mivs_round_two_start: 2022-08-01
           mivs_round_two_deadline: 2022-08-01

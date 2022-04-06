@@ -31,6 +31,7 @@ reggie:
         contact_url: 'mailto:contact@magwest.org'
         code_of_conduct_url: 'https://www.magwest.org/codeofconduct/'
         prereg_faq_url: 'https://www.magwest.org/faq/'
+        covid_policies_url: 'https://magwest.org/covid'
 
         min_group_size: 5
         min_group_addition: 3
