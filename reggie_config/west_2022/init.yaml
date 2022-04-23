@@ -101,9 +101,9 @@ reggie:
           presell_one_days: False
 
           single_day:
-            Friday: 0
-            Saturday: 0
-            Sunday: 0
+            Friday: 45
+            Saturday: 55
+            Sunday: 30
           
         table_prices:
           default_price: 200
