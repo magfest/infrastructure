@@ -1,10 +1,17 @@
 __: merge-first
 
 reggie:
+  sideboard:
+    priority_plugins: ['uber','covid']
+
   plugins:
     magwest:
       name: magwest
       source: https://github.com/magfest/magwest.git
+      
+    covid:
+      name: covid
+      source: https://github.com/magfest/covid.git
 
     ubersystem:
       config:
