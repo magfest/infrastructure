@@ -5,6 +5,10 @@ reggie:
     magwest:
       name: magwest
       source: https://github.com/magfest/magwest.git
+      
+    covid:
+      name: covid
+      source: https://github.com/magfest/covid.git
 
     ubersystem:
       config:
