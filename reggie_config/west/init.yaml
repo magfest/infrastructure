@@ -52,6 +52,7 @@ reggie:
         security_email: "MAGWest Security <security@magwest.org>"
         ROOM_EMAIL_SENDER: "MAGWest Staff Rooms <stops@magwest.org>" # This is all-caps in configspec.ini and I ain't messing with it
         mivs_email: "MAGWest Indies <indies@magwest.org>"
+        techops_email: "MAGWest TechOps <techops@magwest.org>"
 
         regdesk_email: "MAGWest Registration <registration@magwest.org>"
         regdesk_email_signature: " - MAGWest Registration Department"
