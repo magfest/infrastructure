@@ -12,6 +12,7 @@ reggie:
     covid:
       name: covid
       source: https://github.com/magfest/covid.git
+      branch: main
 
     ubersystem:
       config:
