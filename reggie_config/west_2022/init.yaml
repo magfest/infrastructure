@@ -11,9 +11,9 @@ reggie:
     ubersystem:
       branch: master
       config:
-        shirt_stock: 0
-        supporter_stock: 0
-        season_stock: 0
+        shirt_stock: 80
+        supporter_stock: 100
+        season_stock: 30
         shared_kickin_stocks: False
         event_year: 2022
         max_dealers: 5
@@ -23,8 +23,11 @@ reggie:
         send_sms: False
         emergency_procedures_enabled: True
         
-        techops_dept_checklist_form_url: 'https://docs.google.com/forms/d/e/1FAIpQLSdXG4veibh11LR3FvFte_LxXuASys9IWbnkLNNI0WjdvjDRYw/viewform'
-        treasury_dept_checklist_form_url: 'https://docs.google.com/spreadsheets/d/1QlnYaZq5MMvpI8-NQ4m_TdVUfmswfT7GLdjciQcLEBM/edit?usp=sharing'
+        techops_dept_checklist_form_url: 'https://forms.gle/rJPSwmrmW2GUfHW89'
+        treasury_dept_checklist_form_url: 'https://forms.gle/vS26HZQiFaTjvuwn8'
+        hotel_setup_form_url: 'https://forms.gle/SSj2AWx7uqeXoofW9'
+        office_supplies_form_url: 'https://forms.gle/2YnYQD5KGRYyc8QT6'
+        ppe_form_url: 'https://forms.gle/5HWjTmuVpXxvWH5K6'
         expected_response: "June 30th"
         mivs_video_response_expected: "no later than September 17th"
         
@@ -44,7 +47,7 @@ reggie:
           shifts_created: 2022-06-16
           shirt_deadline: 2022-06-23
           volunteer_shirt_deadline: 2022-06-23
-          supporter_deadline: 2022-07-15
+          supporter_deadline: 2022-06-30
           room_deadline: 2022-06-30
           drop_shifts_deadline: 2022-08-11
           uber_takedown: 2022-08-18
@@ -132,7 +135,7 @@ reggie:
             link: ../static_views/supporter.html
 
           super_supporter:
-            name: Mayor's Package
+            name: Jet Tier
             icon: ../static/icons/iconmayor.png
             description: Crazy Exclusive Swag
             link: ../static_views/super.html
@@ -178,21 +181,20 @@ reggie:
           printed_signs:
             name: Room Signage
             deadline: 2022-07-13
-            description: Other than a sign for your area, what printed coroplast signs or banners do you need?
+            description: Other than a sign for your area, what printed signage do you need?
             full_description: >
-                Signage comes in two types: 12"x18" coroplast and 24"x36" coroplast. All attendee-facing rooms will automatically 
-                receive a 24"x36" coroplast for outside of the room.
-                <br/><br/>Please submit requests for additional signage here, and be sure to specify FOR EACH SIGN:
-                <br/>Number needed
-                <br/>Size of sign
-                <br/>Primary text of sign
-                <br/>Sub text of sign (if applicable)
-                <br/>Intended placement location for sign
-                <br/>Link to any custom artwork that is needed
-                <br/>Any additional notes
-                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else 
-                that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
-                Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
+                All attendee-facing rooms will automatically receive a 24"x36” sign. Please submit requests for additional signage here, including any department-specific COVID reminders.
+                <br/><br/>We will compare all requests against our known signage inventory, so please include your complete list of needs.
+                <br/><br/>Signage comes in two types: 12"x18" coroplast and 24"x36" coroplast. Be sure to specify FOR EACH SIGN:
+                <ul><li>Number needed</li>
+                <li>Size of sign</li>
+                <li>Primary text of sign</li>
+                <li>Sub text of sign (if applicable)</li>
+                <li>Intended placement location for sign</li>
+                <li>Link to any custom artwork that is needed</li>
+                <li>Any additional notes</li></ul>
+                <br/>Event leadership reserves the right to reduce or decline requests according to their discretion. We will contact you if significant changes to your order are necessary.
+                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
             
           mediatron:
             deadline: 2022-07-13
@@ -205,26 +207,27 @@ reggie:
             deadline: 2022-07-20
             name: Bulk PPE & Sanitizing Supplies
             description: >
-              MAGFest is providing basic PPE for departments for Super 2022. Please let us know what you need and we will do our best to accommodate.
+              MAGFest is providing basic PPE for departments for MAGWest 2022. Please let us know what you need and we will do our best to accommodate.
             path: /dept_checklist/ppe_requests?department_id={department_id}
                 
           office_supplies:
             deadline: 2022-07-20
-            description: Do you need any paper, pens, sharpies, whiteboards, scissors, staplers, etc?
-            full_description: >
-                STOPS can provide the following office supplies: pens, sharpies, paper, whiteboard, whiteboard 
-                markers, sticky notes, scissors, scotch tape, staplers, clipboards, flip charts/easel pads. List 
-                WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don't give 
-                a quantity, you will get 1). If you need a very specific office item, you will need to purchase 
-                it yourself using your department's budget.
+            description: >
+                STOPS can provide the following office supplies: pens, sharpies, paper, whiteboard, whiteboard markers, 
+                sticky notes, scissors, painters tape, scotch tape, staplers, clipboards, flip charts/easel pads. List 
+                WHICH ITEMS you need and HOW MANY you need of each item (if you request an item but don't give a quantity, 
+                you will get 1). If you need a very specific office item, you will need to purchase it yourself using your 
+                department's budget. Note 1: STOPS has a paper cutter and a printer for small jobs (less than 50 pages). 
+                Anything more than 50 pages needs to go into 'Bulk Print Jobs.' Note 2: A ream of paper is 500 sheets.
+            path: /dept_checklist/office_supplies?department_id={department_id}
                 
           logistics:
             deadline: ''
                 
           guidebook_schedule:
             deadline: 2022-08-03
-            name: Schedule for Guidebook
-            description: Make sure your public-facing events or open hours are on our Uber schedule so they can be exported to Guidebook.
+            name: Public-Facing Schedule
+            description: Make sure your public-facing events or open hours are on our Uber schedule so they can be exported to our attendee schedule.
             path: /dept_checklist/guidebook_schedule?department_id={department_id}
             
           bulk_print_jobs:
@@ -234,7 +237,7 @@ reggie:
                 here! For EACH item you need printed, please include a link to the document and the number of copies.
                 
           treasury:
-            deadline: 2022-08-03
+            deadline: 2022-07-27
                 
           social_media:
             deadline: 2022-08-10
