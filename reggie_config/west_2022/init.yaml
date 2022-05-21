@@ -183,7 +183,7 @@ reggie:
             deadline: 2022-07-13
             description: Other than a sign for your area, what printed signage do you need?
             full_description: >
-                All attendee-facing rooms will automatically receive a 24"x36” sign. Please submit requests for additional signage here, including any department-specific COVID reminders.
+                <div class="text-left">All attendee-facing rooms will automatically receive a 24"x36” sign. Please submit requests for additional signage here, including any department-specific COVID reminders.
                 <br/><br/>We will compare all requests against our known signage inventory, so please include your complete list of needs.
                 <br/><br/>Signage comes in two types: 12"x18" coroplast and 24"x36" coroplast. Be sure to specify FOR EACH SIGN:
                 <ul><li>Number needed</li>
@@ -194,7 +194,7 @@ reggie:
                 <li>Link to any custom artwork that is needed</li>
                 <li>Any additional notes</li></ul>
                 <br/>Event leadership reserves the right to reduce or decline requests according to their discretion. We will contact you if significant changes to your order are necessary.
-                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.
+                <br/><br/>Note: This checklist item is NOT for printed materials such as sign-up forms, waivers, or anything else that goes on standard office paper. STOPS has a paper cutter and a printer for small jobs (less than 50 pages). Anything more than 50 pages needs to go into the Bulk Print Jobs checklist item.</div>
             
           mediatron:
             deadline: 2022-07-13
