@@ -169,7 +169,7 @@ reggie:
             No thanks: 0
             T-Shirt Bundle: SHIRT_LEVEL
             Supporter Package: SUPPORTER_LEVEL
-            Mayor's Package: SEASON_LEVEL
+            Jet Tier: SEASON_LEVEL
             
         dept_head_checklist:
           creating_shifts:
