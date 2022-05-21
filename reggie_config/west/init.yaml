@@ -141,11 +141,13 @@ reggie:
             gluten: No gluten
             pork: No pork
             nuts: No nuts
-            vegan: Vegetarian/Vegan
+            dairy: No dairy
+            vegetarian: Vegetarian
+            vegan: Vegan
 
         integer_enums:
           shirt_level: 25
-          supporter_level: 75
+          supporter_level: 85
           season_level: 200
           
           shirt:
