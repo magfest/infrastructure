@@ -114,6 +114,19 @@ reggie:
           2: 100
           3: 200
           4: 275
+          
+        age_groups:
+          under_6:
+            desc: "Under 5"
+            min_age: 0
+            max_age: 4
+            can_register: False
+
+          under_13:
+            desc: "Between 5 and 13"
+            min_age: 5
+            max_age: 11
+            can_volunteer: False
 
         donation_tier_descriptions:
           no_thanks:
