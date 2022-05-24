@@ -43,7 +43,7 @@ reggie:
 
         min_group_size: 5
         min_group_addition: 3
-        shirts_per_staffer: 1
+        shirts_per_staffer: 0
         hours_for_shirt: 8
         max_badge_sales: 2000
         preassigned_badge_types: ["staff_badge", "contractor_badge"]
