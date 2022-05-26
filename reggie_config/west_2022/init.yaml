@@ -138,7 +138,7 @@ reggie:
           shirt:
             name: T-Shirt Bundle
             icon: ../static/icons/shirt.png
-            description: T-Shirt
+            description: T-Shirt Bundle
             link: ../static_views/tshirt.html
 
           supporter_package:
