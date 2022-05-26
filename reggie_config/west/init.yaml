@@ -37,7 +37,7 @@ reggie:
         
         consent_form_url: ''
         contact_url: 'mailto:contact@magwest.org'
-        code_of_conduct_url: 'https://www.magwest.org/codeofconduct/'
+        code_of_conduct_url: 'https://www.magwest.org/code-of-conduct'
         prereg_faq_url: 'https://www.magwest.org/faq/'
         covid_policies_url: 'https://magwest.org/covid'
 
