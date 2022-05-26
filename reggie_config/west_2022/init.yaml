@@ -137,19 +137,19 @@ reggie:
 
           shirt:
             name: T-Shirt Bundle
-            icon: ../static/icons/iconshirt.png
+            icon: ../static/icons/shirt.png
             description: T-Shirt
             link: ../static_views/tshirt.html
 
           supporter_package:
             name: Supporter Package
-            icon: ../static/icons/iconsupporter.png
+            icon: ../static/icons/supporter.png
             description: Supporter Swag
             link: ../static_views/supporter.html
 
           super_supporter:
             name: Jet Tier
-            icon: ../static/icons/iconmayor.png
+            icon: ../static/icons/super.png
             description: Crazy Exclusive Swag
             link: ../static_views/super.html
 
