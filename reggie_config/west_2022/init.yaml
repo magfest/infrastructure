@@ -35,6 +35,9 @@ reggie:
         volunteer_food_deadline: "June 23"
         volunteer_checklist_deadline: "August 4"
         emergency_procedures_deadline: "August 4"
+        
+        require_dedicated_guest_table_presence: False
+        expected_rehearsal_response: ""
 
         dates:
           epoch: 2022-08-19 08
@@ -65,21 +68,23 @@ reggie:
           dealer_payment_due: 2022-06-30
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
-          band_info_deadline: 2022-06-03 # A/V RFC (deadline not tracked by Reggie)
-          band_stage_plot_deadline: 2022-06-03 # A/V RFC (deadline not tracked by Reggie)
-          band_bio_deadline: 2022-07-15
-          band_panel_deadline: 2022-08-04 # Should be <= panel_app_deadline
-          band_taxes_deadline: 2022-08-13
-          band_badges_deadline: 2022-09-01 # Should be <= placeholder_deadline
-          band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
-          band_mc_deadline: "" # Starting with this off, we may turn it on.
-          band_merch_deadline: "" # Rock Island not yet confirmed, not enough space in market for all bands
+          band_info_deadline: "" # A/V RFC (deadline not tracked by Reggie)
+          band_stage_plot_deadline: 2022-07-23 # A/V RFC (deadline not tracked by Reggie)
+          band_bio_deadline: 2022-07-09
+          band_panel_deadline: 2022-07-23 # Should be <= panel_app_deadline
+          band_taxes_deadline: 2022-07-30
+          band_badges_deadline: 2022-08-06 # Should be <= placeholder_deadline
+          band_charity_deadline: 2022-08-06 # No info on any charity auction this year; starting with this off.
+          band_mc_deadline: 2022-08-06 # Starting with this off, we may turn it on.
+          band_merch_deadline: 2022-07-30 # Rock Island not yet confirmed, not enough space in market for all bands
+          band_autograph_deadline: ""
+          band_rehearsal_deadline: 2022-08-06
           rock_island_deadline: "" # Rock Island not yet confirmed.
 
           # WARNING - everything below this is set to a temporary value just so
           #           that we won't get an exception at import time.
           panels_deadline: 2022-05-15
-          panel_app_deadline: 2022-05-15 # Is this actually used?
+          panel_app_deadline: 2022-07-23 # Is this actually used?
           mivs_round_one_deadline: 2022-08-01
           mivs_round_two_start: 2022-08-01
           mivs_round_two_deadline: 2022-08-01
@@ -159,6 +164,9 @@ reggie:
 
           door_payment_method:
             group: "I have a Groupon to redeem at the registration desk"
+            
+          guest_merch:
+            own_table: "Selling merch"
             
         dept_head_checklist:
           placeholders:
