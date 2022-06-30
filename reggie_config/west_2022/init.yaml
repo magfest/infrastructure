@@ -65,7 +65,7 @@ reggie:
           # filled, as defined by DEALER_WAITLIST_CLOSED.
           dealer_reg_start: 2022-04-11
           dealer_reg_shutdown: 2022-05-15
-          dealer_payment_due: 2022-06-30
+          dealer_payment_due: 2022-07-31
           dealer_reg_deadline: ""  # Disable automatic waitlist
           dealer_waitlist_closed: ""  # If this is enabled, be sure to update the waitlist_closing.txt email
           band_info_deadline: "" # A/V RFC (deadline not tracked by Reggie)
