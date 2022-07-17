@@ -1,0 +1,15 @@
+__: merge-first
+
+reggie:
+  plugins:
+    ubersystem:
+      config:
+        at_the_con: False
+        shirt_stock: 10
+        supporter_stock: 10
+        season_stock: 10
+        dates:
+          prereg_open: 2019-09-10 15
+          shifts_created: 2019-10-27
+          dealer_reg_start: 2020-08-16 20
+          mivs_start: 2019-08-31
