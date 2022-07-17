@@ -68,7 +68,7 @@ reggie:
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop', 'rock_island']
 
         dates:
-          prereg_open: 2022-10-05 15
+          prereg_open: 2023-10-05 15
           prereg_hotel_eligibility_cutoff: 2022-10-12
           shifts_created: 2022-10-31
           room_deadline: 2022-11-12
@@ -94,7 +94,7 @@ reggie:
           # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
-          dealer_reg_start: 2022-09-24 20
+          dealer_reg_start: 2023-09-24 20
           dealer_reg_deadline: ''  # Disable automatic waitlist
           dealer_reg_shutdown: 2022-10-03
           dealer_payment_due: 2022-11-30
