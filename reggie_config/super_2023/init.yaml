@@ -21,7 +21,7 @@ reggie:
         self_service_deferrals_open: True
         merch_shipping_fee: 15
         at_the_con: False
-        post_con: True
+        post_con: False
         
         event_year: 2023
         event_qr_id: sm23
