@@ -8,7 +8,7 @@ redirect_from:
 
 ### 2022 Events
 * [Super MAGFest 2022 Jan 6-9](https://super2022.reggie.magfest.org/) (MAGFest 19)
-* [MAGWest 2022 Sep 19-21](https://west2022.reggie.magfest.org/) (MAGWest 6)
+* [MAGWest 2022 Aug 19-21](https://west2022.reggie.magfest.org/) (MAGWest 6)
 
 ### 2021 Events
 * [MAGWest 2021 Nov 4-6](https://west2021.reggie.magfest.org/) (MAGWest 5)
