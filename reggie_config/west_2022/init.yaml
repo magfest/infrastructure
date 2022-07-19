@@ -75,8 +75,8 @@ reggie:
           band_taxes_deadline: 2022-07-30
           band_badges_deadline: 2022-08-06 # Should be <= placeholder_deadline
           band_charity_deadline: "" # No info on any charity auction this year; starting with this off.
-          band_mc_deadline: 2022-08-06 # Starting with this off, we may turn it on.
-          band_merch_deadline: 2022-07-30 # Rock Island not yet confirmed, not enough space in market for all bands
+          band_mc_deadline: 2022-08-06
+          band_merch_deadline: 2022-07-30
           band_autograph_deadline: ""
           band_rehearsal_deadline: 2022-08-06
           rock_island_deadline: "" # Rock Island not yet confirmed.
@@ -92,14 +92,14 @@ reggie:
           mivs_round_two_complete: 2022-08-01
           guest_panel_deadline: 2022-08-01
           guest_bio_deadline: 2022-08-01
-          guest_info_deadline: 2022-08-01
+          guest_info_deadline: ""
           guest_taxes_deadline: 2022-08-01
           guest_merch_deadline: 2022-08-01
-          guest_charity_deadline: 2022-08-01
+          guest_charity_deadline: ""
           guest_badges_deadline: 2022-08-01
-          guest_autograph_deadline: 2022-08-01
+          guest_autograph_deadline: ""
           guest_interview_deadline: 2022-08-01
-          guest_travel_plans_deadline: 2022-08-01
+          guest_travel_plans_deadline: ""
 
         badge_prices:
           initial_attendee: 85
