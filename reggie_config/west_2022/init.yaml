@@ -11,9 +11,9 @@ reggie:
     ubersystem:
       branch: master
       config:
-        shirt_stock: 80
-        supporter_stock: 100
-        season_stock: 30
+        shirt_stock: 100
+        supporter_stock: 50
+        season_stock: 50
         shared_kickin_stocks: False
         event_year: 2022
         max_dealers: 5
@@ -48,9 +48,9 @@ reggie:
           placeholder_deadline: 2022-08-19
           prereg_open: 2022-05-25
           shifts_created: 2022-06-16
-          shirt_deadline: 2022-06-23
+          shirt_deadline: ""
           volunteer_shirt_deadline: 2022-06-23
-          supporter_deadline: 2022-06-30
+          supporter_deadline: ""
           room_deadline: 2022-07-08
           drop_shifts_deadline: 2022-08-11
           uber_takedown: 2022-08-18
