@@ -75,6 +75,7 @@ reggie:
 
         badge_ranges:
           staff_badge: [7, 999]
+          contractor_badge: [7, 999]
           guest_badge: [2000, 9999]
           attendee_badge: [2000, 9999]
           one_day_badge: [2000, 9999]
