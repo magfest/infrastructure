@@ -104,6 +104,7 @@ reggie:
         privacy_policy_url: 'https://super.magfest.org/privacy-policy'
         jira_enabled: true
         attendee_accounts_enabled: false
+        blank_staff_badges: 50
 
         panels_twilio_number: '+12405415595'
         tabletop_twilio_number: '+15713646627'
