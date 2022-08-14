@@ -102,9 +102,9 @@ reggie:
           dealer_reg_public: ''
 
           mivs_start: 2022-08-15 09
-          mivs_deadline: 2022-09-06
-          mivs_judging_deadline: 2022-10-03
-          mivs_results_reveal: 2022-10-28
+          mivs_deadline: 2022-09-11
+          mivs_judging_deadline: 2022-10-09
+          mivs_results_reveal: 2022-10-30
           
           mits_submission_deadline: 2022-11-01
           mits_editing_deadline: 2022-12-28
