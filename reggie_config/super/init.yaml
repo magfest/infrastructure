@@ -29,7 +29,8 @@ reggie:
         row_load_limit: 750
 
         volunteer_perks_url: 'https://www.notion.so/magfest/MAGFest-Super-Perks-f001221c31484ef4957a6513c54a6fd6'
-        covid_policies_url: 'https://super.magfest.org/covid'
+        covid_policies_url: ''
+        prior_covid_policies_url: 'https://super.magfest.org/covid'
 
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'tabletop_panels', 'the_forge',
                       'autographs', 'autographs_1']
