@@ -5,6 +5,11 @@ reggie:
     magprime:
       name: magprime
       source: https://github.com/magfest/magprime.git
+      
+    covid:
+      name: covid
+      source: https://github.com/magfest/covid.git
+      branch: main
 
     ubersystem:
       config:
