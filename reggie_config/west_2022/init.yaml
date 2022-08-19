@@ -159,12 +159,6 @@ reggie:
             link: ../static_views/super.html
 
         enums:
-          new_reg_payment_method:
-            group: Groupon
-
-          door_payment_method:
-            group: "I have a Groupon to redeem at the registration desk"
-            
           guest_merch:
             own_table: "Selling merch"
             
