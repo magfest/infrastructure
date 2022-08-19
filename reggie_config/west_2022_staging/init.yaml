@@ -4,6 +4,7 @@ reggie:
   plugins:
     ubersystem:
       config:
+        at_the_con: True
         post_con: False
 
         dates:
