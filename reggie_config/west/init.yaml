@@ -79,6 +79,7 @@ reggie:
           guest_badge: [2000, 9999]
           attendee_badge: [2000, 9999]
           one_day_badge: [2000, 9999]
+          child_badge: [2000, 9999]
 
         social_media: ["Facebook", "Twitter", "Instagram", "LinkedIn"]
 
@@ -95,6 +96,9 @@ reggie:
           linked_in: "LinkedIn page or username"
 
         enums:
+          badge:
+            child_badge: Minor
+
           ribbon:
             band: RockStar
             guest: Guest
