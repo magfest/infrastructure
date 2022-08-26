@@ -95,9 +95,9 @@ reggie:
           # sent in the days and weeks leading up to DEALER_PAYMENT_DUE.  All waitlisted dealers will
           # be emailed when the waitlist has been exhausted and all available positions have been
           # filled, as defined by DEALER_WAITLIST_CLOSED.
-          dealer_reg_start: 2023-08-24 20
+          dealer_reg_start: 2022-08-26 20
           dealer_reg_deadline: ''
-          dealer_reg_shutdown: 2022-08-25 20
+          dealer_reg_shutdown: 2022-08-27 20
           dealer_payment_due: 2022-11-30
           dealer_waitlist_closed: ''  # If this is enabled, be sure to update the waitlist_closing.txt email
           dealer_reg_public: ''
