@@ -151,7 +151,7 @@ reggie:
         badge_prices:
           one_days_enabled: False
           initial_attendee: 110
-          dealer_badge_price: 80
+          dealer_badge_price: 100
           group_discount: 0
           presell_one_days: False
 
@@ -167,10 +167,10 @@ reggie:
 
         table_prices:
           default_price: 350
-          1: 180
-          2: 300
-          3: 500
-          4: 700
+          1: 200
+          2: 350
+          3: 550
+          4: 800
 
         age_groups:
           under_6:
