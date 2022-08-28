@@ -176,6 +176,7 @@ reggie:
             museum: Museum
             makerspace: Makerspace
             magmoves: MAGMoves (the Arena)
+            tabletop: Tabletop
             
           noise_level:
             level_0: Level 0 (Just talking to the audience)
