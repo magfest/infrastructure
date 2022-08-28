@@ -67,9 +67,8 @@ reggie:
             MAGFest Marketplace Coordinator
 
         panels_email: MAGFest Panels <panels@magfest.org>
-        peglegs_email_signature: |
-            - Tom Hyre,
-            MAGFest Director of Panel Operations
+        panels_email_signature: |
+            - MAGFest Panels Department
 
         guest_email: MAGFest Guests <guests@magfest.org>
         guest_email_signature: |
@@ -169,6 +168,18 @@ reggie:
             nuts: No Nuts
             veggie: Vegetarian
             vegan: Vegan
+            
+          panel_dept:
+            panels: No Specific Department
+            mivs: Indie Developer Showcase
+            mages: MAGES
+            museum: Museum
+            
+          noise_level:
+            level_0: Level 0 (Just talking to the audience)
+            level_1: Level 1 (Showing video clips or playing prerecorded music)
+            level_2: Level 2 (Playing live instruments or singing)
+            level_3: Level 3 (Absolute chaos)
 
           presentation:
             basic: Lecture
@@ -184,7 +195,6 @@ reggie:
             advanced_av: Podcast/Vodcast Recording
             karaoke: Karaoke/Sing a Long
             movie: Movie Screening
-            mivs: Indie Developer Showcase
             other: Other
 
           guest_merch:
