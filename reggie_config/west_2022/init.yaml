@@ -18,8 +18,8 @@ reggie:
         event_year: 2022
         max_dealers: 5
         max_badge_sales: 2000
-        at_the_con: True
-        post_con: False
+        at_the_con: False
+        post_con: True
         send_sms: False
         emergency_procedures_enabled: True
         
