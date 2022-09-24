@@ -12,14 +12,14 @@ reggie:
       branch: super2023
       config:
         app_limit: 0
-        shirt_stock: 0 #950
-        supporter_stock: 0 #750
-        season_stock: 0 #375
+        shirt_stock: 950
+        supporter_stock: 750
+        season_stock: 250
         shared_kickin_stocks: False
-        groups_enabled: False
+        groups_enabled: True
         blank_staff_badges: 200
         shirts_per_staffer: 1
-        self_service_deferrals_open: True
+        self_service_deferrals_open: False
         merch_shipping_fee: 15
         at_the_con: False
         post_con: False
@@ -69,8 +69,8 @@ reggie:
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop', 'rock_island']
 
         dates:
-          prereg_open: 2023-12-31 15
-          prereg_hotel_eligibility_cutoff: 2022-10-12
+          prereg_open: 2022-09-28 15
+          prereg_hotel_eligibility_cutoff: 2022-10-05
           shifts_created: 2022-10-31
           room_deadline: 2022-11-12
           volunteer_shirt_deadline: 2022-11-05
@@ -150,16 +150,18 @@ reggie:
 
         badge_prices:
           one_days_enabled: False
-          initial_attendee: 110
+          initial_attendee: 125
           dealer_badge_price: 100
-          group_discount: 0
+          group_discount: 10
           presell_one_days: False
 
           attendee:
-            2022-12-31: 125
-            2023-01-07: 115
-            2023-01-08: 95
-            2023-01-09: 35
+            2022-10-31: 135
+            2022-11-30: 145
+            2022-12-31: 155
+            2023-01-05: 135
+            2023-01-06: 120
+            2023-01-07: 35
 
           stocks:
             attendee_badge: 23800
@@ -191,14 +193,14 @@ reggie:
 
         integer_enums:
           shirt_level: 35
-          supporter_level: 95
+          supporter_level: 99
           season_level: 200
 
           donation_tier:
             No thanks: 0
             T-Shirt Tier: SHIRT_LEVEL
-            Merch Me Plenty: SUPPORTER_LEVEL
-            Rip and Wear: 200
+            Brawler Tier: SUPPORTER_LEVEL
+            ULTIMATE Tier: SEASON_LEVEL
             
           shirt:
             - Unisex XS: 1
@@ -312,20 +314,20 @@ reggie:
           shirt:
             name: T-Shirt Tier
             icon: ../static/icons/shirt.png
-            description: Lanyard|T-Shirt|Event Pin
+            description: Exclusive Event T-Shirt|Exclusive Event Pin|Exclusive Full-Print Lanyard
             link: ../static_views/tshirt.html|../static_views/tshirt.html|../static_views/tshirt.html
 
           supporter:
-            name: Merch Me Plenty
+            name: Brawler Tier
             icon: ../static/icons/supporter.png
-            description: Health Kit Bag|Swadge|PLUS MORE!
-            link: ../static_views/supporter.html|../static_views/swadge.html|../static_views/supporter.html
+            description: Super 2023 Swadge (w/ Color Screen!)|Character Trading Card Pack|MAGFest Elite Sports Bottle|Frame-Perfect Sunglasses|Giga Gear Bag|Master [Foam] Hand
+            link: ../static_views/swadge.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html
 
-          barrel_roller:
-            name: Rip and Wear
+          super_supporter:
+            name: ULTIMATE Tier
             icon: ../static/icons/super.png
-            description: Knit Skullcap|Button-Down Shirt|Swadge Programmer
-            link: ../static_views/super.html|../static_views/super.html|../static_views/super.html
+            description: Ultimate-Quality Duffel Bag|Tourney Winner Stress Trophy|Comfy Buns Event Pillow|RGB Invincibility Cheer Sticks|"Wash Yo Self" Engraved Soap|Smash Invitation to "Super Secret Tier"
+            link: ../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html||../static_views/super.html||../static_views/super.html|
             
         volunteer_checklist:
           2: staffing/shirt_item.html
