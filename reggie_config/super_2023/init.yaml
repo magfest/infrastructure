@@ -23,6 +23,8 @@ reggie:
         merch_shipping_fee: 15
         at_the_con: False
         post_con: False
+        covid_policies_url: 'https://super.magfest.org/covid'
+        prior_covid_policies_url: ''
         
         event_year: 2023
         event_qr_id: sm23
