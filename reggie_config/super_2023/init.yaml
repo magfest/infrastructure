@@ -316,20 +316,20 @@ reggie:
           shirt:
             name: T-Shirt Tier
             icon: ../static/icons/shirt.png
-            description: Exclusive Event T-Shirt|Exclusive Event Pin|Exclusive Full-Print Lanyard
+            description: Exclusive T-Shirt|20th Anniversary Pin|Full-Print Lanyard
             link: ../static_views/tshirt.html|../static_views/tshirt.html|../static_views/tshirt.html
 
           supporter:
             name: Brawler Tier
             icon: ../static/icons/supporter.png
-            description: Super 2023 Swadge (w/ Color Screen!)|Character Trading Card Pack|MAGFest Elite Sports Bottle|Frame-Perfect Sunglasses|Giga Gear Bag|Master [Foam] Hand
-            link: ../static_views/swadge.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html
+            description: All T-Shirt Tier Items|Rally Towel|Water Bottle|GAMER BLOOD™|Trading Card Pack|Hand Warmer|Super Swadge|& More!
+            link: ../static_views/tshirt.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/supporter.html|../static_views/swadge.html|../static_views/supporter.html
 
           super_supporter:
             name: ULTIMATE Tier
             icon: ../static/icons/super.png
-            description: Ultimate-Quality Duffel Bag|Tourney Winner Stress Trophy|Comfy Buns Event Pillow|RGB Invincibility Cheer Sticks|"Wash Yo Self" Engraved Soap|Smash Invitation to "Super Secret Tier"
-            link: ../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html||../static_views/super.html||../static_views/super.html|
+            description: All T-Shirt Tier Items|All Brawler Tier Items|Exclusive Duffel Bag|GAMER BLOOD™ x 3|Roaring Sound Drop|Comfy Butt Pillow|Engraved Soap|Exclusive Mystery Items|Secret Tier Invite|& MORE!!
+            link: ../static_views/tshirt.html|../static_views/supporter.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html
             
         volunteer_checklist:
           2: staffing/shirt_item.html
