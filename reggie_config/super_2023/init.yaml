@@ -89,7 +89,7 @@ reggie:
           refund_start: ''
           refund_cutoff: ''
 
-          printed_badge_deadline: 2022-12-03
+          printed_badge_deadline: 2022-11-05
 
           # Dealer registration automatically opens on DEALER_REG_START.  After DEALER_REG_DEADLINE
           # all dealer registration are automatically waitlisted.  After DEALER_REG_SHUTDOWN dealers
@@ -158,12 +158,13 @@ reggie:
           presell_one_days: False
 
           attendee:
-            2022-10-31: 135
-            2022-11-30: 145
-            2022-12-31: 155
-            2023-01-05: 135
-            2023-01-06: 120
-            2023-01-07: 35
+            # Unlike all other dates, these dates indicate the start of the day, not 11:59pm
+            2022-11-01: 135
+            2022-12-01: 145
+            2023-01-01: 155
+            2023-01-06: 135
+            2023-01-07: 120
+            2023-01-08: 35
 
           stocks:
             attendee_badge: 23800
@@ -332,10 +333,11 @@ reggie:
             link: ../static_views/tshirt.html|../static_views/supporter.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html
             
         volunteer_checklist:
-          2: staffing/shirt_item.html
-          3: staffing/volunteer_agreement_item.html
-          4: staffing/hotel_item.html
-          5: staffing/food_item.html
+          1: ""
+          2: "" #staffing/shirt_item.html
+          3: "" #staffing/volunteer_agreement_item.html
+          4: "" #staffing/hotel_item.html
+          5: "" #staffing/food_item.html
 
 
         mivs_checklist:
@@ -391,26 +393,26 @@ reggie:
           
         dept_head_checklist:
           placeholders:
-            deadline: 2022-11-05
+            deadline: ""
             
           assigned_volunteers:
-            deadline: 2022-11-05
+            deadline: ""
             
           ppe_requests:
-            deadline: 2022-11-05
+            deadline: ""
             name: Bulk PPE & Sanitizing Supplies
             description: >
               MAGFest is providing basic PPE for departments for Super 2023. Please let us know what you need and we will do our best to accommodate.
             path: /dept_checklist/ppe_requests?department_id={department_id}
             
           creating_shifts:
-            deadline: 2022-11-12
+            deadline: ""
             
           hotel_setup:
-            deadline: 2022-11-12
+            deadline: ""
 
           tech_requirements:
-            deadline: 2022-11-12
+            deadline: ""
 
           hotel_eligible:
             deadline: ''
@@ -422,29 +424,29 @@ reggie:
             full_description: >
               Other than a sign for your area, what printed coroplast signs or banners do you need? 
               Do you require any signage about COVID precautions or protocol changes?
-            deadline: 2022-11-19
+            deadline: ""
             
           logistics:
-            deadline: 2022-11-19
+            deadline: ""
 
           mediatron:
-            deadline: 2022-12-03
+            deadline: ""
             
           office_supplies:
-            deadline: 2022-12-03
+            deadline: ""
             path: /dept_checklist/office_supplies?department_id={department_id}
 
           guidebook_schedule:
-            deadline: 2022-12-03
+            deadline: ""
             
           social_media:
-            deadline: 2022-12-10
+            deadline: ""
 
           bulk_print_jobs:
-            deadline: 2022-12-10
+            deadline: ""
             
           treasury:
-            deadline: 2022-12-17
+            deadline: ""
 
           postcon_hours:
-            deadline: 2023-01-21
+            deadline: ""
