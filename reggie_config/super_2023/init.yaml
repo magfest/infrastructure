@@ -236,17 +236,6 @@ reggie:
             - Unisex 5X: 8
 
         enums:
-          special_merch:
-            xs: XS
-            s: S
-            m: M
-            l: L
-            xl: XL
-            2x: 2X
-            3x: 3X
-            4x: 4X
-            5x: 5X
-
           event_location:
             panels_1: Panels 1 (Cherry Blossom Ballroom)
             panels_2: Panels 2 (Woodrow Wilson Ballroom A)
