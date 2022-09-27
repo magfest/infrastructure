@@ -182,7 +182,6 @@ reggie:
             desc: "Under 5"
             min_age: 0
             max_age: 4
-            can_register: False
 
           under_12:
             desc: "Between 5 and 12"
