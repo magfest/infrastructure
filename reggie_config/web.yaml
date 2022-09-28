@@ -11,8 +11,8 @@ reggie:
   plugins:
     ubersystem:
       config:
-        sqlalchemy_pool_size: 10
-        sqlalchemy_max_overflow: 15
+        sqlalchemy_pool_size: 20
+        sqlalchemy_max_overflow: 25
 
 
 ufw:
