@@ -13,8 +13,8 @@ reggie:
       config:
         app_limit: 0
         shirt_stock: 950
-        supporter_stock: 750
-        season_stock: 250
+        supporter_stock: 830
+        season_stock: 380
         shared_kickin_stocks: False
         groups_enabled: True
         blank_staff_badges: 200
