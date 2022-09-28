@@ -12,9 +12,9 @@ reggie:
       branch: super2023
       config:
         app_limit: 0
-        shirt_stock: 950
-        supporter_stock: 690
-        season_stock: 580
+        shirt_stock: 930
+        supporter_stock: 785
+        season_stock: 485
         shared_kickin_stocks: False
         groups_enabled: True
         blank_staff_badges: 200
