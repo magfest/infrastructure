@@ -16,7 +16,7 @@ reggie:
         supporter_stock: 830
         season_stock: 380
         shared_kickin_stocks: False
-        groups_enabled: True
+        groups_enabled: False
         blank_staff_badges: 200
         shirts_per_staffer: 1
         self_service_deferrals_open: False
