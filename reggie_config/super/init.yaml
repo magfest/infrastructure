@@ -103,6 +103,7 @@ reggie:
             band: RockStar
             under_13: 12 & Under
             mivs: Indie Dev
+            superstar_ribbon: Superstar
 
           special_merch:
             no_merch: Select a size
