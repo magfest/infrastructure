@@ -204,6 +204,18 @@ reggie:
             Brawler Tier: SUPPORTER_LEVEL
             ULTIMATE Tier: SEASON_LEVEL
             
+          prereg_shirt:
+            - Unisex XS: 1
+            - Unisex S: 2
+            - Unisex M: 3
+            - Unisex XL: 5
+            - Unisex 2X: 6
+            - Unisex 3X: 7
+            - Women's S: 12
+            - Women's M: 13
+            - Women's XL: 15
+            - Women's 4X: 18
+            
           shirt:
             - Unisex XS: 1
             - Unisex S: 2
