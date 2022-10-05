@@ -205,6 +205,7 @@ reggie:
             ULTIMATE Tier: SEASON_LEVEL
             
           prereg_shirt:
+            - No Shirt: 0
             - Unisex XS: 1
             - Unisex S: 2
             - Unisex M: 3
