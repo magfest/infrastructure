@@ -19,6 +19,7 @@ reggie:
         groups_enabled: True
         blank_staff_badges: 200
         shirts_per_staffer: 1
+        hours_for_shirt: 0
         self_service_deferrals_open: False
         merch_shipping_fee: 15
         at_the_con: False
