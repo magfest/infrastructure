@@ -31,21 +31,17 @@ reggie:
         event_qr_id: sm23
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
+        
         treasury_dept_checklist_form_url: "%(url_base)s/static_views/treasury_form.html"
-        techops_dept_checklist_form_url: https://forms.gle/UnVmgAihABQ71Swn8
-        hotel_setup_form_url: https://forms.gle/dkgVaa5aM85SDV8v9
-        logistics_form_url: https://forms.gle/5pSswz87rFS96YU26
-        office_supplies_form_url: https://forms.gle/jdQ4eDRtN4Kk6qWJ7
-        ppe_form_url: https://forms.gle/6tECv9LkpWc1Pi9K8
         volunteer_perks_url: https://www.notion.so/magfest/MAGFest-Super-Perks-f001221c31484ef4957a6513c54a6fd6
         staff_room_faq_url: https://www.notion.so/magfest/Staff-Room-FAQ-656edde68e324dae97891c2002439465
 
         expected_response: December 2022
         
-        volunteer_placeholder_deadline: November 5
-        volunteer_checklist_deadline: November 12
-        volunteer_food_deadline: November 19
-        emergency_procedures_deadline: December 17
+        volunteer_placeholder_deadline: November 4
+        volunteer_food_deadline: November 18
+        volunteer_checklist_deadline: December 16
+        emergency_procedures_deadline: December 16
 
         # The number of dealer apps we will accept before auto-waitlisting further
         # applications. If dealer_reg_deadline is also set, we will auto-wailist
@@ -75,8 +71,8 @@ reggie:
           prereg_open: 2022-09-28 15
           prereg_hotel_eligibility_cutoff: 2022-10-05
           shifts_created: 2022-10-31
-          room_deadline: 2022-11-12
-          volunteer_shirt_deadline: 2022-11-05
+          room_deadline: 2022-11-11
+          volunteer_shirt_deadline: 2022-11-04
           drop_shifts_deadline: 2022-12-30
           shirt_deadline: 2022-12-31
           supporter_deadline: 2022-12-31
@@ -336,14 +332,13 @@ reggie:
             
         volunteer_checklist:
           1: ""
-          2: "" #staffing/shirt_item.html
-          3: "" #staffing/volunteer_agreement_item.html
-          4: "" #staffing/hotel_item.html
-          5: "" #staffing/food_item.html
-          6: ""
+          2: staffing/shirt_item.html
+          3: staffing/hotel_item.html
+          4: staffing/food_item.html
+          5: staffing/volunteer_agreement_item.html
+          6: staffing/emergency_procedures_item.html
           7: ""
           99: ""
-
 
         mivs_checklist:
           core_hours:
@@ -353,6 +348,7 @@ reggie:
               In exchange for your space and two free badges, MIVS expects your studio to have your booth area
               up-and-running during core hours. You also must have at least one representative from your studio present,
               in your booth, during core hours.
+
           discussion:
             deadline: 2022-11-23
             name: MIVS Discussion Group
@@ -360,6 +356,7 @@ reggie:
             description: >
               The primary contact for your game will be added to a MIVS Google Discussion group. You may
               enter emails for any team members associated with your game who you think should also be added to the group.
+
           hotel_space:
             deadline: 2022-12-15
             name: Hotel Signups
@@ -368,6 +365,7 @@ reggie:
               As a part of MIVS, you may purchase one hotel room for the Gaylord. This room is for your
               use and you are not allowed to transfer your reservation to someone else unless authorized
               by MAGFest. Dropping out of MIVS may cause your room to be canceled.
+
           show_info:
             deadline: 2022-11-24
             name: Update Studio and Game Information
@@ -382,6 +380,7 @@ reggie:
             description: >
               We are allowing Indies to sell items directly related to your game or studio in MIVS.
               Studios will need to sign a waiver and provide some information for tax purposes.
+
           handbook:
             start: 2022-12-10
             deadline: 2022-12-22
@@ -395,63 +394,70 @@ reggie:
             name: MIVS Training
             editable: True
             description: MIVS Training is a google form to help you learn about being an Indie at MAGFest.
-          
+
+
         dept_head_checklist:
           placeholders:
-            deadline: ""
-            
+            deadline: 2022-10-19
+
           assigned_volunteers:
-            deadline: ""
-            
-          ppe_requests:
-            deadline: ""
-            name: Bulk PPE & Sanitizing Supplies
-            description: >
-              MAGFest is providing basic PPE for departments for Super 2023. Please let us know what you need and we will do our best to accommodate.
-            path: /dept_checklist/ppe_requests?department_id={department_id}
-            
+            deadline: 2022-10-19
+
           creating_shifts:
-            deadline: ""
-            
+            deadline: 2022-11-02
+
           hotel_setup:
-            deadline: ""
+            deadline: 2022-11-09
+            external_form_url: https://docs.google.com/forms/d/e/1FAIpQLSd3Yvmso5btjIHUp0KQdj_G6N9UnuzmgvsXM5h0Fo6EanqiRg/viewform
 
           tech_requirements:
-            deadline: ""
-
-          hotel_eligible:
-            deadline: ''
+            deadline: 2022-11-09
+            external_form_url: https://forms.gle/UnVmgAihABQ71Swn8
 
           approve_setup_teardown:
-            deadline: ""
+            deadline: 2022-11-16
 
           printed_signs:
             full_description: >
               Other than a sign for your area, what printed coroplast signs or banners do you need? 
               Do you require any signage about COVID precautions or protocol changes?
-            deadline: ""
-            
+            deadline: 2022-11-16
+
           logistics:
-            deadline: ""
+            deadline: 2022-11-16
+            external_form_url: https://docs.google.com/forms/d/e/1FAIpQLScdIlQgivHX6gWb5_KNrY6keWkmAw4QvgwgwxQPi0jU2jUINQ/viewform
 
           mediatron:
-            deadline: ""
-            
+            deadline: 2022-11-30
+            external_form_url: https://forms.gle/FfjCPCmaRRQwj1B58
+
           office_supplies:
-            deadline: ""
-            path: /dept_checklist/office_supplies?department_id={department_id}
+            deadline: 2022-11-30
+            external_form_url: https://forms.gle/dzhTkHsfrNUE9aya7
 
           guidebook_schedule:
-            deadline: ""
-            
+            deadline: 2022-11-30
+
+          water_requests:
+            deadline: 2022-12-07
+            external_form_url: https://docs.google.com/forms/d/1txm6bho9Vzso7FdgpDS7dDkwdd9nbEFmhL5avfIo63Q/edit?usp=sharing
+
+          ppe_requests:
+            deadline: 2022-12-07
+            name: Bulk PPE & Sanitizing Supplies
+            description: >
+              MAGFest is providing basic PPE for departments for Super 2023. Please let us know what you need and we will do our best to accommodate.
+            external_form_url: https://forms.gle/BihzhdCWXp7juwSC9
+
           social_media:
-            deadline: ""
+            deadline: 2022-12-07
+            external_form_url: https://docs.google.com/forms/d/e/1FAIpQLSdas7NaPR_s4vllpcQL696nZ1qLq3yGRJuyKnvXn8MZPYP7Dw/viewform
 
           bulk_print_jobs:
-            deadline: ""
-            
+            deadline: 2022-12-07
+
           treasury:
-            deadline: ""
+            deadline: 2022-12-14
 
           postcon_hours:
-            deadline: ""
+            deadline: 2023-01-18
