@@ -265,7 +265,8 @@ reggie:
             name: Tech Requirements
             description: What do you need in terms of laptops, projectors, cables, internet access, etc?
             full_description: >
-                Your department must fill out the form, even if you don't need anything. If you have any questions, please 
+                What do you need in terms of laptops, projectors, cables, internet access, etc?
+                Note: Your department must fill out the form, even if you don't need anything. If you have any questions, please 
                 contact TechOps on Slack ( #super-techops ) or via email ( techops@magfest.org )
             
           printed_signs:
