@@ -331,14 +331,12 @@ reggie:
             link: ../static_views/tshirt.html|../static_views/supporter.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html
             
         volunteer_checklist:
-          1: ""
           2: staffing/shirt_item.html
           3: staffing/hotel_item.html
           4: staffing/food_item.html
           5: staffing/volunteer_agreement_item.html
           6: staffing/emergency_procedures_item.html
           7: ""
-          99: ""
 
         mivs_checklist:
           core_hours:
@@ -412,7 +410,7 @@ reggie:
 
           tech_requirements:
             deadline: 2022-11-09
-            external_form_url: https://forms.gle/UnVmgAihABQ71Swn8
+            external_form_url: https://docs.google.com/forms/d/e/1FAIpQLSf7NMe4mJDHHc-EOTKmYACpb4Y4WgDlx6KwpiWQUJyYnX_Y9Q/viewform
 
           approve_setup_teardown:
             deadline: 2022-11-16
