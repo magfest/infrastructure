@@ -9,7 +9,6 @@ reggie:
         {{ extra_attendance_data()|indent(8) }}
   plugins:
     ubersystem:
-      branch: super2023
       config:
         app_limit: 0
         shirt_stock: 980
@@ -70,6 +69,7 @@ reggie:
         dates:
           prereg_open: 2022-09-28 15
           prereg_hotel_eligibility_cutoff: 2022-10-05
+          volunteer_checklist_open: 2022-10-10
           shifts_created: 2022-10-31
           room_deadline: 2022-11-11
           volunteer_shirt_deadline: 2022-11-04
