@@ -116,21 +116,24 @@ reggie:
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2023-01-05 11
-          band_info_deadline: ''  # Temporarily disable until new contracts are ready
-          band_taxes_deadline: 2022-11-20
-          band_bio_deadline: 2022-11-20
-          band_merch_deadline: 2022-11-20
-          band_charity_deadline: 2022-11-20
-          band_stage_plot_deadline: 2022-11-20
-          band_panel_deadline: 2022-11-20
-          band_mc_deadline: 2022-11-20
-          band_badges_deadline: 2022-11-20
-          band_autograph_deadline: 2022-11-20
-          band_rehearsal_deadline: 2022-11-27
           
+          band_bio_deadline: 2022-11-04
+          band_stage_plot_deadline: 2022-11-04
+          band_panel_deadline: 2022-11-04
+          band_autograph_deadline: 2022-11-11
+          band_badges_deadline: 2022-11-11
+          band_merch_deadline: 2022-11-18
+          band_charity_deadline: 2022-11-18
+          band_rehearsal_deadline: 2022-11-25
+          
+          band_taxes_deadline: 2022-11-20
+          
+          band_info_deadline: ''
+          band_mc_deadline: ''
+
           guest_panel_deadline: 2022-10-21
           guest_bio_deadline: 2022-10-21
-          guest_info_deadline: ''  # Temporarily disable until new contracts are ready
+          guest_info_deadline: ''
           guest_taxes_deadline: 2022-10-21
           guest_merch_deadline: 2022-10-21
           guest_charity_deadline: 2022-10-21
@@ -138,6 +141,8 @@ reggie:
           guest_autograph_deadline: 2022-10-21
           guest_interview_deadline: 2022-10-21
           guest_travel_plans_deadline: 2022-10-21
+          
+          rock_island_merch_deadline: 2022-11-18
 
         badge_ranges:
           staff_badge: [25, 2999]
