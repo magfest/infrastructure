@@ -130,17 +130,19 @@ reggie:
 
           band_info_deadline: ''
           band_mc_deadline: ''
-
-          guest_panel_deadline: 2022-10-21
-          guest_bio_deadline: 2022-10-21
-          guest_info_deadline: ''
+          
+          guest_badges_deadline: 2022-11-21
+          guest_bio_deadline: 2022-11-21
+          guest_panel_deadline: 2022-11-21
+          guest_charity_deadline: 2022-12-05
+          guest_autograph_deadline: 2022-12-05
+          guest_interview_deadline: 2022-12-05
+          guest_travel_plans_deadline: 2022-12-05
+          
           guest_taxes_deadline: 2022-10-21
-          guest_merch_deadline: 2022-10-21
-          guest_charity_deadline: 2022-10-21
-          guest_badges_deadline: 2022-12-01
-          guest_autograph_deadline: 2022-10-21
-          guest_interview_deadline: 2022-10-21
-          guest_travel_plans_deadline: 2022-10-21
+          
+          guest_info_deadline: ''
+          guest_merch_deadline: ''
 
           rock_island_merch_deadline: 2022-11-18
 
