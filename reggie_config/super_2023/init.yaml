@@ -25,18 +25,18 @@ reggie:
         post_con: False
         covid_policies_url: 'https://super.magfest.org/covid'
         prior_covid_policies_url: ''
-        
+
         event_year: 2023
         event_qr_id: sm23
 
         alt_schedule_url: https://guidebook.com/guide/101720/schedule
-        
+
         treasury_dept_checklist_form_url: "%(url_base)s/static_views/treasury_form.html"
         volunteer_perks_url: https://www.notion.so/magfest/MAGFest-Super-Perks-f001221c31484ef4957a6513c54a6fd6
         staff_room_faq_url: https://www.notion.so/magfest/Staff-Room-FAQ-656edde68e324dae97891c2002439465
 
         expected_response: December 2022
-        
+
         volunteer_placeholder_deadline: November 4
         volunteer_food_deadline: November 18
         volunteer_checklist_deadline: December 16
@@ -57,12 +57,12 @@ reggie:
         mivs_training_url: https://forms.gle/bMnYnth4D87EaCSL7
         mivs_selling_url: https://docs.google.com/forms/d/e/1FAIpQLSfxVM_ymIfWbetRfPkLiJmFuIbq-Ap0-W5Xt4xBRxJkHeIMuQ/viewform
         extra_donation_url: https://givebutter.com/magfest
-        
+
         mits_badges_per_team: 2
         mits_email: "MAGFest Indie Tabletop Showcase <mits@magfest.org>"
-        
+
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'mages_1', 'the_forge', 'film_fest', 'console_stage']
-        tabletop_locations: ['tabletop_indie', 'tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_panels', 
+        tabletop_locations: ['tabletop_indie', 'tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_panels',
                             'tabletop_ccg', 'pathfinder', 'ddal']
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop', 'rock_island']
 
@@ -105,18 +105,18 @@ reggie:
           mivs_deadline: 2022-09-11
           mivs_judging_deadline: 2022-10-09
           mivs_results_reveal: 2022-10-30
-          
+
           mits_submission_deadline: 2022-11-30
           mits_editing_deadline: 2022-12-28
 
           panels_start: 2022-08-29 18
           panels_deadline: 2022-10-31
-          
+
           rock_island_deadline: 2022-12-10
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
           auction_start: 2023-01-05 11
-          
+
           band_bio_deadline: 2022-11-04
           band_stage_plot_deadline: 2022-11-04
           band_panel_deadline: 2022-11-04
@@ -125,9 +125,9 @@ reggie:
           band_merch_deadline: 2022-11-18
           band_charity_deadline: 2022-11-18
           band_rehearsal_deadline: 2022-11-25
-          
+
           band_taxes_deadline: 2022-11-20
-          
+
           band_info_deadline: ''
           band_mc_deadline: ''
 
@@ -141,7 +141,7 @@ reggie:
           guest_autograph_deadline: 2022-10-21
           guest_interview_deadline: 2022-10-21
           guest_travel_plans_deadline: 2022-10-21
-          
+
           rock_island_merch_deadline: 2022-11-18
 
         badge_ranges:
@@ -205,7 +205,7 @@ reggie:
             T-Shirt Tier: SHIRT_LEVEL
             Brawler Tier: SUPPORTER_LEVEL
             ULTIMATE Tier: SEASON_LEVEL
-            
+
           prereg_shirt:
             - No Shirt: 0
             - Unisex XS: 1
@@ -218,7 +218,7 @@ reggie:
             - Women's M: 13
             - Women's XL: 15
             - Women's 4X: 18
-            
+
           shirt:
             - Unisex XS: 1
             - Unisex S: 2
@@ -238,7 +238,7 @@ reggie:
             - Women's 2X: 16
             - Women's 3X: 17
             - Women's 4X: 18
-            
+
           staff_shirt:
             - Unisex S: 1
             - Unisex M: 2
@@ -334,7 +334,7 @@ reggie:
             icon: ../static/icons/super.png
             description: All T-Shirt Tier Items|All Brawler Tier Items|Exclusive Duffel Bag|GAMER BLOOD™ x 3|Roaring Sound Drop|Comfy Butt Pillow|Engraved Soap|Exclusive Mystery Items|Secret Tier Invite|& MORE!!
             link: ../static_views/tshirt.html|../static_views/supporter.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html|../static_views/super.html
-            
+
         volunteer_checklist:
           2: staffing/shirt_item.html
           3: staffing/hotel_item.html
@@ -345,7 +345,7 @@ reggie:
 
         mivs_checklist:
           core_hours:
-            deadline: 2022-11-22
+            deadline: 2022-11-13
             name: Accept Core Hours
             description: >
               In exchange for your space and two free badges, MIVS expects your studio to have your booth area
@@ -353,7 +353,7 @@ reggie:
               in your booth, during core hours.
 
           discussion:
-            deadline: 2022-11-23
+            deadline: 2022-11-20
             name: MIVS Discussion Group
             editable: True
             description: >
@@ -361,7 +361,7 @@ reggie:
               enter emails for any team members associated with your game who you think should also be added to the group.
 
           hotel_space:
-            deadline: 2022-12-15
+            deadline: 2022-12-04
             name: Hotel Signups
             editable: True
             description: >
@@ -370,14 +370,14 @@ reggie:
               by MAGFest. Dropping out of MIVS may cause your room to be canceled.
 
           show_info:
-            deadline: 2022-11-24
+            deadline: 2022-11-20
             name: Update Studio and Game Information
             editable: True
             description: Please make sure your studio and game information is up to date so it can be displayed on the MAGFest website.
-          
+
           selling_at_event:
-            start: 2022-12-01
-            deadline: 2022-12-12
+            start: 2022-11-27
+            deadline: 2022-12-11
             name: Selling at MAGFest
             editable: True
             description: >
@@ -385,14 +385,14 @@ reggie:
               Studios will need to sign a waiver and provide some information for tax purposes.
 
           handbook:
-            start: 2022-12-10
-            deadline: 2022-12-22
+            start: 2022-12-11
+            deadline: 2022-12-18
             name: Indie Handbook
             editable: True
             description: The MIVS Indie Handbook is here to give you information about being a MIVS Participant.
 
           training:
-            start: 2022-12-22
+            start: 2022-12-18
             deadline: 2022-12-30
             name: MIVS Training
             editable: True
@@ -422,7 +422,7 @@ reggie:
 
           printed_signs:
             full_description: >
-              Other than a sign for your area, what printed coroplast signs or banners do you need? 
+              Other than a sign for your area, what printed coroplast signs or banners do you need?
               Do you require any signage about COVID precautions or protocol changes?
             deadline: 2022-11-16
 
