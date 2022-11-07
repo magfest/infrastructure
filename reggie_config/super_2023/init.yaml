@@ -125,6 +125,7 @@ reggie:
           band_merch_deadline: 2022-11-18
           band_charity_deadline: 2022-11-18
           band_rehearsal_deadline: 2022-11-25
+          band_travel_plans_deadline: 2022-11-25
 
           band_taxes_deadline: 2022-11-25 # Always just set this to the latest checklist date
 
