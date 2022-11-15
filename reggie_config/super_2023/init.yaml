@@ -148,12 +148,12 @@ reggie:
           rock_island_merch_deadline: 2022-11-18
 
         badge_ranges:
-          staff_badge: [25, 2999]
-          contractor_badge: [25, 2999]
+          staff_badge: [25, 1499]
+          contractor_badge: [1500, 2999]
           guest_badge: [3000, 3499]
-          attendee_badge: [3500, 39999]
+          attendee_badge: [3500, 29999]
           one_day_badge: [40000, 49999]
-          child_badge: [50000, 59999]
+          child_badge: [50000, 50999]
 
         badge_prices:
           one_days_enabled: False
