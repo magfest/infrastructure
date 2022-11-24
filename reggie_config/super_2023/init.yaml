@@ -115,7 +115,7 @@ reggie:
           rock_island_deadline: 2022-12-10
 
           # if any of these are unset or '', the corresponding section will not show up in the group type's checklist
-          auction_start: 2023-01-05 11
+          auction_start: 2023-01-08 11
 
           band_bio_deadline: 2022-11-04
           band_stage_plot_deadline: 2022-11-04
