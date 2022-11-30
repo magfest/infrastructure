@@ -56,12 +56,12 @@ reggie:
         mivs_handbook_url: https://docs.google.com/document/d/102ylB6tWLU4sGbduJ_VrBMfZwRzE3yerY075QD6Rnc0/
         mivs_training_url: https://forms.gle/bMnYnth4D87EaCSL7
         mivs_selling_url: https://docs.google.com/forms/d/e/1FAIpQLSfxVM_ymIfWbetRfPkLiJmFuIbq-Ap0-W5Xt4xBRxJkHeIMuQ/viewform
-        extra_donation_url: https://givebutter.com/magfest
+        extra_donation_url: ''
 
         mits_badges_per_team: 2
         mits_email: "MAGFest Indie Tabletop Showcase <mits@magfest.org>"
 
-        panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'mages_1', 'the_forge', 'film_fest', 'console_stage']
+        panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'mages_1', 'panels_7', 'the_forge', 'film_fest', 'console_stage']
         tabletop_locations: ['tabletop_indie', 'tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_panels',
                             'tabletop_ccg', 'pathfinder', 'ddal']
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop', 'rock_island']
@@ -258,13 +258,14 @@ reggie:
             panels_2: Panels 2 (Woodrow Wilson Ballroom A)
             panels_3: Panels 3 (Woodrow Wilson Ballroom B-C)
             panels_4: Panels 4 (Annapolis 2-4)
-            panels_5: Panels 5 (Chesapeake D,E,F)
-            mages_1: Panels 6 (Chesapeake A,B,C)
-            the_forge: Makerspace Classroom (Chesapeake 4)
-            soapbox: Makerspace Demo Room (Chesapeake 5)
+            panels_5: Panels 5 (Chesapeake A,B,C)
+            mages_1: Panels 6 (Chesapeake 1,2,3)
+            panels_7: Panels 7 & Robotics (Chesapeake 7,8,9)
+            the_forge: Makerspace Classroom (Eastern Shore 1)
+            soapbox: Makerspace Social Space (Eastern Shore 2)
             autographs: Autographs Red (Expo Hall E)
             autographs_1: Autographs Blue (Expo Hall E)
-            film_fest: MAGES Workshop & Jam Shop (Baltimore 1,2)
+            film_fest: Jam Shop (Baltimore 1,2)
             console_stage: Arena (Maryland C)
             starship_horizons: Simulations - Starship Horizons (National Harbor 10,11)
             console_tournament: Consoles (Pokemon Events)
@@ -282,32 +283,39 @@ reggie:
             lan_theater: LAN Theater (Maryland A,B,D)
             larp: LARP (Magnolia 1,2)
             laser_tag: Cosplay Photoshoots (Atrium Fountains)
+            cosplay_repair: Cosplay Repair Table & Prop Check (Expo Hall C - Front)
             tabletop_indie: Tabletop Indie Showcase (MITS) (Riverview Ballroom 4,5)
             tabletop_tournaments: Tabletop Tournaments 1 (Riverview Ballroom 2,3)
             tabletop_tournaments_2: Tabletop Tournaments 2 (Riverview Ballroom 2,3)
             tabletop_panels: Tabletop Panels/Discussions (Riverview Ballroom 1)
             tabletop_ccg: Tabletop CCG (National Harbor 2,3)
+            tabletop_1: Tabletop Freeplay 1 (Riverview Ballroom A,B)
+            tabletop_2: Tabletop Freeplay 2 (Riverview Ballroom A,B)
             pathfinder: Pathfinder (National Harbor 12,13)
+            pathfinder_freeplay: Pathfinder Freeplay (National Harbor 14,15)
             ddal: D&D Adventurers League, 5th edition (National Harbor 4,5)
-            concerts: Main Concerts (Potomac Ballrooms)
+            dd_freeplay: D&D Freeplay (National Harbor 6,7)
+            concerts: Main Concerts (Potomac Ballroom)
             chiptunes: Chipspace (Potomac Hallway)
             zombie_tag: Zombie Tag (Magnolia 3)
-            MegaManathon: magFAST (Chesapeake 1,2,3)
+            MegaManathon: magFAST (Chesapeake 4,5,6)
             pose_lounge: POSE Lounge
             lobby_bar: Belvedere Lobby Bar
             jamspace: Jamspace + Community Curated Stage (Chesapeake 10,11,12)
             jam_clinic: Jam Clinic (Baltimore 3,4,5)
             jam_shop: Indie Games Tournaments (Expo Hall C)
-            vrzone: VRZone (National Harbor 6,7,8)
+            mag_series_tournaments: MAG Series Tournaments (Expo Hall C - Central)
+            vrzone: VRZone (Maryland Hallway)
+            vr_chat: VRChat (Maryland Hallway)
             museum_arcade: Retro Arcade Museum (Chesapeake G)
-            museum_multiplayer: Museum Main Room (Chesapeake 7,8,9)
-            museum_magfest: History of MAGFest (Chesapeake 7 Hallway)
+            museum_multiplayer: Museum Main Room (Chesapeake D,E,F)
+            museum_magfest: History of MAGFest (Chesapeake D Hallway)
             rock_island: Rock Island - Performer Merch (Potomac 1,2)
-            super_magfest_show: The Super MAGFest Super Show (Chesapeake Pre-Function Space)
+            super_magfest_show: Promo Tables (Chesapeake Pre-Function Space)
             merch: MAGFest Merch (Expo Hall C - Rear)
             charity: Charity (Expo Hall C - Front)
             registration: Registration (Expo Hall E)
-            accessibility: Accessibility Services (Expo E Reg Desk)
+            accessibility: Accessibility Services (Expo Hall E Reg Desk)
             security: Security (Camellia 3,4)
             public_safety: Public Safety (Camellia 1,2)
             attendee_services: MAG Attendee Services/Info Desk (Potomac Coat Check)
