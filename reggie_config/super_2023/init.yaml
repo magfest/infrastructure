@@ -55,7 +55,7 @@ reggie:
         mivs_training_password: 2RugOrNot2Rug?ThatIsTheQuestion!
         mivs_handbook_url: https://docs.google.com/document/d/102ylB6tWLU4sGbduJ_VrBMfZwRzE3yerY075QD6Rnc0/
         mivs_training_url: https://forms.gle/bMnYnth4D87EaCSL7
-        mivs_selling_url: https://docs.google.com/forms/d/e/1FAIpQLSfxVM_ymIfWbetRfPkLiJmFuIbq-Ap0-W5Xt4xBRxJkHeIMuQ/viewform
+        mivs_selling_url: https://docs.google.com/forms/d/e/1FAIpQLSf1wO40BDzl5PTDIw7USq8FkGPBh4l2DJymEk6SLhF_D0VpxQ/viewform
         extra_donation_url: ''
 
         mits_badges_per_team: 2
@@ -131,7 +131,7 @@ reggie:
 
           band_info_deadline: ''
           band_mc_deadline: ''
-          
+
           guest_badges_deadline: 2022-11-21
           guest_bio_deadline: 2022-11-21
           guest_panel_deadline: 2022-11-21
@@ -139,9 +139,9 @@ reggie:
           guest_autograph_deadline: 2022-12-05
           guest_interview_deadline: 2022-12-05
           guest_travel_plans_deadline: 2022-12-05
-          
+
           guest_taxes_deadline: 2022-12-05 # Always just set this to the latest checklist date
-          
+
           guest_info_deadline: ''
           guest_merch_deadline: ''
 
