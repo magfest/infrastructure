@@ -36,6 +36,7 @@ reggie:
         staff_room_faq_url: https://www.notion.so/magfest/Staff-Room-FAQ-656edde68e324dae97891c2002439465
 
         expected_response: December 2022
+        panels_confirm_deadline: 0  # Unsetting this to stop auto-waitlisting panels for 2023, remember to re-set this to 14 days next year
 
         volunteer_placeholder_deadline: November 4
         volunteer_food_deadline: November 18
