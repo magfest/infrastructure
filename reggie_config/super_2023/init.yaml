@@ -149,8 +149,9 @@ reggie:
           rock_island_merch_deadline: 2022-11-18
 
         badge_ranges:
-          staff_badge: [25, 1499]
-          contractor_badge: [1500, 2999]
+          # Staff_badge and contractor_badge should be split to start with, then merged after we send badges to the printer
+          staff_badge: [25, 2999]
+          contractor_badge: [25, 2999]
           guest_badge: [3000, 3499]
           attendee_badge: [3500, 29999]
           one_day_badge: [40000, 49999]
