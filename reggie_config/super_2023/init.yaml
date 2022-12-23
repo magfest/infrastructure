@@ -9,6 +9,7 @@ reggie:
         {{ extra_attendance_data()|indent(8) }}
   plugins:
     ubersystem:
+      branch: super2023
       config:
         app_limit: 0
         shirt_stock: 980
