@@ -18,6 +18,7 @@ reggie:
         event_timezone: US/Eastern
         event_venue: The Gaylord National Hotel and Convention Center
         event_venue_address: 201 Waterfront St, National Harbor, MD 20745
+        untransferable_attrs: ['first_name','last_name','legal_name','email','birthdate','zip_code','international','ec_name','ec_phone','cellphone','interests','age_group','staffing','requested_depts','agreed_to_covid_policies','special_merch','group_name','agreed_to_covid_policies','covid_ready']
 
         separate_staff_merch: true
         shirts_per_staffer: 2
