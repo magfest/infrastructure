@@ -65,7 +65,7 @@ reggie:
 
         panel_rooms: ['panels_1', 'panels_2', 'panels_3', 'panels_4', 'panels_5', 'mages_1', 'panels_7', 'the_forge', 'film_fest', 'console_stage']
         tabletop_locations: ['tabletop_indie', 'tabletop_tournaments', 'tabletop_tournaments_2', 'tabletop_panels',
-                            'tabletop_ccg', 'pathfinder', 'ddal']
+                            'tabletop_ccg', 'pathfinder', 'pathfinder_freeplay', 'ddal']
         music_rooms: ['concerts', 'chiptunes', 'pose_lounge', 'lobby_bar', 'jamspace', 'jam_clinic', 'jam_shop', 'rock_island']
 
         dates:
@@ -296,6 +296,7 @@ reggie:
             tabletop_2: Tabletop Freeplay 2 (Riverview Ballroom A,B)
             pathfinder: Pathfinder (National Harbor 12,13)
             pathfinder_freeplay: Pathfinder Freeplay (National Harbor 14,15)
+            pathfinder_hq: Pathfinder HQ (National Harbor 8)
             ddal: D&D Adventurers League, 5th edition (National Harbor 4,5)
             dd_freeplay: D&D Freeplay (National Harbor 6,7)
             concerts: Main Concerts (Potomac Ballroom)
