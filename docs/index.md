@@ -5,6 +5,7 @@ redirect_from:
 ---
 
 # Reggie Servers
+As part of compliance with our data privacy policy, servers are sunset after three events. Old links may be broken as a result. Archive.uber.magfest.org is now also offline.
 
 ### 2023 Events
 * [Super MAGFest 2023 Jan 5-8](https://super2023.reggie.magfest.org/) (MAGFest 20)
@@ -62,7 +63,7 @@ redirect_from:
 
 ### 2014 Events
 
-* [MAGFest 2014 Jan 2-5](https://super2014.uber.magfest.org/uber) (MAGFest 12)
+* [MAGFest 2014 Jan 2-5(https://super2014.uber.magfest.org/uber) (MAGFest 12)
 * [MAGFest 8.5 Sep 12-14](https://mag85.uber.magfest.org/uber)
 * [MAGStock 2014 Jun 27-29](https://magstock4.uber.magfest.org/uber) (MAGStock 4)
 
