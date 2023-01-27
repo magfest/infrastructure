@@ -1,7 +1,0 @@
-__: merge-first
-
-reggie:
-  plugins:
-    ubersystem:
-      config:
-        at_the_con: True

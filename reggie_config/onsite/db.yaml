@@ -1,8 +1,0 @@
-{%- from 'macros.jinja' import filebeat_prospector -%}
-
-filebeat:
-  enabled: True
-  config:
-    filebeat:
-      prospectors:
-        {{ filebeat_prospector('reggie-db_backup', '/var/log/reggie/db_backup.log')|indent(8) }}
