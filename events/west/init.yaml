@@ -1,5 +1,3 @@
-__: merge-first
-
 reggie:
   sideboard:
     priority_plugins: ['uber','covid']

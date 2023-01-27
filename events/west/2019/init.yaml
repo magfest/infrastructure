@@ -1,13 +1,4 @@
-__: merge-first
-
-
-{% macro extra_attendance_data() %}{% include 'west_2019/extra-attendance-data.json' %}{% endmacro %}
-
 reggie:
-  extra_files:
-    plugins/uber/uber/static/analytics/extra-attendance-data.json: |
-        {{ extra_attendance_data()|indent(8) }}
-
   plugins:
     ubersystem:
       branch: west2019
