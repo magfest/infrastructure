@@ -9,19 +9,19 @@ As part of compliance with our data privacy policy, servers are sunset after thr
 
 ### 2023 Events
 * [Super MAGFest 2023 Jan 5-8](https://super2023.reggie.magfest.org/) (MAGFest 20)
-* [MAGWest 2023](https://west2023.dev.magevent.net) (MAGWest 7)
-* [MAGStock 2023](https://stock2023.dev.magevent.net) (MAGStock 11)
+* [MAGWest 2023](https://west2023.reg.magfest.org) (MAGWest 7)
+* [MAGStock 2023](https://stock2023.reg.magfest.org) (MAGStock 11)
 
 ### 2022 Events
-* [Super MAGFest 2022 Jan 6-9](https://super2022.dev.magevent.net/) (MAGFest 19)
-* [MAGWest 2022 Aug 19-21](https://west2022.dev.magevent.net/) (MAGWest 6)
+* [Super MAGFest 2022 Jan 6-9](https://super2022.reg.magfest.org/) (MAGFest 19)
+* [MAGWest 2022 Aug 19-21](https://west2022.reg.magfest.org/) (MAGWest 6)
 
 ### 2021 Events
 * [MAGWest 2021 Nov 4-6](https://west2021.reggie.magfest.org/) (MAGWest 5)
 
 ### 2020 Events
 
-* [Super MAGFest 2020 Jan 2-5](https://super2020.dev.magevent.net/) (MAGFest 18)
+* [Super MAGFest 2020 Jan 2-5](https://super2020.reg.magfest.org/) (MAGFest 18)
 * [MAGWest 2020 Nov 4-6](https://west2020.reggie.magfest.org/) (MAGWest 4)
 
 
