@@ -23,9 +23,9 @@ redirect_from:
 * [MAGWest 2020 Nov 4-6](https://west2020.reggie.magfest.org/) (MAGWest 4)
 
 ### 2019 Events
-* [Super MAGFest 2019 Jan 3-6](https://super2019.reggie.magfest.org) (MAGFest 17)
-* [MAGStock 2019 Jun 6-9](https://stock2019.reggie.magfest.org/) (MAGStock 9)
-* [MAGWest 2019 Sep 13-15](https://west2019.reggie.magfest.org/) (MAGWest 3)
+* Super MAGFest 2019 Jan 3-6 (MAGFest 17)
+* [MAGStock 2019 Jun 6-9](https://stock2019.reg.magfest.org/) (MAGStock 9)
+* [MAGWest 2019 Sep 13-15](https://west2019.reg.magfest.org/) (MAGWest 3)
 
 ## Archived Servers
 We sunset servers regularly in compliance with our data managment policy. Information from older events can be accessed on [our HubSpot instance](https://app.hubspot.com/user-guide/23105562). Please contact MAGFest IT if you need an account.
