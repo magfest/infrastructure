@@ -16,11 +16,11 @@ redirect_from:
 * [MAGWest 2022 Aug 19-21](https://west2022.reg.magfest.org/) (MAGWest 6)
 
 ### 2021 Events
-* [MAGWest 2021 Nov 4-6](https://west2021.reggie.magfest.org/) (MAGWest 5)
+* [MAGWest 2021 Nov 4-6](https://west2021.reg.magfest.org/) (MAGWest 5)
 
 ### 2020 Events
 * [Super MAGFest 2020 Jan 2-5](https://super2020.reg.magfest.org/) (MAGFest 18)
-* [MAGWest 2020 Nov 4-6](https://west2020.reggie.magfest.org/) (MAGWest 4)
+* [MAGWest 2020 Nov 4-6](https://west2020.reg.magfest.org/) (MAGWest 4)
 
 ### 2019 Events
 * Super MAGFest 2019 Jan 3-6 (MAGFest 17)
