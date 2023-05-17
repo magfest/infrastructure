@@ -7,7 +7,7 @@ redirect_from:
 # Reggie Servers
 
 ### 2023 Events
-* [Super MAGFest 2023 Jan 5-8](https://super2023.reggie.magfest.org/) (MAGFest 20)
+* [Super MAGFest 2023 Jan 5-8](https://super2023.reg.magfest.org/) (MAGFest 20)
 * [MAGWest 2023](https://west2023.reg.magfest.org) (MAGWest 7)
 * [MAGStock 2023](https://stock2023.reg.magfest.org) (MAGStock 11)
 
