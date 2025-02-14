@@ -7,6 +7,8 @@ redirect_from:
 # Reggie Servers
 ### 2025 Events
 * [Super MAGFest 2025 Jan 23-26](https://super2025.reg.magfest.org) (MAGFest 22)
+* [MAGStock 2025 June 12-15](https://stock2025.reg.magfest.org) (MAGStock 13)
+* [MAGWest 2025 Aug 8-10](https://west2025.reg.magfest.org) (MAGWest 9)
 
 ### 2024 Events
 * [Super MAGFest 2024 Jan 18-21](https://super2024.reg.magfest.org) (MAGFest 21)
@@ -18,12 +20,12 @@ redirect_from:
 * [MAGWest 2023 July 14-16](https://west2023.reg.magfest.org) (MAGWest 7)
 * [MAGStock 2023 June 8-11](https://stock2023.reg.magfest.org) (MAGStock 11)
 
-### 2022 Events
-* [Super MAGFest 2022 Jan 6-9](https://super2022.reg.magfest.org/) (MAGFest 19)
-* [MAGWest 2022 Aug 19-21](https://west2022.reg.magfest.org/) (MAGWest 6)
-
 ## Archived Servers
 We sunset servers regularly in compliance with our data managment policy. Information from older events can be accessed on [our HubSpot instance](https://app.hubspot.com/user-guide/23105562). Please contact MAGFest IT if you need an account.
+
+### 2022 Events
+* Super MAGFest 2022 Jan 6-9 (MAGFest 19)
+* MAGWest 2022 Aug 19-21 (MAGWest 6)
 
 ### 2021 Events
 * MAGWest 2021 Nov 4-6 (MAGWest 5)
