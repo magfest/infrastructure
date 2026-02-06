@@ -7,6 +7,7 @@ redirect_from:
 # Reggie Servers
 ### 2026 Events
 * [Super MAGFest 2026 Jan 8-11](https://super2026.reg.magfest.org) (MAGFest 23)
+* [MAGStock 2026 June 12-15](https://stock2026.reg.magfest.org) (MAGStock 14)
 
 ### 2025 Events
 * [Super MAGFest 2025 Jan 23-26](https://super2025.reg.magfest.org) (MAGFest 22)
