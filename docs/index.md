@@ -5,9 +5,13 @@ redirect_from:
 ---
 
 # Reggie Servers
+### 2027 Events
+* [Super MAGFest 2027 Jan 7-10](https://super2027.reg.magfest.org) (MAGFest 24)
+
 ### 2026 Events
 * [Super MAGFest 2026 Jan 8-11](https://super2026.reg.magfest.org) (MAGFest 23)
-* [MAGStock 2026 June 12-15](https://stock2026.reg.magfest.org) (MAGStock 14)
+* [MAGStock 2026 June 11-14](https://stock2026.reg.magfest.org) (MAGStock 14)
+* [MAGWest 2026 Aug 8-10](https://west2026.reg.magfest.org) (MAGWest 9)
 
 ### 2025 Events
 * [Super MAGFest 2025 Jan 23-26](https://super2025.reg.magfest.org) (MAGFest 22)
@@ -19,13 +23,13 @@ redirect_from:
 * [MAGStock 2024 June 6-9](https://stock2024.reg.magfest.org) (MAGStock 12)
 * [MAGWest 2024 Sep 27-29](https://west2024.reg.magfest.org) (MAGWest 8)
 
-### 2023 Events
-* [Super MAGFest 2023 Jan 5-8](https://super2023.reg.magfest.org/) (MAGFest 20)
-* [MAGWest 2023 July 14-16](https://west2023.reg.magfest.org) (MAGWest 7)
-* [MAGStock 2023 June 8-11](https://stock2023.reg.magfest.org) (MAGStock 11)
-
 ## Archived Servers
-We sunset servers regularly in compliance with our data managment policy. Information from older events can be accessed on [our HubSpot instance](https://app.hubspot.com/user-guide/23105562). Please contact MAGFest IT if you need an account.
+We sunset servers regularly in compliance with our data management policy. Information from older events can be accessed on [our HubSpot instance](https://app.hubspot.com/user-guide/23105562). Please contact MAGFest IT if you need an account.
+
+### 2023 Events
+* Super MAGFest 2023 Jan 5-8 (MAGFest 20)
+* MAGStock 2023 June 8-11 (MAGStock 11)
+* MAGWest 2023 July 14-16 (MAGWest 7)
 
 ### 2022 Events
 * Super MAGFest 2022 Jan 6-9 (MAGFest 19)
